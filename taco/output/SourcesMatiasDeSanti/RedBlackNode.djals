@@ -1,0 +1,559 @@
+//-------------- SourcesMatiasDeSanti_RedBlackNode --------------//
+module SourcesMatiasDeSanti_RedBlackNode
+sig SourcesMatiasDeSanti_RedBlackNode extends java_lang_Object {}
+{}
+field SourcesMatiasDeSanti_RedBlackNode_data:(SourcesMatiasDeSanti_RedBlackNode)->one(JavaPrimitiveIntegerValue) {}
+field SourcesMatiasDeSanti_RedBlackNode_left:(SourcesMatiasDeSanti_RedBlackNode)->one(SourcesMatiasDeSanti_RedBlackNode+null) {}
+field SourcesMatiasDeSanti_RedBlackNode_right:(SourcesMatiasDeSanti_RedBlackNode)->one(SourcesMatiasDeSanti_RedBlackNode+null) {}
+field SourcesMatiasDeSanti_RedBlackNode_parent:(SourcesMatiasDeSanti_RedBlackNode)->one(SourcesMatiasDeSanti_RedBlackNode+null) {}
+field SourcesMatiasDeSanti_RedBlackNode_color:(SourcesMatiasDeSanti_RedBlackNode)->one(JavaPrimitiveIntegerValue) {}
+field SourcesMatiasDeSanti_RedBlackNode_blackHeight:(SourcesMatiasDeSanti_RedBlackNode)->one(JavaPrimitiveIntegerValue) {}
+
+program SourcesMatiasDeSanti_RedBlackNode::Constructor[
+  var thiz:SourcesMatiasDeSanti_RedBlackNode,
+  var throw:java_lang_Throwable+null] 
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         {
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.SourcesMatiasDeSanti_RedBlackNode_data:=JavaPrimitiveIntegerLiteral0;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.SourcesMatiasDeSanti_RedBlackNode_left:=((SourcesMatiasDeSanti_RedBlackNode+null) & (null));
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.SourcesMatiasDeSanti_RedBlackNode_right:=((SourcesMatiasDeSanti_RedBlackNode+null) & (null));
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.SourcesMatiasDeSanti_RedBlackNode_parent:=((SourcesMatiasDeSanti_RedBlackNode+null) & (null));
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.SourcesMatiasDeSanti_RedBlackNode_color:=JavaPrimitiveIntegerLiteral0;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.SourcesMatiasDeSanti_RedBlackNode_blackHeight:=JavaPrimitiveIntegerLiteral0;
+               };
+            } else {
+               skip;
+            };
+         
+         }
+      
+      }
+      skip;
+   
+   }
+
+
+program SourcesMatiasDeSanti_RedBlackNode::setRightChild[
+  var thiz:SourcesMatiasDeSanti_RedBlackNode,
+  var throw:java_lang_Throwable+null,
+  var child:SourcesMatiasDeSanti_RedBlackNode+null] 
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         {
+            var t_4:boolean;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.SourcesMatiasDeSanti_RedBlackNode_right:=child;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               t_4:=(neq[child,
+                  null]=>(true)else(false));
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if t_4=true{
+                  if (
+                    throw=null)
+                  and 
+                  (
+                    exit_stmt_reached=false){
+                     if isEmptyOrNull[child]{
+                        throw:=java_lang_NullPointerExceptionLit;
+                     } else {
+                        child.SourcesMatiasDeSanti_RedBlackNode_parent:=thiz;
+                     };
+                  } else {
+                     skip;
+                  };
+               } else {
+                  skip;
+               };
+            } else {
+               skip;
+            };
+         
+         }
+      
+      }
+      skip;
+   
+   }
+
+
+program SourcesMatiasDeSanti_RedBlackNode::addNode[
+  var thiz:SourcesMatiasDeSanti_RedBlackNode,
+  var throw:java_lang_Throwable+null,
+  var newNode:SourcesMatiasDeSanti_RedBlackNode+null] 
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         {
+            var t_7:JavaPrimitiveIntegerValue;
+            var t_11:boolean;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[newNode]
+               or 
+               isEmptyOrNull[thiz]
+               {
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  t_7:=fun_java_primitive_integer_value_sub[newNode.SourcesMatiasDeSanti_RedBlackNode_data,thiz.SourcesMatiasDeSanti_RedBlackNode_data];
+               };
+            } else {
+               skip;
+            };
+            var var_2_comp:JavaPrimitiveIntegerValue;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               var_2_comp:=t_7;
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               t_11:=(pred_java_primitive_integer_value_lt[var_2_comp,
+                                                   JavaPrimitiveIntegerLiteral0]=>(true)else(false));
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if t_11=true   {
+                     var t_8:boolean;
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        t_8:=(equ[thiz.SourcesMatiasDeSanti_RedBlackNode_left,
+                           null]=>(true)else(false));
+                     } else {
+                        skip;
+                     };
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        if t_8=true   {
+                              if (
+                                throw=null)
+                              and 
+                              (
+                                exit_stmt_reached=false){
+                                 if isEmptyOrNull[thiz]{
+                                    throw:=java_lang_NullPointerExceptionLit;
+                                 } else {
+                                    thiz.SourcesMatiasDeSanti_RedBlackNode_left:=newNode;
+                                 };
+                              } else {
+                                 skip;
+                              };
+                              if (
+                                throw=null)
+                              and 
+                              (
+                                exit_stmt_reached=false){
+                                 if isEmptyOrNull[thiz.SourcesMatiasDeSanti_RedBlackNode_left]
+                                 or 
+                                 isEmptyOrNull[thiz]
+                                 {
+                                    throw:=java_lang_NullPointerExceptionLit;
+                                 } else {
+                                    (thiz.SourcesMatiasDeSanti_RedBlackNode_left).SourcesMatiasDeSanti_RedBlackNode_parent:=thiz;
+                                 };
+                              } else {
+                                 skip;
+                              };
+                           
+                           }
+                         else {
+                           if isEmptyOrNull[thiz]
+                           or 
+                           isEmptyOrNull[thiz.SourcesMatiasDeSanti_RedBlackNode_left]
+                           {
+                              throw:=java_lang_NullPointerExceptionLit;
+                           } else {
+                              call addNode[thiz.SourcesMatiasDeSanti_RedBlackNode_left,throw,newNode];
+                           };
+                        };
+                     } else {
+                        skip;
+                     };
+                  
+                  }
+                else    {
+                     var t_10:boolean;
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        t_10:=(pred_java_primitive_integer_value_gt[var_2_comp,
+                                                            JavaPrimitiveIntegerLiteral0]=>(true)else(false));
+                     } else {
+                        skip;
+                     };
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        if t_10=true   {
+                              var t_9:boolean;
+                              if (
+                                throw=null)
+                              and 
+                              (
+                                exit_stmt_reached=false){
+                                 t_9:=(equ[thiz.SourcesMatiasDeSanti_RedBlackNode_right,
+                                    null]=>(true)else(false));
+                              } else {
+                                 skip;
+                              };
+                              if (
+                                throw=null)
+                              and 
+                              (
+                                exit_stmt_reached=false){
+                                 if t_9=true   {
+                                       if (
+                                         throw=null)
+                                       and 
+                                       (
+                                         exit_stmt_reached=false){
+                                          if isEmptyOrNull[thiz]{
+                                             throw:=java_lang_NullPointerExceptionLit;
+                                          } else {
+                                             thiz.SourcesMatiasDeSanti_RedBlackNode_right:=newNode;
+                                          };
+                                       } else {
+                                          skip;
+                                       };
+                                       if (
+                                         throw=null)
+                                       and 
+                                       (
+                                         exit_stmt_reached=false){
+                                          if isEmptyOrNull[thiz.SourcesMatiasDeSanti_RedBlackNode_right]
+                                          or 
+                                          isEmptyOrNull[thiz]
+                                          {
+                                             throw:=java_lang_NullPointerExceptionLit;
+                                          } else {
+                                             (thiz.SourcesMatiasDeSanti_RedBlackNode_right).SourcesMatiasDeSanti_RedBlackNode_parent:=thiz;
+                                          };
+                                       } else {
+                                          skip;
+                                       };
+                                    
+                                    }
+                                  else {
+                                    if isEmptyOrNull[thiz]
+                                    or 
+                                    isEmptyOrNull[thiz.SourcesMatiasDeSanti_RedBlackNode_right]
+                                    {
+                                       throw:=java_lang_NullPointerExceptionLit;
+                                    } else {
+                                       call addNode[thiz.SourcesMatiasDeSanti_RedBlackNode_right,throw,newNode];
+                                    };
+                                 };
+                              } else {
+                                 skip;
+                              };
+                           
+                           }
+                         else {
+                           skip;
+                        };
+                     } else {
+                        skip;
+                     };
+                  
+                  }
+               ;
+            } else {
+               skip;
+            };
+         
+         }
+      
+      }
+      skip;
+   
+   }
+
+
+program SourcesMatiasDeSanti_RedBlackNode::setLeftChild[
+  var thiz:SourcesMatiasDeSanti_RedBlackNode,
+  var throw:java_lang_Throwable+null,
+  var child:SourcesMatiasDeSanti_RedBlackNode+null] 
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         {
+            var t_3:boolean;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.SourcesMatiasDeSanti_RedBlackNode_left:=child;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               t_3:=(neq[child,
+                  null]=>(true)else(false));
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if t_3=true{
+                  if (
+                    throw=null)
+                  and 
+                  (
+                    exit_stmt_reached=false){
+                     if isEmptyOrNull[child]{
+                        throw:=java_lang_NullPointerExceptionLit;
+                     } else {
+                        child.SourcesMatiasDeSanti_RedBlackNode_parent:=thiz;
+                     };
+                  } else {
+                     skip;
+                  };
+               } else {
+                  skip;
+               };
+            } else {
+               skip;
+            };
+         
+         }
+      
+      }
+      skip;
+   
+   }
+
+
+program SourcesMatiasDeSanti_RedBlackNode::replaceWith[
+  var thiz:SourcesMatiasDeSanti_RedBlackNode,
+  var throw:java_lang_Throwable+null,
+  var replacement:SourcesMatiasDeSanti_RedBlackNode+null] 
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         {
+            var t_5:boolean;
+            var t_6:boolean;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               t_5:=(equ[thiz.SourcesMatiasDeSanti_RedBlackNode_parent,
+                  null]=>(true)else(false));
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if t_5=true{
+                  skip;
+               } else {
+                  skip;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               t_6:=(equ[thiz,
+                  (thiz.SourcesMatiasDeSanti_RedBlackNode_parent).SourcesMatiasDeSanti_RedBlackNode_left]=>(true)else(false));
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if t_6=true{
+                  if isEmptyOrNull[thiz]
+                  or 
+                  isEmptyOrNull[thiz.SourcesMatiasDeSanti_RedBlackNode_parent]
+                  {
+                     throw:=java_lang_NullPointerExceptionLit;
+                  } else {
+                     call setLeftChild[thiz.SourcesMatiasDeSanti_RedBlackNode_parent,throw,replacement];
+                  };
+               } else {
+                  if isEmptyOrNull[thiz]
+                  or 
+                  isEmptyOrNull[thiz.SourcesMatiasDeSanti_RedBlackNode_parent]
+                  {
+                     throw:=java_lang_NullPointerExceptionLit;
+                  } else {
+                     call setRightChild[thiz.SourcesMatiasDeSanti_RedBlackNode_parent,throw,replacement];
+                  };
+               };
+            } else {
+               skip;
+            };
+         
+         }
+      
+      }
+      skip;
+   
+   }
+
+
+

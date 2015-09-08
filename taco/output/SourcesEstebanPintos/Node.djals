@@ -1,0 +1,136 @@
+//-------------- SourcesEstebanPintos_Node --------------//
+module SourcesEstebanPintos_Node
+sig SourcesEstebanPintos_Node extends java_lang_Object {}
+{}
+field SourcesEstebanPintos_Node_key:(SourcesEstebanPintos_Node)->one(JavaPrimitiveIntegerValue) {}
+field SourcesEstebanPintos_Node_height:(SourcesEstebanPintos_Node)->one(JavaPrimitiveIntegerValue) {}
+field SourcesEstebanPintos_Node_left:(SourcesEstebanPintos_Node)->one(SourcesEstebanPintos_Node+null) {}
+field SourcesEstebanPintos_Node_right:(SourcesEstebanPintos_Node)->one(SourcesEstebanPintos_Node+null) {}
+
+program SourcesEstebanPintos_Node::Constructor[
+  var thiz:SourcesEstebanPintos_Node,
+  var throw:java_lang_Throwable+null,
+  var k:JavaPrimitiveIntegerValue] 
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         {
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.SourcesEstebanPintos_Node_key:=JavaPrimitiveIntegerLiteral0;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.SourcesEstebanPintos_Node_height:=JavaPrimitiveIntegerLiteral0;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.SourcesEstebanPintos_Node_left:=((SourcesEstebanPintos_Node+null) & (null));
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.SourcesEstebanPintos_Node_right:=((SourcesEstebanPintos_Node+null) & (null));
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.SourcesEstebanPintos_Node_key:=k;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.SourcesEstebanPintos_Node_height:=JavaPrimitiveIntegerLiteral0;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.SourcesEstebanPintos_Node_left:=((SourcesEstebanPintos_Node+null) & (null));
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.SourcesEstebanPintos_Node_right:=((SourcesEstebanPintos_Node+null) & (null));
+               };
+            } else {
+               skip;
+            };
+         
+         }
+      
+      }
+      skip;
+   
+   }
+
+
+

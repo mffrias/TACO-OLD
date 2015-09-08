@@ -1,0 +1,360 @@
+sig SourcesPauli_LinkList extends java_lang_Object {}
+{}
+
+
+
+
+pred postcondition_SourcesPauli_LinkList_insert_0[
+  SourcesPauli_LinkList_first':univ->univ,
+  SourcesPauli_Link_data1':univ->univ,
+  SourcesPauli_Link_data2':univ->univ,
+  SourcesPauli_Link_nextLink':univ->univ,
+  d1':univ,
+  d2':univ,
+  thiz':univ,
+  throw':univ
+]{
+   SourcesPauli_LinkList_ensures[SourcesPauli_LinkList_first',
+                                SourcesPauli_Link_data1',
+                                SourcesPauli_Link_data2',
+                                SourcesPauli_Link_nextLink',
+                                d1',
+                                d2',
+                                thiz',
+                                throw']
+   and 
+   (
+     not (
+       throw'=AssertionFailureLit)
+   )
+   and 
+   (
+     all objx':SourcesPauli_LinkList | {
+       SourcesPauli_LinkList_object_invariant[SourcesPauli_LinkList_first',
+                                             SourcesPauli_Link_nextLink',
+                                             objx']
+     
+     }
+   )
+
+}
+
+pred SourcesPauli_LinkList_object_invariant[
+  SourcesPauli_LinkList_first:univ->univ,
+  SourcesPauli_Link_nextLink:univ->univ,
+  thiz:univ
+]{
+   all n:SourcesPauli_Link+null | {
+     equ[fun_set_contains[fun_reach[thiz.SourcesPauli_LinkList_first,SourcesPauli_Link,SourcesPauli_Link_nextLink],n],
+        true]
+     implies 
+             equ[fun_set_contains[fun_reach[n.SourcesPauli_Link_nextLink,SourcesPauli_Link,SourcesPauli_Link_nextLink],n],
+                false]
+   
+   }
+
+}
+
+pred SourcesPauli_LinkListCondition0[
+  exit_stmt_reached:univ,
+  throw:univ
+]{
+   (
+     throw=null)
+   and 
+   (
+     exit_stmt_reached=false)
+
+}
+
+pred SourcesPauli_LinkListCondition1[
+  exit_stmt_reached:univ,
+  throw:univ
+]{
+   not (
+     (
+       throw=null)
+     and 
+     (
+       exit_stmt_reached=false)
+   )
+
+}
+
+pred precondition_SourcesPauli_LinkList_insert_0[
+  SourcesPauli_LinkList_first:univ->univ,
+  SourcesPauli_Link_data1:univ->univ,
+  SourcesPauli_Link_data2:univ->univ,
+  SourcesPauli_Link_nextLink:univ->univ,
+  d1:univ,
+  d2:univ,
+  thiz:univ,
+  throw:univ,
+  usedObjects:univ
+]{
+   (
+     all objx:SourcesPauli_LinkList | {
+       SourcesPauli_LinkList_object_invariant[SourcesPauli_LinkList_first,
+                                             SourcesPauli_Link_nextLink,
+                                             objx]
+     
+     }
+   )
+   and 
+   equ[throw,
+      null]
+   and 
+   SourcesPauli_LinkList_requires[SourcesPauli_LinkList_first,
+                                 SourcesPauli_Link_data1,
+                                 SourcesPauli_Link_data2,
+                                 SourcesPauli_Link_nextLink,
+                                 d1,
+                                 d2,
+                                 thiz,
+                                 usedObjects]
+
+}
+
+pred SourcesPauli_LinkList_ensures[
+  SourcesPauli_LinkList_first':univ->univ,
+  SourcesPauli_Link_data1':univ->univ,
+  SourcesPauli_Link_data2':univ->univ,
+  SourcesPauli_Link_nextLink':univ->univ,
+  d1':univ,
+  d2':univ,
+  thiz':univ,
+  throw':univ
+]{
+   (
+     throw'=null)
+   implies 
+           (
+             some n:SourcesPauli_Link+null | {
+               liftExpression[fun_set_contains[fun_reach[thiz'.SourcesPauli_LinkList_first',SourcesPauli_Link,SourcesPauli_Link_nextLink'],n]]
+               and 
+               equ[n.SourcesPauli_Link_data1',
+                  d1']
+               and 
+               equ[n.SourcesPauli_Link_data2',
+                  d2']
+               and 
+               equ[n.SourcesPauli_Link_nextLink',
+                  null]
+             
+             }
+           )
+
+}
+
+pred SourcesPauli_LinkListCondition3[
+  t_2:univ
+]{
+   not (
+     isEmptyOrNull[t_2])
+
+}
+
+pred SourcesPauli_LinkListCondition7[
+  thiz:univ
+]{
+   not (
+     isEmptyOrNull[thiz])
+
+}
+
+pred SourcesPauli_LinkListCondition4[
+  thiz:univ,
+  var_1_link:univ
+]{
+   isEmptyOrNull[var_1_link]
+   or 
+   isEmptyOrNull[thiz]
+
+}
+
+pred SourcesPauli_LinkListCondition5[
+  thiz:univ,
+  var_1_link:univ
+]{
+   not (
+     isEmptyOrNull[var_1_link]
+     or 
+     isEmptyOrNull[thiz]
+   )
+
+}
+
+pred SourcesPauli_LinkListCondition2[
+  t_2:univ
+]{
+   isEmptyOrNull[t_2]
+
+}
+
+pred SourcesPauli_LinkList_requires[
+  SourcesPauli_LinkList_first:univ->univ,
+  SourcesPauli_Link_data1:univ->univ,
+  SourcesPauli_Link_data2:univ->univ,
+  SourcesPauli_Link_nextLink:univ->univ,
+  d1:univ,
+  d2:univ,
+  thiz:univ,
+  usedObjects:univ
+]{
+   (
+     true=true)
+   and 
+   (
+     usedObjects=fun_weak_reach[none+d1+d2+thiz,java_lang_Object,(none)->(none)+SourcesPauli_LinkList_first+SourcesPauli_Link_data1+SourcesPauli_Link_data2+SourcesPauli_Link_nextLink])
+
+}
+
+pred SourcesPauli_LinkListCondition6[
+  thiz:univ
+]{
+   isEmptyOrNull[thiz]
+
+}
+
+program SourcesPauli_LinkList_insert_0[
+  thiz:SourcesPauli_LinkList,
+  throw:java_lang_Throwable+null,
+  d1:JavaPrimitiveIntegerValue,
+  d2:JavaPrimitiveIntegerValue,
+  SourcesPauli_Link_data2:(SourcesPauli_Link)->one(JavaPrimitiveIntegerValue),
+  SourcesPauli_Link_nextLink:(SourcesPauli_Link)->one(SourcesPauli_Link+null),
+  SourcesPauli_LinkList_first:(SourcesPauli_LinkList)->one(SourcesPauli_Link+null),
+  SourcesPauli_Link_data1:(SourcesPauli_Link)->one(JavaPrimitiveIntegerValue),
+  usedObjects:set (java_lang_Object)
+] var [
+  t_2:SourcesPauli_Link+null,
+  exit_stmt_reached:boolean,
+  param_d2_1:JavaPrimitiveIntegerValue,
+  var_1_link:SourcesPauli_Link+null,
+  param_d1_0:JavaPrimitiveIntegerValue
+]{
+   skip;
+   throw:=null;
+   skip;
+   exit_stmt_reached:=false;
+   skip;
+   if SourcesPauli_LinkListCondition0[exit_stmt_reached,throw]  {
+      param_d1_0:=d1
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip;
+   if SourcesPauli_LinkListCondition0[exit_stmt_reached,throw]  {
+      param_d2_1:=d2
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip;
+   if SourcesPauli_LinkListCondition0[exit_stmt_reached,throw]  {
+      getUnusedObject[t_2,usedObjects];
+      assume instanceOf[t_2,SourcesPauli_Link];
+      if SourcesPauli_LinkListCondition2[t_2]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         call SourcesPauli_Link_Constructor_0[t_2,throw,param_d1_0,param_d2_1,SourcesPauli_Link_data2,SourcesPauli_Link_nextLink,SourcesPauli_LinkList_first,SourcesPauli_Link_data1,usedObjects]
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip;
+   if SourcesPauli_LinkListCondition0[exit_stmt_reached,throw]  {
+      var_1_link:=t_2
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if SourcesPauli_LinkListCondition0[exit_stmt_reached,throw]  {
+      if SourcesPauli_LinkListCondition4[thiz,var_1_link]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         SourcesPauli_Link_nextLink:=(SourcesPauli_Link_nextLink)++((var_1_link)->(thiz.SourcesPauli_LinkList_first))
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if SourcesPauli_LinkListCondition0[exit_stmt_reached,throw]  {
+      if SourcesPauli_LinkListCondition6[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         SourcesPauli_LinkList_first:=(SourcesPauli_LinkList_first)++((thiz)->(var_1_link))
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip
+
+}
+
+assertCorrectness check_SourcesPauli_LinkList_insert_0[
+  SourcesPauli_LinkList_first:(SourcesPauli_LinkList)->one(SourcesPauli_Link+null),
+  SourcesPauli_Link_data1:(SourcesPauli_Link)->one(JavaPrimitiveIntegerValue),
+  SourcesPauli_Link_data2:(SourcesPauli_Link)->one(JavaPrimitiveIntegerValue),
+  SourcesPauli_Link_nextLink:(SourcesPauli_Link)->one(SourcesPauli_Link+null),
+  d1:JavaPrimitiveIntegerValue,
+  d2:JavaPrimitiveIntegerValue,
+  exit_stmt_reached:boolean,
+  param_d1_0:JavaPrimitiveIntegerValue,
+  param_d2_1:JavaPrimitiveIntegerValue,
+  t_2:SourcesPauli_Link+null,
+  thiz:SourcesPauli_LinkList,
+  throw:java_lang_Throwable+null,
+  usedObjects:set (java_lang_Object),
+  var_1_link:SourcesPauli_Link+null
+]{
+pre={
+   precondition_SourcesPauli_LinkList_insert_0[SourcesPauli_LinkList_first,
+                                              SourcesPauli_Link_data1,
+                                              SourcesPauli_Link_data2,
+                                              SourcesPauli_Link_nextLink,
+                                              d1,
+                                              d2,
+                                              thiz,
+                                              throw,
+                                              usedObjects]
+
+}
+program={
+   call SourcesPauli_LinkList_insert_0[thiz,throw,d1,d2,SourcesPauli_Link_data2,SourcesPauli_Link_nextLink,SourcesPauli_LinkList_first,SourcesPauli_Link_data1,usedObjects]
+
+}
+post={
+   postcondition_SourcesPauli_LinkList_insert_0[SourcesPauli_LinkList_first',
+                                               SourcesPauli_Link_data1',
+                                               SourcesPauli_Link_data2',
+                                               SourcesPauli_Link_nextLink',
+                                               d1',
+                                               d2',
+                                               thiz',
+                                               throw']
+
+}
+}
+

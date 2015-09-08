@@ -1,0 +1,7 @@
+one sig JavaPrimitiveIntegerLiteral23 extends JavaPrimitiveIntegerValue {}
+{pred_java_primitive_integer_value_literal_23[JavaPrimitiveIntegerLiteral23]
+}
+
+
+
+

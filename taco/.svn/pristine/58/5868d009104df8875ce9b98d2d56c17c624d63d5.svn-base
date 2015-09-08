@@ -1,0 +1,22 @@
+sig java_lang_Boolean extends java_lang_Object {}
+{}
+
+
+
+
+program java_lang_Boolean_booleanValue_0[
+  thiz:java_lang_Boolean,
+  throw:java_lang_Throwable+null,
+  return:boolean,
+  java_lang_Boolean_FALSE:(ClassFields)->one(java_lang_Boolean),
+  java_lang_Boolean_TRUE:(ClassFields)->one(java_lang_Boolean),
+  booleanValue:(java_lang_Boolean)->one(boolean),
+  usedObjects:set (java_lang_Object)
+] var [
+
+]{
+   throw:=null;
+   return:=thiz.booleanValue
+
+}
+

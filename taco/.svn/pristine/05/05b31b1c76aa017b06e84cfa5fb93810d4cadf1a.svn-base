@@ -1,0 +1,1231 @@
+//-------------- prelude--------------//
+module moduleId 
+
+open util/integer 
+open util/sequniv as sequniv 
+
+one sig null {} 
+
+fun fun_reach[h: univ, 
+              type: set univ, 
+              field: univ -> univ
+]: set univ { 
+  h.*(field & type->(type+null)) & type 
+}
+
+fun fun_weak_reach[h: univ, 
+              type: set univ, 
+              field: univ -> univ
+]: set univ { 
+  h.*(field) & type 
+}
+
+one sig AssertionFailureLit extends java_lang_Throwable {} 
+abstract sig boolean {} 
+one sig true extends boolean {} 
+one sig false extends boolean {} 
+
+abstract sig char {} 
+
+pred TruePred[] {} 
+pred FalsePred[] { not TruePred[] } 
+pred equ[l,r:univ] {l=r} 
+pred neq[l,r:univ] {l!=r} 
+
+fun shl[l,r: Int]: Int { l << r } 
+fun sshr[l,r: Int]: Int { l >> r } 
+fun ushr[l,r: Int]: Int { l >>> r } 
+
+fun fun_univ_equals[
+  l:univ, 
+  r: univ 
+]: boolean { 
+  (equ[l,r]) => true else false 
+} 
+
+fun fun_set_add[
+  l: set univ,
+  e: univ
+]: set univ { 
+  l+e 
+} 
+
+fun fun_set_remove[
+  l: set univ,
+  e: univ
+]: set univ {
+  l-e
+}
+fun fun_set_contains[
+  l: set univ,
+  e: univ
+]: boolean {
+  (e in l) => true else false 
+} 
+pred isSubset[
+  l: set univ,
+  r: set univ
+] {
+  (l in r) 
+} 
+pred isNotSubset[
+  l: set univ,
+  r: set univ
+] {
+  (l !in r) 
+} 
+fun fun_set_size[s: set univ]: Int { #s } 
+
+fun fun_not_empty_set[s: set univ]: boolean { (no s) => false else true } 
+
+fun fun_set_is_empty[s: set univ]: boolean { (no s) => true else false } 
+
+pred pred_empty_set[l: set univ] { (no l) } 
+
+pred pred_set_some[l: set univ] { some l } 
+
+pred pred_set_one[l: set univ] { one l } 
+
+pred pred_set_lone[l: set univ] { lone l } 
+
+pred pred_Object_subset[
+  s: set univ
+] {
+  s in java_lang_Object+null
+}
+
+fun fun_set_intersection[
+  l: set univ,
+  r: set univ
+]: set univ {
+  l & r 
+} 
+fun fun_set_difference[
+  l: set univ,
+  r: set univ
+]: set univ {
+  l - r 
+} 
+fun fun_rel_difference[ 
+  rel: univ -> univ, 
+  l: univ,
+  r: univ
+]: univ->univ {
+ rel - (l->r) 
+}
+fun fun_rel_add[ 
+  rel: univ -> univ, 
+  l: univ,
+  r: univ
+]: univ->univ {
+ rel + (l->r) 
+}
+fun fun_set_sum[
+  s: set Int
+]: Int {
+  sum s 
+} 
+pred pred_empty_list[l: Int -> univ] { (no l) } 
+
+fun fun_list_add[
+  l: Int -> univ,
+  e: univ
+]: Int -> univ {
+  l + (Int[#(l.univ)]->e)
+} 
+
+fun fun_list_get[
+  l: Int -> univ, 
+  index: Int
+]: univ { 
+  index.l 
+} 
+
+fun fun_list_contains[
+  l: Int -> univ, 
+  e: univ
+]: boolean { 
+  (e in Int.l) => true else false 
+} 
+
+fun fun_list_remove[
+  l: Int -> univ, 
+  index: Int
+]: Int -> univ { 
+  prevs[index]<:(l-(index->univ)) + next.(nexts[index]<:(l-(index->univ))) 
+} 
+
+fun fun_list_size[s: Int -> univ]: Int { #s } 
+
+fun fun_list_equals[
+  s1:Int -> univ, 
+  s2: Int -> univ
+]: boolean { 
+  (s1=s2) => true else false 
+} 
+
+fun fun_list_empty[s: Int -> univ]: boolean { (#s = 0) => true else false } 
+
+pred pred_empty_map[map: univ -> univ] { (no map) } 
+
+fun fun_map_put[
+  map: univ->univ, 
+  k: univ, 
+  v: univ
+]: univ-> univ { 
+  map ++ (k->v) 
+}
+
+fun fun_map_contains_key[
+  map: univ -> univ, 
+  k: univ
+]: boolean { 
+  (some k.map) => true else false 
+}
+
+fun fun_map_remove[
+  map: univ -> univ, 
+  k: univ
+]: univ->univ {
+  map - (k->univ) 
+} 
+
+fun fun_map_get[
+  map: univ -> univ, 
+  k: univ
+]: univ { 
+  (some k.map) => k.map else null 
+} 
+
+fun fun_map_is_empty[
+  map: univ -> univ, 
+]: boolean { 
+  (some map) => false else true 
+}
+
+fun fun_map_clear[
+  mapEntries1: univ -> univ -> univ, 
+  map: univ
+]: univ -> univ -> univ { 
+  mapEntries1 - (map -> univ -> univ)
+}
+
+fun fun_map_size[
+  map: univ -> univ, 
+]: univ {
+  #map 
+} 
+
+pred isEmptyOrNull[u: univ] { u in null } 
+fun fun_closure[
+  rel: univ -> univ 
+]: univ -> univ {
+  ^rel 
+} 
+
+fun fun_reflexive_closure[
+  rel: univ -> univ 
+]: univ -> univ {
+  *rel 
+} 
+
+fun fun_transpose[
+  rel: univ -> univ 
+]: univ -> univ {
+  ~rel 
+} 
+
+pred liftExpression[
+  expr: univ 
+] {
+  expr=true 
+} 
+
+fun rel_override[
+  r:univ->univ,
+  k:univ, 
+  v:univ
+]: univ->univ { 
+  r - (k->univ) + (k->v) 
+} 
+
+fun Not[a: boolean]: boolean {
+    (a=true) => false else true 
+}
+fun Or[a: boolean, b: boolean]: boolean {
+    (a=true or b=true) => true else false
+}
+fun And[a: boolean, b: boolean]: boolean {
+    (a=true and b=true) => true else false
+}
+fun Xor[a: boolean, b: boolean]: boolean {
+    ((a==true and b==false) or (a==false and b==true)) => true else false
+}
+fun AdderCarry[a: boolean, b: boolean, cin: boolean]: boolean {
+    Or[ And[a,b], And[cin, Xor[a,b]]] 
+}
+fun AdderSum[a: boolean, b: boolean, cin: boolean]: boolean {
+    Xor[Xor[a, b], cin]
+}
+pred updateFieldPost[
+  f1:univ->univ,
+  f0:univ->univ,
+  l:univ,
+  r:univ
+]{ 
+  (r=none) => f1=f0-(l->univ) else f1 = f0 ++ (l->r) 
+} 
+
+pred havocVarPost[u:univ]{} 
+pred havocVariable2Post[u:univ->univ]{}
+action havocVariable2[u:univ->univ]{
+ pre{TruePred[]}
+ post{havocVariable2Post[u']}
+}
+
+pred havocVariable3Post[u:univ->(seq univ)]{}
+action havocVariable3[u:univ->(seq univ)]{
+ pre{TruePred[]}
+ post{havocVariable3Post[u']}
+}
+
+pred havocFieldPost[f0,f1: univ->univ, u:univ]{ 
+  u<:f0 = u<:f1 
+  some u.f1  
+} 
+
+pred havocFieldContentsPost[target: univ, 
+                            field_0: univ -> univ, 
+                            field_1: univ -> univ] { 
+  field_1 - (target->univ) = field_0 - (target->univ) 
+}
+
+action havocFieldContents[target: univ, 
+                          field: univ->univ] {
+  pre  { TruePred[] }
+  post { havocFieldContentsPost[target,field,field'] }
+}
+
+pred havocListSeqPost[target: univ,
+                            field_0: univ -> Int -> univ, 
+                            field_1: univ -> Int -> univ] { 
+  field_1 - (target->Int->univ) = field_0 - (target->Int->univ) 
+}
+
+action havocListSeq[target: univ,
+                          field: univ->Int->univ] {
+  pre  { TruePred[] }
+  post { havocListSeqPost[target,field,field'] }
+}
+
+pred pred_in[n: univ, t: set univ] { n in t } 
+
+pred instanceOf[n: univ, t: set univ] { n in t } 
+
+pred isCasteableTo[n: univ, t: set univ] { (n in t) or (n = null) } 
+
+pred getUnusedObjectPost[
+  usedObjects1:set java_lang_Object, 
+  usedObjects0:set java_lang_Object,
+  n1: java_lang_Object+null
+]{ 
+  n1 !in usedObjects0 
+  usedObjects1 = usedObjects0 + (n1)
+} 
+
+action updateField[
+  l:univ,
+  f:univ->univ,
+  r:univ
+]{
+pre {
+   TruePred[]
+}
+post {
+   updateFieldPost[f',
+                  f,
+                  l,
+                  r]
+}
+}
+
+action getUnusedObject[
+  n:java_lang_Object+null,
+  usedObjects:set java_lang_Object
+]{
+pre {
+   TruePred[]
+}
+post {
+   getUnusedObjectPost[usedObjects',
+                      usedObjects,
+                      n']
+}
+}
+
+action havocField[
+  f:univ->univ,
+  u:univ
+]{
+pre {
+   TruePred[]
+}
+post {
+   havocFieldPost[f,
+                 f',
+                 u]
+}
+}
+
+action updateVariable[
+  l:univ,
+  r:univ
+]{
+pre {
+   TruePred[]
+}
+post {
+   equ[l',
+      r]
+}
+}
+
+action havocVariable[
+  v:univ
+]{
+pre {
+   TruePred[]
+}
+post {
+   havocVarPost[v']
+}
+}
+
+//-------------- ClassFields--------------//
+one sig ClassFields {}
+{}
+
+
+
+
+//-------------- java_lang_RuntimeException--------------//
+abstract sig java_lang_RuntimeException extends java_lang_Exception {}
+{}
+
+
+
+one sig java_lang_RuntimeExceptionLit extends java_lang_RuntimeException {}
+{}
+
+//-------------- java_lang_Exception--------------//
+abstract sig java_lang_Exception extends java_lang_Throwable {}
+{}
+
+
+
+one sig java_lang_ExceptionLit extends java_lang_Exception {}
+{}
+
+//-------------- java_lang_Throwable--------------//
+abstract sig java_lang_Throwable extends java_lang_Object {}
+{}
+
+
+
+one sig java_lang_ThrowableLit extends java_lang_Throwable {}
+{}
+
+//-------------- java_lang_Object--------------//
+abstract sig java_lang_Object {}
+{}
+
+
+
+
+//-------------- java_lang_NullPointerException--------------//
+abstract one sig java_lang_NullPointerException extends java_lang_RuntimeException {}
+{}
+
+
+
+one sig java_lang_NullPointerExceptionLit extends java_lang_NullPointerException {}
+{}
+
+//-------------- roops_core_objects_singlylinkedlist_base_SinglyLinkedList--------------//
+sig roops_core_objects_singlylinkedlist_base_SinglyLinkedList extends java_lang_Object {}
+{}
+
+
+
+
+pred roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition19[
+  t_10:univ
+]{
+   not (
+     t_10=true)
+
+}
+
+pred postcondition_roops_core_objects_singlylinkedlist_base_SinglyLinkedList_contains_0[
+  throw':univ
+]{
+   roops_core_objects_singlylinkedlist_base_SinglyLinkedList_ensures[throw']
+   and 
+   (
+     not (
+       throw'=AssertionFailureLit)
+   )
+
+}
+
+pred roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition18[
+  t_10:univ
+]{
+   t_10=true
+
+}
+
+pred roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition1[
+  exit_stmt_reached:univ,
+  throw:univ
+]{
+   not (
+     (
+       throw=null)
+     and 
+     (
+       exit_stmt_reached=false)
+   )
+
+}
+
+pred roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition0[
+  exit_stmt_reached:univ,
+  throw:univ
+]{
+   (
+     throw=null)
+   and 
+   (
+     exit_stmt_reached=false)
+
+}
+
+pred roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition13[
+  t_5:univ
+]{
+   not (
+     t_5=true)
+
+}
+
+pred roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition14[
+  t_6:univ
+]{
+   t_6=true
+
+}
+
+pred roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition15[
+  t_6:univ
+]{
+   not (
+     t_6=true)
+
+}
+
+pred roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition10[
+  t_8:univ
+]{
+   t_8=true
+
+}
+
+pred roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition12[
+  t_5:univ
+]{
+   t_5=true
+
+}
+
+pred roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition11[
+  t_8:univ
+]{
+   not (
+     t_8=true)
+
+}
+
+pred roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition9[
+  t_9:univ
+]{
+   not (
+     t_9=true)
+
+}
+
+pred roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition8[
+  t_9:univ
+]{
+   t_9=true
+
+}
+
+pred roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition17[
+  t_7:univ
+]{
+   not (
+     t_7=true)
+
+}
+
+pred roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition26[
+  exit_stmt_reached:univ,
+  throw:univ,
+  var_3_ws_1:univ
+]{
+   liftExpression[var_3_ws_1]
+   and 
+   (
+     throw=null)
+   and 
+   (
+     exit_stmt_reached=false)
+
+}
+
+pred roops_core_objects_singlylinkedlist_base_SinglyLinkedList_requires[
+]{
+   true=true
+
+}
+
+pred roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition16[
+  t_7:univ
+]{
+   t_7=true
+
+}
+
+pred precondition_roops_core_objects_singlylinkedlist_base_SinglyLinkedList_contains_0[
+  roops_core_objects_singlylinkedlist_base_SinglyLinkedList_header:univ->univ,
+  thiz:univ,
+  throw:univ
+]{
+   roops_core_objects_singlylinkedlist_base_SinglyLinkedList_object_invariant[roops_core_objects_singlylinkedlist_base_SinglyLinkedList_header,
+                                                                             thiz]
+   and 
+   equ[throw,
+      null]
+   and 
+   roops_core_objects_singlylinkedlist_base_SinglyLinkedList_requires[]
+
+}
+
+pred roops_core_objects_singlylinkedlist_base_SinglyLinkedList_object_invariant[
+  roops_core_objects_singlylinkedlist_base_SinglyLinkedList_header:univ->univ,
+  thiz:univ
+]{
+   liftExpression[true]
+   and 
+   (
+     not (
+       thiz.roops_core_objects_singlylinkedlist_base_SinglyLinkedList_header=null)
+   )
+
+}
+
+pred roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition25[
+  t_13:univ
+]{
+   not (
+     t_13=true)
+
+}
+
+pred roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition22[
+  t_14:univ
+]{
+   t_14=true
+
+}
+
+pred roops_core_objects_singlylinkedlist_base_SinglyLinkedList_ensures[
+  throw':univ
+]{
+   (
+     instanceOf[throw',
+               java_lang_RuntimeException]
+     implies 
+             liftExpression[false]
+   )
+   and 
+   (
+     (
+       throw'=null)
+     implies 
+             liftExpression[false]
+   )
+
+}
+
+pred roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition23[
+  t_14:univ
+]{
+   not (
+     t_14=true)
+
+}
+
+pred roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition4[
+  t_4:univ
+]{
+   t_4=true
+
+}
+
+pred roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition5[
+  t_4:univ
+]{
+   not (
+     t_4=true)
+
+}
+
+pred roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition24[
+  t_13:univ
+]{
+   t_13=true
+
+}
+
+pred roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition7[
+  t_3:univ
+]{
+   not (
+     t_3=true)
+
+}
+
+pred roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition6[
+  t_3:univ
+]{
+   t_3=true
+
+}
+
+pred roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition21[
+  var_1_current:univ
+]{
+   not (
+     isEmptyOrNull[var_1_current])
+
+}
+
+pred roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition3[
+  thiz:univ
+]{
+   not (
+     isEmptyOrNull[thiz])
+
+}
+
+pred roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition2[
+  thiz:univ
+]{
+   isEmptyOrNull[thiz]
+
+}
+
+pred roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition20[
+  var_1_current:univ
+]{
+   isEmptyOrNull[var_1_current]
+
+}
+
+program roops_core_objects_singlylinkedlist_base_SinglyLinkedList_contains_0[
+  thiz:roops_core_objects_singlylinkedlist_base_SinglyLinkedList,
+  throw:java_lang_Throwable+null,
+  return:boolean,
+  valueParam:java_lang_Object+null,
+  roops_core_objects_singlylinkedlist_base_SinglyLinkedListNode_next:(roops_core_objects_singlylinkedlist_base_SinglyLinkedListNode)->one(null+roops_core_objects_singlylinkedlist_base_SinglyLinkedListNode),
+  roops_core_objects_singlylinkedlist_base_SinglyLinkedListNode_value:(roops_core_objects_singlylinkedlist_base_SinglyLinkedListNode)->one(java_lang_Object+null),
+  roops_core_objects_singlylinkedlist_base_SinglyLinkedList_header:(roops_core_objects_singlylinkedlist_base_SinglyLinkedList)->one(null+roops_core_objects_singlylinkedlist_base_SinglyLinkedListNode),
+  usedObjects:set (java_lang_Object)
+] var [
+  var_4_equalVal:boolean,
+  param_valueParam_0:java_lang_Object+null,
+  t_13:boolean,
+  t_14:boolean,
+  t_11:boolean,
+  t_12:boolean,
+  t_10:boolean,
+  t_2:boolean,
+  t_3:boolean,
+  exit_stmt_reached:boolean,
+  t_1:boolean,
+  var_1_current:null+roops_core_objects_singlylinkedlist_base_SinglyLinkedListNode,
+  var_2_result:boolean,
+  t_8:boolean,
+  t_9:boolean,
+  t_6:boolean,
+  var_3_ws_1:boolean,
+  t_7:boolean,
+  t_4:boolean,
+  t_5:boolean
+]{
+   skip;
+   throw:=null;
+   skip;
+   exit_stmt_reached:=false;
+   skip;
+   if roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition0[exit_stmt_reached,throw]  {
+      param_valueParam_0:=valueParam
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip;
+   skip;
+   skip;
+   skip;
+   skip;
+   skip;
+   if roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition0[exit_stmt_reached,throw]  {
+      if roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition2[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         var_1_current:=thiz.roops_core_objects_singlylinkedlist_base_SinglyLinkedList_header
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition0[exit_stmt_reached,throw]  {
+      var_2_result:=false
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip;
+   if roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition0[exit_stmt_reached,throw]  {
+      t_2:=(equ[var_1_current,null]=>(true)else(false))
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition0[exit_stmt_reached,throw]  {
+      t_3:=(equ[var_2_result,t_2]=>(true)else(false))
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition0[exit_stmt_reached,throw]  {
+      if roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition6[t_3]  {
+         if roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition0[exit_stmt_reached,throw]  {
+            t_4:=(neq[var_1_current,null]=>(true)else(false))
+         
+         } else {
+            skip
+         
+         }
+         ;
+         if roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition0[exit_stmt_reached,throw]  {
+            if roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition4[t_4]  {
+               if roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition0[exit_stmt_reached,throw]  {
+                  t_1:=true
+               
+               } else {
+                  skip
+               
+               }
+            
+            } else {
+               if roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition0[exit_stmt_reached,throw]  {
+                  t_1:=false
+               
+               } else {
+                  skip
+               
+               }
+            
+            }
+         
+         } else {
+            skip
+         
+         }
+      
+      } else {
+         if roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition0[exit_stmt_reached,throw]  {
+            t_1:=false
+         
+         } else {
+            skip
+         
+         }
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition0[exit_stmt_reached,throw]  {
+      var_3_ws_1:=t_1
+   
+   } else {
+      skip
+   
+   }
+   ;
+   while roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition26[exit_stmt_reached,throw,var_3_ws_1]do {
+      skip;
+      skip;
+      skip;
+      skip;
+      skip;
+      skip;
+      skip;
+      skip;
+      skip;
+      if roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition0[exit_stmt_reached,throw]  {
+         t_8:=(equ[param_valueParam_0,null]=>(true)else(false))
+      
+      } else {
+         skip
+      
+      }
+      ;
+      if roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition0[exit_stmt_reached,throw]  {
+         if roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition10[t_8]  {
+            if roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition0[exit_stmt_reached,throw]  {
+               t_9:=(equ[var_1_current.roops_core_objects_singlylinkedlist_base_SinglyLinkedListNode_value,var_1_current]=>(true)else(false))
+            
+            } else {
+               skip
+            
+            }
+            ;
+            if roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition0[exit_stmt_reached,throw]  {
+               if roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition8[t_9]  {
+                  if roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition0[exit_stmt_reached,throw]  {
+                     t_7:=true
+                  
+                  } else {
+                     skip
+                  
+                  }
+               
+               } else {
+                  if roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition0[exit_stmt_reached,throw]  {
+                     t_7:=false
+                  
+                  } else {
+                     skip
+                  
+                  }
+               
+               }
+            
+            } else {
+               skip
+            
+            }
+         
+         } else {
+            if roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition0[exit_stmt_reached,throw]  {
+               t_7:=false
+            
+            } else {
+               skip
+            
+            }
+         
+         }
+      
+      } else {
+         skip
+      
+      }
+      ;
+      if roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition0[exit_stmt_reached,throw]  {
+         if roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition16[t_7]  {
+            if roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition0[exit_stmt_reached,throw]  {
+               var_4_equalVal:=true
+            
+            } else {
+               skip
+            
+            }
+         
+         } else {
+            skip;
+            if roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition0[exit_stmt_reached,throw]  {
+               t_6:=(neq[param_valueParam_0,null]=>(true)else(false))
+            
+            } else {
+               skip
+            
+            }
+            ;
+            if roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition0[exit_stmt_reached,throw]  {
+               if roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition14[t_6]  {
+                  skip;
+                  if roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition0[exit_stmt_reached,throw]  {
+                     t_5:=(neq[param_valueParam_0,var_1_current]=>(true)else(false))
+                  
+                  } else {
+                     skip
+                  
+                  }
+                  ;
+                  if roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition0[exit_stmt_reached,throw]  {
+                     if roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition12[t_5]  {
+                        if roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition0[exit_stmt_reached,throw]  {
+                           var_4_equalVal:=true
+                        
+                        } else {
+                           skip
+                        
+                        }
+                     
+                     } else {
+                        if roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition0[exit_stmt_reached,throw]  {
+                           var_4_equalVal:=false
+                        
+                        } else {
+                           skip
+                        
+                        }
+                     
+                     }
+                  
+                  } else {
+                     skip
+                  
+                  }
+               
+               } else {
+                  if roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition0[exit_stmt_reached,throw]  {
+                     var_4_equalVal:=false
+                  
+                  } else {
+                     skip
+                  
+                  }
+               
+               }
+            
+            } else {
+               skip
+            
+            }
+         
+         }
+      
+      } else {
+         skip
+      
+      }
+      ;
+      if roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition0[exit_stmt_reached,throw]  {
+         t_10:=(equ[var_4_equalVal,true]=>(true)else(false))
+      
+      } else {
+         skip
+      
+      }
+      ;
+      if roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition0[exit_stmt_reached,throw]  {
+         if roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition18[t_10]  {
+            if roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition0[exit_stmt_reached,throw]  {
+               var_2_result:=true
+            
+            } else {
+               skip
+            
+            }
+         
+         } else {
+            skip
+         
+         }
+      
+      } else {
+         skip
+      
+      }
+      ;
+      if roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition0[exit_stmt_reached,throw]  {
+         if roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition20[var_1_current]  {
+            throw:=java_lang_NullPointerExceptionLit
+         
+         } else {
+            var_1_current:=var_1_current.roops_core_objects_singlylinkedlist_base_SinglyLinkedListNode_next
+         
+         }
+      
+      } else {
+         skip
+      
+      }
+      ;
+      if roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition0[exit_stmt_reached,throw]  {
+         t_12:=(equ[var_1_current,null]=>(true)else(false))
+      
+      } else {
+         skip
+      
+      }
+      ;
+      if roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition0[exit_stmt_reached,throw]  {
+         t_13:=(equ[var_2_result,t_12]=>(true)else(false))
+      
+      } else {
+         skip
+      
+      }
+      ;
+      if roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition0[exit_stmt_reached,throw]  {
+         if roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition24[t_13]  {
+            if roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition0[exit_stmt_reached,throw]  {
+               t_14:=(neq[var_1_current,null]=>(true)else(false))
+            
+            } else {
+               skip
+            
+            }
+            ;
+            if roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition0[exit_stmt_reached,throw]  {
+               if roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition22[t_14]  {
+                  if roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition0[exit_stmt_reached,throw]  {
+                     t_11:=true
+                  
+                  } else {
+                     skip
+                  
+                  }
+               
+               } else {
+                  if roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition0[exit_stmt_reached,throw]  {
+                     t_11:=false
+                  
+                  } else {
+                     skip
+                  
+                  }
+               
+               }
+            
+            } else {
+               skip
+            
+            }
+         
+         } else {
+            if roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition0[exit_stmt_reached,throw]  {
+               t_11:=false
+            
+            } else {
+               skip
+            
+            }
+         
+         }
+      
+      } else {
+         skip
+      
+      }
+      ;
+      if roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition0[exit_stmt_reached,throw]  {
+         var_3_ws_1:=t_11
+      
+      } else {
+         skip
+      
+      }
+   
+   }
+   ;
+   if roops_core_objects_singlylinkedlist_base_SinglyLinkedListCondition0[exit_stmt_reached,throw]  {
+      return:=var_2_result;
+      exit_stmt_reached:=true
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip
+
+}
+
+assertCorrectness check_roops_core_objects_singlylinkedlist_base_SinglyLinkedList_contains_0[
+  exit_stmt_reached:boolean,
+  param_valueParam_0:java_lang_Object+null,
+  return:boolean,
+  roops_core_objects_singlylinkedlist_base_SinglyLinkedListNode_next:(roops_core_objects_singlylinkedlist_base_SinglyLinkedListNode)->one(null+roops_core_objects_singlylinkedlist_base_SinglyLinkedListNode),
+  roops_core_objects_singlylinkedlist_base_SinglyLinkedListNode_value:(roops_core_objects_singlylinkedlist_base_SinglyLinkedListNode)->one(java_lang_Object+null),
+  roops_core_objects_singlylinkedlist_base_SinglyLinkedList_header:(roops_core_objects_singlylinkedlist_base_SinglyLinkedList)->one(null+roops_core_objects_singlylinkedlist_base_SinglyLinkedListNode),
+  t_1:boolean,
+  t_10:boolean,
+  t_11:boolean,
+  t_12:boolean,
+  t_13:boolean,
+  t_14:boolean,
+  t_2:boolean,
+  t_3:boolean,
+  t_4:boolean,
+  t_5:boolean,
+  t_6:boolean,
+  t_7:boolean,
+  t_8:boolean,
+  t_9:boolean,
+  thiz:roops_core_objects_singlylinkedlist_base_SinglyLinkedList,
+  throw:java_lang_Throwable+null,
+  usedObjects:set (java_lang_Object),
+  valueParam:java_lang_Object+null,
+  var_1_current:null+roops_core_objects_singlylinkedlist_base_SinglyLinkedListNode,
+  var_2_result:boolean,
+  var_3_ws_1:boolean,
+  var_4_equalVal:boolean
+]{
+pre={
+   precondition_roops_core_objects_singlylinkedlist_base_SinglyLinkedList_contains_0[roops_core_objects_singlylinkedlist_base_SinglyLinkedList_header,
+                                                                                    thiz,
+                                                                                    throw]
+
+}
+program={
+   call roops_core_objects_singlylinkedlist_base_SinglyLinkedList_contains_0[thiz,throw,return,valueParam,roops_core_objects_singlylinkedlist_base_SinglyLinkedListNode_next,roops_core_objects_singlylinkedlist_base_SinglyLinkedListNode_value,roops_core_objects_singlylinkedlist_base_SinglyLinkedList_header,usedObjects]
+
+}
+post={
+   postcondition_roops_core_objects_singlylinkedlist_base_SinglyLinkedList_contains_0[throw']
+
+}
+}
+
+//-------------- roops_core_objects_singlylinkedlist_base_SinglyLinkedListNode--------------//
+sig roops_core_objects_singlylinkedlist_base_SinglyLinkedListNode extends java_lang_Object {}
+{}
+
+
+
+

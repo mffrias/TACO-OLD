@@ -1,0 +1,24 @@
+//-------------- SourcesMatiasDeSanti_StrykerException --------------//
+module SourcesMatiasDeSanti_StrykerException
+sig SourcesMatiasDeSanti_StrykerException extends java_lang_RuntimeException {}
+{}
+program SourcesMatiasDeSanti_StrykerException::Constructor[
+  var thiz:SourcesMatiasDeSanti_StrykerException,
+  var throw:java_lang_Throwable+null] 
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         skip;
+      
+      }
+      skip;
+   
+   }
+
+
+

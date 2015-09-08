@@ -1,0 +1,178 @@
+//-------------- ar_edu_itba_alu_crpereyr_impl_avltree1_Node --------------//
+module ar_edu_itba_alu_crpereyr_impl_avltree1_Node
+sig ar_edu_itba_alu_crpereyr_impl_avltree1_Node extends java_lang_Object {}
+{}
+field ar_edu_itba_alu_crpereyr_impl_avltree1_Node_key:(ar_edu_itba_alu_crpereyr_impl_avltree1_Node)->one(JavaPrimitiveIntegerValue) {}
+field ar_edu_itba_alu_crpereyr_impl_avltree1_Node_val:(ar_edu_itba_alu_crpereyr_impl_avltree1_Node)->one(java_lang_Object+null) {}
+field ar_edu_itba_alu_crpereyr_impl_avltree1_Node_height:(ar_edu_itba_alu_crpereyr_impl_avltree1_Node)->one(JavaPrimitiveIntegerValue) {}
+field ar_edu_itba_alu_crpereyr_impl_avltree1_Node_left:(ar_edu_itba_alu_crpereyr_impl_avltree1_Node)->one(ar_edu_itba_alu_crpereyr_impl_avltree1_Node+null) {}
+field ar_edu_itba_alu_crpereyr_impl_avltree1_Node_right:(ar_edu_itba_alu_crpereyr_impl_avltree1_Node)->one(ar_edu_itba_alu_crpereyr_impl_avltree1_Node+null) {}
+
+program ar_edu_itba_alu_crpereyr_impl_avltree1_Node::Constructor[
+  var thiz:ar_edu_itba_alu_crpereyr_impl_avltree1_Node,
+  var throw:java_lang_Throwable+null,
+  var k:JavaPrimitiveIntegerValue,
+  var v:java_lang_Object+null] 
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         {
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.ar_edu_itba_alu_crpereyr_impl_avltree1_Node_key:=JavaPrimitiveIntegerLiteral0;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.ar_edu_itba_alu_crpereyr_impl_avltree1_Node_val:=((java_lang_Object+null) & (null));
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.ar_edu_itba_alu_crpereyr_impl_avltree1_Node_height:=JavaPrimitiveIntegerLiteral0;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.ar_edu_itba_alu_crpereyr_impl_avltree1_Node_left:=((ar_edu_itba_alu_crpereyr_impl_avltree1_Node+null) & (null));
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.ar_edu_itba_alu_crpereyr_impl_avltree1_Node_right:=((ar_edu_itba_alu_crpereyr_impl_avltree1_Node+null) & (null));
+               };
+            } else {
+               skip;
+            };
+            var t_68:ar_edu_itba_alu_crpereyr_impl_avltree1_Node+null;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.ar_edu_itba_alu_crpereyr_impl_avltree1_Node_key:=k;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.ar_edu_itba_alu_crpereyr_impl_avltree1_Node_val:=v;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.ar_edu_itba_alu_crpereyr_impl_avltree1_Node_height:=JavaPrimitiveIntegerLiteral0;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.ar_edu_itba_alu_crpereyr_impl_avltree1_Node_right:=((ar_edu_itba_alu_crpereyr_impl_avltree1_Node+null) & (null));
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  t_68:=thiz.ar_edu_itba_alu_crpereyr_impl_avltree1_Node_right;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.ar_edu_itba_alu_crpereyr_impl_avltree1_Node_left:=t_68;
+               };
+            } else {
+               skip;
+            };
+         
+         }
+      
+      }
+      skip;
+   
+   }
+
+
+

@@ -1,0 +1,200 @@
+sig SourcesMatiasDeSanti_Node extends java_lang_Object {}
+{}
+
+
+
+
+pred SourcesMatiasDeSanti_NodeCondition0[
+  thiz:univ
+]{
+   isEmptyOrNull[thiz]
+
+}
+
+pred SourcesMatiasDeSanti_NodeCondition2[
+  exit_stmt_reached:univ,
+  throw:univ
+]{
+   (
+     throw=null)
+   and 
+   (
+     exit_stmt_reached=false)
+
+}
+
+pred SourcesMatiasDeSanti_NodeCondition1[
+  thiz:univ
+]{
+   not (
+     isEmptyOrNull[thiz])
+
+}
+
+pred SourcesMatiasDeSanti_NodeCondition3[
+  exit_stmt_reached:univ,
+  throw:univ
+]{
+   not (
+     (
+       throw=null)
+     and 
+     (
+       exit_stmt_reached=false)
+   )
+
+}
+
+program SourcesMatiasDeSanti_Node_getNext_0[
+  thiz:SourcesMatiasDeSanti_Node,
+  throw:java_lang_Throwable+null,
+  return:SourcesMatiasDeSanti_Node+null,
+  SourcesMatiasDeSanti_LinkedList_head:(SourcesMatiasDeSanti_LinkedList)->one(SourcesMatiasDeSanti_Node+null),
+  SourcesMatiasDeSanti_Node_data:(SourcesMatiasDeSanti_Node)->one(java_lang_Object+null),
+  SourcesMatiasDeSanti_Node_next:(SourcesMatiasDeSanti_Node)->one(SourcesMatiasDeSanti_Node+null),
+  usedObjects:set (java_lang_Object)
+] var [
+  exit_stmt_reached:boolean
+]{
+   skip;
+   throw:=null;
+   skip;
+   exit_stmt_reached:=false;
+   if SourcesMatiasDeSanti_NodeCondition2[exit_stmt_reached,throw]  {
+      if SourcesMatiasDeSanti_NodeCondition0[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         return:=thiz.SourcesMatiasDeSanti_Node_next
+      
+      }
+      ;
+      exit_stmt_reached:=true
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip
+
+}
+
+program SourcesMatiasDeSanti_Node_Constructor_0[
+  thiz:SourcesMatiasDeSanti_Node,
+  throw:java_lang_Throwable+null,
+  data:java_lang_Object+null,
+  SourcesMatiasDeSanti_LinkedList_head:(SourcesMatiasDeSanti_LinkedList)->one(SourcesMatiasDeSanti_Node+null),
+  SourcesMatiasDeSanti_Node_data:(SourcesMatiasDeSanti_Node)->one(java_lang_Object+null),
+  SourcesMatiasDeSanti_Node_next:(SourcesMatiasDeSanti_Node)->one(SourcesMatiasDeSanti_Node+null),
+  usedObjects:set (java_lang_Object)
+] var [
+  exit_stmt_reached:boolean
+]{
+   skip;
+   throw:=null;
+   skip;
+   exit_stmt_reached:=false;
+   if SourcesMatiasDeSanti_NodeCondition2[exit_stmt_reached,throw]  {
+      if SourcesMatiasDeSanti_NodeCondition0[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         SourcesMatiasDeSanti_Node_next:=(SourcesMatiasDeSanti_Node_next)++((thiz)->(((SourcesMatiasDeSanti_Node+null) & (null))))
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if SourcesMatiasDeSanti_NodeCondition2[exit_stmt_reached,throw]  {
+      if SourcesMatiasDeSanti_NodeCondition0[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         SourcesMatiasDeSanti_Node_data:=(SourcesMatiasDeSanti_Node_data)++((thiz)->(((java_lang_Object+null) & (null))))
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if SourcesMatiasDeSanti_NodeCondition2[exit_stmt_reached,throw]  {
+      if SourcesMatiasDeSanti_NodeCondition0[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         SourcesMatiasDeSanti_Node_next:=(SourcesMatiasDeSanti_Node_next)++((thiz)->(((SourcesMatiasDeSanti_Node+null) & (null))))
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if SourcesMatiasDeSanti_NodeCondition2[exit_stmt_reached,throw]  {
+      if SourcesMatiasDeSanti_NodeCondition0[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         SourcesMatiasDeSanti_Node_data:=(SourcesMatiasDeSanti_Node_data)++((thiz)->(data))
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip
+
+}
+
+program SourcesMatiasDeSanti_Node_setNext_0[
+  thiz:SourcesMatiasDeSanti_Node,
+  throw:java_lang_Throwable+null,
+  next:SourcesMatiasDeSanti_Node+null,
+  SourcesMatiasDeSanti_LinkedList_head:(SourcesMatiasDeSanti_LinkedList)->one(SourcesMatiasDeSanti_Node+null),
+  SourcesMatiasDeSanti_Node_data:(SourcesMatiasDeSanti_Node)->one(java_lang_Object+null),
+  SourcesMatiasDeSanti_Node_next:(SourcesMatiasDeSanti_Node)->one(SourcesMatiasDeSanti_Node+null),
+  usedObjects:set (java_lang_Object)
+] var [
+  exit_stmt_reached:boolean,
+  param_next_4:SourcesMatiasDeSanti_Node+null
+]{
+   skip;
+   throw:=null;
+   skip;
+   exit_stmt_reached:=false;
+   skip;
+   if SourcesMatiasDeSanti_NodeCondition2[exit_stmt_reached,throw]  {
+      param_next_4:=next
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if SourcesMatiasDeSanti_NodeCondition2[exit_stmt_reached,throw]  {
+      if SourcesMatiasDeSanti_NodeCondition0[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         SourcesMatiasDeSanti_Node_next:=(SourcesMatiasDeSanti_Node_next)++((thiz)->(param_next_4))
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip
+
+}
+

@@ -1,0 +1,101 @@
+//-------------- edu_fiu_sort_Sort --------------//
+module edu_fiu_sort_Sort
+sig edu_fiu_sort_Sort extends java_lang_Object {}
+{}
+program edu_fiu_sort_Sort::insertionSort[
+  var throw:java_lang_Throwable+null,
+  var a:java_lang_IntArray+null] 
+Specification 
+{
+  SpecCase #0 {
+   requires {
+      true=true
+   }
+   
+   requires {
+      not (
+        a=null)
+   }
+   
+   ensures {
+      (
+        throw'=null)
+      implies 
+              (
+                all i:Int | {
+                  (
+                    lte[0,
+                       i]
+                    and 
+                    lt[i,
+                      sub[arrayLength[a',java_lang_IntArray_length'],1]]
+                  )
+                  implies 
+                          lte[((Int) & (arrayAccess[a',java_lang_IntArray_contents',i])),
+                             ((Int) & (arrayAccess[a',java_lang_IntArray_contents',sub[i,1]]))]
+                
+                }
+              )
+   }
+   
+   modifies {
+   EVERYTHING}
+  }
+}
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         {
+            var param_a_0:java_lang_IntArray+null;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               param_a_0:=a;
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               param_a_0:=((java_lang_IntArray+null) & (null));
+            } else {
+               skip;
+            };
+         
+         }
+      
+      }
+      skip;
+   
+   }
+
+
+program edu_fiu_sort_Sort::Constructor[
+  var thiz:edu_fiu_sort_Sort,
+  var throw:java_lang_Throwable+null] 
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         skip;
+      
+      }
+      skip;
+   
+   }
+
+
+

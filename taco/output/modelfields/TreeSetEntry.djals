@@ -1,0 +1,249 @@
+//-------------- modelfields_TreeSetEntry --------------//
+module modelfields_TreeSetEntry
+sig modelfields_TreeSetEntry extends java_lang_Object {}
+{}
+field modelfields_TreeSetEntry_key:(modelfields_TreeSetEntry)->one(Int) {}
+field modelfields_TreeSetEntry_parent:(modelfields_TreeSetEntry)->one(modelfields_TreeSetEntry+null) {}
+field modelfields_TreeSetEntry_color:(modelfields_TreeSetEntry)->one(boolean) {}
+field modelfields_TreeSetEntry_left:(modelfields_TreeSetEntry)->one(modelfields_TreeSetEntry+null) {}
+field modelfields_TreeSetEntry_right:(modelfields_TreeSetEntry)->one(modelfields_TreeSetEntry+null) {}
+field modelfields_TreeSetEntry_blackHeight:(modelfields_TreeSetEntry)->one(Int) {}
+
+represents (thiz).(modelfields_TreeSetEntry_blackHeight) such that (
+  (
+    equ[thiz.modelfields_TreeSetEntry_left,
+       null]
+    and 
+    equ[thiz.modelfields_TreeSetEntry_right,
+       null]
+  )
+  implies 
+          equ[thiz.modelfields_TreeSetEntry_blackHeight,
+             1]
+)
+and 
+(
+  (
+    neq[thiz.modelfields_TreeSetEntry_left,
+       null]
+    and 
+    equ[thiz.modelfields_TreeSetEntry_right,
+       null]
+  )
+  implies 
+          (
+            equ[(thiz.modelfields_TreeSetEntry_left).modelfields_TreeSetEntry_color,
+               false]
+            and 
+            equ[(thiz.modelfields_TreeSetEntry_left).modelfields_TreeSetEntry_blackHeight,
+               1]
+            and 
+            equ[thiz.modelfields_TreeSetEntry_blackHeight,
+               1]
+          )
+)
+and 
+(
+  (
+    equ[thiz.modelfields_TreeSetEntry_left,
+       null]
+    and 
+    neq[thiz.modelfields_TreeSetEntry_right,
+       null]
+  )
+  implies 
+          (
+            equ[(thiz.modelfields_TreeSetEntry_right).modelfields_TreeSetEntry_color,
+               false]
+            and 
+            equ[(thiz.modelfields_TreeSetEntry_right).modelfields_TreeSetEntry_blackHeight,
+               1]
+            and 
+            equ[thiz.modelfields_TreeSetEntry_blackHeight,
+               1]
+          )
+)
+and 
+(
+  (
+    neq[thiz.modelfields_TreeSetEntry_left,
+       null]
+    and 
+    neq[thiz.modelfields_TreeSetEntry_right,
+       null]
+    and 
+    equ[(thiz.modelfields_TreeSetEntry_left).modelfields_TreeSetEntry_color,
+       false]
+    and 
+    equ[(thiz.modelfields_TreeSetEntry_right).modelfields_TreeSetEntry_color,
+       false]
+  )
+  implies 
+          (
+            equ[(thiz.modelfields_TreeSetEntry_left).modelfields_TreeSetEntry_blackHeight,
+               (thiz.modelfields_TreeSetEntry_right).modelfields_TreeSetEntry_blackHeight]
+            and 
+            equ[thiz.modelfields_TreeSetEntry_blackHeight,
+               (thiz.modelfields_TreeSetEntry_left).modelfields_TreeSetEntry_blackHeight]
+          )
+)
+and 
+(
+  (
+    neq[thiz.modelfields_TreeSetEntry_left,
+       null]
+    and 
+    neq[thiz.modelfields_TreeSetEntry_right,
+       null]
+    and 
+    equ[(thiz.modelfields_TreeSetEntry_left).modelfields_TreeSetEntry_color,
+       true]
+    and 
+    equ[(thiz.modelfields_TreeSetEntry_right).modelfields_TreeSetEntry_color,
+       true]
+  )
+  implies 
+          (
+            equ[(thiz.modelfields_TreeSetEntry_left).modelfields_TreeSetEntry_blackHeight,
+               (thiz.modelfields_TreeSetEntry_right).modelfields_TreeSetEntry_blackHeight]
+            and 
+            equ[thiz.modelfields_TreeSetEntry_blackHeight,
+               add[(thiz.modelfields_TreeSetEntry_left).modelfields_TreeSetEntry_blackHeight,1]]
+          )
+)
+and 
+(
+  (
+    neq[thiz.modelfields_TreeSetEntry_left,
+       null]
+    and 
+    neq[thiz.modelfields_TreeSetEntry_right,
+       null]
+    and 
+    equ[(thiz.modelfields_TreeSetEntry_left).modelfields_TreeSetEntry_color,
+       false]
+    and 
+    equ[(thiz.modelfields_TreeSetEntry_right).modelfields_TreeSetEntry_color,
+       true]
+  )
+  implies 
+          (
+            equ[(thiz.modelfields_TreeSetEntry_left).modelfields_TreeSetEntry_blackHeight,
+               add[(thiz.modelfields_TreeSetEntry_right).modelfields_TreeSetEntry_blackHeight,1]]
+            and 
+            equ[thiz.modelfields_TreeSetEntry_blackHeight,
+               (thiz.modelfields_TreeSetEntry_left).modelfields_TreeSetEntry_blackHeight]
+          )
+)
+and 
+(
+  (
+    neq[thiz.modelfields_TreeSetEntry_left,
+       null]
+    and 
+    neq[thiz.modelfields_TreeSetEntry_right,
+       null]
+    and 
+    equ[(thiz.modelfields_TreeSetEntry_left).modelfields_TreeSetEntry_color,
+       true]
+    and 
+    equ[(thiz.modelfields_TreeSetEntry_right).modelfields_TreeSetEntry_color,
+       false]
+  )
+  implies 
+          (
+            equ[(thiz.modelfields_TreeSetEntry_right).modelfields_TreeSetEntry_blackHeight,
+               add[(thiz.modelfields_TreeSetEntry_left).modelfields_TreeSetEntry_blackHeight,1]]
+            and 
+            equ[thiz.modelfields_TreeSetEntry_blackHeight,
+               (thiz.modelfields_TreeSetEntry_right).modelfields_TreeSetEntry_blackHeight]
+          )
+)
+
+program modelfields_TreeSetEntry::Constructor[
+  var thiz:modelfields_TreeSetEntry,
+  var throw:java_lang_Throwable+null] 
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         {
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.modelfields_TreeSetEntry_key:=0;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.modelfields_TreeSetEntry_parent:=((modelfields_TreeSetEntry+null) & (null));
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.modelfields_TreeSetEntry_color:=false;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.modelfields_TreeSetEntry_left:=((modelfields_TreeSetEntry+null) & (null));
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.modelfields_TreeSetEntry_right:=((modelfields_TreeSetEntry+null) & (null));
+               };
+            } else {
+               skip;
+            };
+         
+         }
+      
+      }
+      skip;
+   
+   }
+
+
+

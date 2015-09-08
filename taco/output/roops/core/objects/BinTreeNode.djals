@@ -1,0 +1,83 @@
+//-------------- roops_core_objects_BinTreeNode --------------//
+module roops_core_objects_BinTreeNode
+sig roops_core_objects_BinTreeNode extends java_lang_Object {}
+{}
+field roops_core_objects_BinTreeNode_key:(roops_core_objects_BinTreeNode)->one(Int) {}
+field roops_core_objects_BinTreeNode_left:(roops_core_objects_BinTreeNode)->one(null+roops_core_objects_BinTreeNode) {}
+field roops_core_objects_BinTreeNode_right:(roops_core_objects_BinTreeNode)->one(null+roops_core_objects_BinTreeNode) {}
+field roops_core_objects_BinTreeNode_parent:(roops_core_objects_BinTreeNode)->one(null+roops_core_objects_BinTreeNode) {}
+
+program roops_core_objects_BinTreeNode::Constructor[
+  var thiz:roops_core_objects_BinTreeNode,
+  var throw:java_lang_Throwable+null] 
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         {
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.roops_core_objects_BinTreeNode_key:=0;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.roops_core_objects_BinTreeNode_left:=((null+roops_core_objects_BinTreeNode) & (null));
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.roops_core_objects_BinTreeNode_right:=((null+roops_core_objects_BinTreeNode) & (null));
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.roops_core_objects_BinTreeNode_parent:=((null+roops_core_objects_BinTreeNode) & (null));
+               };
+            } else {
+               skip;
+            };
+         
+         }
+      
+      }
+      skip;
+   
+   }
+
+
+

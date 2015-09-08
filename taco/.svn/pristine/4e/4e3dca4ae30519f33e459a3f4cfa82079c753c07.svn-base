@@ -1,0 +1,241 @@
+//-------------- ar_edu_taco_skunk_SList --------------//
+module ar_edu_taco_skunk_SList
+sig ar_edu_taco_skunk_SList extends java_lang_Object {}
+{}
+field ar_edu_taco_skunk_SList_n:(ar_edu_taco_skunk_SList)->one(ar_edu_taco_skunk_Node+null) {}
+
+object_invariant
+   all node:ar_edu_taco_skunk_Node+null | {
+     equ[fun_set_contains[fun_reach[thiz.ar_edu_taco_skunk_SList_n,ar_edu_taco_skunk_Node,ar_edu_taco_skunk_Node_next],node],
+        true]
+     implies 
+             equ[fun_set_contains[fun_reach[node.ar_edu_taco_skunk_Node_next,ar_edu_taco_skunk_Node,ar_edu_taco_skunk_Node_next],node],
+                false]
+   
+   }
+
+object_invariant
+   not (
+     thiz.ar_edu_taco_skunk_SList_n=null)
+
+
+
+program ar_edu_taco_skunk_SList::hasElement[
+  var thiz:ar_edu_taco_skunk_SList,
+  var throw:java_lang_Throwable+null,
+  var return:boolean,
+  var v:JavaPrimitiveIntegerValue] 
+Specification 
+{
+  SpecCase #0 {
+   requires {
+      true=true
+   }
+   
+   ensures {
+      (
+        throw'=null)
+      implies 
+              (
+                (
+                  equ[return',
+                     true]
+                  implies 
+                          (
+                            some node:ar_edu_taco_skunk_Node+null | {
+                              equ[fun_set_contains[fun_reach[thiz'.ar_edu_taco_skunk_SList_n',ar_edu_taco_skunk_Node,ar_edu_taco_skunk_Node_next'],node],
+                                 true]
+                              and 
+                              equ[node.ar_edu_taco_skunk_Node_value',
+                                 v']
+                            
+                            }
+                          )
+                )
+                and 
+                (
+                  (
+                    some node:ar_edu_taco_skunk_Node+null | {
+                      equ[fun_set_contains[fun_reach[thiz'.ar_edu_taco_skunk_SList_n',ar_edu_taco_skunk_Node,ar_edu_taco_skunk_Node_next'],node],
+                         true]
+                      and 
+                      equ[node.ar_edu_taco_skunk_Node_value',
+                         v']
+                    
+                    }
+                  )
+                  implies 
+                          equ[return',
+                             true]
+                )
+              )
+   }
+   
+   modifies {
+   EVERYTHING}
+  }
+}
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         {
+            var var_1_current:ar_edu_taco_skunk_Node+null;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  var_1_current:=thiz.ar_edu_taco_skunk_SList_n;
+               };
+            } else {
+               skip;
+            };
+            var var_2_ws_1:boolean;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               var_2_ws_1:=(neq[var_1_current,
+                  null]=>(true)else(false));
+            } else {
+               skip;
+            };
+            while liftExpression[var_2_ws_1]
+            and 
+            (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false)
+            
+               {
+                  var t_1:boolean;
+                  if (
+                    throw=null)
+                  and 
+                  (
+                    exit_stmt_reached=false){
+                     t_1:=(equ[var_1_current.ar_edu_taco_skunk_Node_value,
+                        v]=>(true)else(false));
+                  } else {
+                     skip;
+                  };
+                  if (
+                    throw=null)
+                  and 
+                  (
+                    exit_stmt_reached=false){
+                     if t_1=true{
+                        if (
+                          throw=null)
+                        and 
+                        (
+                          exit_stmt_reached=false)   {
+                              return:=true;
+                              exit_stmt_reached:=true;
+                           
+                           }
+                         else {
+                           skip;
+                        };
+                     } else {
+                        skip;
+                     };
+                  } else {
+                     skip;
+                  };
+                  if (
+                    throw=null)
+                  and 
+                  (
+                    exit_stmt_reached=false){
+                     if isEmptyOrNull[var_1_current]{
+                        throw:=java_lang_NullPointerExceptionLit;
+                     } else {
+                        var_1_current:=var_1_current.ar_edu_taco_skunk_Node_next;
+                     };
+                  } else {
+                     skip;
+                  };
+                  if (
+                    throw=null)
+                  and 
+                  (
+                    exit_stmt_reached=false){
+                     var_2_ws_1:=(neq[var_1_current,
+                        null]=>(true)else(false));
+                  } else {
+                     skip;
+                  };
+               
+               }
+            ;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz.ar_edu_taco_skunk_SList_n]
+               or 
+               isEmptyOrNull[thiz]
+               
+               or 
+               isEmptyOrNull[thiz]
+               {
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  (thiz.ar_edu_taco_skunk_SList_n).ar_edu_taco_skunk_Node_next:=thiz.ar_edu_taco_skunk_SList_n;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false)   {
+                  return:=false;
+                  exit_stmt_reached:=true;
+               
+               }
+             else {
+               skip;
+            };
+         
+         }
+      
+      }
+      skip;
+   
+   }
+
+
+program ar_edu_taco_skunk_SList::Constructor[
+  var thiz:ar_edu_taco_skunk_SList,
+  var throw:java_lang_Throwable+null] 
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         skip;
+      
+      }
+      skip;
+   
+   }
+
+
+

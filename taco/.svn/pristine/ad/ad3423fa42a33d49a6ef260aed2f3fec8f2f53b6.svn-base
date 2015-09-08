@@ -1,0 +1,238 @@
+//-------------- ar_edu_taco_floatTest_FloatTest --------------//
+module ar_edu_taco_floatTest_FloatTest
+sig ar_edu_taco_floatTest_FloatTest extends java_lang_Object {}
+{}
+field ar_edu_taco_floatTest_FloatTest_att:(ar_edu_taco_floatTest_FloatTest)->one(JavaPrimitiveIntegerValue) {}
+
+program ar_edu_taco_floatTest_FloatTest::buggyVar[
+  var thiz:ar_edu_taco_floatTest_FloatTest,
+  var throw:java_lang_Throwable+null,
+  var return:JavaPrimitiveIntegerValue,
+  var i:JavaPrimitiveIntegerValue] 
+Specification 
+{
+  SpecCase #0 {
+   requires {
+      equ[i,
+         JavaPrimitiveIntegerLiteral6]
+   }
+   
+   ensures {
+      (
+        throw'=null)
+      implies 
+              equ[return',
+                 i']
+   }
+   
+   modifies {
+   EVERYTHING}
+  }
+}
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         {
+            var t_3:java_lang_String+null;
+            var t_4:JavaPrimitiveIntegerValue;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false)   {
+                  createObject<java_lang_String>[t_3];
+                  if isEmptyOrNull[t_3]{
+                     throw:=java_lang_NullPointerExceptionLit;
+                  } else {
+                     call Constructor[t_3,throw,2];
+                  };
+               
+               }
+             else {
+               skip;
+            };
+            var var_3_a:java_lang_String+null;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               var_3_a:=t_3;
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[var_3_a]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  call length[var_3_a,throw,t_4];
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false)   {
+                  return:=t_4;
+                  exit_stmt_reached:=true;
+               
+               }
+             else {
+               skip;
+            };
+         
+         }
+      
+      }
+      skip;
+   
+   }
+
+
+program ar_edu_taco_floatTest_FloatTest::add[
+  var thiz:ar_edu_taco_floatTest_FloatTest,
+  var throw:java_lang_Throwable+null,
+  var return:JavaPrimitiveIntegerValue] 
+Specification 
+{
+  SpecCase #0 {
+   requires {
+      true=true
+   }
+   
+   ensures {
+      (
+        throw'=null)
+      implies 
+              equ[return',
+                 JavaPrimitiveIntegerLiteral7]
+   }
+   
+   modifies {
+   EVERYTHING}
+  }
+}
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         {
+            var t_1:java_lang_Integer+null;
+            var t_2:JavaPrimitiveIntegerValue;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false)   {
+                  createObject<java_lang_Integer>[t_1];
+                  if isEmptyOrNull[t_1]{
+                     throw:=java_lang_NullPointerExceptionLit;
+                  } else {
+                     call Constructor[t_1,throw,JavaPrimitiveIntegerLiteral7];
+                  };
+               
+               }
+             else {
+               skip;
+            };
+            var var_1_i:java_lang_Integer+null;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               var_1_i:=t_1;
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[var_1_i]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  call intValue[var_1_i,throw,t_2];
+               };
+            } else {
+               skip;
+            };
+            var var_2_j:JavaPrimitiveIntegerValue;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               var_2_j:=t_2;
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false)   {
+                  return:=var_2_j;
+                  exit_stmt_reached:=true;
+               
+               }
+             else {
+               skip;
+            };
+         
+         }
+      
+      }
+      skip;
+   
+   }
+
+
+program ar_edu_taco_floatTest_FloatTest::Constructor[
+  var thiz:ar_edu_taco_floatTest_FloatTest,
+  var throw:java_lang_Throwable+null] 
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         if (
+           throw=null)
+         and 
+         (
+           exit_stmt_reached=false){
+            if isEmptyOrNull[thiz]{
+               throw:=java_lang_NullPointerExceptionLit;
+            } else {
+               thiz.ar_edu_taco_floatTest_FloatTest_att:=JavaPrimitiveIntegerLiteral0;
+            };
+         } else {
+            skip;
+         };
+      
+      }
+      skip;
+   
+   }
+
+
+

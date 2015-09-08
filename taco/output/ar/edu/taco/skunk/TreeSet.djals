@@ -1,0 +1,160 @@
+//-------------- ar_edu_taco_skunk_TreeSet --------------//
+module ar_edu_taco_skunk_TreeSet
+sig ar_edu_taco_skunk_TreeSet extends java_lang_Object {}
+{}
+field ar_edu_taco_skunk_TreeSet_RED:(ar_edu_taco_skunk_TreeSet)->one(JavaPrimitiveIntegerValue) {}
+field ar_edu_taco_skunk_TreeSet_BLACK:(ar_edu_taco_skunk_TreeSet)->one(JavaPrimitiveIntegerValue) {}
+field ar_edu_taco_skunk_TreeSet_root:(ar_edu_taco_skunk_TreeSet)->one(ar_edu_taco_skunk_TreeSetEntry+null) {}
+field ar_edu_taco_skunk_TreeSet_size:(ar_edu_taco_skunk_TreeSet)->one(JavaPrimitiveIntegerValue) {}
+
+object_invariant
+   equ[thiz.ar_edu_taco_skunk_TreeSet_RED,
+      JavaPrimitiveIntegerLiteral0]
+   and 
+   equ[thiz.ar_edu_taco_skunk_TreeSet_BLACK,
+      JavaPrimitiveIntegerLiteral1]
+   and 
+   equ[(thiz.ar_edu_taco_skunk_TreeSet_root).ar_edu_taco_skunk_TreeSetEntry_parent,
+      null]
+
+
+
+program ar_edu_taco_skunk_TreeSet::Constructor[
+  var thiz:ar_edu_taco_skunk_TreeSet,
+  var throw:java_lang_Throwable+null,
+  var r:ar_edu_taco_skunk_TreeSetEntry+null,
+  var i:JavaPrimitiveLongValue] 
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         {
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.ar_edu_taco_skunk_TreeSet_RED:=JavaPrimitiveIntegerLiteral0;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.ar_edu_taco_skunk_TreeSet_BLACK:=JavaPrimitiveIntegerLiteral1;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.ar_edu_taco_skunk_TreeSet_root:=((ar_edu_taco_skunk_TreeSetEntry+null) & (null));
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.ar_edu_taco_skunk_TreeSet_size:=JavaPrimitiveIntegerLiteral0;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.ar_edu_taco_skunk_TreeSet_root:=r;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.ar_edu_taco_skunk_TreeSet_size:=JavaPrimitiveIntegerLiteral1;
+               };
+            } else {
+               skip;
+            };
+         
+         }
+      
+      }
+      skip;
+   
+   }
+
+
+program ar_edu_taco_skunk_TreeSet::generateInput[
+  var thiz:ar_edu_taco_skunk_TreeSet,
+  var throw:java_lang_Throwable+null] 
+Specification 
+{
+  SpecCase #0 {
+   requires {
+      true=true
+   }
+   
+   ensures {
+      (
+        throw'=null)
+      implies 
+              liftExpression[false]
+   }
+   
+   modifies {
+   EVERYTHING}
+  }
+}
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         skip;
+      
+      }
+      skip;
+   
+   }
+
+
+

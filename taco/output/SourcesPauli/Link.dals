@@ -1,0 +1,138 @@
+sig SourcesPauli_Link extends java_lang_Object {}
+{}
+
+
+
+
+pred SourcesPauli_LinkCondition0[
+  thiz:univ
+]{
+   isEmptyOrNull[thiz]
+
+}
+
+pred SourcesPauli_LinkCondition1[
+  thiz:univ
+]{
+   not (
+     isEmptyOrNull[thiz])
+
+}
+
+pred SourcesPauli_LinkCondition3[
+  exit_stmt_reached:univ,
+  throw:univ
+]{
+   not (
+     (
+       throw=null)
+     and 
+     (
+       exit_stmt_reached=false)
+   )
+
+}
+
+pred SourcesPauli_LinkCondition2[
+  exit_stmt_reached:univ,
+  throw:univ
+]{
+   (
+     throw=null)
+   and 
+   (
+     exit_stmt_reached=false)
+
+}
+
+program SourcesPauli_Link_Constructor_0[
+  thiz:SourcesPauli_Link,
+  throw:java_lang_Throwable+null,
+  d1:JavaPrimitiveIntegerValue,
+  d2:JavaPrimitiveIntegerValue,
+  SourcesPauli_Link_data2:(SourcesPauli_Link)->one(JavaPrimitiveIntegerValue),
+  SourcesPauli_Link_nextLink:(SourcesPauli_Link)->one(SourcesPauli_Link+null),
+  SourcesPauli_LinkList_first:(SourcesPauli_LinkList)->one(SourcesPauli_Link+null),
+  SourcesPauli_Link_data1:(SourcesPauli_Link)->one(JavaPrimitiveIntegerValue),
+  usedObjects:set (java_lang_Object)
+] var [
+  exit_stmt_reached:boolean
+]{
+   skip;
+   throw:=null;
+   skip;
+   exit_stmt_reached:=false;
+   if SourcesPauli_LinkCondition2[exit_stmt_reached,throw]  {
+      if SourcesPauli_LinkCondition0[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         SourcesPauli_Link_data1:=(SourcesPauli_Link_data1)++((thiz)->(JavaPrimitiveIntegerLiteral0))
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if SourcesPauli_LinkCondition2[exit_stmt_reached,throw]  {
+      if SourcesPauli_LinkCondition0[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         SourcesPauli_Link_data2:=(SourcesPauli_Link_data2)++((thiz)->(JavaPrimitiveIntegerLiteral0))
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if SourcesPauli_LinkCondition2[exit_stmt_reached,throw]  {
+      if SourcesPauli_LinkCondition0[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         SourcesPauli_Link_nextLink:=(SourcesPauli_Link_nextLink)++((thiz)->(((SourcesPauli_Link+null) & (null))))
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if SourcesPauli_LinkCondition2[exit_stmt_reached,throw]  {
+      if SourcesPauli_LinkCondition0[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         SourcesPauli_Link_data1:=(SourcesPauli_Link_data1)++((thiz)->(d1))
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if SourcesPauli_LinkCondition2[exit_stmt_reached,throw]  {
+      if SourcesPauli_LinkCondition0[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         SourcesPauli_Link_data2:=(SourcesPauli_Link_data2)++((thiz)->(d2))
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip
+
+}
+

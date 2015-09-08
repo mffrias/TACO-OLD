@@ -1,0 +1,649 @@
+//-------------- ar_edu_taco_skunk_Landing --------------//
+module ar_edu_taco_skunk_Landing
+sig ar_edu_taco_skunk_Landing extends java_lang_Object {}
+{}
+program ar_edu_taco_skunk_Landing::Landing[
+  var thiz:ar_edu_taco_skunk_Landing,
+  var throw:java_lang_Throwable+null] 
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         skip;
+      
+      }
+      skip;
+   
+   }
+
+
+program ar_edu_taco_skunk_Landing::testAddition[
+  var thiz:ar_edu_taco_skunk_Landing,
+  var throw:java_lang_Throwable+null,
+  var return:JavaPrimitiveFloatValue,
+  var f1:JavaPrimitiveFloatValue,
+  var f2:JavaPrimitiveFloatValue] 
+Specification 
+{
+  SpecCase #0 {
+   requires {
+      pred_java_primitive_float_value_gt[f1,
+                                        JavaPrimitiveFloatLiteral0]
+      and 
+      pred_java_primitive_float_value_gt[f2,
+                                        JavaPrimitiveFloatLiteral0]
+      and 
+      pred_java_primitive_float_value_lt[f1,
+                                        JavaPrimitiveFloatLiteral41200000]
+      and 
+      pred_java_primitive_float_value_lt[f2,
+                                        JavaPrimitiveFloatLiteral41200000]
+   }
+   
+   ensures {
+      (
+        throw'=null)
+      implies 
+              pred_java_primitive_float_value_eq[return',
+                                                f1']
+   }
+   
+   modifies {
+   EVERYTHING}
+  }
+}
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         {
+            var param_f1_7:JavaPrimitiveFloatValue;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               param_f1_7:=f1;
+            } else {
+               skip;
+            };
+            var param_f2_8:JavaPrimitiveFloatValue;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               param_f2_8:=f2;
+            } else {
+               skip;
+            };
+            var t_10:JavaPrimitiveFloatValue;
+            var t_11:JavaPrimitiveFloatValue;
+            var SK_pred_java_primitive_float_value_add_ARG_left_0:JavaPrimitiveFloatValue;
+            var SK_pred_java_primitive_float_value_add_ARG_right_0:JavaPrimitiveFloatValue;
+            var SK_pred_java_primitive_float_value_add_ARG_result_0:JavaPrimitiveFloatValue;
+            var SK_pred_java_primitive_float_value_add_ARG_overflow_0:boolean;
+            havoc SK_pred_java_primitive_float_value_add_ARG_left_0;
+            havoc SK_pred_java_primitive_float_value_add_ARG_right_0;
+            havoc SK_pred_java_primitive_float_value_add_ARG_result_0;
+            havoc SK_pred_java_primitive_float_value_add_ARG_overflow_0;
+            assume equ[SK_pred_java_primitive_float_value_add_ARG_left_0,
+               param_f1_7];
+            assume equ[SK_pred_java_primitive_float_value_add_ARG_right_0,
+               param_f2_8];
+            assume pred_java_primitive_float_value_add_marker[SK_pred_java_primitive_float_value_add_ARG_left_0,
+                                                      SK_pred_java_primitive_float_value_add_ARG_right_0,
+                                                      SK_pred_java_primitive_float_value_add_ARG_result_0,
+                                                      SK_pred_java_primitive_float_value_add_ARG_overflow_0];
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               t_10:=SK_pred_java_primitive_float_value_add_ARG_result_0;
+            } else {
+               skip;
+            };
+            var SK_pred_java_primitive_float_value_sub_ARG_left_0:JavaPrimitiveFloatValue;
+            var SK_pred_java_primitive_float_value_sub_ARG_right_0:JavaPrimitiveFloatValue;
+            var SK_pred_java_primitive_float_value_sub_ARG_result_0:JavaPrimitiveFloatValue;
+            var SK_pred_java_primitive_float_value_sub_ARG_overflow_0:boolean;
+            havoc SK_pred_java_primitive_float_value_sub_ARG_left_0;
+            havoc SK_pred_java_primitive_float_value_sub_ARG_right_0;
+            havoc SK_pred_java_primitive_float_value_sub_ARG_result_0;
+            havoc SK_pred_java_primitive_float_value_sub_ARG_overflow_0;
+            assume equ[SK_pred_java_primitive_float_value_sub_ARG_left_0,
+               t_10];
+            assume equ[SK_pred_java_primitive_float_value_sub_ARG_right_0,
+               param_f2_8];
+            assume pred_java_primitive_float_value_sub_marker[SK_pred_java_primitive_float_value_sub_ARG_left_0,
+                                                      SK_pred_java_primitive_float_value_sub_ARG_right_0,
+                                                      SK_pred_java_primitive_float_value_sub_ARG_result_0,
+                                                      SK_pred_java_primitive_float_value_sub_ARG_overflow_0];
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               t_11:=SK_pred_java_primitive_float_value_sub_ARG_result_0;
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false)   {
+                  return:=t_11;
+                  exit_stmt_reached:=true;
+               
+               }
+             else {
+               skip;
+            };
+         
+         }
+      
+      }
+      skip;
+   
+   }
+
+
+program ar_edu_taco_skunk_Landing::initLandingOK[
+  var throw:java_lang_Throwable+null,
+  var return:boolean,
+  var height:JavaPrimitiveFloatValue] 
+Specification 
+{
+  SpecCase #0 {
+   requires {
+      true=true
+   }
+   
+   ensures {
+      instanceOf[throw',
+                java_lang_Exception]
+      implies 
+              liftExpression[false]
+   }
+   
+   ensures {
+      (
+        throw'=null)
+      implies 
+              liftExpression[true]
+   }
+   
+   modifies {
+   EVERYTHING}
+  }
+}
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         {
+            var param_height_0:JavaPrimitiveFloatValue;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               param_height_0:=height;
+            } else {
+               skip;
+            };
+            var t_1:java_lang_Boolean+null;
+            var t_2:boolean;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               call ar_edu_taco_skunk_Landing_isHeightPositive[throw,t_1,param_height_0];
+            } else {
+               skip;
+            };
+            var var_1_b:java_lang_Boolean+null;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               var_1_b:=t_1;
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[var_1_b]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  call booleanValue[var_1_b,throw,t_2];
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false)   {
+                  return:=t_2;
+                  exit_stmt_reached:=true;
+               
+               }
+             else {
+               skip;
+            };
+         
+         }
+      
+      }
+      skip;
+   
+   }
+
+
+program ar_edu_taco_skunk_Landing::isHeightPositive[
+  var throw:java_lang_Throwable+null,
+  var return:java_lang_Boolean+null,
+  var height:JavaPrimitiveFloatValue] 
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         {
+            var param_height_1:JavaPrimitiveFloatValue;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               param_height_1:=height;
+            } else {
+               skip;
+            };
+            var t_3:boolean;
+            var t_4:boolean;
+            var var_2_b:java_lang_Boolean+null;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               var_2_b:=((java_lang_Boolean+null) & (null));
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               t_3:=(pred_java_primitive_float_value_gt[param_height_1,
+                                                 JavaPrimitiveFloatLiteral0]=>(true)else(false));
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if t_3=true{
+                  if (
+                    throw=null)
+                  and 
+                  (
+                    exit_stmt_reached=false){
+                     if isEmptyOrNull[ClassFields]{
+                        throw:=java_lang_NullPointerExceptionLit;
+                     } else {
+                        var_2_b:=ClassFields.java_lang_Boolean_TRUE;
+                     };
+                  } else {
+                     skip;
+                  };
+               } else {
+                  skip;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               t_4:=(pred_java_primitive_float_value_lte[param_height_1,
+                                                  JavaPrimitiveFloatLiteral0]=>(true)else(false));
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if t_4=true{
+                  if (
+                    throw=null)
+                  and 
+                  (
+                    exit_stmt_reached=false){
+                     if isEmptyOrNull[ClassFields]{
+                        throw:=java_lang_NullPointerExceptionLit;
+                     } else {
+                        var_2_b:=ClassFields.java_lang_Boolean_FALSE;
+                     };
+                  } else {
+                     skip;
+                  };
+               } else {
+                  skip;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false)   {
+                  return:=var_2_b;
+                  exit_stmt_reached:=true;
+               
+               }
+             else {
+               skip;
+            };
+         
+         }
+      
+      }
+      skip;
+   
+   }
+
+
+program ar_edu_taco_skunk_Landing::aerodynamic1[
+  var thiz:ar_edu_taco_skunk_Landing,
+  var throw:java_lang_Throwable+null,
+  var return:boolean,
+  var i1:JavaPrimitiveIntegerValue,
+  var i2:JavaPrimitiveIntegerValue,
+  var i3:JavaPrimitiveIntegerValue,
+  var i4:JavaPrimitiveIntegerValue,
+  var i5:JavaPrimitiveIntegerValue] 
+Specification 
+{
+  SpecCase #0 {
+   requires {
+      neq[i1,
+         JavaPrimitiveIntegerLiteral1]
+      and 
+      neq[i2,
+         JavaPrimitiveIntegerLiteral1]
+      and 
+      neq[i3,
+         JavaPrimitiveIntegerLiteral1]
+      and 
+      neq[i4,
+         JavaPrimitiveIntegerLiteral1]
+      and 
+      neq[i5,
+         JavaPrimitiveIntegerLiteral1]
+   }
+   
+   ensures {
+      (
+        throw'=null)
+      implies 
+              equ[return',
+                 false]
+   }
+   
+   modifies {
+   EVERYTHING}
+  }
+}
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         {
+            var param_i1_2:JavaPrimitiveIntegerValue;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               param_i1_2:=i1;
+            } else {
+               skip;
+            };
+            var param_i2_3:JavaPrimitiveIntegerValue;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               param_i2_3:=i2;
+            } else {
+               skip;
+            };
+            var param_i3_4:JavaPrimitiveIntegerValue;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               param_i3_4:=i3;
+            } else {
+               skip;
+            };
+            var param_i4_5:JavaPrimitiveIntegerValue;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               param_i4_5:=i4;
+            } else {
+               skip;
+            };
+            var param_i5_6:JavaPrimitiveIntegerValue;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               param_i5_6:=i5;
+            } else {
+               skip;
+            };
+            var t_5:JavaPrimitiveIntegerValue;
+            var t_6:JavaPrimitiveIntegerValue;
+            var t_7:JavaPrimitiveIntegerValue;
+            var t_8:JavaPrimitiveIntegerValue;
+            var t_9:boolean;
+            var SK_pred_java_primitive_integer_value_mul_ARG_left_0:JavaPrimitiveIntegerValue;
+            var SK_pred_java_primitive_integer_value_mul_ARG_right_0:JavaPrimitiveIntegerValue;
+            var SK_pred_java_primitive_integer_value_mul_ARG_result_0:JavaPrimitiveIntegerValue;
+            var SK_pred_java_primitive_integer_value_mul_ARG_overflow_0:boolean;
+            havoc SK_pred_java_primitive_integer_value_mul_ARG_left_0;
+            havoc SK_pred_java_primitive_integer_value_mul_ARG_right_0;
+            havoc SK_pred_java_primitive_integer_value_mul_ARG_result_0;
+            havoc SK_pred_java_primitive_integer_value_mul_ARG_overflow_0;
+            assume equ[SK_pred_java_primitive_integer_value_mul_ARG_left_0,
+               param_i1_2];
+            assume equ[SK_pred_java_primitive_integer_value_mul_ARG_right_0,
+               param_i2_3];
+            assume pred_java_primitive_integer_value_mul_marker[SK_pred_java_primitive_integer_value_mul_ARG_left_0,
+                                                        SK_pred_java_primitive_integer_value_mul_ARG_right_0,
+                                                        SK_pred_java_primitive_integer_value_mul_ARG_result_0,
+                                                        SK_pred_java_primitive_integer_value_mul_ARG_overflow_0];
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               t_5:=SK_pred_java_primitive_integer_value_mul_ARG_result_0;
+            } else {
+               skip;
+            };
+            var SK_pred_java_primitive_integer_value_mul_ARG_left_1:JavaPrimitiveIntegerValue;
+            var SK_pred_java_primitive_integer_value_mul_ARG_right_1:JavaPrimitiveIntegerValue;
+            var SK_pred_java_primitive_integer_value_mul_ARG_result_1:JavaPrimitiveIntegerValue;
+            var SK_pred_java_primitive_integer_value_mul_ARG_overflow_1:boolean;
+            havoc SK_pred_java_primitive_integer_value_mul_ARG_left_1;
+            havoc SK_pred_java_primitive_integer_value_mul_ARG_right_1;
+            havoc SK_pred_java_primitive_integer_value_mul_ARG_result_1;
+            havoc SK_pred_java_primitive_integer_value_mul_ARG_overflow_1;
+            assume equ[SK_pred_java_primitive_integer_value_mul_ARG_left_1,
+               t_5];
+            assume equ[SK_pred_java_primitive_integer_value_mul_ARG_right_1,
+               param_i3_4];
+            assume pred_java_primitive_integer_value_mul_marker[SK_pred_java_primitive_integer_value_mul_ARG_left_1,
+                                                        SK_pred_java_primitive_integer_value_mul_ARG_right_1,
+                                                        SK_pred_java_primitive_integer_value_mul_ARG_result_1,
+                                                        SK_pred_java_primitive_integer_value_mul_ARG_overflow_1];
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               t_6:=SK_pred_java_primitive_integer_value_mul_ARG_result_1;
+            } else {
+               skip;
+            };
+            var SK_pred_java_primitive_integer_value_mul_ARG_left_2:JavaPrimitiveIntegerValue;
+            var SK_pred_java_primitive_integer_value_mul_ARG_right_2:JavaPrimitiveIntegerValue;
+            var SK_pred_java_primitive_integer_value_mul_ARG_result_2:JavaPrimitiveIntegerValue;
+            var SK_pred_java_primitive_integer_value_mul_ARG_overflow_2:boolean;
+            havoc SK_pred_java_primitive_integer_value_mul_ARG_left_2;
+            havoc SK_pred_java_primitive_integer_value_mul_ARG_right_2;
+            havoc SK_pred_java_primitive_integer_value_mul_ARG_result_2;
+            havoc SK_pred_java_primitive_integer_value_mul_ARG_overflow_2;
+            assume equ[SK_pred_java_primitive_integer_value_mul_ARG_left_2,
+               t_6];
+            assume equ[SK_pred_java_primitive_integer_value_mul_ARG_right_2,
+               param_i4_5];
+            assume pred_java_primitive_integer_value_mul_marker[SK_pred_java_primitive_integer_value_mul_ARG_left_2,
+                                                        SK_pred_java_primitive_integer_value_mul_ARG_right_2,
+                                                        SK_pred_java_primitive_integer_value_mul_ARG_result_2,
+                                                        SK_pred_java_primitive_integer_value_mul_ARG_overflow_2];
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               t_7:=SK_pred_java_primitive_integer_value_mul_ARG_result_2;
+            } else {
+               skip;
+            };
+            var SK_pred_java_primitive_integer_value_mul_ARG_left_3:JavaPrimitiveIntegerValue;
+            var SK_pred_java_primitive_integer_value_mul_ARG_right_3:JavaPrimitiveIntegerValue;
+            var SK_pred_java_primitive_integer_value_mul_ARG_result_3:JavaPrimitiveIntegerValue;
+            var SK_pred_java_primitive_integer_value_mul_ARG_overflow_3:boolean;
+            havoc SK_pred_java_primitive_integer_value_mul_ARG_left_3;
+            havoc SK_pred_java_primitive_integer_value_mul_ARG_right_3;
+            havoc SK_pred_java_primitive_integer_value_mul_ARG_result_3;
+            havoc SK_pred_java_primitive_integer_value_mul_ARG_overflow_3;
+            assume equ[SK_pred_java_primitive_integer_value_mul_ARG_left_3,
+               t_7];
+            assume equ[SK_pred_java_primitive_integer_value_mul_ARG_right_3,
+               param_i5_6];
+            assume pred_java_primitive_integer_value_mul_marker[SK_pred_java_primitive_integer_value_mul_ARG_left_3,
+                                                        SK_pred_java_primitive_integer_value_mul_ARG_right_3,
+                                                        SK_pred_java_primitive_integer_value_mul_ARG_result_3,
+                                                        SK_pred_java_primitive_integer_value_mul_ARG_overflow_3];
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               t_8:=SK_pred_java_primitive_integer_value_mul_ARG_result_3;
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               t_9:=(equ[t_8,
+                  JavaPrimitiveIntegerLiteral1]=>(true)else(false));
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if t_9=true{
+                  if (
+                    throw=null)
+                  and 
+                  (
+                    exit_stmt_reached=false)   {
+                        return:=true;
+                        exit_stmt_reached:=true;
+                     
+                     }
+                   else {
+                     skip;
+                  };
+               } else {
+                  if (
+                    throw=null)
+                  and 
+                  (
+                    exit_stmt_reached=false)   {
+                        return:=false;
+                        exit_stmt_reached:=true;
+                     
+                     }
+                   else {
+                     skip;
+                  };
+               };
+            } else {
+               skip;
+            };
+         
+         }
+      
+      }
+      skip;
+   
+   }
+
+
+

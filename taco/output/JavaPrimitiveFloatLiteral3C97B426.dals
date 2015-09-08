@@ -1,0 +1,42 @@
+one sig JavaPrimitiveFloatLiteral3C97B426 extends JavaPrimitiveFloatValue {}
+{pred_java_primitive_float_value_literal_3C97B426[JavaPrimitiveFloatLiteral3C97B426]
+}
+pred pred_java_primitive_float_value_literal_3C97B426[ret: JavaPrimitiveFloatValue] {
+ ret.b00=false 
+ ret.b01=true 
+ ret.b02=true 
+ ret.b03=false 
+ ret.b04=false 
+ ret.b05=true 
+ ret.b06=false 
+ ret.b07=false 
+ ret.b08=false 
+ ret.b09=false 
+ ret.b10=true 
+ ret.b11=false 
+ ret.b12=true 
+ ret.b13=true 
+ ret.b14=false 
+ ret.b15=true 
+ ret.b16=true 
+ ret.b17=true 
+ ret.b18=true 
+ ret.b19=false 
+ ret.b20=true 
+ ret.b21=false 
+ ret.b22=false 
+ ret.b23=true 
+ ret.b24=false 
+ ret.b25=false 
+ ret.b26=true 
+ ret.b27=true 
+ ret.b28=true 
+ ret.b29=true 
+ ret.b30=false 
+ ret.b31=false 
+}
+
+
+
+
+

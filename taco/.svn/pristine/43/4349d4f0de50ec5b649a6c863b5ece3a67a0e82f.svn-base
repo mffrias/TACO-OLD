@@ -1,0 +1,11 @@
+//-------------- ClassFields --------------//
+module ClassFields
+one sig ClassFields {}
+{}
+field ie_koa_Ballot_NONTRANSFERABLE:(ClassFields)->one(JavaPrimitiveLongValue) {}
+field ie_koa_Ballot_MAX_POSSIBLE_BALLOTS:(ClassFields)->one(JavaPrimitiveIntegerValue) {}
+field ie_koa_Ballot_uniqueID:(ClassFields)->one(JavaPrimitiveIntegerValue) {}
+field ie_koa_Ballot_MAXIMUM_ROUNDS_OF_COUNTING:(ClassFields)->one(JavaPrimitiveIntegerValue) {}
+field java_lang_Boolean_TRUE:(ClassFields)->one(java_lang_Boolean) {}
+field java_lang_Boolean_FALSE:(ClassFields)->one(java_lang_Boolean) {}
+

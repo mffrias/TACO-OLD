@@ -1,0 +1,515 @@
+sig SourcesEstebanPintos_AVLSymbolTable extends java_lang_Object {}
+{}
+
+
+
+
+pred SourcesEstebanPintos_AVLSymbolTable_object_invariant[
+  SourcesEstebanPintos_AVLSymbolTable_root:univ->univ,
+  SourcesEstebanPintos_Node_height:univ->univ,
+  SourcesEstebanPintos_Node_key:univ->univ,
+  SourcesEstebanPintos_Node_left:univ->univ,
+  SourcesEstebanPintos_Node_right:univ->univ,
+  thiz:univ
+]{
+   (
+     not (
+       thiz.SourcesEstebanPintos_AVLSymbolTable_root=null)
+   )
+   and 
+   (
+     all n:SourcesEstebanPintos_Node+null | {
+       equ[fun_set_contains[fun_reach[thiz.SourcesEstebanPintos_AVLSymbolTable_root,SourcesEstebanPintos_Node,SourcesEstebanPintos_Node_right+SourcesEstebanPintos_Node_left],n],
+          true]
+       implies 
+               (
+                 equ[fun_set_contains[fun_reach[n.SourcesEstebanPintos_Node_left,SourcesEstebanPintos_Node,SourcesEstebanPintos_Node_left+SourcesEstebanPintos_Node_right],n],
+                    false]
+                 and 
+                 equ[fun_set_contains[fun_reach[n.SourcesEstebanPintos_Node_right,SourcesEstebanPintos_Node,SourcesEstebanPintos_Node_left+SourcesEstebanPintos_Node_right],n],
+                    false]
+                 and 
+                 (
+                   (
+                     neq[n.SourcesEstebanPintos_Node_left,
+                        null]
+                     and 
+                     equ[n.SourcesEstebanPintos_Node_right,
+                        null]
+                   )
+                   implies 
+                           pred_java_primitive_integer_value_lt[n.SourcesEstebanPintos_Node_height,
+                                                               JavaPrimitiveIntegerLiteral2]
+                 )
+                 and 
+                 (
+                   (
+                     neq[n.SourcesEstebanPintos_Node_right,
+                        null]
+                     and 
+                     equ[n.SourcesEstebanPintos_Node_left,
+                        null]
+                   )
+                   implies 
+                           pred_java_primitive_integer_value_lt[n.SourcesEstebanPintos_Node_height,
+                                                               JavaPrimitiveIntegerLiteral2]
+                 )
+                 and 
+                 (
+                   (
+                     equ[n.SourcesEstebanPintos_Node_right,
+                        null]
+                     and 
+                     equ[n.SourcesEstebanPintos_Node_left,
+                        null]
+                   )
+                   implies 
+                           equ[n.SourcesEstebanPintos_Node_height,
+                              JavaPrimitiveIntegerLiteral0]
+                 )
+                 and 
+                 (
+                   all nLeft:SourcesEstebanPintos_Node+null | {
+                     equ[fun_set_contains[fun_reach[n.SourcesEstebanPintos_Node_left,SourcesEstebanPintos_Node,SourcesEstebanPintos_Node_left+SourcesEstebanPintos_Node_right],nLeft],
+                        true]
+                     implies 
+                             pred_java_primitive_integer_value_lt[nLeft.SourcesEstebanPintos_Node_key,
+                                                                 n.SourcesEstebanPintos_Node_key]
+                   
+                   }
+                 )
+                 and 
+                 (
+                   all nRight:SourcesEstebanPintos_Node+null | {
+                     equ[fun_set_contains[fun_reach[n.SourcesEstebanPintos_Node_right,SourcesEstebanPintos_Node,SourcesEstebanPintos_Node_left+SourcesEstebanPintos_Node_right],nRight],
+                        true]
+                     implies 
+                             pred_java_primitive_integer_value_gte[nRight.SourcesEstebanPintos_Node_key,
+                                                                  n.SourcesEstebanPintos_Node_key]
+                   
+                   }
+                 )
+               )
+     
+     }
+   )
+
+}
+
+pred SourcesEstebanPintos_AVLSymbolTable_ensures[
+  SourcesEstebanPintos_AVLSymbolTable_root':univ->univ,
+  SourcesEstebanPintos_Node_key':univ->univ,
+  SourcesEstebanPintos_Node_left':univ->univ,
+  SourcesEstebanPintos_Node_right':univ->univ,
+  key':univ,
+  return':univ,
+  thiz':univ,
+  throw':univ
+]{
+   (
+     instanceOf[throw',
+               java_lang_Exception]
+     implies 
+             liftExpression[false]
+   )
+   and 
+   (
+     (
+       throw'=null)
+     implies 
+             (
+               (
+                 equ[return',
+                    true]
+                 implies 
+                         (
+                           some n:SourcesEstebanPintos_Node+null | {
+                             equ[n.SourcesEstebanPintos_Node_key',
+                                key']
+                             and 
+                             equ[fun_set_contains[fun_reach[thiz'.SourcesEstebanPintos_AVLSymbolTable_root',SourcesEstebanPintos_Node,SourcesEstebanPintos_Node_left'+SourcesEstebanPintos_Node_right'],n],
+                                true]
+                           
+                           }
+                         )
+               )
+               and 
+               (
+                 (
+                   some n:SourcesEstebanPintos_Node+null | {
+                     equ[n.SourcesEstebanPintos_Node_key',
+                        key']
+                     and 
+                     equ[fun_set_contains[fun_reach[thiz'.SourcesEstebanPintos_AVLSymbolTable_root',SourcesEstebanPintos_Node,SourcesEstebanPintos_Node_left'+SourcesEstebanPintos_Node_right'],n],
+                        true]
+                   
+                   }
+                 )
+                 implies 
+                         equ[return',
+                            true]
+               )
+             )
+   )
+
+}
+
+pred SourcesEstebanPintos_AVLSymbolTableCondition3[
+  thiz:univ
+]{
+   not (
+     isEmptyOrNull[thiz])
+
+}
+
+pred SourcesEstebanPintos_AVLSymbolTableCondition2[
+  thiz:univ
+]{
+   isEmptyOrNull[thiz]
+
+}
+
+pred SourcesEstebanPintos_AVLSymbolTableCondition5[
+  var_3_tree:univ
+]{
+   not (
+     isEmptyOrNull[var_3_tree])
+
+}
+
+pred SourcesEstebanPintos_AVLSymbolTableCondition1[
+  exit_stmt_reached:univ,
+  throw:univ
+]{
+   not (
+     (
+       throw=null)
+     and 
+     (
+       exit_stmt_reached=false)
+   )
+
+}
+
+pred SourcesEstebanPintos_AVLSymbolTable_requires[
+]{
+   true=true
+
+}
+
+pred precondition_SourcesEstebanPintos_AVLSymbolTable_search_0[
+  SourcesEstebanPintos_AVLSymbolTable_root:univ->univ,
+  SourcesEstebanPintos_Node_height:univ->univ,
+  SourcesEstebanPintos_Node_key:univ->univ,
+  SourcesEstebanPintos_Node_left:univ->univ,
+  SourcesEstebanPintos_Node_right:univ->univ,
+  throw:univ
+]{
+   (
+     all objx:SourcesEstebanPintos_AVLSymbolTable | {
+       SourcesEstebanPintos_AVLSymbolTable_object_invariant[SourcesEstebanPintos_AVLSymbolTable_root,
+                                                           SourcesEstebanPintos_Node_height,
+                                                           SourcesEstebanPintos_Node_key,
+                                                           SourcesEstebanPintos_Node_left,
+                                                           SourcesEstebanPintos_Node_right,
+                                                           objx]
+     
+     }
+   )
+   and 
+   equ[throw,
+      null]
+   and 
+   SourcesEstebanPintos_AVLSymbolTable_requires[]
+
+}
+
+pred postcondition_SourcesEstebanPintos_AVLSymbolTable_search_0[
+  SourcesEstebanPintos_AVLSymbolTable_root':univ->univ,
+  SourcesEstebanPintos_Node_key':univ->univ,
+  SourcesEstebanPintos_Node_left':univ->univ,
+  SourcesEstebanPintos_Node_right':univ->univ,
+  key':univ,
+  return':univ,
+  thiz':univ,
+  throw':univ
+]{
+   SourcesEstebanPintos_AVLSymbolTable_ensures[SourcesEstebanPintos_AVLSymbolTable_root',
+                                              SourcesEstebanPintos_Node_key',
+                                              SourcesEstebanPintos_Node_left',
+                                              SourcesEstebanPintos_Node_right',
+                                              key',
+                                              return',
+                                              thiz',
+                                              throw']
+   and 
+   (
+     not (
+       throw'=AssertionFailureLit)
+   )
+
+}
+
+pred SourcesEstebanPintos_AVLSymbolTableCondition4[
+  var_3_tree:univ
+]{
+   isEmptyOrNull[var_3_tree]
+
+}
+
+pred SourcesEstebanPintos_AVLSymbolTableCondition0[
+  exit_stmt_reached:univ,
+  throw:univ
+]{
+   (
+     throw=null)
+   and 
+   (
+     exit_stmt_reached=false)
+
+}
+
+pred SourcesEstebanPintos_AVLSymbolTableCondition8[
+  t_2:univ
+]{
+   t_2=true
+
+}
+
+pred SourcesEstebanPintos_AVLSymbolTableCondition7[
+  t_1:univ
+]{
+   not (
+     t_1=true)
+
+}
+
+pred SourcesEstebanPintos_AVLSymbolTableCondition9[
+  t_2:univ
+]{
+   not (
+     t_2=true)
+
+}
+
+pred SourcesEstebanPintos_AVLSymbolTableCondition10[
+  exit_stmt_reached:univ,
+  throw:univ,
+  var_4_ws_2:univ
+]{
+   liftExpression[var_4_ws_2]
+   and 
+   (
+     throw=null)
+   and 
+   (
+     exit_stmt_reached=false)
+
+}
+
+pred SourcesEstebanPintos_AVLSymbolTableCondition6[
+  t_1:univ
+]{
+   t_1=true
+
+}
+
+program SourcesEstebanPintos_AVLSymbolTable_search_0[
+  thiz:SourcesEstebanPintos_AVLSymbolTable,
+  throw:java_lang_Throwable+null,
+  return:boolean,
+  key:JavaPrimitiveIntegerValue,
+  SourcesEstebanPintos_Node_height:(SourcesEstebanPintos_Node)->one(JavaPrimitiveIntegerValue),
+  SourcesEstebanPintos_AVLSymbolTable_root:(SourcesEstebanPintos_AVLSymbolTable)->one(SourcesEstebanPintos_Node+null),
+  SourcesEstebanPintos_Node_left:(SourcesEstebanPintos_Node)->one(SourcesEstebanPintos_Node+null),
+  SourcesEstebanPintos_Node_right:(SourcesEstebanPintos_Node)->one(SourcesEstebanPintos_Node+null),
+  SourcesEstebanPintos_Node_key:(SourcesEstebanPintos_Node)->one(JavaPrimitiveIntegerValue),
+  usedObjects:set (java_lang_Object)
+] var [
+  t_2:boolean,
+  exit_stmt_reached:boolean,
+  t_1:boolean,
+  param_key_1:JavaPrimitiveIntegerValue,
+  var_4_ws_2:boolean,
+  var_3_tree:SourcesEstebanPintos_Node+null
+]{
+   skip;
+   throw:=null;
+   skip;
+   exit_stmt_reached:=false;
+   skip;
+   if SourcesEstebanPintos_AVLSymbolTableCondition0[exit_stmt_reached,throw]  {
+      param_key_1:=key
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip;
+   if SourcesEstebanPintos_AVLSymbolTableCondition0[exit_stmt_reached,throw]  {
+      if SourcesEstebanPintos_AVLSymbolTableCondition2[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         var_3_tree:=thiz.SourcesEstebanPintos_AVLSymbolTable_root
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip;
+   if SourcesEstebanPintos_AVLSymbolTableCondition0[exit_stmt_reached,throw]  {
+      var_4_ws_2:=(neq[var_3_tree,null]=>(true)else(false))
+   
+   } else {
+      skip
+   
+   }
+   ;
+   while SourcesEstebanPintos_AVLSymbolTableCondition10[exit_stmt_reached,throw,var_4_ws_2]do {
+      skip;
+      if SourcesEstebanPintos_AVLSymbolTableCondition0[exit_stmt_reached,throw]  {
+         t_2:=(equ[param_key_1,var_3_tree.SourcesEstebanPintos_Node_key]=>(true)else(false))
+      
+      } else {
+         skip
+      
+      }
+      ;
+      if SourcesEstebanPintos_AVLSymbolTableCondition0[exit_stmt_reached,throw]  {
+         if SourcesEstebanPintos_AVLSymbolTableCondition8[t_2]  {
+            if SourcesEstebanPintos_AVLSymbolTableCondition0[exit_stmt_reached,throw]  {
+               return:=true;
+               exit_stmt_reached:=true
+            
+            } else {
+               skip
+            
+            }
+         
+         } else {
+            skip;
+            if SourcesEstebanPintos_AVLSymbolTableCondition0[exit_stmt_reached,throw]  {
+               t_1:=(pred_java_primitive_integer_value_lt[param_key_1,var_3_tree.SourcesEstebanPintos_Node_key]=>(true)else(false))
+            
+            } else {
+               skip
+            
+            }
+            ;
+            if SourcesEstebanPintos_AVLSymbolTableCondition0[exit_stmt_reached,throw]  {
+               if SourcesEstebanPintos_AVLSymbolTableCondition6[t_1]  {
+                  if SourcesEstebanPintos_AVLSymbolTableCondition0[exit_stmt_reached,throw]  {
+                     if SourcesEstebanPintos_AVLSymbolTableCondition4[var_3_tree]  {
+                        throw:=java_lang_NullPointerExceptionLit
+                     
+                     } else {
+                        var_3_tree:=var_3_tree.SourcesEstebanPintos_Node_left
+                     
+                     }
+                  
+                  } else {
+                     skip
+                  
+                  }
+               
+               } else {
+                  if SourcesEstebanPintos_AVLSymbolTableCondition0[exit_stmt_reached,throw]  {
+                     if SourcesEstebanPintos_AVLSymbolTableCondition4[var_3_tree]  {
+                        throw:=java_lang_NullPointerExceptionLit
+                     
+                     } else {
+                        var_3_tree:=var_3_tree.SourcesEstebanPintos_Node_right
+                     
+                     }
+                  
+                  } else {
+                     skip
+                  
+                  }
+               
+               }
+            
+            } else {
+               skip
+            
+            }
+         
+         }
+      
+      } else {
+         skip
+      
+      }
+      ;
+      if SourcesEstebanPintos_AVLSymbolTableCondition0[exit_stmt_reached,throw]  {
+         var_4_ws_2:=(neq[var_3_tree,null]=>(true)else(false))
+      
+      } else {
+         skip
+      
+      }
+   
+   }
+   ;
+   if SourcesEstebanPintos_AVLSymbolTableCondition0[exit_stmt_reached,throw]  {
+      return:=false;
+      exit_stmt_reached:=true
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip
+
+}
+
+assertCorrectness check_SourcesEstebanPintos_AVLSymbolTable_search_0[
+  SourcesEstebanPintos_AVLSymbolTable_root:(SourcesEstebanPintos_AVLSymbolTable)->one(SourcesEstebanPintos_Node+null),
+  SourcesEstebanPintos_Node_height:(SourcesEstebanPintos_Node)->one(JavaPrimitiveIntegerValue),
+  SourcesEstebanPintos_Node_key:(SourcesEstebanPintos_Node)->one(JavaPrimitiveIntegerValue),
+  SourcesEstebanPintos_Node_left:(SourcesEstebanPintos_Node)->one(SourcesEstebanPintos_Node+null),
+  SourcesEstebanPintos_Node_right:(SourcesEstebanPintos_Node)->one(SourcesEstebanPintos_Node+null),
+  exit_stmt_reached:boolean,
+  key:JavaPrimitiveIntegerValue,
+  param_key_1:JavaPrimitiveIntegerValue,
+  return:boolean,
+  t_1:boolean,
+  t_2:boolean,
+  thiz:SourcesEstebanPintos_AVLSymbolTable,
+  throw:java_lang_Throwable+null,
+  usedObjects:set (java_lang_Object),
+  var_3_tree:SourcesEstebanPintos_Node+null,
+  var_4_ws_2:boolean
+]{
+pre={
+   precondition_SourcesEstebanPintos_AVLSymbolTable_search_0[SourcesEstebanPintos_AVLSymbolTable_root,
+                                                            SourcesEstebanPintos_Node_height,
+                                                            SourcesEstebanPintos_Node_key,
+                                                            SourcesEstebanPintos_Node_left,
+                                                            SourcesEstebanPintos_Node_right,
+                                                            throw]
+
+}
+program={
+   call SourcesEstebanPintos_AVLSymbolTable_search_0[thiz,throw,return,key,SourcesEstebanPintos_Node_height,SourcesEstebanPintos_AVLSymbolTable_root,SourcesEstebanPintos_Node_left,SourcesEstebanPintos_Node_right,SourcesEstebanPintos_Node_key,usedObjects]
+
+}
+post={
+   postcondition_SourcesEstebanPintos_AVLSymbolTable_search_0[SourcesEstebanPintos_AVLSymbolTable_root',
+                                                             SourcesEstebanPintos_Node_key',
+                                                             SourcesEstebanPintos_Node_left',
+                                                             SourcesEstebanPintos_Node_right',
+                                                             key',
+                                                             return',
+                                                             thiz',
+                                                             throw']
+
+}
+}
+

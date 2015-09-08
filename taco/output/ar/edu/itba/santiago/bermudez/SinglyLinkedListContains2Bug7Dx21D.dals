@@ -1,0 +1,1004 @@
+sig ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21D extends java_lang_Object {}
+{}
+
+
+
+
+pred ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition10[
+  roops_core_objects_SinglyLinkedListNode_next:univ->univ,
+  var_1_current:univ
+]{
+   pred_java_primitive_integer_value_lt[fun_java_primitive_integer_value_size_of[fun_reach[var_1_current,roops_core_objects_SinglyLinkedListNode,roops_core_objects_SinglyLinkedListNode_next]],
+                                       JavaPrimitiveIntegerLiteral0]
+
+}
+
+pred ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition15[
+  t_9:univ
+]{
+   not (
+     t_9=true)
+
+}
+
+pred ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition17[
+  t_7:univ
+]{
+   not (
+     t_7=true)
+
+}
+
+pred ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition28[
+  t_13:univ
+]{
+   t_13=true
+
+}
+
+pred ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition11[
+  roops_core_objects_SinglyLinkedListNode_next:univ->univ,
+  var_1_current:univ
+]{
+   not (
+     pred_java_primitive_integer_value_lt[fun_java_primitive_integer_value_size_of[fun_reach[var_1_current,roops_core_objects_SinglyLinkedListNode,roops_core_objects_SinglyLinkedListNode_next]],
+                                         JavaPrimitiveIntegerLiteral0]
+   )
+
+}
+
+pred ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition29[
+  t_13:univ
+]{
+   not (
+     t_13=true)
+
+}
+
+pred ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition14[
+  t_9:univ
+]{
+   t_9=true
+
+}
+
+pred ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition16[
+  t_7:univ
+]{
+   t_7=true
+
+}
+
+pred ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition18[
+  t_4:univ
+]{
+   t_4=true
+
+}
+
+pred ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition19[
+  t_4:univ
+]{
+   not (
+     t_4=true)
+
+}
+
+pred ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition0[
+  exit_stmt_reached:univ,
+  throw:univ
+]{
+   (
+     throw=null)
+   and 
+   (
+     exit_stmt_reached=false)
+
+}
+
+pred ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition4[
+  t_3:univ
+]{
+   t_3=true
+
+}
+
+pred ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition7[
+  t_2:univ
+]{
+   not (
+     t_2=true)
+
+}
+
+pred ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition1[
+  exit_stmt_reached:univ,
+  throw:univ
+]{
+   not (
+     (
+       throw=null)
+     and 
+     (
+       exit_stmt_reached=false)
+   )
+
+}
+
+pred ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition5[
+  t_3:univ
+]{
+   not (
+     t_3=true)
+
+}
+
+pred precondition_ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21D_contains_0[
+  ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21D_header:univ->univ,
+  booleanValue:univ->univ,
+  java_lang_Boolean_FALSE:univ->univ,
+  java_lang_Boolean_TRUE:univ->univ,
+  return:univ,
+  roops_core_objects_SinglyLinkedListNode_next:univ->univ,
+  roops_core_objects_SinglyLinkedListNode_value:univ->univ,
+  thiz:univ,
+  throw:univ,
+  usedObjects:univ,
+  valueParam:univ
+]{
+   ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21D_requires[ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21D_header,
+                                                                            booleanValue,
+                                                                            java_lang_Boolean_FALSE,
+                                                                            java_lang_Boolean_TRUE,
+                                                                            return,
+                                                                            roops_core_objects_SinglyLinkedListNode_next,
+                                                                            roops_core_objects_SinglyLinkedListNode_value,
+                                                                            thiz,
+                                                                            usedObjects,
+                                                                            valueParam]
+   and 
+   equ[throw,
+      null]
+   and 
+   (
+     all objx:ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21D | {
+       ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21D_object_invariant[ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21D_header,
+                                                                                        roops_core_objects_SinglyLinkedListNode_next,
+                                                                                        objx]
+     
+     }
+   )
+
+}
+
+pred ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition6[
+  t_2:univ
+]{
+   t_2=true
+
+}
+
+pred ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition25[
+  t_10:univ
+]{
+   not (
+     t_10=true)
+
+}
+
+pred ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition24[
+  t_10:univ
+]{
+   t_10=true
+
+}
+
+pred ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition9[
+  throw:univ
+]{
+   not (
+     isEmptyOrNull[throw])
+
+}
+
+pred ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition33[
+  roops_core_objects_SinglyLinkedListNode_next:univ->univ,
+  var_1_current:univ,
+  variant_0:univ
+]{
+   not (
+     pred_java_primitive_integer_value_gte[fun_java_primitive_integer_value_size_of[fun_reach[var_1_current,roops_core_objects_SinglyLinkedListNode,roops_core_objects_SinglyLinkedListNode_next]],
+                                          variant_0]
+   )
+
+}
+
+pred ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition8[
+  throw:univ
+]{
+   isEmptyOrNull[throw]
+
+}
+
+pred ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21D_object_invariant[
+  ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21D_header:univ->univ,
+  roops_core_objects_SinglyLinkedListNode_next:univ->univ,
+  thiz:univ
+]{
+   all n:null+roops_core_objects_SinglyLinkedListNode | {
+     liftExpression[fun_set_contains[fun_reach[thiz.ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21D_header,roops_core_objects_SinglyLinkedListNode,roops_core_objects_SinglyLinkedListNode_next],n]]
+     implies 
+             equ[fun_set_contains[fun_reach[n.roops_core_objects_SinglyLinkedListNode_next,roops_core_objects_SinglyLinkedListNode,roops_core_objects_SinglyLinkedListNode_next],n],
+                false]
+   
+   }
+
+}
+
+pred ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition3[
+  thiz:univ
+]{
+   not (
+     isEmptyOrNull[thiz])
+
+}
+
+pred ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition2[
+  thiz:univ
+]{
+   isEmptyOrNull[thiz]
+
+}
+
+pred ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition34[
+  exit_stmt_reached:univ,
+  throw:univ,
+  var_3_ws_1:univ
+]{
+   liftExpression[var_3_ws_1]
+   and 
+   (
+     throw=null)
+   and 
+   (
+     exit_stmt_reached=false)
+
+}
+
+pred ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21D_ensures[
+  ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21D_header':univ->univ,
+  return':univ,
+  roops_core_objects_SinglyLinkedListNode_next':univ->univ,
+  roops_core_objects_SinglyLinkedListNode_value':univ->univ,
+  thiz':univ,
+  throw':univ,
+  valueParam':univ
+]{
+   (
+     instanceOf[throw',
+               java_lang_RuntimeException]
+     implies 
+             liftExpression[false]
+   )
+   and 
+   (
+     (
+       throw'=null)
+     implies 
+             (
+               equ[return',
+                  true]
+               implies 
+                       (
+                         some n:null+roops_core_objects_SinglyLinkedListNode | {
+                           liftExpression[fun_set_contains[fun_reach[thiz'.ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21D_header',roops_core_objects_SinglyLinkedListNode,roops_core_objects_SinglyLinkedListNode_next'],n]]
+                           and 
+                           equ[n.roops_core_objects_SinglyLinkedListNode_value',
+                              valueParam']
+                         
+                         }
+                       )
+             )
+   )
+   and 
+   (
+     (
+       throw'=null)
+     implies 
+             (
+               (
+                 some n:null+roops_core_objects_SinglyLinkedListNode | {
+                   liftExpression[fun_set_contains[fun_reach[thiz'.ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21D_header',roops_core_objects_SinglyLinkedListNode,roops_core_objects_SinglyLinkedListNode_next'],n]]
+                   and 
+                   equ[n.roops_core_objects_SinglyLinkedListNode_value',
+                      valueParam']
+                 
+                 }
+               )
+               implies 
+                       equ[return',
+                          true]
+             )
+   )
+
+}
+
+pred postcondition_ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21D_contains_0[
+  ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21D_header':univ->univ,
+  return':univ,
+  roops_core_objects_SinglyLinkedListNode_next':univ->univ,
+  roops_core_objects_SinglyLinkedListNode_value':univ->univ,
+  thiz':univ,
+  throw':univ,
+  valueParam':univ
+]{
+   ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21D_ensures[ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21D_header',
+                                                                           return',
+                                                                           roops_core_objects_SinglyLinkedListNode_next',
+                                                                           roops_core_objects_SinglyLinkedListNode_value',
+                                                                           thiz',
+                                                                           throw',
+                                                                           valueParam']
+   and 
+   (
+     not (
+       throw'=AssertionFailureLit)
+   )
+
+}
+
+pred ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition32[
+  roops_core_objects_SinglyLinkedListNode_next:univ->univ,
+  var_1_current:univ,
+  variant_0:univ
+]{
+   pred_java_primitive_integer_value_gte[fun_java_primitive_integer_value_size_of[fun_reach[var_1_current,roops_core_objects_SinglyLinkedListNode,roops_core_objects_SinglyLinkedListNode_next]],
+                                        variant_0]
+
+}
+
+pred ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition30[
+  t_12:univ
+]{
+   t_12=true
+
+}
+
+pred ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition23[
+  t_6:univ
+]{
+   not (
+     t_6=true)
+
+}
+
+pred ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21D_requires[
+  ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21D_header:univ->univ,
+  booleanValue:univ->univ,
+  java_lang_Boolean_FALSE:univ->univ,
+  java_lang_Boolean_TRUE:univ->univ,
+  return:univ,
+  roops_core_objects_SinglyLinkedListNode_next:univ->univ,
+  roops_core_objects_SinglyLinkedListNode_value:univ->univ,
+  thiz:univ,
+  usedObjects:univ,
+  valueParam:univ
+]{
+   (
+     true=true)
+   and 
+   (
+     usedObjects=fun_weak_reach[none+thiz+return+valueParam+(ClassFields.java_lang_Boolean_TRUE)+(ClassFields.java_lang_Boolean_FALSE),java_lang_Object,(none)->(none)+ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21D_header+roops_core_objects_SinglyLinkedListNode_next+roops_core_objects_SinglyLinkedListNode_value+booleanValue])
+
+}
+
+pred ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition27[
+  var_1_current:univ
+]{
+   not (
+     isEmptyOrNull[var_1_current])
+
+}
+
+pred ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition13[
+  t_8:univ
+]{
+   not (
+     isEmptyOrNull[t_8])
+
+}
+
+pred ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition12[
+  t_8:univ
+]{
+   isEmptyOrNull[t_8]
+
+}
+
+pred ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition21[
+  t_5:univ
+]{
+   not (
+     t_5=true)
+
+}
+
+pred ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition22[
+  t_6:univ
+]{
+   t_6=true
+
+}
+
+pred ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition20[
+  t_5:univ
+]{
+   t_5=true
+
+}
+
+pred ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition26[
+  var_1_current:univ
+]{
+   isEmptyOrNull[var_1_current]
+
+}
+
+pred ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition31[
+  t_12:univ
+]{
+   not (
+     t_12=true)
+
+}
+
+program ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21D_contains_0[
+  thiz:ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21D,
+  throw:java_lang_Throwable+null,
+  return:boolean,
+  valueParam:java_lang_Object+null,
+  roops_core_objects_SinglyLinkedListNode_next:(roops_core_objects_SinglyLinkedListNode)->one(null+roops_core_objects_SinglyLinkedListNode),
+  roops_core_objects_SinglyLinkedListNode_value:(roops_core_objects_SinglyLinkedListNode)->one(java_lang_Object+null),
+  ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21D_header:(ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21D)->one(null+roops_core_objects_SinglyLinkedListNode),
+  java_lang_Boolean_FALSE:(ClassFields)->one(java_lang_Boolean),
+  java_lang_Boolean_TRUE:(ClassFields)->one(java_lang_Boolean),
+  booleanValue:(java_lang_Boolean)->one(boolean),
+  usedObjects:set (java_lang_Object)
+] var [
+  var_4_equalVal:boolean,
+  param_valueParam_0:java_lang_Object+null,
+  t_13:boolean,
+  t_11:boolean,
+  t_12:boolean,
+  t_10:boolean,
+  t_2:boolean,
+  t_3:boolean,
+  exit_stmt_reached:boolean,
+  t_1:boolean,
+  var_1_current:null+roops_core_objects_SinglyLinkedListNode,
+  var_2_result:boolean,
+  variant_0:JavaPrimitiveIntegerValue,
+  t_8:java_lang_Boolean+null,
+  t_9:boolean,
+  t_6:boolean,
+  var_3_ws_1:boolean,
+  t_7:boolean,
+  t_4:boolean,
+  t_5:boolean
+]{
+   skip;
+   throw:=null;
+   skip;
+   exit_stmt_reached:=false;
+   skip;
+   if ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition0[exit_stmt_reached,throw]  {
+      param_valueParam_0:=valueParam
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip;
+   skip;
+   skip;
+   skip;
+   skip;
+   if ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition0[exit_stmt_reached,throw]  {
+      if ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition2[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         var_1_current:=thiz.ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21D_header
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition0[exit_stmt_reached,throw]  {
+      var_2_result:=false
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip;
+   if ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition0[exit_stmt_reached,throw]  {
+      t_2:=(equ[var_2_result,false]=>(true)else(false))
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition0[exit_stmt_reached,throw]  {
+      if ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition6[t_2]  {
+         if ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition0[exit_stmt_reached,throw]  {
+            t_3:=(neq[var_1_current,null]=>(true)else(false))
+         
+         } else {
+            skip
+         
+         }
+         ;
+         if ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition0[exit_stmt_reached,throw]  {
+            if ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition4[t_3]  {
+               if ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition0[exit_stmt_reached,throw]  {
+                  t_1:=true
+               
+               } else {
+                  skip
+               
+               }
+            
+            } else {
+               if ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition0[exit_stmt_reached,throw]  {
+                  t_1:=false
+               
+               } else {
+                  skip
+               
+               }
+            
+            }
+         
+         } else {
+            skip
+         
+         }
+      
+      } else {
+         if ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition0[exit_stmt_reached,throw]  {
+            t_1:=false
+         
+         } else {
+            skip
+         
+         }
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition0[exit_stmt_reached,throw]  {
+      var_3_ws_1:=t_1
+   
+   } else {
+      skip
+   
+   }
+   ;
+   while ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition34[exit_stmt_reached,throw,var_3_ws_1]do {
+      skip;
+      if ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition0[exit_stmt_reached,throw]  {
+         variant_0:=fun_java_primitive_integer_value_size_of[fun_reach[var_1_current,roops_core_objects_SinglyLinkedListNode,roops_core_objects_SinglyLinkedListNode_next]]
+      
+      } else {
+         skip
+      
+      }
+      ;
+      if ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition0[exit_stmt_reached,throw]  {
+         if ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition10[roops_core_objects_SinglyLinkedListNode_next,var_1_current]  {
+            getUnusedObject[throw,usedObjects];
+            assume instanceOf[throw,java_lang_Object];
+            if ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition8[throw]  {
+               throw:=java_lang_NullPointerExceptionLit
+            
+            } else {
+               call java_lang_Throwable_Constructor_0[throw,throw,roops_core_objects_SinglyLinkedListNode_next,roops_core_objects_SinglyLinkedListNode_value,ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21D_header,java_lang_Boolean_FALSE,java_lang_Boolean_TRUE,booleanValue,usedObjects]
+            
+            }
+         
+         } else {
+            skip
+         
+         }
+      
+      } else {
+         skip
+      
+      }
+      ;
+      skip;
+      skip;
+      skip;
+      skip;
+      skip;
+      skip;
+      skip;
+      skip;
+      skip;
+      if ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition0[exit_stmt_reached,throw]  {
+         t_7:=(equ[valueParam,null]=>(true)else(false))
+      
+      } else {
+         skip
+      
+      }
+      ;
+      if ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition0[exit_stmt_reached,throw]  {
+         getUnusedObject[t_8,usedObjects];
+         assume instanceOf[t_8,java_lang_Boolean];
+         if ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition12[t_8]  {
+            throw:=java_lang_NullPointerExceptionLit
+         
+         } else {
+            call java_lang_Boolean_Constructor_0[t_8,throw,false,roops_core_objects_SinglyLinkedListNode_next,roops_core_objects_SinglyLinkedListNode_value,ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21D_header,java_lang_Boolean_FALSE,java_lang_Boolean_TRUE,booleanValue,usedObjects]
+         
+         }
+      
+      } else {
+         skip
+      
+      }
+      ;
+      if ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition0[exit_stmt_reached,throw]  {
+         if ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition16[t_7]  {
+            if ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition0[exit_stmt_reached,throw]  {
+               t_9:=(equ[var_1_current.roops_core_objects_SinglyLinkedListNode_value,t_8]=>(true)else(false))
+            
+            } else {
+               skip
+            
+            }
+            ;
+            if ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition0[exit_stmt_reached,throw]  {
+               if ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition14[t_9]  {
+                  if ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition0[exit_stmt_reached,throw]  {
+                     t_6:=true
+                  
+                  } else {
+                     skip
+                  
+                  }
+               
+               } else {
+                  if ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition0[exit_stmt_reached,throw]  {
+                     t_6:=false
+                  
+                  } else {
+                     skip
+                  
+                  }
+               
+               }
+            
+            } else {
+               skip
+            
+            }
+         
+         } else {
+            if ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition0[exit_stmt_reached,throw]  {
+               t_6:=false
+            
+            } else {
+               skip
+            
+            }
+         
+         }
+      
+      } else {
+         skip
+      
+      }
+      ;
+      if ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition0[exit_stmt_reached,throw]  {
+         if ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition22[t_6]  {
+            if ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition0[exit_stmt_reached,throw]  {
+               var_4_equalVal:=true
+            
+            } else {
+               skip
+            
+            }
+         
+         } else {
+            skip;
+            if ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition0[exit_stmt_reached,throw]  {
+               t_5:=(neq[valueParam,null]=>(true)else(false))
+            
+            } else {
+               skip
+            
+            }
+            ;
+            if ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition0[exit_stmt_reached,throw]  {
+               if ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition20[t_5]  {
+                  skip;
+                  if ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition0[exit_stmt_reached,throw]  {
+                     t_4:=(equ[valueParam,var_1_current.roops_core_objects_SinglyLinkedListNode_value]=>(true)else(false))
+                  
+                  } else {
+                     skip
+                  
+                  }
+                  ;
+                  if ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition0[exit_stmt_reached,throw]  {
+                     if ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition18[t_4]  {
+                        if ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition0[exit_stmt_reached,throw]  {
+                           var_4_equalVal:=true
+                        
+                        } else {
+                           skip
+                        
+                        }
+                     
+                     } else {
+                        if ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition0[exit_stmt_reached,throw]  {
+                           var_4_equalVal:=false
+                        
+                        } else {
+                           skip
+                        
+                        }
+                     
+                     }
+                  
+                  } else {
+                     skip
+                  
+                  }
+               
+               } else {
+                  if ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition0[exit_stmt_reached,throw]  {
+                     var_4_equalVal:=false
+                  
+                  } else {
+                     skip
+                  
+                  }
+               
+               }
+            
+            } else {
+               skip
+            
+            }
+         
+         }
+      
+      } else {
+         skip
+      
+      }
+      ;
+      if ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition0[exit_stmt_reached,throw]  {
+         t_10:=(equ[var_4_equalVal,true]=>(true)else(false))
+      
+      } else {
+         skip
+      
+      }
+      ;
+      if ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition0[exit_stmt_reached,throw]  {
+         if ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition24[t_10]  {
+            if ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition0[exit_stmt_reached,throw]  {
+               var_2_result:=var_4_equalVal
+            
+            } else {
+               skip
+            
+            }
+         
+         } else {
+            skip
+         
+         }
+      
+      } else {
+         skip
+      
+      }
+      ;
+      if ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition0[exit_stmt_reached,throw]  {
+         if ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition26[var_1_current]  {
+            throw:=java_lang_NullPointerExceptionLit
+         
+         } else {
+            var_1_current:=var_1_current.roops_core_objects_SinglyLinkedListNode_next
+         
+         }
+      
+      } else {
+         skip
+      
+      }
+      ;
+      if ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition0[exit_stmt_reached,throw]  {
+         t_12:=(equ[var_2_result,false]=>(true)else(false))
+      
+      } else {
+         skip
+      
+      }
+      ;
+      if ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition0[exit_stmt_reached,throw]  {
+         if ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition30[t_12]  {
+            if ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition0[exit_stmt_reached,throw]  {
+               t_13:=(neq[var_1_current,null]=>(true)else(false))
+            
+            } else {
+               skip
+            
+            }
+            ;
+            if ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition0[exit_stmt_reached,throw]  {
+               if ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition28[t_13]  {
+                  if ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition0[exit_stmt_reached,throw]  {
+                     t_11:=true
+                  
+                  } else {
+                     skip
+                  
+                  }
+               
+               } else {
+                  if ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition0[exit_stmt_reached,throw]  {
+                     t_11:=false
+                  
+                  } else {
+                     skip
+                  
+                  }
+               
+               }
+            
+            } else {
+               skip
+            
+            }
+         
+         } else {
+            if ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition0[exit_stmt_reached,throw]  {
+               t_11:=false
+            
+            } else {
+               skip
+            
+            }
+         
+         }
+      
+      } else {
+         skip
+      
+      }
+      ;
+      if ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition0[exit_stmt_reached,throw]  {
+         var_3_ws_1:=t_11
+      
+      } else {
+         skip
+      
+      }
+      ;
+      if ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition0[exit_stmt_reached,throw]  {
+         if ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition32[roops_core_objects_SinglyLinkedListNode_next,var_1_current,variant_0]  {
+            getUnusedObject[throw,usedObjects];
+            assume instanceOf[throw,java_lang_Object];
+            if ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition8[throw]  {
+               throw:=java_lang_NullPointerExceptionLit
+            
+            } else {
+               call java_lang_Throwable_Constructor_0[throw,throw,roops_core_objects_SinglyLinkedListNode_next,roops_core_objects_SinglyLinkedListNode_value,ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21D_header,java_lang_Boolean_FALSE,java_lang_Boolean_TRUE,booleanValue,usedObjects]
+            
+            }
+         
+         } else {
+            skip
+         
+         }
+      
+      } else {
+         skip
+      
+      }
+   
+   }
+   ;
+   if ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21DCondition0[exit_stmt_reached,throw]  {
+      return:=var_2_result;
+      exit_stmt_reached:=true
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip
+
+}
+
+assertCorrectness check_ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21D_contains_0[
+  ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21D_header:(ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21D)->one(null+roops_core_objects_SinglyLinkedListNode),
+  booleanValue:(java_lang_Boolean)->one(boolean),
+  exit_stmt_reached:boolean,
+  java_lang_Boolean_FALSE:(ClassFields)->one(java_lang_Boolean),
+  java_lang_Boolean_TRUE:(ClassFields)->one(java_lang_Boolean),
+  param_valueParam_0:java_lang_Object+null,
+  return:boolean,
+  roops_core_objects_SinglyLinkedListNode_next:(roops_core_objects_SinglyLinkedListNode)->one(null+roops_core_objects_SinglyLinkedListNode),
+  roops_core_objects_SinglyLinkedListNode_value:(roops_core_objects_SinglyLinkedListNode)->one(java_lang_Object+null),
+  t_1:boolean,
+  t_10:boolean,
+  t_11:boolean,
+  t_12:boolean,
+  t_13:boolean,
+  t_2:boolean,
+  t_3:boolean,
+  t_4:boolean,
+  t_5:boolean,
+  t_6:boolean,
+  t_7:boolean,
+  t_8:java_lang_Boolean+null,
+  t_9:boolean,
+  thiz:ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21D,
+  throw:java_lang_Throwable+null,
+  usedObjects:set (java_lang_Object),
+  valueParam:java_lang_Object+null,
+  var_1_current:null+roops_core_objects_SinglyLinkedListNode,
+  var_2_result:boolean,
+  var_3_ws_1:boolean,
+  var_4_equalVal:boolean,
+  variant_0:JavaPrimitiveIntegerValue
+]{
+pre={
+   precondition_ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21D_contains_0[ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21D_header,
+                                                                                           booleanValue,
+                                                                                           java_lang_Boolean_FALSE,
+                                                                                           java_lang_Boolean_TRUE,
+                                                                                           return,
+                                                                                           roops_core_objects_SinglyLinkedListNode_next,
+                                                                                           roops_core_objects_SinglyLinkedListNode_value,
+                                                                                           thiz,
+                                                                                           throw,
+                                                                                           usedObjects,
+                                                                                           valueParam]
+
+}
+program={
+   call ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21D_contains_0[thiz,throw,return,valueParam,roops_core_objects_SinglyLinkedListNode_next,roops_core_objects_SinglyLinkedListNode_value,ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21D_header,java_lang_Boolean_FALSE,java_lang_Boolean_TRUE,booleanValue,usedObjects]
+
+}
+post={
+   postcondition_ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21D_contains_0[ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21D_header',
+                                                                                            return',
+                                                                                            roops_core_objects_SinglyLinkedListNode_next',
+                                                                                            roops_core_objects_SinglyLinkedListNode_value',
+                                                                                            thiz',
+                                                                                            throw',
+                                                                                            valueParam']
+
+}
+}
+

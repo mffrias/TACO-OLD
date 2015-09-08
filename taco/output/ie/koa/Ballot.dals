@@ -1,0 +1,1389 @@
+sig ie_koa_Ballot extends java_lang_Object {}
+{}
+
+
+
+
+pred ie_koa_BallotCondition10[
+]{
+   isEmptyOrNull[ClassFields]
+
+}
+
+pred ie_koa_BallotCondition11[
+]{
+   not (
+     isEmptyOrNull[ClassFields])
+
+}
+
+pred ie_koa_Ballot_object_constraint[
+  ie_koa_Ballot_positionInList:univ->univ,
+  ie_koa_Ballot_positionInList':univ->univ,
+  ie_koa_Ballot_randomNumber:univ->univ,
+  ie_koa_Ballot_randomNumber':univ->univ,
+  thiz:univ,
+  thiz':univ
+]{
+   equ[thiz'.ie_koa_Ballot_randomNumber',
+      thiz.ie_koa_Ballot_randomNumber]
+   and 
+   pred_java_primitive_integer_value_lte[thiz.ie_koa_Ballot_positionInList,
+                                        thiz'.ie_koa_Ballot_positionInList']
+
+}
+
+pred ie_koa_BallotCondition14[
+  SK_pred_java_primitive_integer_value_mul_ARG_left_0:univ,
+  SK_pred_java_primitive_integer_value_mul_ARG_overflow_0:univ,
+  SK_pred_java_primitive_integer_value_mul_ARG_result_0:univ,
+  SK_pred_java_primitive_integer_value_mul_ARG_right_0:univ
+]{
+   pred_java_primitive_integer_value_mul_marker[SK_pred_java_primitive_integer_value_mul_ARG_left_0,
+                                               SK_pred_java_primitive_integer_value_mul_ARG_right_0,
+                                               SK_pred_java_primitive_integer_value_mul_ARG_result_0,
+                                               SK_pred_java_primitive_integer_value_mul_ARG_overflow_0]
+
+}
+
+pred precondition_ie_koa_Ballot_Ballot_0[
+  ie_koa_Ballot_MAXIMUM_ROUNDS_OF_COUNTING:univ->univ,
+  ie_koa_Ballot_MAX_POSSIBLE_BALLOTS:univ->univ,
+  ie_koa_Ballot_NONTRANSFERABLE:univ->univ,
+  ie_koa_Ballot_SystemcurrentTimeMillis:univ->univ,
+  ie_koa_Ballot_ballotID:univ->univ,
+  ie_koa_Ballot_candidateID:univ->univ,
+  ie_koa_Ballot_candidateIDAtCount:univ->univ,
+  ie_koa_Ballot_countNumberAtLastTransfer:univ->univ,
+  ie_koa_Ballot_numberOfPreferences:univ->univ,
+  ie_koa_Ballot_positionInList:univ->univ,
+  ie_koa_Ballot_preferenceList:univ->univ,
+  ie_koa_Ballot_randomNumber:univ->univ,
+  ie_koa_Ballot_uniqueID:univ->univ,
+  java_lang_IntArray_contents:univ->univ->univ,
+  java_lang_IntArray_length:univ->univ,
+  thiz:univ,
+  throw:univ,
+  usedObjects:univ
+]{
+   java_lang_IntArray_object_invariant[java_lang_IntArray_length]
+   and 
+   equ[throw,
+      null]
+   and 
+   ie_koa_Ballot_object_invariant[ie_koa_Ballot_MAXIMUM_ROUNDS_OF_COUNTING,
+                                 ie_koa_Ballot_NONTRANSFERABLE,
+                                 ie_koa_Ballot_ballotID,
+                                 ie_koa_Ballot_candidateID,
+                                 ie_koa_Ballot_candidateIDAtCount,
+                                 ie_koa_Ballot_countNumberAtLastTransfer,
+                                 ie_koa_Ballot_numberOfPreferences,
+                                 ie_koa_Ballot_positionInList,
+                                 ie_koa_Ballot_preferenceList,
+                                 ie_koa_Ballot_randomNumber,
+                                 java_lang_IntArray_contents,
+                                 java_lang_IntArray_length,
+                                 thiz]
+   and 
+   ie_koa_Ballot_requires[ie_koa_Ballot_MAXIMUM_ROUNDS_OF_COUNTING,
+                         ie_koa_Ballot_MAX_POSSIBLE_BALLOTS,
+                         ie_koa_Ballot_NONTRANSFERABLE,
+                         ie_koa_Ballot_SystemcurrentTimeMillis,
+                         ie_koa_Ballot_ballotID,
+                         ie_koa_Ballot_candidateID,
+                         ie_koa_Ballot_candidateIDAtCount,
+                         ie_koa_Ballot_countNumberAtLastTransfer,
+                         ie_koa_Ballot_numberOfPreferences,
+                         ie_koa_Ballot_positionInList,
+                         ie_koa_Ballot_preferenceList,
+                         ie_koa_Ballot_randomNumber,
+                         ie_koa_Ballot_uniqueID,
+                         java_lang_IntArray_length,
+                         thiz,
+                         usedObjects]
+
+}
+
+pred java_lang_IntArray_object_invariant[
+  java_lang_IntArray_length:univ->univ
+]{
+   all oa:java_lang_IntArray | {
+     pred_java_primitive_integer_value_gte_zero[oa.java_lang_IntArray_length]
+   }
+
+}
+
+pred ie_koa_BallotCondition15[
+  auxVarForArithmeticExceptionDivisionByZeroJavaPrimitiveIntegerValue_0:univ,
+  ie_koa_Ballot_MAX_POSSIBLE_BALLOTS:univ->univ
+]{
+   equ[auxVarForArithmeticExceptionDivisionByZeroJavaPrimitiveIntegerValue_0,
+      ClassFields.ie_koa_Ballot_MAX_POSSIBLE_BALLOTS]
+
+}
+
+pred ie_koa_BallotCondition25[
+  t_7:univ
+]{
+   not (
+     t_7=true)
+
+}
+
+pred ie_koa_BallotCondition24[
+  t_7:univ
+]{
+   t_7=true
+
+}
+
+pred ie_koa_BallotCondition21[
+  auxVarForArithmeticExceptionDivisionByZeroJavaPrimitiveIntegerValue_0:univ
+]{
+   not (
+     pred_java_primitive_integer_value_eq[auxVarForArithmeticExceptionDivisionByZeroJavaPrimitiveIntegerValue_0,
+                                         JavaPrimitiveIntegerLiteral0]
+   )
+
+}
+
+pred ie_koa_BallotCondition20[
+  auxVarForArithmeticExceptionDivisionByZeroJavaPrimitiveIntegerValue_0:univ
+]{
+   pred_java_primitive_integer_value_eq[auxVarForArithmeticExceptionDivisionByZeroJavaPrimitiveIntegerValue_0,
+                                       JavaPrimitiveIntegerLiteral0]
+
+}
+
+pred ie_koa_BallotCondition5[
+  t_1:univ
+]{
+   not (
+     isEmptyOrNull[t_1])
+
+}
+
+pred ie_koa_BallotCondition23[
+]{
+   not (
+     isEmptyOrNull[ClassFields]
+     or 
+     isEmptyOrNull[ClassFields]
+   )
+
+}
+
+pred ie_koa_BallotCondition4[
+  t_1:univ
+]{
+   isEmptyOrNull[t_1]
+
+}
+
+pred ie_koa_BallotCondition22[
+]{
+   isEmptyOrNull[ClassFields]
+   or 
+   isEmptyOrNull[ClassFields]
+
+}
+
+pred ie_koa_Ballot_object_invariant[
+  ie_koa_Ballot_MAXIMUM_ROUNDS_OF_COUNTING:univ->univ,
+  ie_koa_Ballot_NONTRANSFERABLE:univ->univ,
+  ie_koa_Ballot_ballotID:univ->univ,
+  ie_koa_Ballot_candidateID:univ->univ,
+  ie_koa_Ballot_candidateIDAtCount:univ->univ,
+  ie_koa_Ballot_countNumberAtLastTransfer:univ->univ,
+  ie_koa_Ballot_numberOfPreferences:univ->univ,
+  ie_koa_Ballot_positionInList:univ->univ,
+  ie_koa_Ballot_preferenceList:univ->univ,
+  ie_koa_Ballot_randomNumber:univ->univ,
+  java_lang_IntArray_contents:univ->univ->univ,
+  java_lang_IntArray_length:univ->univ,
+  thiz:univ
+]{
+   (
+     (
+       pred_java_primitive_integer_value_lte[JavaPrimitiveIntegerLiteral0,
+                                            thiz.ie_koa_Ballot_positionInList]
+       and 
+       pred_java_primitive_integer_value_lt[thiz.ie_koa_Ballot_positionInList,
+                                           thiz.ie_koa_Ballot_numberOfPreferences]
+     )
+     implies 
+             equ[thiz.ie_koa_Ballot_candidateID,
+                ((JavaPrimitiveIntegerValue) & (arrayAccess[thiz.ie_koa_Ballot_preferenceList,java_lang_IntArray_contents,thiz.ie_koa_Ballot_positionInList]))]
+   )
+   and 
+   (
+     all a:ie_koa_Ballot+null,
+     b:ie_koa_Ballot+null | {
+       (
+         neq[a,
+            null]
+         and 
+         neq[b,
+            null]
+         and 
+         pred_java_primitive_long_value_lt[JavaPrimitiveLongLiteral0,
+                                          a.ie_koa_Ballot_ballotID]
+         and 
+         pred_java_primitive_long_value_lt[JavaPrimitiveLongLiteral0,
+                                          b.ie_koa_Ballot_ballotID]
+       )
+       implies 
+               (
+                 (
+                   equ[a.ie_koa_Ballot_ballotID,
+                      b.ie_koa_Ballot_ballotID]
+                   implies 
+                           equ[a,
+                              b]
+                 )
+                 and 
+                 (
+                   equ[a,
+                      b]
+                   implies 
+                           equ[a.ie_koa_Ballot_ballotID,
+                              b.ie_koa_Ballot_ballotID]
+                 )
+               )
+     
+     }
+   )
+   and 
+   (
+     all a:ie_koa_Ballot+null,
+     b:ie_koa_Ballot+null | {
+       (
+         neq[a,
+            null]
+         and 
+         neq[b,
+            null]
+       )
+       implies 
+               (
+                 (
+                   equ[a.ie_koa_Ballot_randomNumber,
+                      b.ie_koa_Ballot_randomNumber]
+                   implies 
+                           equ[a,
+                              b]
+                 )
+                 and 
+                 (
+                   equ[a,
+                      b]
+                   implies 
+                           equ[a.ie_koa_Ballot_randomNumber,
+                              b.ie_koa_Ballot_randomNumber]
+                 )
+               )
+     
+     }
+   )
+   and 
+   pred_java_primitive_integer_value_lt[thiz.ie_koa_Ballot_countNumberAtLastTransfer,
+                                       ClassFields.ie_koa_Ballot_MAXIMUM_ROUNDS_OF_COUNTING]
+   and 
+   equ[arrayLength[thiz.ie_koa_Ballot_candidateIDAtCount,java_lang_IntArray_length],
+      ClassFields.ie_koa_Ballot_MAXIMUM_ROUNDS_OF_COUNTING]
+   and 
+   pred_java_primitive_integer_value_lte[JavaPrimitiveIntegerLiteral0,
+                                        thiz.ie_koa_Ballot_positionInList]
+   and 
+   pred_java_primitive_integer_value_lte[thiz.ie_koa_Ballot_positionInList,
+                                        thiz.ie_koa_Ballot_numberOfPreferences]
+   and 
+   equ[arrayLength[thiz.ie_koa_Ballot_preferenceList,java_lang_IntArray_length],
+      thiz.ie_koa_Ballot_numberOfPreferences]
+   and 
+   liftExpression[Or[(equ[thiz.ie_koa_Ballot_ballotID,
+      JavaPrimitiveLongLiteral0]=>(true)else(false)),(pred_java_primitive_long_value_lt[JavaPrimitiveLongLiteral0,
+                                    thiz.ie_koa_Ballot_ballotID]=>(true)else(false))]]
+   and 
+   pred_java_primitive_integer_value_lte[JavaPrimitiveIntegerLiteral0,
+                                        thiz.ie_koa_Ballot_countNumberAtLastTransfer]
+   and 
+   (
+     equ[thiz.ie_koa_Ballot_positionInList,
+        thiz.ie_koa_Ballot_numberOfPreferences]
+     implies 
+             equ[thiz.ie_koa_Ballot_candidateID,
+                ClassFields.ie_koa_Ballot_NONTRANSFERABLE]
+   )
+   and 
+   (
+     all i:JavaPrimitiveIntegerValue,
+     j:JavaPrimitiveIntegerValue | {
+       (
+         pred_java_primitive_integer_value_lt[JavaPrimitiveIntegerLiteral0,
+                                             i]
+         and 
+         pred_java_primitive_integer_value_lt[i,
+                                             thiz.ie_koa_Ballot_numberOfPreferences]
+         and 
+         pred_java_primitive_integer_value_lte[JavaPrimitiveIntegerLiteral0,
+                                              j]
+         and 
+         pred_java_primitive_integer_value_lt[j,
+                                             i]
+       )
+       implies 
+               neq[((JavaPrimitiveIntegerValue) & (arrayAccess[thiz.ie_koa_Ballot_preferenceList,java_lang_IntArray_contents,i])),
+                  ((JavaPrimitiveIntegerValue) & (arrayAccess[thiz.ie_koa_Ballot_preferenceList,java_lang_IntArray_contents,j]))]
+     
+     }
+   )
+   and 
+   (
+     not (
+       thiz.ie_koa_Ballot_preferenceList=null)
+   )
+   and 
+   liftExpression[Or[(equ[JavaPrimitiveIntegerLiteral0,
+      thiz.ie_koa_Ballot_numberOfPreferences]=>(true)else(false)),(pred_java_primitive_integer_value_lt[JavaPrimitiveIntegerLiteral0,
+                                       thiz.ie_koa_Ballot_numberOfPreferences]=>(true)else(false))]]
+   and 
+   (
+     pred_java_primitive_long_value_lt[JavaPrimitiveLongLiteral0,
+                                      thiz.ie_koa_Ballot_candidateID]
+     or 
+     equ[thiz.ie_koa_Ballot_candidateID,
+        ClassFields.ie_koa_Ballot_NONTRANSFERABLE]
+   )
+   and 
+   (
+     all i:JavaPrimitiveIntegerValue | {
+       (
+         pred_java_primitive_integer_value_lte[JavaPrimitiveIntegerLiteral0,
+                                              i]
+         and 
+         pred_java_primitive_integer_value_lt[i,
+                                             thiz.ie_koa_Ballot_numberOfPreferences]
+       )
+       implies 
+               (
+                 pred_java_primitive_integer_value_gt[((JavaPrimitiveIntegerValue) & (arrayAccess[thiz.ie_koa_Ballot_preferenceList,java_lang_IntArray_contents,i])),
+                                                     JavaPrimitiveIntegerLiteral0]
+                 and 
+                 neq[((JavaPrimitiveIntegerValue) & (arrayAccess[thiz.ie_koa_Ballot_preferenceList,java_lang_IntArray_contents,i])),
+                    ClassFields.ie_koa_Ballot_NONTRANSFERABLE]
+               )
+     
+     }
+   )
+   and 
+   (
+     not (
+       thiz.ie_koa_Ballot_candidateIDAtCount=null)
+   )
+
+}
+
+pred ie_koa_BallotCondition17[
+  SK_pred_java_primitive_integer_value_div_rem_ARG_right_1:univ
+]{
+   equ[SK_pred_java_primitive_integer_value_div_rem_ARG_right_1,
+      JavaPrimitiveIntegerLiteral1]
+
+}
+
+pred ie_koa_BallotCondition19[
+  SK_pred_java_primitive_integer_value_div_rem_ARG_right_1:univ,
+  ie_koa_Ballot_MAX_POSSIBLE_BALLOTS:univ->univ
+]{
+   equ[SK_pred_java_primitive_integer_value_div_rem_ARG_right_1,
+      ClassFields.ie_koa_Ballot_MAX_POSSIBLE_BALLOTS]
+
+}
+
+pred ie_koa_BallotCondition8[
+  thiz:univ
+]{
+   isEmptyOrNull[thiz]
+   or 
+   isEmptyOrNull[ClassFields]
+
+}
+
+pred ie_koa_BallotCondition7[
+  t_2:univ
+]{
+   not (
+     isEmptyOrNull[ClassFields]
+     or 
+     isEmptyOrNull[t_2]
+   )
+
+}
+
+pred ie_koa_BallotCondition6[
+  t_2:univ
+]{
+   isEmptyOrNull[ClassFields]
+   or 
+   isEmptyOrNull[t_2]
+
+}
+
+pred ie_koa_BallotCondition13[
+  SK_pred_java_primitive_integer_value_mul_ARG_right_0:univ,
+  t_4:univ
+]{
+   equ[SK_pred_java_primitive_integer_value_mul_ARG_right_0,
+      t_4]
+
+}
+
+pred ie_koa_BallotCondition16[
+  SK_pred_java_primitive_integer_value_div_rem_ARG_left_1:univ,
+  t_5:univ
+]{
+   equ[SK_pred_java_primitive_integer_value_div_rem_ARG_left_1,
+      t_5]
+
+}
+
+pred ie_koa_Ballot_requires[
+  ie_koa_Ballot_MAXIMUM_ROUNDS_OF_COUNTING:univ->univ,
+  ie_koa_Ballot_MAX_POSSIBLE_BALLOTS:univ->univ,
+  ie_koa_Ballot_NONTRANSFERABLE:univ->univ,
+  ie_koa_Ballot_SystemcurrentTimeMillis:univ->univ,
+  ie_koa_Ballot_ballotID:univ->univ,
+  ie_koa_Ballot_candidateID:univ->univ,
+  ie_koa_Ballot_candidateIDAtCount:univ->univ,
+  ie_koa_Ballot_countNumberAtLastTransfer:univ->univ,
+  ie_koa_Ballot_numberOfPreferences:univ->univ,
+  ie_koa_Ballot_positionInList:univ->univ,
+  ie_koa_Ballot_preferenceList:univ->univ,
+  ie_koa_Ballot_randomNumber:univ->univ,
+  ie_koa_Ballot_uniqueID:univ->univ,
+  java_lang_IntArray_length:univ->univ,
+  thiz:univ,
+  usedObjects:univ
+]{
+   usedObjects=fun_weak_reach[none+thiz+(ClassFields.ie_koa_Ballot_NONTRANSFERABLE)+(ClassFields.ie_koa_Ballot_MAX_POSSIBLE_BALLOTS)+(ClassFields.ie_koa_Ballot_uniqueID)+(ClassFields.ie_koa_Ballot_MAXIMUM_ROUNDS_OF_COUNTING),java_lang_Object,(none)->(none)+ie_koa_Ballot_ballotID+ie_koa_Ballot_candidateID+ie_koa_Ballot_preferenceList+ie_koa_Ballot_numberOfPreferences+ie_koa_Ballot_positionInList+ie_koa_Ballot_candidateIDAtCount+ie_koa_Ballot_countNumberAtLastTransfer+ie_koa_Ballot_randomNumber+ie_koa_Ballot_SystemcurrentTimeMillis+java_lang_IntArray_length]
+
+}
+
+pred ie_koa_BallotCondition9[
+  thiz:univ
+]{
+   not (
+     isEmptyOrNull[thiz]
+     or 
+     isEmptyOrNull[ClassFields]
+   )
+
+}
+
+pred ie_koa_BallotCondition12[
+  SK_pred_java_primitive_integer_value_mul_ARG_left_0:univ,
+  ie_koa_Ballot_SystemcurrentTimeMillis:univ->univ,
+  thiz:univ
+]{
+   equ[SK_pred_java_primitive_integer_value_mul_ARG_left_0,
+      thiz.ie_koa_Ballot_SystemcurrentTimeMillis]
+
+}
+
+pred ie_koa_BallotCondition2[
+  exit_stmt_reached:univ,
+  throw:univ
+]{
+   (
+     throw=null)
+   and 
+   (
+     exit_stmt_reached=false)
+
+}
+
+pred postcondition_ie_koa_Ballot_Ballot_0[
+  ie_koa_Ballot_MAXIMUM_ROUNDS_OF_COUNTING':univ->univ,
+  ie_koa_Ballot_NONTRANSFERABLE':univ->univ,
+  ie_koa_Ballot_SystemcurrentTimeMillis:univ->univ,
+  ie_koa_Ballot_SystemcurrentTimeMillis':univ->univ,
+  ie_koa_Ballot_ballotID:univ->univ,
+  ie_koa_Ballot_ballotID':univ->univ,
+  ie_koa_Ballot_candidateID:univ->univ,
+  ie_koa_Ballot_candidateID':univ->univ,
+  ie_koa_Ballot_candidateIDAtCount:univ->univ,
+  ie_koa_Ballot_candidateIDAtCount':univ->univ,
+  ie_koa_Ballot_countNumberAtLastTransfer:univ->univ,
+  ie_koa_Ballot_countNumberAtLastTransfer':univ->univ,
+  ie_koa_Ballot_numberOfPreferences:univ->univ,
+  ie_koa_Ballot_numberOfPreferences':univ->univ,
+  ie_koa_Ballot_positionInList:univ->univ,
+  ie_koa_Ballot_positionInList':univ->univ,
+  ie_koa_Ballot_preferenceList:univ->univ,
+  ie_koa_Ballot_preferenceList':univ->univ,
+  ie_koa_Ballot_randomNumber:univ->univ,
+  ie_koa_Ballot_randomNumber':univ->univ,
+  java_lang_IntArray_contents':univ->univ->univ,
+  java_lang_IntArray_length':univ->univ,
+  thiz':univ,
+  throw':univ
+]{
+   ie_koa_Ballot_ensures[ie_koa_Ballot_NONTRANSFERABLE',
+                        ie_koa_Ballot_SystemcurrentTimeMillis,
+                        ie_koa_Ballot_SystemcurrentTimeMillis',
+                        ie_koa_Ballot_ballotID,
+                        ie_koa_Ballot_ballotID',
+                        ie_koa_Ballot_candidateID,
+                        ie_koa_Ballot_candidateID',
+                        ie_koa_Ballot_candidateIDAtCount,
+                        ie_koa_Ballot_candidateIDAtCount',
+                        ie_koa_Ballot_countNumberAtLastTransfer,
+                        ie_koa_Ballot_countNumberAtLastTransfer',
+                        ie_koa_Ballot_numberOfPreferences,
+                        ie_koa_Ballot_numberOfPreferences',
+                        ie_koa_Ballot_positionInList,
+                        ie_koa_Ballot_positionInList',
+                        ie_koa_Ballot_preferenceList,
+                        ie_koa_Ballot_preferenceList',
+                        ie_koa_Ballot_randomNumber,
+                        ie_koa_Ballot_randomNumber',
+                        thiz',
+                        throw']
+   and 
+   (
+     not (
+       throw'=AssertionFailureLit)
+   )
+   and 
+   ie_koa_Ballot_object_invariant[ie_koa_Ballot_MAXIMUM_ROUNDS_OF_COUNTING',
+                                 ie_koa_Ballot_NONTRANSFERABLE',
+                                 ie_koa_Ballot_ballotID',
+                                 ie_koa_Ballot_candidateID',
+                                 ie_koa_Ballot_candidateIDAtCount',
+                                 ie_koa_Ballot_countNumberAtLastTransfer',
+                                 ie_koa_Ballot_numberOfPreferences',
+                                 ie_koa_Ballot_positionInList',
+                                 ie_koa_Ballot_preferenceList',
+                                 ie_koa_Ballot_randomNumber',
+                                 java_lang_IntArray_contents',
+                                 java_lang_IntArray_length',
+                                 thiz']
+   and 
+   (
+     all objx:ie_koa_Ballot | {
+       ie_koa_Ballot_object_constraint[ie_koa_Ballot_positionInList,
+                                      ie_koa_Ballot_positionInList',
+                                      ie_koa_Ballot_randomNumber,
+                                      ie_koa_Ballot_randomNumber',
+                                      objx,
+                                      objx]
+     
+     }
+   )
+
+}
+
+pred ie_koa_BallotCondition0[
+  thiz:univ
+]{
+   isEmptyOrNull[thiz]
+
+}
+
+pred ie_koa_Ballot_ensures[
+  ie_koa_Ballot_NONTRANSFERABLE':univ->univ,
+  ie_koa_Ballot_SystemcurrentTimeMillis:univ->univ,
+  ie_koa_Ballot_SystemcurrentTimeMillis':univ->univ,
+  ie_koa_Ballot_ballotID:univ->univ,
+  ie_koa_Ballot_ballotID':univ->univ,
+  ie_koa_Ballot_candidateID:univ->univ,
+  ie_koa_Ballot_candidateID':univ->univ,
+  ie_koa_Ballot_candidateIDAtCount:univ->univ,
+  ie_koa_Ballot_candidateIDAtCount':univ->univ,
+  ie_koa_Ballot_countNumberAtLastTransfer:univ->univ,
+  ie_koa_Ballot_countNumberAtLastTransfer':univ->univ,
+  ie_koa_Ballot_numberOfPreferences:univ->univ,
+  ie_koa_Ballot_numberOfPreferences':univ->univ,
+  ie_koa_Ballot_positionInList:univ->univ,
+  ie_koa_Ballot_positionInList':univ->univ,
+  ie_koa_Ballot_preferenceList:univ->univ,
+  ie_koa_Ballot_preferenceList':univ->univ,
+  ie_koa_Ballot_randomNumber:univ->univ,
+  ie_koa_Ballot_randomNumber':univ->univ,
+  thiz':univ,
+  throw':univ
+]{
+   (
+     (
+       throw'=null)
+     implies 
+             equ[thiz'.ie_koa_Ballot_ballotID',
+                JavaPrimitiveLongLiteral0]
+   )
+   and 
+   (
+     (
+       throw'=null)
+     implies 
+             equ[thiz'.ie_koa_Ballot_candidateID',
+                ClassFields.ie_koa_Ballot_NONTRANSFERABLE']
+   )
+   and 
+   (
+     (
+       throw'=null)
+     implies 
+             equ[thiz'.ie_koa_Ballot_positionInList',
+                JavaPrimitiveIntegerLiteral0]
+   )
+   and 
+   (
+     (
+       throw'=null)
+     implies 
+             equ[thiz'.ie_koa_Ballot_countNumberAtLastTransfer',
+                JavaPrimitiveIntegerLiteral0]
+   )
+   and 
+   (
+     (
+       throw'=null)
+     implies 
+             equ[thiz'.ie_koa_Ballot_numberOfPreferences',
+                JavaPrimitiveIntegerLiteral0]
+   )
+   and 
+   (
+     all mod_q_0:ie_koa_Ballot | {
+       (
+         not (
+           mod_q_0.ie_koa_Ballot_ballotID=mod_q_0.ie_koa_Ballot_ballotID')
+       )
+       implies 
+               (
+                 mod_q_0=thiz')
+     
+     }
+   )
+   and 
+   (
+     all mod_q_1:ie_koa_Ballot | {
+       (
+         not (
+           mod_q_1.ie_koa_Ballot_candidateID=mod_q_1.ie_koa_Ballot_candidateID')
+       )
+       implies 
+               (
+                 mod_q_1=thiz')
+     
+     }
+   )
+   and 
+   (
+     all mod_q_2:ie_koa_Ballot | {
+       (
+         not (
+           mod_q_2.ie_koa_Ballot_preferenceList=mod_q_2.ie_koa_Ballot_preferenceList')
+       )
+       implies 
+               (
+                 mod_q_2=thiz')
+     
+     }
+   )
+   and 
+   (
+     all mod_q_3:ie_koa_Ballot | {
+       (
+         not (
+           mod_q_3.ie_koa_Ballot_numberOfPreferences=mod_q_3.ie_koa_Ballot_numberOfPreferences')
+       )
+       implies 
+               (
+                 mod_q_3=thiz')
+     
+     }
+   )
+   and 
+   (
+     all mod_q_4:ie_koa_Ballot | {
+       (
+         not (
+           mod_q_4.ie_koa_Ballot_positionInList=mod_q_4.ie_koa_Ballot_positionInList')
+       )
+       implies 
+               (
+                 mod_q_4=thiz')
+     
+     }
+   )
+   and 
+   (
+     all mod_q_5:ie_koa_Ballot | {
+       (
+         not (
+           mod_q_5.ie_koa_Ballot_candidateIDAtCount=mod_q_5.ie_koa_Ballot_candidateIDAtCount')
+       )
+       implies 
+               (
+                 mod_q_5=thiz')
+     
+     }
+   )
+   and 
+   (
+     all mod_q_6:ie_koa_Ballot | {
+       (
+         not (
+           mod_q_6.ie_koa_Ballot_countNumberAtLastTransfer=mod_q_6.ie_koa_Ballot_countNumberAtLastTransfer')
+       )
+       implies 
+               (
+                 mod_q_6=thiz')
+     
+     }
+   )
+   and 
+   (
+     all mod_q_7:ie_koa_Ballot | {
+       (
+         not (
+           mod_q_7.ie_koa_Ballot_randomNumber=mod_q_7.ie_koa_Ballot_randomNumber')
+       )
+       implies 
+               (
+                 mod_q_7=thiz')
+     
+     }
+   )
+   and 
+   (
+     all mod_q_8:ie_koa_Ballot | {
+       (
+         not (
+           mod_q_8.ie_koa_Ballot_SystemcurrentTimeMillis=mod_q_8.ie_koa_Ballot_SystemcurrentTimeMillis')
+       )
+       implies 
+               (
+                 mod_q_8=thiz')
+     
+     }
+   )
+
+}
+
+pred ie_koa_BallotCondition1[
+  thiz:univ
+]{
+   not (
+     isEmptyOrNull[thiz])
+
+}
+
+pred ie_koa_BallotCondition3[
+  exit_stmt_reached:univ,
+  throw:univ
+]{
+   not (
+     (
+       throw=null)
+     and 
+     (
+       exit_stmt_reached=false)
+   )
+
+}
+
+pred ie_koa_BallotCondition18[
+  SK_pred_java_primitive_integer_value_div_rem_ARG_left_1:univ,
+  SK_pred_java_primitive_integer_value_div_rem_ARG_remainder_1:univ,
+  SK_pred_java_primitive_integer_value_div_rem_ARG_result_1:univ,
+  SK_pred_java_primitive_integer_value_div_rem_ARG_right_1:univ
+]{
+   pred_java_primitive_integer_value_div_rem_marker[SK_pred_java_primitive_integer_value_div_rem_ARG_left_1,
+                                                   SK_pred_java_primitive_integer_value_div_rem_ARG_right_1,
+                                                   SK_pred_java_primitive_integer_value_div_rem_ARG_result_1,
+                                                   SK_pred_java_primitive_integer_value_div_rem_ARG_remainder_1]
+
+}
+
+program ie_koa_Ballot_getUniqueNumber_0[
+  thiz:ie_koa_Ballot,
+  throw:java_lang_Throwable+null,
+  return:JavaPrimitiveIntegerValue,
+  ie_koa_Ballot_uniqueID:(ClassFields)->one(JavaPrimitiveIntegerValue),
+  ie_koa_Ballot_randomNumber:(ie_koa_Ballot)->one(JavaPrimitiveIntegerValue),
+  java_lang_IntArray_contents:java_lang_IntArray -> (JavaPrimitiveIntegerValue set -> lone JavaPrimitiveIntegerValue),
+  ie_koa_Ballot_numberOfPreferences:(ie_koa_Ballot)->one(JavaPrimitiveIntegerValue),
+  ie_koa_Ballot_preferenceList:(ie_koa_Ballot)->one(java_lang_IntArray+null),
+  ie_koa_Ballot_ballotID:(ie_koa_Ballot)->one(JavaPrimitiveLongValue),
+  ie_koa_Ballot_positionInList:(ie_koa_Ballot)->one(JavaPrimitiveIntegerValue),
+  ie_koa_Ballot_candidateIDAtCount:(ie_koa_Ballot)->one(java_lang_IntArray+null),
+  ie_koa_Ballot_NONTRANSFERABLE:(ClassFields)->one(JavaPrimitiveLongValue),
+  ie_koa_Ballot_MAX_POSSIBLE_BALLOTS:(ClassFields)->one(JavaPrimitiveIntegerValue),
+  ie_koa_Ballot_countNumberAtLastTransfer:(ie_koa_Ballot)->one(JavaPrimitiveIntegerValue),
+  ie_koa_Ballot_candidateID:(ie_koa_Ballot)->one(JavaPrimitiveLongValue),
+  ie_koa_Ballot_SystemcurrentTimeMillis:(ie_koa_Ballot)->one(JavaPrimitiveIntegerValue),
+  java_lang_IntArray_length:(java_lang_IntArray)->one(JavaPrimitiveIntegerValue),
+  ie_koa_Ballot_MAXIMUM_ROUNDS_OF_COUNTING:(ClassFields)->one(JavaPrimitiveIntegerValue),
+  usedObjects:set (java_lang_Object)
+] var [
+  SK_pred_java_primitive_integer_value_div_rem_ARG_left_1:JavaPrimitiveIntegerValue,
+  SK_pred_java_primitive_integer_value_div_rem_ARG_remainder_1:JavaPrimitiveIntegerValue,
+  SK_pred_java_primitive_integer_value_div_rem_ARG_right_1:JavaPrimitiveIntegerValue,
+  SK_pred_java_primitive_integer_value_div_rem_ARG_result_1:JavaPrimitiveIntegerValue,
+  auxVarForArithmeticExceptionDivisionByZeroJavaPrimitiveIntegerValue_0:JavaPrimitiveIntegerValue,
+  SK_pred_java_primitive_integer_value_mul_ARG_right_0:JavaPrimitiveIntegerValue,
+  var_1_num:JavaPrimitiveIntegerValue,
+  exit_stmt_reached:boolean,
+  SK_pred_java_primitive_integer_value_mul_ARG_left_0:JavaPrimitiveIntegerValue,
+  SK_pred_java_primitive_integer_value_mul_ARG_overflow_0:boolean,
+  SK_pred_java_primitive_integer_value_mul_ARG_result_0:JavaPrimitiveIntegerValue,
+  t_6:JavaPrimitiveIntegerValue,
+  t_7:boolean,
+  t_4:JavaPrimitiveIntegerValue,
+  t_5:JavaPrimitiveIntegerValue
+]{
+   skip;
+   throw:=null;
+   skip;
+   exit_stmt_reached:=false;
+   skip;
+   skip;
+   skip;
+   skip;
+   if ie_koa_BallotCondition2[exit_stmt_reached,throw]  {
+      if ie_koa_BallotCondition10[]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         t_4:=ClassFields.ie_koa_Ballot_uniqueID
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip;
+   skip;
+   skip;
+   skip;
+   havocVariable[SK_pred_java_primitive_integer_value_mul_ARG_left_0];
+   havocVariable[SK_pred_java_primitive_integer_value_mul_ARG_right_0];
+   havocVariable[SK_pred_java_primitive_integer_value_mul_ARG_result_0];
+   havocVariable[SK_pred_java_primitive_integer_value_mul_ARG_overflow_0];
+   if ie_koa_BallotCondition0[thiz]  {
+      throw:=java_lang_NullPointerExceptionLit
+   
+   } else {
+      assume ie_koa_BallotCondition12[SK_pred_java_primitive_integer_value_mul_ARG_left_0,ie_koa_Ballot_SystemcurrentTimeMillis,thiz]
+   
+   }
+   ;
+   assume ie_koa_BallotCondition13[SK_pred_java_primitive_integer_value_mul_ARG_right_0,t_4];
+   assume ie_koa_BallotCondition14[SK_pred_java_primitive_integer_value_mul_ARG_left_0,SK_pred_java_primitive_integer_value_mul_ARG_overflow_0,SK_pred_java_primitive_integer_value_mul_ARG_result_0,SK_pred_java_primitive_integer_value_mul_ARG_right_0];
+   if ie_koa_BallotCondition2[exit_stmt_reached,throw]  {
+      t_5:=SK_pred_java_primitive_integer_value_mul_ARG_result_0
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip;
+   havocVariable[auxVarForArithmeticExceptionDivisionByZeroJavaPrimitiveIntegerValue_0];
+   if ie_koa_BallotCondition10[]  {
+      throw:=java_lang_NullPointerExceptionLit
+   
+   } else {
+      assume ie_koa_BallotCondition15[auxVarForArithmeticExceptionDivisionByZeroJavaPrimitiveIntegerValue_0,ie_koa_Ballot_MAX_POSSIBLE_BALLOTS]
+   
+   }
+   ;
+   skip;
+   skip;
+   skip;
+   skip;
+   if ie_koa_BallotCondition20[auxVarForArithmeticExceptionDivisionByZeroJavaPrimitiveIntegerValue_0]  {
+      throw:=java_lang_ArithmeticExceptionLit;
+      havocVariable[SK_pred_java_primitive_integer_value_div_rem_ARG_left_1];
+      havocVariable[auxVarForArithmeticExceptionDivisionByZeroJavaPrimitiveIntegerValue_0];
+      havocVariable[SK_pred_java_primitive_integer_value_div_rem_ARG_right_1];
+      havocVariable[SK_pred_java_primitive_integer_value_div_rem_ARG_result_1];
+      havocVariable[SK_pred_java_primitive_integer_value_div_rem_ARG_remainder_1];
+      assume ie_koa_BallotCondition16[SK_pred_java_primitive_integer_value_div_rem_ARG_left_1,t_5];
+      if ie_koa_BallotCondition10[]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         assume ie_koa_BallotCondition15[auxVarForArithmeticExceptionDivisionByZeroJavaPrimitiveIntegerValue_0,ie_koa_Ballot_MAX_POSSIBLE_BALLOTS]
+      
+      }
+      ;
+      assume ie_koa_BallotCondition17[SK_pred_java_primitive_integer_value_div_rem_ARG_right_1];
+      assume ie_koa_BallotCondition18[SK_pred_java_primitive_integer_value_div_rem_ARG_left_1,SK_pred_java_primitive_integer_value_div_rem_ARG_remainder_1,SK_pred_java_primitive_integer_value_div_rem_ARG_result_1,SK_pred_java_primitive_integer_value_div_rem_ARG_right_1]
+   
+   } else {
+      havocVariable[SK_pred_java_primitive_integer_value_div_rem_ARG_left_1];
+      havocVariable[SK_pred_java_primitive_integer_value_div_rem_ARG_right_1];
+      havocVariable[SK_pred_java_primitive_integer_value_div_rem_ARG_result_1];
+      havocVariable[SK_pred_java_primitive_integer_value_div_rem_ARG_remainder_1];
+      assume ie_koa_BallotCondition16[SK_pred_java_primitive_integer_value_div_rem_ARG_left_1,t_5];
+      if ie_koa_BallotCondition10[]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         assume ie_koa_BallotCondition19[SK_pred_java_primitive_integer_value_div_rem_ARG_right_1,ie_koa_Ballot_MAX_POSSIBLE_BALLOTS]
+      
+      }
+      ;
+      assume ie_koa_BallotCondition18[SK_pred_java_primitive_integer_value_div_rem_ARG_left_1,SK_pred_java_primitive_integer_value_div_rem_ARG_remainder_1,SK_pred_java_primitive_integer_value_div_rem_ARG_result_1,SK_pred_java_primitive_integer_value_div_rem_ARG_right_1]
+   
+   }
+   ;
+   if ie_koa_BallotCondition2[exit_stmt_reached,throw]  {
+      t_6:=SK_pred_java_primitive_integer_value_div_rem_ARG_remainder_1
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if ie_koa_BallotCondition2[exit_stmt_reached,throw]  {
+      if ie_koa_BallotCondition22[]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         ie_koa_Ballot_uniqueID:=(ie_koa_Ballot_uniqueID)++((ClassFields)->(fun_java_primitive_integer_value_add[ClassFields.ie_koa_Ballot_uniqueID,JavaPrimitiveIntegerLiteral1]))
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip;
+   if ie_koa_BallotCondition2[exit_stmt_reached,throw]  {
+      var_1_num:=t_6
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if ie_koa_BallotCondition2[exit_stmt_reached,throw]  {
+      t_7:=(pred_java_primitive_integer_value_gt[var_1_num,JavaPrimitiveIntegerLiteral0]=>(true)else(false))
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if ie_koa_BallotCondition2[exit_stmt_reached,throw]  {
+      if ie_koa_BallotCondition24[t_7]  {
+         if ie_koa_BallotCondition2[exit_stmt_reached,throw]  {
+            return:=var_1_num;
+            exit_stmt_reached:=true
+         
+         } else {
+            skip
+         
+         }
+      
+      } else {
+         skip
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if ie_koa_BallotCondition2[exit_stmt_reached,throw]  {
+      return:=JavaPrimitiveIntegerLiteral0;
+      exit_stmt_reached:=true
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip
+
+}
+
+program ie_koa_Ballot_Ballot_0[
+  thiz:ie_koa_Ballot,
+  throw:java_lang_Throwable+null,
+  ie_koa_Ballot_uniqueID:(ClassFields)->one(JavaPrimitiveIntegerValue),
+  ie_koa_Ballot_randomNumber:(ie_koa_Ballot)->one(JavaPrimitiveIntegerValue),
+  java_lang_IntArray_contents:java_lang_IntArray -> (JavaPrimitiveIntegerValue set -> lone JavaPrimitiveIntegerValue),
+  ie_koa_Ballot_numberOfPreferences:(ie_koa_Ballot)->one(JavaPrimitiveIntegerValue),
+  ie_koa_Ballot_preferenceList:(ie_koa_Ballot)->one(java_lang_IntArray+null),
+  ie_koa_Ballot_ballotID:(ie_koa_Ballot)->one(JavaPrimitiveLongValue),
+  ie_koa_Ballot_positionInList:(ie_koa_Ballot)->one(JavaPrimitiveIntegerValue),
+  ie_koa_Ballot_candidateIDAtCount:(ie_koa_Ballot)->one(java_lang_IntArray+null),
+  ie_koa_Ballot_NONTRANSFERABLE:(ClassFields)->one(JavaPrimitiveLongValue),
+  ie_koa_Ballot_MAX_POSSIBLE_BALLOTS:(ClassFields)->one(JavaPrimitiveIntegerValue),
+  ie_koa_Ballot_countNumberAtLastTransfer:(ie_koa_Ballot)->one(JavaPrimitiveIntegerValue),
+  ie_koa_Ballot_candidateID:(ie_koa_Ballot)->one(JavaPrimitiveLongValue),
+  ie_koa_Ballot_SystemcurrentTimeMillis:(ie_koa_Ballot)->one(JavaPrimitiveIntegerValue),
+  java_lang_IntArray_length:(java_lang_IntArray)->one(JavaPrimitiveIntegerValue),
+  ie_koa_Ballot_MAXIMUM_ROUNDS_OF_COUNTING:(ClassFields)->one(JavaPrimitiveIntegerValue),
+  usedObjects:set (java_lang_Object)
+] var [
+  t_2:java_lang_IntArray+null,
+  t_3:JavaPrimitiveIntegerValue,
+  exit_stmt_reached:boolean,
+  t_1:java_lang_IntArray+null
+]{
+   skip;
+   throw:=null;
+   skip;
+   exit_stmt_reached:=false;
+   skip;
+   skip;
+   if ie_koa_BallotCondition2[exit_stmt_reached,throw]  {
+      if ie_koa_BallotCondition0[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         ie_koa_Ballot_ballotID:=(ie_koa_Ballot_ballotID)++((thiz)->(JavaPrimitiveLongLiteral0))
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if ie_koa_BallotCondition2[exit_stmt_reached,throw]  {
+      if ie_koa_BallotCondition0[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         ie_koa_Ballot_candidateID:=(ie_koa_Ballot_candidateID)++((thiz)->(JavaPrimitiveLongLiteral0))
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if ie_koa_BallotCondition2[exit_stmt_reached,throw]  {
+      getUnusedObject[t_1,usedObjects];
+      assume instanceOf[t_1,java_lang_IntArray];
+      if ie_koa_BallotCondition4[t_1]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         call java_lang_IntArray_Constructor_0[t_1,throw,JavaPrimitiveIntegerLiteral0,ie_koa_Ballot_uniqueID,ie_koa_Ballot_randomNumber,java_lang_IntArray_contents,ie_koa_Ballot_numberOfPreferences,ie_koa_Ballot_preferenceList,ie_koa_Ballot_ballotID,ie_koa_Ballot_positionInList,ie_koa_Ballot_candidateIDAtCount,ie_koa_Ballot_NONTRANSFERABLE,ie_koa_Ballot_MAX_POSSIBLE_BALLOTS,ie_koa_Ballot_countNumberAtLastTransfer,ie_koa_Ballot_candidateID,ie_koa_Ballot_SystemcurrentTimeMillis,java_lang_IntArray_length,ie_koa_Ballot_MAXIMUM_ROUNDS_OF_COUNTING,usedObjects]
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if ie_koa_BallotCondition2[exit_stmt_reached,throw]  {
+      if ie_koa_BallotCondition0[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         ie_koa_Ballot_preferenceList:=(ie_koa_Ballot_preferenceList)++((thiz)->(t_1))
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if ie_koa_BallotCondition2[exit_stmt_reached,throw]  {
+      if ie_koa_BallotCondition0[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         ie_koa_Ballot_numberOfPreferences:=(ie_koa_Ballot_numberOfPreferences)++((thiz)->(JavaPrimitiveIntegerLiteral0))
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if ie_koa_BallotCondition2[exit_stmt_reached,throw]  {
+      if ie_koa_BallotCondition0[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         ie_koa_Ballot_positionInList:=(ie_koa_Ballot_positionInList)++((thiz)->(JavaPrimitiveIntegerLiteral0))
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if ie_koa_BallotCondition2[exit_stmt_reached,throw]  {
+      getUnusedObject[t_2,usedObjects];
+      assume instanceOf[t_2,java_lang_IntArray];
+      if ie_koa_BallotCondition6[t_2]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         call java_lang_IntArray_Constructor_0[t_2,throw,ClassFields.ie_koa_Ballot_MAXIMUM_ROUNDS_OF_COUNTING,ie_koa_Ballot_uniqueID,ie_koa_Ballot_randomNumber,java_lang_IntArray_contents,ie_koa_Ballot_numberOfPreferences,ie_koa_Ballot_preferenceList,ie_koa_Ballot_ballotID,ie_koa_Ballot_positionInList,ie_koa_Ballot_candidateIDAtCount,ie_koa_Ballot_NONTRANSFERABLE,ie_koa_Ballot_MAX_POSSIBLE_BALLOTS,ie_koa_Ballot_countNumberAtLastTransfer,ie_koa_Ballot_candidateID,ie_koa_Ballot_SystemcurrentTimeMillis,java_lang_IntArray_length,ie_koa_Ballot_MAXIMUM_ROUNDS_OF_COUNTING,usedObjects]
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if ie_koa_BallotCondition2[exit_stmt_reached,throw]  {
+      if ie_koa_BallotCondition0[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         ie_koa_Ballot_candidateIDAtCount:=(ie_koa_Ballot_candidateIDAtCount)++((thiz)->(t_2))
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if ie_koa_BallotCondition2[exit_stmt_reached,throw]  {
+      if ie_koa_BallotCondition0[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         ie_koa_Ballot_countNumberAtLastTransfer:=(ie_koa_Ballot_countNumberAtLastTransfer)++((thiz)->(JavaPrimitiveIntegerLiteral0))
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if ie_koa_BallotCondition2[exit_stmt_reached,throw]  {
+      if ie_koa_BallotCondition0[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         ie_koa_Ballot_randomNumber:=(ie_koa_Ballot_randomNumber)++((thiz)->(JavaPrimitiveIntegerLiteral0))
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if ie_koa_BallotCondition2[exit_stmt_reached,throw]  {
+      if ie_koa_BallotCondition0[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         ie_koa_Ballot_SystemcurrentTimeMillis:=(ie_koa_Ballot_SystemcurrentTimeMillis)++((thiz)->(JavaPrimitiveIntegerLiteral1))
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip;
+   if ie_koa_BallotCondition2[exit_stmt_reached,throw]  {
+      if ie_koa_BallotCondition0[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         ie_koa_Ballot_numberOfPreferences:=(ie_koa_Ballot_numberOfPreferences)++((thiz)->(JavaPrimitiveIntegerLiteral0))
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if ie_koa_BallotCondition2[exit_stmt_reached,throw]  {
+      if ie_koa_BallotCondition0[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         ie_koa_Ballot_countNumberAtLastTransfer:=(ie_koa_Ballot_countNumberAtLastTransfer)++((thiz)->(JavaPrimitiveIntegerLiteral0))
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if ie_koa_BallotCondition2[exit_stmt_reached,throw]  {
+      if ie_koa_BallotCondition0[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         ie_koa_Ballot_positionInList:=(ie_koa_Ballot_positionInList)++((thiz)->(JavaPrimitiveIntegerLiteral0))
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if ie_koa_BallotCondition2[exit_stmt_reached,throw]  {
+      if ie_koa_BallotCondition8[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         ie_koa_Ballot_candidateID:=(ie_koa_Ballot_candidateID)++((thiz)->(ClassFields.ie_koa_Ballot_NONTRANSFERABLE))
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if ie_koa_BallotCondition2[exit_stmt_reached,throw]  {
+      if ie_koa_BallotCondition0[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         ie_koa_Ballot_ballotID:=(ie_koa_Ballot_ballotID)++((thiz)->(JavaPrimitiveLongLiteral0))
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if ie_koa_BallotCondition2[exit_stmt_reached,throw]  {
+      if ie_koa_BallotCondition0[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         call ie_koa_Ballot_getUniqueNumber_0[thiz,throw,t_3,ie_koa_Ballot_uniqueID,ie_koa_Ballot_randomNumber,java_lang_IntArray_contents,ie_koa_Ballot_numberOfPreferences,ie_koa_Ballot_preferenceList,ie_koa_Ballot_ballotID,ie_koa_Ballot_positionInList,ie_koa_Ballot_candidateIDAtCount,ie_koa_Ballot_NONTRANSFERABLE,ie_koa_Ballot_MAX_POSSIBLE_BALLOTS,ie_koa_Ballot_countNumberAtLastTransfer,ie_koa_Ballot_candidateID,ie_koa_Ballot_SystemcurrentTimeMillis,java_lang_IntArray_length,ie_koa_Ballot_MAXIMUM_ROUNDS_OF_COUNTING,usedObjects]
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if ie_koa_BallotCondition2[exit_stmt_reached,throw]  {
+      if ie_koa_BallotCondition0[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         ie_koa_Ballot_randomNumber:=(ie_koa_Ballot_randomNumber)++((thiz)->(t_3))
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip
+
+}
+
+assertCorrectness check_ie_koa_Ballot_Ballot_0[
+  exit_stmt_reached:boolean,
+  ie_koa_Ballot_MAXIMUM_ROUNDS_OF_COUNTING:(ClassFields)->one(JavaPrimitiveIntegerValue),
+  ie_koa_Ballot_MAX_POSSIBLE_BALLOTS:(ClassFields)->one(JavaPrimitiveIntegerValue),
+  ie_koa_Ballot_NONTRANSFERABLE:(ClassFields)->one(JavaPrimitiveLongValue),
+  ie_koa_Ballot_SystemcurrentTimeMillis:(ie_koa_Ballot)->one(JavaPrimitiveIntegerValue),
+  ie_koa_Ballot_ballotID:(ie_koa_Ballot)->one(JavaPrimitiveLongValue),
+  ie_koa_Ballot_candidateID:(ie_koa_Ballot)->one(JavaPrimitiveLongValue),
+  ie_koa_Ballot_candidateIDAtCount:(ie_koa_Ballot)->one(java_lang_IntArray+null),
+  ie_koa_Ballot_countNumberAtLastTransfer:(ie_koa_Ballot)->one(JavaPrimitiveIntegerValue),
+  ie_koa_Ballot_numberOfPreferences:(ie_koa_Ballot)->one(JavaPrimitiveIntegerValue),
+  ie_koa_Ballot_positionInList:(ie_koa_Ballot)->one(JavaPrimitiveIntegerValue),
+  ie_koa_Ballot_preferenceList:(ie_koa_Ballot)->one(java_lang_IntArray+null),
+  ie_koa_Ballot_randomNumber:(ie_koa_Ballot)->one(JavaPrimitiveIntegerValue),
+  ie_koa_Ballot_uniqueID:(ClassFields)->one(JavaPrimitiveIntegerValue),
+  java_lang_IntArray_contents:java_lang_IntArray -> (JavaPrimitiveIntegerValue set -> lone JavaPrimitiveIntegerValue),
+  java_lang_IntArray_length:(java_lang_IntArray)->one(JavaPrimitiveIntegerValue),
+  t_1:java_lang_IntArray+null,
+  t_2:java_lang_IntArray+null,
+  t_3:JavaPrimitiveIntegerValue,
+  thiz:ie_koa_Ballot,
+  throw:java_lang_Throwable+null,
+  usedObjects:set (java_lang_Object)
+]{
+pre={
+   precondition_ie_koa_Ballot_Ballot_0[ie_koa_Ballot_MAXIMUM_ROUNDS_OF_COUNTING,
+                                      ie_koa_Ballot_MAX_POSSIBLE_BALLOTS,
+                                      ie_koa_Ballot_NONTRANSFERABLE,
+                                      ie_koa_Ballot_SystemcurrentTimeMillis,
+                                      ie_koa_Ballot_ballotID,
+                                      ie_koa_Ballot_candidateID,
+                                      ie_koa_Ballot_candidateIDAtCount,
+                                      ie_koa_Ballot_countNumberAtLastTransfer,
+                                      ie_koa_Ballot_numberOfPreferences,
+                                      ie_koa_Ballot_positionInList,
+                                      ie_koa_Ballot_preferenceList,
+                                      ie_koa_Ballot_randomNumber,
+                                      ie_koa_Ballot_uniqueID,
+                                      java_lang_IntArray_contents,
+                                      java_lang_IntArray_length,
+                                      thiz,
+                                      throw,
+                                      usedObjects]
+
+}
+program={
+   call ie_koa_Ballot_Ballot_0[thiz,throw,ie_koa_Ballot_uniqueID,ie_koa_Ballot_randomNumber,java_lang_IntArray_contents,ie_koa_Ballot_numberOfPreferences,ie_koa_Ballot_preferenceList,ie_koa_Ballot_ballotID,ie_koa_Ballot_positionInList,ie_koa_Ballot_candidateIDAtCount,ie_koa_Ballot_NONTRANSFERABLE,ie_koa_Ballot_MAX_POSSIBLE_BALLOTS,ie_koa_Ballot_countNumberAtLastTransfer,ie_koa_Ballot_candidateID,ie_koa_Ballot_SystemcurrentTimeMillis,java_lang_IntArray_length,ie_koa_Ballot_MAXIMUM_ROUNDS_OF_COUNTING,usedObjects]
+
+}
+post={
+   postcondition_ie_koa_Ballot_Ballot_0[ie_koa_Ballot_MAXIMUM_ROUNDS_OF_COUNTING',
+                                       ie_koa_Ballot_NONTRANSFERABLE',
+                                       ie_koa_Ballot_SystemcurrentTimeMillis,
+                                       ie_koa_Ballot_SystemcurrentTimeMillis',
+                                       ie_koa_Ballot_ballotID,
+                                       ie_koa_Ballot_ballotID',
+                                       ie_koa_Ballot_candidateID,
+                                       ie_koa_Ballot_candidateID',
+                                       ie_koa_Ballot_candidateIDAtCount,
+                                       ie_koa_Ballot_candidateIDAtCount',
+                                       ie_koa_Ballot_countNumberAtLastTransfer,
+                                       ie_koa_Ballot_countNumberAtLastTransfer',
+                                       ie_koa_Ballot_numberOfPreferences,
+                                       ie_koa_Ballot_numberOfPreferences',
+                                       ie_koa_Ballot_positionInList,
+                                       ie_koa_Ballot_positionInList',
+                                       ie_koa_Ballot_preferenceList,
+                                       ie_koa_Ballot_preferenceList',
+                                       ie_koa_Ballot_randomNumber,
+                                       ie_koa_Ballot_randomNumber',
+                                       java_lang_IntArray_contents',
+                                       java_lang_IntArray_length',
+                                       thiz',
+                                       throw']
+
+}
+}
+

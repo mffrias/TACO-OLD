@@ -1,0 +1,307 @@
+sig ar_edu_taco_skunk_TreeSet extends java_lang_Object {}
+{}
+
+
+
+
+pred ar_edu_taco_skunk_TreeSet_ensures[
+  throw':univ
+]{
+   (
+     throw'=null)
+   implies 
+           liftExpression[false]
+
+}
+
+pred ar_edu_taco_skunk_TreeSetEntry_blackHeight_abstraction[
+  ar_edu_taco_skunk_TreeSetEntry_color:univ->univ,
+  ar_edu_taco_skunk_TreeSetEntry_left:univ->univ,
+  ar_edu_taco_skunk_TreeSetEntry_right:univ->univ,
+  blackHeight:univ->univ,
+  thiz:univ
+]{
+   (
+     (
+       equ[thiz.ar_edu_taco_skunk_TreeSetEntry_left,
+          null]
+       and 
+       equ[thiz.ar_edu_taco_skunk_TreeSetEntry_right,
+          null]
+     )
+     implies 
+             equ[thiz.blackHeight,
+                JavaPrimitiveIntegerLiteral1]
+   )
+   and 
+   (
+     (
+       neq[thiz.ar_edu_taco_skunk_TreeSetEntry_left,
+          null]
+       and 
+       equ[thiz.ar_edu_taco_skunk_TreeSetEntry_right,
+          null]
+     )
+     implies 
+             (
+               (
+                 isSubset[thiz,
+                         fun_set_difference[(thiz.ar_edu_taco_skunk_TreeSetEntry_left).(fun_reflexive_closure[ar_edu_taco_skunk_TreeSetEntry_left+ar_edu_taco_skunk_TreeSetEntry_right]),null]]
+                 implies 
+                         equ[thiz.blackHeight,
+                            JavaPrimitiveIntegerLiteral0]
+               )
+               and 
+               (
+                 isNotSubset[thiz,
+                            fun_set_difference[(thiz.ar_edu_taco_skunk_TreeSetEntry_left).(fun_reflexive_closure[ar_edu_taco_skunk_TreeSetEntry_left+ar_edu_taco_skunk_TreeSetEntry_right]),null]]
+                 implies 
+                         (
+                           (
+                             equ[(thiz.ar_edu_taco_skunk_TreeSetEntry_left).ar_edu_taco_skunk_TreeSetEntry_color,
+                                true]
+                             implies 
+                                     equ[thiz.blackHeight,
+                                        fun_java_primitive_integer_value_add[(thiz.ar_edu_taco_skunk_TreeSetEntry_left).blackHeight,JavaPrimitiveIntegerLiteral1]]
+                           )
+                           and 
+                           (
+                             equ[(thiz.ar_edu_taco_skunk_TreeSetEntry_left).ar_edu_taco_skunk_TreeSetEntry_color,
+                                false]
+                             implies 
+                                     equ[thiz.blackHeight,
+                                        (thiz.ar_edu_taco_skunk_TreeSetEntry_left).blackHeight]
+                           )
+                         )
+               )
+             )
+   )
+   and 
+   (
+     (
+       equ[thiz.ar_edu_taco_skunk_TreeSetEntry_left,
+          null]
+       and 
+       neq[thiz.ar_edu_taco_skunk_TreeSetEntry_right,
+          null]
+     )
+     implies 
+             (
+               (
+                 isSubset[thiz,
+                         fun_set_difference[(thiz.ar_edu_taco_skunk_TreeSetEntry_right).(fun_reflexive_closure[ar_edu_taco_skunk_TreeSetEntry_left+ar_edu_taco_skunk_TreeSetEntry_right]),null]]
+                 implies 
+                         equ[thiz.blackHeight,
+                            JavaPrimitiveIntegerLiteral0]
+               )
+               and 
+               (
+                 isNotSubset[thiz,
+                            fun_set_difference[(thiz.ar_edu_taco_skunk_TreeSetEntry_right).(fun_reflexive_closure[ar_edu_taco_skunk_TreeSetEntry_left+ar_edu_taco_skunk_TreeSetEntry_right]),null]]
+                 implies 
+                         (
+                           (
+                             equ[(thiz.ar_edu_taco_skunk_TreeSetEntry_right).ar_edu_taco_skunk_TreeSetEntry_color,
+                                true]
+                             implies 
+                                     equ[thiz.blackHeight,
+                                        fun_java_primitive_integer_value_add[(thiz.ar_edu_taco_skunk_TreeSetEntry_right).blackHeight,JavaPrimitiveIntegerLiteral1]]
+                           )
+                           and 
+                           (
+                             equ[(thiz.ar_edu_taco_skunk_TreeSetEntry_right).ar_edu_taco_skunk_TreeSetEntry_color,
+                                false]
+                             implies 
+                                     equ[thiz.blackHeight,
+                                        (thiz.ar_edu_taco_skunk_TreeSetEntry_right).blackHeight]
+                           )
+                         )
+               )
+             )
+   )
+   and 
+   (
+     (
+       neq[thiz.ar_edu_taco_skunk_TreeSetEntry_left,
+          null]
+       and 
+       neq[thiz.ar_edu_taco_skunk_TreeSetEntry_right,
+          null]
+     )
+     implies 
+             (
+               (
+                 isSubset[thiz,
+                         fun_set_difference[thiz.(fun_closure[ar_edu_taco_skunk_TreeSetEntry_left+ar_edu_taco_skunk_TreeSetEntry_right]),null]]
+                 implies 
+                         equ[thiz.blackHeight,
+                            JavaPrimitiveIntegerLiteral0]
+               )
+               and 
+               (
+                 isNotSubset[thiz,
+                            fun_set_difference[thiz.(fun_closure[ar_edu_taco_skunk_TreeSetEntry_left+ar_edu_taco_skunk_TreeSetEntry_right]),null]]
+                 implies 
+                         (
+                           (
+                             equ[(thiz.ar_edu_taco_skunk_TreeSetEntry_left).ar_edu_taco_skunk_TreeSetEntry_color,
+                                true]
+                             implies 
+                                     equ[thiz.blackHeight,
+                                        fun_java_primitive_integer_value_add[(thiz.ar_edu_taco_skunk_TreeSetEntry_left).blackHeight,JavaPrimitiveIntegerLiteral1]]
+                           )
+                           and 
+                           (
+                             equ[(thiz.ar_edu_taco_skunk_TreeSetEntry_left).ar_edu_taco_skunk_TreeSetEntry_color,
+                                false]
+                             implies 
+                                     equ[thiz.blackHeight,
+                                        (thiz.ar_edu_taco_skunk_TreeSetEntry_left).blackHeight]
+                           )
+                         )
+               )
+             )
+   )
+
+}
+
+pred ar_edu_taco_skunk_TreeSet_requires[
+]{
+   true=true
+
+}
+
+pred ar_edu_taco_skunk_TreeSet_object_invariant[
+  ar_edu_taco_skunk_TreeSetEntry_parent:univ->univ,
+  ar_edu_taco_skunk_TreeSet_BLACK:univ->univ,
+  ar_edu_taco_skunk_TreeSet_RED:univ->univ,
+  ar_edu_taco_skunk_TreeSet_root:univ->univ,
+  thiz:univ
+]{
+   equ[thiz.ar_edu_taco_skunk_TreeSet_RED,
+      JavaPrimitiveIntegerLiteral0]
+   and 
+   equ[thiz.ar_edu_taco_skunk_TreeSet_BLACK,
+      JavaPrimitiveIntegerLiteral1]
+   and 
+   equ[(thiz.ar_edu_taco_skunk_TreeSet_root).ar_edu_taco_skunk_TreeSetEntry_parent,
+      null]
+
+}
+
+pred postcondition_ar_edu_taco_skunk_TreeSet_generateInput_0[
+  throw':univ
+]{
+   ar_edu_taco_skunk_TreeSet_ensures[throw']
+   and 
+   (
+     not (
+       throw'=AssertionFailureLit)
+   )
+
+}
+
+pred precondition_ar_edu_taco_skunk_TreeSet_generateInput_0[
+  ar_edu_taco_skunk_TreeSetEntry_color:univ->univ,
+  ar_edu_taco_skunk_TreeSetEntry_left:univ->univ,
+  ar_edu_taco_skunk_TreeSetEntry_parent:univ->univ,
+  ar_edu_taco_skunk_TreeSetEntry_right:univ->univ,
+  ar_edu_taco_skunk_TreeSet_BLACK:univ->univ,
+  ar_edu_taco_skunk_TreeSet_RED:univ->univ,
+  ar_edu_taco_skunk_TreeSet_root:univ->univ,
+  blackHeight:univ->univ,
+  throw:univ
+]{
+   ar_edu_taco_skunk_TreeSet_requires[]
+   and 
+   (
+     all objx:ar_edu_taco_skunk_TreeSetEntry | {
+       ar_edu_taco_skunk_TreeSetEntry_blackHeight_abstraction[ar_edu_taco_skunk_TreeSetEntry_color,
+                                                             ar_edu_taco_skunk_TreeSetEntry_left,
+                                                             ar_edu_taco_skunk_TreeSetEntry_right,
+                                                             blackHeight,
+                                                             objx]
+     
+     }
+   )
+   and 
+   (
+     all objx:ar_edu_taco_skunk_TreeSet | {
+       ar_edu_taco_skunk_TreeSet_object_invariant[ar_edu_taco_skunk_TreeSetEntry_parent,
+                                                 ar_edu_taco_skunk_TreeSet_BLACK,
+                                                 ar_edu_taco_skunk_TreeSet_RED,
+                                                 ar_edu_taco_skunk_TreeSet_root,
+                                                 objx]
+     
+     }
+   )
+   and 
+   equ[throw,
+      null]
+
+}
+
+program ar_edu_taco_skunk_TreeSet_generateInput_0[
+  thiz:ar_edu_taco_skunk_TreeSet,
+  throw:java_lang_Throwable+null,
+  blackHeight:(ar_edu_taco_skunk_TreeSetEntry)->one(JavaPrimitiveIntegerValue),
+  ar_edu_taco_skunk_TreeSetEntry_left:(ar_edu_taco_skunk_TreeSetEntry)->one(ar_edu_taco_skunk_TreeSetEntry+null),
+  ar_edu_taco_skunk_TreeSet_RED:(ar_edu_taco_skunk_TreeSet)->one(JavaPrimitiveIntegerValue),
+  ar_edu_taco_skunk_TreeSet_BLACK:(ar_edu_taco_skunk_TreeSet)->one(JavaPrimitiveIntegerValue),
+  ar_edu_taco_skunk_TreeSet_root:(ar_edu_taco_skunk_TreeSet)->one(ar_edu_taco_skunk_TreeSetEntry+null),
+  ar_edu_taco_skunk_TreeSetEntry_color:(ar_edu_taco_skunk_TreeSetEntry)->one(JavaPrimitiveIntegerValue),
+  ar_edu_taco_skunk_TreeSetEntry_parent:(ar_edu_taco_skunk_TreeSetEntry)->one(ar_edu_taco_skunk_TreeSetEntry+null),
+  ar_edu_taco_skunk_TreeSetEntry_right:(ar_edu_taco_skunk_TreeSetEntry)->one(ar_edu_taco_skunk_TreeSetEntry+null),
+  ar_edu_taco_skunk_TreeSet_size:(ar_edu_taco_skunk_TreeSet)->one(JavaPrimitiveIntegerValue),
+  ar_edu_taco_skunk_TreeSetEntry_key:(ar_edu_taco_skunk_TreeSetEntry)->one(JavaPrimitiveIntegerValue),
+  usedObjects:set (java_lang_Object)
+] var [
+  exit_stmt_reached:boolean
+]{
+   skip;
+   throw:=null;
+   skip;
+   exit_stmt_reached:=false;
+   skip;
+   skip
+
+}
+
+assertCorrectness check_ar_edu_taco_skunk_TreeSet_generateInput_0[
+  ar_edu_taco_skunk_TreeSetEntry_color:(ar_edu_taco_skunk_TreeSetEntry)->one(JavaPrimitiveIntegerValue),
+  ar_edu_taco_skunk_TreeSetEntry_key:(ar_edu_taco_skunk_TreeSetEntry)->one(JavaPrimitiveIntegerValue),
+  ar_edu_taco_skunk_TreeSetEntry_left:(ar_edu_taco_skunk_TreeSetEntry)->one(ar_edu_taco_skunk_TreeSetEntry+null),
+  ar_edu_taco_skunk_TreeSetEntry_parent:(ar_edu_taco_skunk_TreeSetEntry)->one(ar_edu_taco_skunk_TreeSetEntry+null),
+  ar_edu_taco_skunk_TreeSetEntry_right:(ar_edu_taco_skunk_TreeSetEntry)->one(ar_edu_taco_skunk_TreeSetEntry+null),
+  ar_edu_taco_skunk_TreeSet_BLACK:(ar_edu_taco_skunk_TreeSet)->one(JavaPrimitiveIntegerValue),
+  ar_edu_taco_skunk_TreeSet_RED:(ar_edu_taco_skunk_TreeSet)->one(JavaPrimitiveIntegerValue),
+  ar_edu_taco_skunk_TreeSet_root:(ar_edu_taco_skunk_TreeSet)->one(ar_edu_taco_skunk_TreeSetEntry+null),
+  ar_edu_taco_skunk_TreeSet_size:(ar_edu_taco_skunk_TreeSet)->one(JavaPrimitiveIntegerValue),
+  blackHeight:(ar_edu_taco_skunk_TreeSetEntry)->one(JavaPrimitiveIntegerValue),
+  exit_stmt_reached:boolean,
+  thiz:ar_edu_taco_skunk_TreeSet,
+  throw:java_lang_Throwable+null,
+  usedObjects:set (java_lang_Object)
+]{
+pre={
+   precondition_ar_edu_taco_skunk_TreeSet_generateInput_0[ar_edu_taco_skunk_TreeSetEntry_color,
+                                                         ar_edu_taco_skunk_TreeSetEntry_left,
+                                                         ar_edu_taco_skunk_TreeSetEntry_parent,
+                                                         ar_edu_taco_skunk_TreeSetEntry_right,
+                                                         ar_edu_taco_skunk_TreeSet_BLACK,
+                                                         ar_edu_taco_skunk_TreeSet_RED,
+                                                         ar_edu_taco_skunk_TreeSet_root,
+                                                         blackHeight,
+                                                         throw]
+
+}
+program={
+   call ar_edu_taco_skunk_TreeSet_generateInput_0[thiz,throw,blackHeight,ar_edu_taco_skunk_TreeSetEntry_left,ar_edu_taco_skunk_TreeSet_RED,ar_edu_taco_skunk_TreeSet_BLACK,ar_edu_taco_skunk_TreeSet_root,ar_edu_taco_skunk_TreeSetEntry_color,ar_edu_taco_skunk_TreeSetEntry_parent,ar_edu_taco_skunk_TreeSetEntry_right,ar_edu_taco_skunk_TreeSet_size,ar_edu_taco_skunk_TreeSetEntry_key,usedObjects]
+
+}
+post={
+   postcondition_ar_edu_taco_skunk_TreeSet_generateInput_0[throw']
+
+}
+}
+

@@ -1,0 +1,1654 @@
+sig SourcesEstebanPintos_AVLTree extends java_lang_Object {}
+{}
+
+
+
+
+pred SourcesEstebanPintos_AVLTreeCondition17[
+  t_5:univ
+]{
+   not (
+     t_5=true)
+
+}
+
+pred SourcesEstebanPintos_AVLTreeCondition16[
+  t_5:univ
+]{
+   t_5=true
+
+}
+
+pred SourcesEstebanPintos_AVLTreeCondition42[
+  t_15:univ
+]{
+   not (
+     t_15=true)
+
+}
+
+pred SourcesEstebanPintos_AVLTreeCondition32[
+  SourcesEstebanPintos_AVLNode_rightChild:univ->univ,
+  var_10_pathNode:univ
+]{
+   not (
+     isEmptyOrNull[var_10_pathNode.SourcesEstebanPintos_AVLNode_rightChild]
+     or 
+     isEmptyOrNull[var_10_pathNode]
+   )
+
+}
+
+pred SourcesEstebanPintos_AVLTreeCondition40[
+  t_16:univ
+]{
+   not (
+     t_16=true)
+
+}
+
+pred SourcesEstebanPintos_AVLTreeCondition41[
+  t_15:univ
+]{
+   t_15=true
+
+}
+
+pred SourcesEstebanPintos_AVLTreeCondition12[
+  var_6_S:univ
+]{
+   isEmptyOrNull[var_6_S]
+
+}
+
+pred SourcesEstebanPintos_AVLTreeCondition13[
+  var_6_S:univ
+]{
+   not (
+     isEmptyOrNull[var_6_S])
+
+}
+
+pred SourcesEstebanPintos_AVLTreeCondition37[
+  t_17:univ
+]{
+   t_17=true
+
+}
+
+pred SourcesEstebanPintos_AVLTreeCondition38[
+  t_17:univ
+]{
+   not (
+     t_17=true)
+
+}
+
+pred SourcesEstebanPintos_AVLTreeCondition27[
+  SourcesEstebanPintos_AVLNode_leftChild:univ->univ,
+  var_10_pathNode:univ
+]{
+   isEmptyOrNull[var_10_pathNode.SourcesEstebanPintos_AVLNode_leftChild]
+   or 
+   isEmptyOrNull[var_10_pathNode]
+
+}
+
+pred SourcesEstebanPintos_AVLTreeCondition39[
+  t_16:univ
+]{
+   t_16=true
+
+}
+
+pred SourcesEstebanPintos_AVLTreeCondition3[
+  exit_stmt_reached:univ,
+  throw:univ
+]{
+   not (
+     (
+       throw=null)
+     and 
+     (
+       exit_stmt_reached=false)
+   )
+
+}
+
+pred SourcesEstebanPintos_AVLTreeCondition28[
+  SourcesEstebanPintos_AVLNode_leftChild:univ->univ,
+  var_10_pathNode:univ
+]{
+   not (
+     isEmptyOrNull[var_10_pathNode.SourcesEstebanPintos_AVLNode_leftChild]
+     or 
+     isEmptyOrNull[var_10_pathNode]
+   )
+
+}
+
+pred SourcesEstebanPintos_AVLTreeCondition22[
+  t_6:univ
+]{
+   not (
+     t_6=true)
+
+}
+
+pred SourcesEstebanPintos_AVLTreeCondition8[
+  thiz:univ
+]{
+   isEmptyOrNull[thiz]
+
+}
+
+pred SourcesEstebanPintos_AVLTreeCondition21[
+  t_6:univ
+]{
+   t_6=true
+
+}
+
+pred SourcesEstebanPintos_AVLTreeCondition9[
+  thiz:univ
+]{
+   not (
+     isEmptyOrNull[thiz])
+
+}
+
+pred SourcesEstebanPintos_AVLTreeCondition36[
+  var_10_pathNode:univ
+]{
+   not (
+     isEmptyOrNull[var_10_pathNode])
+
+}
+
+pred java_lang_ObjectArray_object_invariant[
+  java_lang_ObjectArray_length:univ->univ
+]{
+   all oa:java_lang_ObjectArray | {
+     pred_java_primitive_integer_value_gte_zero[oa.java_lang_ObjectArray_length]
+   }
+
+}
+
+pred SourcesEstebanPintos_AVLTreeCondition35[
+  var_10_pathNode:univ
+]{
+   isEmptyOrNull[var_10_pathNode]
+
+}
+
+pred precondition_SourcesEstebanPintos_AVLTree_insert_0[
+  SourcesEstebanPintos_AVLNode_balance:univ->univ,
+  SourcesEstebanPintos_AVLNode_height:univ->univ,
+  SourcesEstebanPintos_AVLNode_iData:univ->univ,
+  SourcesEstebanPintos_AVLNode_leftChild:univ->univ,
+  SourcesEstebanPintos_AVLNode_rightChild:univ->univ,
+  SourcesEstebanPintos_AVLStack_maxSize:univ->univ,
+  SourcesEstebanPintos_AVLStack_stackArray:univ->univ,
+  SourcesEstebanPintos_AVLStack_top:univ->univ,
+  SourcesEstebanPintos_AVLTree_root:univ->univ,
+  SourcesEstebanPintos_AVLTree_size:univ->univ,
+  id:univ,
+  java_lang_ObjectArray_length:univ->univ,
+  thiz:univ,
+  throw:univ,
+  usedObjects:univ
+]{
+   SourcesEstebanPintos_AVLTree_requires[SourcesEstebanPintos_AVLNode_balance,
+                                        SourcesEstebanPintos_AVLNode_height,
+                                        SourcesEstebanPintos_AVLNode_iData,
+                                        SourcesEstebanPintos_AVLNode_leftChild,
+                                        SourcesEstebanPintos_AVLNode_rightChild,
+                                        SourcesEstebanPintos_AVLStack_maxSize,
+                                        SourcesEstebanPintos_AVLStack_stackArray,
+                                        SourcesEstebanPintos_AVLStack_top,
+                                        SourcesEstebanPintos_AVLTree_root,
+                                        SourcesEstebanPintos_AVLTree_size,
+                                        id,
+                                        java_lang_ObjectArray_length,
+                                        thiz,
+                                        usedObjects]
+   and 
+   equ[throw,
+      null]
+   and 
+   (
+     all objx:SourcesEstebanPintos_AVLTree | {
+       SourcesEstebanPintos_AVLTree_object_invariant[SourcesEstebanPintos_AVLNode_height,
+                                                    SourcesEstebanPintos_AVLNode_iData,
+                                                    SourcesEstebanPintos_AVLNode_leftChild,
+                                                    SourcesEstebanPintos_AVLNode_rightChild,
+                                                    SourcesEstebanPintos_AVLTree_root,
+                                                    objx]
+     
+     }
+   )
+   and 
+   java_lang_ObjectArray_object_invariant[java_lang_ObjectArray_length]
+
+}
+
+pred SourcesEstebanPintos_AVLTreeCondition11[
+  t_4:univ,
+  thiz:univ
+]{
+   not (
+     isEmptyOrNull[thiz]
+     or 
+     isEmptyOrNull[t_4]
+   )
+
+}
+
+pred SourcesEstebanPintos_AVLTreeCondition10[
+  t_4:univ,
+  thiz:univ
+]{
+   isEmptyOrNull[thiz]
+   or 
+   isEmptyOrNull[t_4]
+
+}
+
+pred SourcesEstebanPintos_AVLTreeCondition4[
+  t_3:univ
+]{
+   isEmptyOrNull[t_3]
+
+}
+
+pred SourcesEstebanPintos_AVLTreeCondition24[
+  t_10:univ
+]{
+   not (
+     t_10=true)
+
+}
+
+pred SourcesEstebanPintos_AVLTreeCondition23[
+  t_10:univ
+]{
+   t_10=true
+
+}
+
+pred SourcesEstebanPintos_AVLTreeCondition5[
+  t_3:univ
+]{
+   not (
+     isEmptyOrNull[t_3])
+
+}
+
+pred SourcesEstebanPintos_AVLTreeCondition15[
+  var_4_current:univ
+]{
+   not (
+     isEmptyOrNull[var_4_current])
+
+}
+
+pred SourcesEstebanPintos_AVLTreeCondition14[
+  var_4_current:univ
+]{
+   isEmptyOrNull[var_4_current]
+
+}
+
+pred SourcesEstebanPintos_AVLTreeCondition7[
+  var_3_newNode:univ
+]{
+   not (
+     isEmptyOrNull[var_3_newNode])
+
+}
+
+pred SourcesEstebanPintos_AVLTreeCondition26[
+  t_9:univ
+]{
+   not (
+     t_9=true)
+
+}
+
+pred SourcesEstebanPintos_AVLTreeCondition25[
+  t_9:univ
+]{
+   t_9=true
+
+}
+
+pred SourcesEstebanPintos_AVLTreeCondition6[
+  var_3_newNode:univ
+]{
+   isEmptyOrNull[var_3_newNode]
+
+}
+
+pred SourcesEstebanPintos_AVLTree_object_invariant[
+  SourcesEstebanPintos_AVLNode_height:univ->univ,
+  SourcesEstebanPintos_AVLNode_iData:univ->univ,
+  SourcesEstebanPintos_AVLNode_leftChild:univ->univ,
+  SourcesEstebanPintos_AVLNode_rightChild:univ->univ,
+  SourcesEstebanPintos_AVLTree_root:univ->univ,
+  thiz:univ
+]{
+   all n:SourcesEstebanPintos_AVLNode+null | {
+     some SK_jml_pred_java_primitive_integer_value_sub_ARG_result_0:JavaPrimitiveIntegerValue,
+     SK_jml_pred_java_primitive_integer_value_sub_ARG_overflow_0:boolean,
+     SK_jml_pred_java_primitive_integer_value_sub_ARG_result_1:JavaPrimitiveIntegerValue,
+     SK_jml_pred_java_primitive_integer_value_sub_ARG_overflow_1:boolean | {
+       pred_java_primitive_integer_value_sub[(n.SourcesEstebanPintos_AVLNode_leftChild).SourcesEstebanPintos_AVLNode_height,
+                                            (n.SourcesEstebanPintos_AVLNode_rightChild).SourcesEstebanPintos_AVLNode_height,
+                                            SK_jml_pred_java_primitive_integer_value_sub_ARG_result_0,
+                                            SK_jml_pred_java_primitive_integer_value_sub_ARG_overflow_0]
+       and 
+       (
+         (
+           SK_jml_pred_java_primitive_integer_value_sub_ARG_result_0=JavaPrimitiveIntegerLiteralMinus3)
+         or 
+         (
+           SK_jml_pred_java_primitive_integer_value_sub_ARG_result_0=JavaPrimitiveIntegerLiteralMinus2)
+         
+         or 
+         (
+           SK_jml_pred_java_primitive_integer_value_sub_ARG_result_0=JavaPrimitiveIntegerLiteralMinus1)
+         
+         or 
+         (
+           SK_jml_pred_java_primitive_integer_value_sub_ARG_result_0=JavaPrimitiveIntegerLiteral0)
+         
+         or 
+         (
+           SK_jml_pred_java_primitive_integer_value_sub_ARG_result_0=JavaPrimitiveIntegerLiteral1)
+         
+         or 
+         (
+           SK_jml_pred_java_primitive_integer_value_sub_ARG_result_0=JavaPrimitiveIntegerLiteral2)
+         
+         or 
+         (
+           SK_jml_pred_java_primitive_integer_value_sub_ARG_result_0=JavaPrimitiveIntegerLiteral3)
+       )
+       and 
+       pred_java_primitive_integer_value_sub[(n.SourcesEstebanPintos_AVLNode_leftChild).SourcesEstebanPintos_AVLNode_height,
+                                            (n.SourcesEstebanPintos_AVLNode_rightChild).SourcesEstebanPintos_AVLNode_height,
+                                            SK_jml_pred_java_primitive_integer_value_sub_ARG_result_1,
+                                            SK_jml_pred_java_primitive_integer_value_sub_ARG_overflow_1]
+       and 
+       (
+         (
+           SK_jml_pred_java_primitive_integer_value_sub_ARG_result_1=JavaPrimitiveIntegerLiteralMinus3)
+         or 
+         (
+           SK_jml_pred_java_primitive_integer_value_sub_ARG_result_1=JavaPrimitiveIntegerLiteralMinus2)
+         
+         or 
+         (
+           SK_jml_pred_java_primitive_integer_value_sub_ARG_result_1=JavaPrimitiveIntegerLiteralMinus1)
+         
+         or 
+         (
+           SK_jml_pred_java_primitive_integer_value_sub_ARG_result_1=JavaPrimitiveIntegerLiteral0)
+         
+         or 
+         (
+           SK_jml_pred_java_primitive_integer_value_sub_ARG_result_1=JavaPrimitiveIntegerLiteral1)
+         
+         or 
+         (
+           SK_jml_pred_java_primitive_integer_value_sub_ARG_result_1=JavaPrimitiveIntegerLiteral2)
+         
+         or 
+         (
+           SK_jml_pred_java_primitive_integer_value_sub_ARG_result_1=JavaPrimitiveIntegerLiteral3)
+       )
+       and 
+       (
+         equ[fun_set_contains[fun_reach[thiz.SourcesEstebanPintos_AVLTree_root,SourcesEstebanPintos_AVLNode,SourcesEstebanPintos_AVLNode_rightChild+SourcesEstebanPintos_AVLNode_leftChild],n],
+            true]
+         implies 
+                 (
+                   equ[fun_set_contains[fun_reach[n.SourcesEstebanPintos_AVLNode_leftChild,SourcesEstebanPintos_AVLNode,SourcesEstebanPintos_AVLNode_leftChild+SourcesEstebanPintos_AVLNode_rightChild],n],
+                      false]
+                   and 
+                   equ[fun_set_contains[fun_reach[n.SourcesEstebanPintos_AVLNode_rightChild,SourcesEstebanPintos_AVLNode,SourcesEstebanPintos_AVLNode_leftChild+SourcesEstebanPintos_AVLNode_rightChild],n],
+                      false]
+                   and 
+                   pred_java_primitive_integer_value_lt[SK_jml_pred_java_primitive_integer_value_sub_ARG_result_0,
+                                                       JavaPrimitiveIntegerLiteral2]
+                   and 
+                   pred_java_primitive_integer_value_gt[SK_jml_pred_java_primitive_integer_value_sub_ARG_result_1,
+                                                       JavaPrimitiveIntegerLiteralMinus2]
+                   and 
+                   (
+                     all nLeft:SourcesEstebanPintos_AVLNode+null | {
+                       equ[fun_set_contains[fun_reach[n.SourcesEstebanPintos_AVLNode_leftChild,SourcesEstebanPintos_AVLNode,SourcesEstebanPintos_AVLNode_leftChild+SourcesEstebanPintos_AVLNode_rightChild],nLeft],
+                          true]
+                       implies 
+                               pred_java_primitive_integer_value_lt[nLeft.SourcesEstebanPintos_AVLNode_iData,
+                                                                   n.SourcesEstebanPintos_AVLNode_iData]
+                     
+                     }
+                   )
+                   and 
+                   (
+                     all nRight:SourcesEstebanPintos_AVLNode+null | {
+                       equ[fun_set_contains[fun_reach[n.SourcesEstebanPintos_AVLNode_rightChild,SourcesEstebanPintos_AVLNode,SourcesEstebanPintos_AVLNode_leftChild+SourcesEstebanPintos_AVLNode_rightChild],nRight],
+                          true]
+                       implies 
+                               pred_java_primitive_integer_value_gte[nRight.SourcesEstebanPintos_AVLNode_iData,
+                                                                    n.SourcesEstebanPintos_AVLNode_iData]
+                     
+                     }
+                   )
+                 )
+       )
+     
+     }
+   
+   }
+
+}
+
+pred SourcesEstebanPintos_AVLTreeCondition19[
+  var_5_parent:univ
+]{
+   isEmptyOrNull[var_5_parent]
+
+}
+
+pred SourcesEstebanPintos_AVLTreeCondition47[
+  exit_stmt_reached:univ,
+  throw:univ,
+  var_12_ws_3:univ
+]{
+   liftExpression[var_12_ws_3]
+   and 
+   (
+     throw=null)
+   and 
+   (
+     exit_stmt_reached=false)
+
+}
+
+pred SourcesEstebanPintos_AVLTreeCondition46[
+  t_20:univ
+]{
+   not (
+     t_20=true)
+
+}
+
+pred SourcesEstebanPintos_AVLTreeCondition43[
+  t_21:univ
+]{
+   t_21=true
+
+}
+
+pred SourcesEstebanPintos_AVLTreeCondition44[
+  t_21:univ
+]{
+   not (
+     t_21=true)
+
+}
+
+pred postcondition_SourcesEstebanPintos_AVLTree_insert_0[
+  SourcesEstebanPintos_AVLNode_height':univ->univ,
+  SourcesEstebanPintos_AVLNode_iData':univ->univ,
+  SourcesEstebanPintos_AVLNode_leftChild':univ->univ,
+  SourcesEstebanPintos_AVLNode_rightChild':univ->univ,
+  SourcesEstebanPintos_AVLTree_root':univ->univ,
+  id':univ,
+  thiz':univ,
+  throw':univ
+]{
+   SourcesEstebanPintos_AVLTree_ensures[SourcesEstebanPintos_AVLNode_iData',
+                                       SourcesEstebanPintos_AVLNode_leftChild',
+                                       SourcesEstebanPintos_AVLNode_rightChild',
+                                       SourcesEstebanPintos_AVLTree_root',
+                                       id',
+                                       thiz',
+                                       throw']
+   and 
+   (
+     not (
+       throw'=AssertionFailureLit)
+   )
+   and 
+   (
+     all objx':SourcesEstebanPintos_AVLTree | {
+       SourcesEstebanPintos_AVLTree_object_invariant[SourcesEstebanPintos_AVLNode_height',
+                                                    SourcesEstebanPintos_AVLNode_iData',
+                                                    SourcesEstebanPintos_AVLNode_leftChild',
+                                                    SourcesEstebanPintos_AVLNode_rightChild',
+                                                    SourcesEstebanPintos_AVLTree_root',
+                                                    objx']
+     
+     }
+   )
+
+}
+
+pred SourcesEstebanPintos_AVLTreeCondition48[
+  t_22:univ
+]{
+   t_22=true
+
+}
+
+pred SourcesEstebanPintos_AVLTreeCondition49[
+  t_22:univ
+]{
+   not (
+     t_22=true)
+
+}
+
+pred SourcesEstebanPintos_AVLTreeCondition0[
+  thiz:univ
+]{
+   isEmptyOrNull[thiz]
+   or 
+   isEmptyOrNull[thiz]
+
+}
+
+pred SourcesEstebanPintos_AVLTreeCondition30[
+  t_12:univ
+]{
+   not (
+     t_12=true)
+
+}
+
+pred SourcesEstebanPintos_AVLTreeCondition1[
+  thiz:univ
+]{
+   not (
+     isEmptyOrNull[thiz]
+     or 
+     isEmptyOrNull[thiz]
+   )
+
+}
+
+pred SourcesEstebanPintos_AVLTreeCondition34[
+  t_13:univ
+]{
+   not (
+     t_13=true)
+
+}
+
+pred SourcesEstebanPintos_AVLTreeCondition2[
+  exit_stmt_reached:univ,
+  throw:univ
+]{
+   (
+     throw=null)
+   and 
+   (
+     exit_stmt_reached=false)
+
+}
+
+pred SourcesEstebanPintos_AVLTreeCondition33[
+  t_13:univ
+]{
+   t_13=true
+
+}
+
+pred SourcesEstebanPintos_AVLTree_ensures[
+  SourcesEstebanPintos_AVLNode_iData':univ->univ,
+  SourcesEstebanPintos_AVLNode_leftChild':univ->univ,
+  SourcesEstebanPintos_AVLNode_rightChild':univ->univ,
+  SourcesEstebanPintos_AVLTree_root':univ->univ,
+  id':univ,
+  thiz':univ,
+  throw':univ
+]{
+   (
+     instanceOf[throw',
+               java_lang_Exception]
+     implies 
+             liftExpression[false]
+   )
+   and 
+   (
+     (
+       throw'=null)
+     implies 
+             (
+               some n:SourcesEstebanPintos_AVLNode+null | {
+                 equ[fun_set_contains[fun_reach[thiz'.SourcesEstebanPintos_AVLTree_root',SourcesEstebanPintos_AVLNode,SourcesEstebanPintos_AVLNode_leftChild'+SourcesEstebanPintos_AVLNode_rightChild'],n],
+                    true]
+                 and 
+                 equ[n.SourcesEstebanPintos_AVLNode_iData',
+                    id']
+               
+               }
+             )
+   )
+
+}
+
+pred SourcesEstebanPintos_AVLTreeCondition45[
+  t_20:univ
+]{
+   t_20=true
+
+}
+
+pred SourcesEstebanPintos_AVLTreeCondition29[
+  t_12:univ
+]{
+   t_12=true
+
+}
+
+pred SourcesEstebanPintos_AVLTreeCondition31[
+  SourcesEstebanPintos_AVLNode_rightChild:univ->univ,
+  var_10_pathNode:univ
+]{
+   isEmptyOrNull[var_10_pathNode.SourcesEstebanPintos_AVLNode_rightChild]
+   or 
+   isEmptyOrNull[var_10_pathNode]
+
+}
+
+pred SourcesEstebanPintos_AVLTreeCondition18[
+  exit_stmt_reached:univ,
+  throw:univ,
+  var_7_ws_2:univ
+]{
+   liftExpression[var_7_ws_2]
+   and 
+   (
+     throw=null)
+   and 
+   (
+     exit_stmt_reached=false)
+
+}
+
+pred SourcesEstebanPintos_AVLTreeCondition51[
+  t_23:univ
+]{
+   not (
+     t_23=true)
+
+}
+
+pred SourcesEstebanPintos_AVLTreeCondition50[
+  t_23:univ
+]{
+   t_23=true
+
+}
+
+pred SourcesEstebanPintos_AVLTree_requires[
+  SourcesEstebanPintos_AVLNode_balance:univ->univ,
+  SourcesEstebanPintos_AVLNode_height:univ->univ,
+  SourcesEstebanPintos_AVLNode_iData:univ->univ,
+  SourcesEstebanPintos_AVLNode_leftChild:univ->univ,
+  SourcesEstebanPintos_AVLNode_rightChild:univ->univ,
+  SourcesEstebanPintos_AVLStack_maxSize:univ->univ,
+  SourcesEstebanPintos_AVLStack_stackArray:univ->univ,
+  SourcesEstebanPintos_AVLStack_top:univ->univ,
+  SourcesEstebanPintos_AVLTree_root:univ->univ,
+  SourcesEstebanPintos_AVLTree_size:univ->univ,
+  id:univ,
+  java_lang_ObjectArray_length:univ->univ,
+  thiz:univ,
+  usedObjects:univ
+]{
+   (
+     true=true)
+   and 
+   (
+     usedObjects=fun_weak_reach[none+id+thiz,java_lang_Object,(none)->(none)+SourcesEstebanPintos_AVLTree_root+SourcesEstebanPintos_AVLTree_size+SourcesEstebanPintos_AVLStack_maxSize+SourcesEstebanPintos_AVLStack_stackArray+SourcesEstebanPintos_AVLStack_top+SourcesEstebanPintos_AVLNode_iData+SourcesEstebanPintos_AVLNode_leftChild+SourcesEstebanPintos_AVLNode_rightChild+SourcesEstebanPintos_AVLNode_balance+SourcesEstebanPintos_AVLNode_height+java_lang_ObjectArray_length])
+
+}
+
+pred SourcesEstebanPintos_AVLTreeCondition20[
+  var_5_parent:univ
+]{
+   not (
+     isEmptyOrNull[var_5_parent])
+
+}
+
+program SourcesEstebanPintos_AVLTree_insert_0[
+  thiz:SourcesEstebanPintos_AVLTree,
+  throw:java_lang_Throwable+null,
+  id:JavaPrimitiveIntegerValue,
+  java_lang_ObjectArray_length:(java_lang_ObjectArray)->one(JavaPrimitiveIntegerValue),
+  SourcesEstebanPintos_AVLNode_iData:(SourcesEstebanPintos_AVLNode)->one(JavaPrimitiveIntegerValue),
+  SourcesEstebanPintos_AVLNode_balance:(SourcesEstebanPintos_AVLNode)->one(JavaPrimitiveIntegerValue),
+  SourcesEstebanPintos_AVLNode_leftChild:(SourcesEstebanPintos_AVLNode)->one(SourcesEstebanPintos_AVLNode+null),
+  SourcesEstebanPintos_AVLNode_height:(SourcesEstebanPintos_AVLNode)->one(JavaPrimitiveIntegerValue),
+  java_lang_ObjectArray_contents:java_lang_ObjectArray -> (JavaPrimitiveIntegerValue set -> lone (java_lang_Object + null)),
+  SourcesEstebanPintos_AVLStack_top:(SourcesEstebanPintos_AVLStack)->one(JavaPrimitiveIntegerValue),
+  SourcesEstebanPintos_AVLTree_root:(SourcesEstebanPintos_AVLTree)->one(SourcesEstebanPintos_AVLNode+null),
+  SourcesEstebanPintos_AVLTree_size:(SourcesEstebanPintos_AVLTree)->one(JavaPrimitiveIntegerValue),
+  SourcesEstebanPintos_AVLNode_rightChild:(SourcesEstebanPintos_AVLNode)->one(SourcesEstebanPintos_AVLNode+null),
+  SourcesEstebanPintos_AVLStack_stackArray:(SourcesEstebanPintos_AVLStack)->one(java_lang_ObjectArray+null),
+  SourcesEstebanPintos_AVLStack_maxSize:(SourcesEstebanPintos_AVLStack)->one(JavaPrimitiveIntegerValue),
+  usedObjects:set (java_lang_Object)
+] var [
+  var_10_pathNode:SourcesEstebanPintos_AVLNode+null,
+  var_7_ws_2:boolean,
+  t_15:boolean,
+  t_16:boolean,
+  t_13:boolean,
+  t_14:JavaPrimitiveIntegerValue,
+  t_11:SourcesEstebanPintos_AVLNode+null,
+  t_12:boolean,
+  t_10:boolean,
+  var_11_flag:boolean,
+  t_19:boolean,
+  t_18:boolean,
+  var_4_current:SourcesEstebanPintos_AVLNode+null,
+  t_17:boolean,
+  var_9_rightHeight:JavaPrimitiveIntegerValue,
+  var_5_parent:SourcesEstebanPintos_AVLNode+null,
+  var_6_S:SourcesEstebanPintos_AVLStack+null,
+  t_20:boolean,
+  t_21:boolean,
+  t_22:boolean,
+  t_3:SourcesEstebanPintos_AVLNode+null,
+  exit_stmt_reached:boolean,
+  var_12_ws_3:boolean,
+  var_8_leftHeight:JavaPrimitiveIntegerValue,
+  t_8:boolean,
+  t_9:boolean,
+  t_6:boolean,
+  t_7:boolean,
+  var_3_newNode:SourcesEstebanPintos_AVLNode+null,
+  t_4:SourcesEstebanPintos_AVLStack+null,
+  t_5:boolean
+]{
+   skip;
+   throw:=null;
+   skip;
+   exit_stmt_reached:=false;
+   skip;
+   skip;
+   if SourcesEstebanPintos_AVLTreeCondition2[exit_stmt_reached,throw]  {
+      if SourcesEstebanPintos_AVLTreeCondition0[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         SourcesEstebanPintos_AVLTree_size:=(SourcesEstebanPintos_AVLTree_size)++((thiz)->(fun_java_primitive_integer_value_add[thiz.SourcesEstebanPintos_AVLTree_size,JavaPrimitiveIntegerLiteral1]))
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if SourcesEstebanPintos_AVLTreeCondition2[exit_stmt_reached,throw]  {
+      getUnusedObject[t_3,usedObjects];
+      assume instanceOf[t_3,SourcesEstebanPintos_AVLNode];
+      if SourcesEstebanPintos_AVLTreeCondition4[t_3]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         call SourcesEstebanPintos_AVLNode_Constructor_0[t_3,throw,java_lang_ObjectArray_length,SourcesEstebanPintos_AVLNode_iData,SourcesEstebanPintos_AVLNode_balance,SourcesEstebanPintos_AVLNode_leftChild,SourcesEstebanPintos_AVLNode_height,java_lang_ObjectArray_contents,SourcesEstebanPintos_AVLStack_top,SourcesEstebanPintos_AVLTree_root,SourcesEstebanPintos_AVLTree_size,SourcesEstebanPintos_AVLNode_rightChild,SourcesEstebanPintos_AVLStack_stackArray,SourcesEstebanPintos_AVLStack_maxSize,usedObjects]
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip;
+   if SourcesEstebanPintos_AVLTreeCondition2[exit_stmt_reached,throw]  {
+      var_3_newNode:=t_3
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if SourcesEstebanPintos_AVLTreeCondition2[exit_stmt_reached,throw]  {
+      if SourcesEstebanPintos_AVLTreeCondition6[var_3_newNode]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         SourcesEstebanPintos_AVLNode_iData:=(SourcesEstebanPintos_AVLNode_iData)++((var_3_newNode)->(id))
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if SourcesEstebanPintos_AVLTreeCondition2[exit_stmt_reached,throw]  {
+      if SourcesEstebanPintos_AVLTreeCondition6[var_3_newNode]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         SourcesEstebanPintos_AVLNode_balance:=(SourcesEstebanPintos_AVLNode_balance)++((var_3_newNode)->(JavaPrimitiveIntegerLiteral0))
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if SourcesEstebanPintos_AVLTreeCondition2[exit_stmt_reached,throw]  {
+      if SourcesEstebanPintos_AVLTreeCondition6[var_3_newNode]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         SourcesEstebanPintos_AVLNode_height:=(SourcesEstebanPintos_AVLNode_height)++((var_3_newNode)->(JavaPrimitiveIntegerLiteral0))
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if SourcesEstebanPintos_AVLTreeCondition2[exit_stmt_reached,throw]  {
+      t_22:=(equ[thiz.SourcesEstebanPintos_AVLTree_root,null]=>(true)else(false))
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if SourcesEstebanPintos_AVLTreeCondition2[exit_stmt_reached,throw]  {
+      if SourcesEstebanPintos_AVLTreeCondition48[t_22]  {
+         if SourcesEstebanPintos_AVLTreeCondition2[exit_stmt_reached,throw]  {
+            if SourcesEstebanPintos_AVLTreeCondition8[thiz]  {
+               throw:=java_lang_NullPointerExceptionLit
+            
+            } else {
+               SourcesEstebanPintos_AVLTree_root:=(SourcesEstebanPintos_AVLTree_root)++((thiz)->(var_3_newNode))
+            
+            }
+         
+         } else {
+            skip
+         
+         }
+      
+      } else {
+         skip;
+         skip;
+         skip;
+         skip;
+         skip;
+         skip;
+         skip;
+         if SourcesEstebanPintos_AVLTreeCondition2[exit_stmt_reached,throw]  {
+            if SourcesEstebanPintos_AVLTreeCondition8[thiz]  {
+               throw:=java_lang_NullPointerExceptionLit
+            
+            } else {
+               var_4_current:=thiz.SourcesEstebanPintos_AVLTree_root
+            
+            }
+         
+         } else {
+            skip
+         
+         }
+         ;
+         skip;
+         if SourcesEstebanPintos_AVLTreeCondition2[exit_stmt_reached,throw]  {
+            var_5_parent:=((SourcesEstebanPintos_AVLNode+null) & (null))
+         
+         } else {
+            skip
+         
+         }
+         ;
+         if SourcesEstebanPintos_AVLTreeCondition2[exit_stmt_reached,throw]  {
+            getUnusedObject[t_4,usedObjects];
+            assume instanceOf[t_4,SourcesEstebanPintos_AVLStack];
+            if SourcesEstebanPintos_AVLTreeCondition10[t_4,thiz]  {
+               throw:=java_lang_NullPointerExceptionLit
+            
+            } else {
+               call SourcesEstebanPintos_AVLStack_Constructor_0[t_4,throw,thiz.SourcesEstebanPintos_AVLTree_size,java_lang_ObjectArray_length,SourcesEstebanPintos_AVLNode_iData,SourcesEstebanPintos_AVLNode_balance,SourcesEstebanPintos_AVLNode_leftChild,SourcesEstebanPintos_AVLNode_height,java_lang_ObjectArray_contents,SourcesEstebanPintos_AVLStack_top,SourcesEstebanPintos_AVLTree_root,SourcesEstebanPintos_AVLTree_size,SourcesEstebanPintos_AVLNode_rightChild,SourcesEstebanPintos_AVLStack_stackArray,SourcesEstebanPintos_AVLStack_maxSize,usedObjects]
+            
+            }
+         
+         } else {
+            skip
+         
+         }
+         ;
+         skip;
+         if SourcesEstebanPintos_AVLTreeCondition2[exit_stmt_reached,throw]  {
+            var_6_S:=t_4
+         
+         } else {
+            skip
+         
+         }
+         ;
+         skip;
+         if SourcesEstebanPintos_AVLTreeCondition2[exit_stmt_reached,throw]  {
+            var_7_ws_2:=(neq[var_4_current,null]=>(true)else(false))
+         
+         } else {
+            skip
+         
+         }
+         ;
+         while SourcesEstebanPintos_AVLTreeCondition18[exit_stmt_reached,throw,var_7_ws_2]do {
+            skip;
+            if SourcesEstebanPintos_AVLTreeCondition12[var_6_S]  {
+               throw:=java_lang_NullPointerExceptionLit
+            
+            } else {
+               call SourcesEstebanPintos_AVLStack_push_0[var_6_S,throw,var_4_current,java_lang_ObjectArray_length,SourcesEstebanPintos_AVLNode_iData,SourcesEstebanPintos_AVLNode_balance,SourcesEstebanPintos_AVLNode_leftChild,SourcesEstebanPintos_AVLNode_height,java_lang_ObjectArray_contents,SourcesEstebanPintos_AVLStack_top,SourcesEstebanPintos_AVLTree_root,SourcesEstebanPintos_AVLTree_size,SourcesEstebanPintos_AVLNode_rightChild,SourcesEstebanPintos_AVLStack_stackArray,SourcesEstebanPintos_AVLStack_maxSize,usedObjects]
+            
+            }
+            ;
+            if SourcesEstebanPintos_AVLTreeCondition2[exit_stmt_reached,throw]  {
+               var_5_parent:=var_4_current
+            
+            } else {
+               skip
+            
+            }
+            ;
+            if SourcesEstebanPintos_AVLTreeCondition2[exit_stmt_reached,throw]  {
+               t_5:=(pred_java_primitive_integer_value_lt[id,var_4_current.SourcesEstebanPintos_AVLNode_iData]=>(true)else(false))
+            
+            } else {
+               skip
+            
+            }
+            ;
+            if SourcesEstebanPintos_AVLTreeCondition2[exit_stmt_reached,throw]  {
+               if SourcesEstebanPintos_AVLTreeCondition16[t_5]  {
+                  if SourcesEstebanPintos_AVLTreeCondition2[exit_stmt_reached,throw]  {
+                     if SourcesEstebanPintos_AVLTreeCondition14[var_4_current]  {
+                        throw:=java_lang_NullPointerExceptionLit
+                     
+                     } else {
+                        var_4_current:=var_4_current.SourcesEstebanPintos_AVLNode_leftChild
+                     
+                     }
+                  
+                  } else {
+                     skip
+                  
+                  }
+               
+               } else {
+                  if SourcesEstebanPintos_AVLTreeCondition2[exit_stmt_reached,throw]  {
+                     if SourcesEstebanPintos_AVLTreeCondition14[var_4_current]  {
+                        throw:=java_lang_NullPointerExceptionLit
+                     
+                     } else {
+                        var_4_current:=var_4_current.SourcesEstebanPintos_AVLNode_rightChild
+                     
+                     }
+                  
+                  } else {
+                     skip
+                  
+                  }
+               
+               }
+            
+            } else {
+               skip
+            
+            }
+            ;
+            if SourcesEstebanPintos_AVLTreeCondition2[exit_stmt_reached,throw]  {
+               var_7_ws_2:=(neq[var_4_current,null]=>(true)else(false))
+            
+            } else {
+               skip
+            
+            }
+         
+         }
+         ;
+         if SourcesEstebanPintos_AVLTreeCondition2[exit_stmt_reached,throw]  {
+            t_6:=(pred_java_primitive_integer_value_lt[id,var_5_parent.SourcesEstebanPintos_AVLNode_iData]=>(true)else(false))
+         
+         } else {
+            skip
+         
+         }
+         ;
+         if SourcesEstebanPintos_AVLTreeCondition2[exit_stmt_reached,throw]  {
+            if SourcesEstebanPintos_AVLTreeCondition21[t_6]  {
+               if SourcesEstebanPintos_AVLTreeCondition2[exit_stmt_reached,throw]  {
+                  if SourcesEstebanPintos_AVLTreeCondition19[var_5_parent]  {
+                     throw:=java_lang_NullPointerExceptionLit
+                  
+                  } else {
+                     SourcesEstebanPintos_AVLNode_leftChild:=(SourcesEstebanPintos_AVLNode_leftChild)++((var_5_parent)->(var_3_newNode))
+                  
+                  }
+               
+               } else {
+                  skip
+               
+               }
+            
+            } else {
+               if SourcesEstebanPintos_AVLTreeCondition2[exit_stmt_reached,throw]  {
+                  if SourcesEstebanPintos_AVLTreeCondition19[var_5_parent]  {
+                     throw:=java_lang_NullPointerExceptionLit
+                  
+                  } else {
+                     SourcesEstebanPintos_AVLNode_rightChild:=(SourcesEstebanPintos_AVLNode_rightChild)++((var_5_parent)->(var_3_newNode))
+                  
+                  }
+               
+               } else {
+                  skip
+               
+               }
+            
+            }
+         
+         } else {
+            skip
+         
+         }
+         ;
+         skip;
+         skip;
+         skip;
+         skip;
+         if SourcesEstebanPintos_AVLTreeCondition2[exit_stmt_reached,throw]  {
+            var_11_flag:=true
+         
+         } else {
+            skip
+         
+         }
+         ;
+         skip;
+         if SourcesEstebanPintos_AVLTreeCondition2[exit_stmt_reached,throw]  {
+            if SourcesEstebanPintos_AVLTreeCondition12[var_6_S]  {
+               throw:=java_lang_NullPointerExceptionLit
+            
+            } else {
+               call SourcesEstebanPintos_AVLStack_isEmpty_0[var_6_S,throw,t_8,java_lang_ObjectArray_length,SourcesEstebanPintos_AVLNode_iData,SourcesEstebanPintos_AVLNode_balance,SourcesEstebanPintos_AVLNode_leftChild,SourcesEstebanPintos_AVLNode_height,java_lang_ObjectArray_contents,SourcesEstebanPintos_AVLStack_top,SourcesEstebanPintos_AVLTree_root,SourcesEstebanPintos_AVLTree_size,SourcesEstebanPintos_AVLNode_rightChild,SourcesEstebanPintos_AVLStack_stackArray,SourcesEstebanPintos_AVLStack_maxSize,usedObjects]
+            
+            }
+         
+         } else {
+            skip
+         
+         }
+         ;
+         if SourcesEstebanPintos_AVLTreeCondition2[exit_stmt_reached,throw]  {
+            t_9:=(equ[t_8,false]=>(true)else(false))
+         
+         } else {
+            skip
+         
+         }
+         ;
+         if SourcesEstebanPintos_AVLTreeCondition2[exit_stmt_reached,throw]  {
+            if SourcesEstebanPintos_AVLTreeCondition25[t_9]  {
+               if SourcesEstebanPintos_AVLTreeCondition2[exit_stmt_reached,throw]  {
+                  t_10:=(equ[var_11_flag,true]=>(true)else(false))
+               
+               } else {
+                  skip
+               
+               }
+               ;
+               if SourcesEstebanPintos_AVLTreeCondition2[exit_stmt_reached,throw]  {
+                  if SourcesEstebanPintos_AVLTreeCondition23[t_10]  {
+                     if SourcesEstebanPintos_AVLTreeCondition2[exit_stmt_reached,throw]  {
+                        t_7:=true
+                     
+                     } else {
+                        skip
+                     
+                     }
+                  
+                  } else {
+                     if SourcesEstebanPintos_AVLTreeCondition2[exit_stmt_reached,throw]  {
+                        t_7:=false
+                     
+                     } else {
+                        skip
+                     
+                     }
+                  
+                  }
+               
+               } else {
+                  skip
+               
+               }
+            
+            } else {
+               if SourcesEstebanPintos_AVLTreeCondition2[exit_stmt_reached,throw]  {
+                  t_7:=false
+               
+               } else {
+                  skip
+               
+               }
+            
+            }
+         
+         } else {
+            skip
+         
+         }
+         ;
+         if SourcesEstebanPintos_AVLTreeCondition2[exit_stmt_reached,throw]  {
+            var_12_ws_3:=t_7
+         
+         } else {
+            skip
+         
+         }
+         ;
+         while SourcesEstebanPintos_AVLTreeCondition47[exit_stmt_reached,throw,var_12_ws_3]do {
+            skip;
+            skip;
+            skip;
+            skip;
+            skip;
+            skip;
+            skip;
+            skip;
+            skip;
+            skip;
+            skip;
+            if SourcesEstebanPintos_AVLTreeCondition2[exit_stmt_reached,throw]  {
+               if SourcesEstebanPintos_AVLTreeCondition12[var_6_S]  {
+                  throw:=java_lang_NullPointerExceptionLit
+               
+               } else {
+                  call SourcesEstebanPintos_AVLStack_pop_0[var_6_S,throw,t_11,java_lang_ObjectArray_length,SourcesEstebanPintos_AVLNode_iData,SourcesEstebanPintos_AVLNode_balance,SourcesEstebanPintos_AVLNode_leftChild,SourcesEstebanPintos_AVLNode_height,java_lang_ObjectArray_contents,SourcesEstebanPintos_AVLStack_top,SourcesEstebanPintos_AVLTree_root,SourcesEstebanPintos_AVLTree_size,SourcesEstebanPintos_AVLNode_rightChild,SourcesEstebanPintos_AVLStack_stackArray,SourcesEstebanPintos_AVLStack_maxSize,usedObjects]
+               
+               }
+            
+            } else {
+               skip
+            
+            }
+            ;
+            if SourcesEstebanPintos_AVLTreeCondition2[exit_stmt_reached,throw]  {
+               var_10_pathNode:=t_11
+            
+            } else {
+               skip
+            
+            }
+            ;
+            if SourcesEstebanPintos_AVLTreeCondition2[exit_stmt_reached,throw]  {
+               t_12:=(equ[var_10_pathNode.SourcesEstebanPintos_AVLNode_leftChild,null]=>(true)else(false))
+            
+            } else {
+               skip
+            
+            }
+            ;
+            if SourcesEstebanPintos_AVLTreeCondition2[exit_stmt_reached,throw]  {
+               if SourcesEstebanPintos_AVLTreeCondition29[t_12]  {
+                  if SourcesEstebanPintos_AVLTreeCondition2[exit_stmt_reached,throw]  {
+                     var_8_leftHeight:=JavaPrimitiveIntegerLiteralMinus1
+                  
+                  } else {
+                     skip
+                  
+                  }
+               
+               } else {
+                  if SourcesEstebanPintos_AVLTreeCondition2[exit_stmt_reached,throw]  {
+                     if SourcesEstebanPintos_AVLTreeCondition27[SourcesEstebanPintos_AVLNode_leftChild,var_10_pathNode]  {
+                        throw:=java_lang_NullPointerExceptionLit
+                     
+                     } else {
+                        var_8_leftHeight:=(var_10_pathNode.SourcesEstebanPintos_AVLNode_leftChild).SourcesEstebanPintos_AVLNode_height
+                     
+                     }
+                  
+                  } else {
+                     skip
+                  
+                  }
+               
+               }
+            
+            } else {
+               skip
+            
+            }
+            ;
+            if SourcesEstebanPintos_AVLTreeCondition2[exit_stmt_reached,throw]  {
+               t_13:=(equ[var_10_pathNode.SourcesEstebanPintos_AVLNode_rightChild,null]=>(true)else(false))
+            
+            } else {
+               skip
+            
+            }
+            ;
+            if SourcesEstebanPintos_AVLTreeCondition2[exit_stmt_reached,throw]  {
+               if SourcesEstebanPintos_AVLTreeCondition33[t_13]  {
+                  if SourcesEstebanPintos_AVLTreeCondition2[exit_stmt_reached,throw]  {
+                     var_9_rightHeight:=JavaPrimitiveIntegerLiteralMinus1
+                  
+                  } else {
+                     skip
+                  
+                  }
+               
+               } else {
+                  if SourcesEstebanPintos_AVLTreeCondition2[exit_stmt_reached,throw]  {
+                     if SourcesEstebanPintos_AVLTreeCondition31[SourcesEstebanPintos_AVLNode_rightChild,var_10_pathNode]  {
+                        throw:=java_lang_NullPointerExceptionLit
+                     
+                     } else {
+                        var_9_rightHeight:=(var_10_pathNode.SourcesEstebanPintos_AVLNode_rightChild).SourcesEstebanPintos_AVLNode_height
+                     
+                     }
+                  
+                  } else {
+                     skip
+                  
+                  }
+               
+               }
+            
+            } else {
+               skip
+            
+            }
+            ;
+            if SourcesEstebanPintos_AVLTreeCondition2[exit_stmt_reached,throw]  {
+               if SourcesEstebanPintos_AVLTreeCondition35[var_10_pathNode]  {
+                  throw:=java_lang_NullPointerExceptionLit
+               
+               } else {
+                  SourcesEstebanPintos_AVLNode_balance:=(SourcesEstebanPintos_AVLNode_balance)++((var_10_pathNode)->(fun_java_primitive_integer_value_sub[var_9_rightHeight,var_8_leftHeight]))
+               
+               }
+            
+            } else {
+               skip
+            
+            }
+            ;
+            if SourcesEstebanPintos_AVLTreeCondition2[exit_stmt_reached,throw]  {
+               if SourcesEstebanPintos_AVLTreeCondition8[thiz]  {
+                  throw:=java_lang_NullPointerExceptionLit
+               
+               } else {
+                  call SourcesEstebanPintos_AVLTree_max_0[thiz,throw,t_14,var_8_leftHeight,var_9_rightHeight,java_lang_ObjectArray_length,SourcesEstebanPintos_AVLNode_iData,SourcesEstebanPintos_AVLNode_balance,SourcesEstebanPintos_AVLNode_leftChild,SourcesEstebanPintos_AVLNode_height,java_lang_ObjectArray_contents,SourcesEstebanPintos_AVLStack_top,SourcesEstebanPintos_AVLTree_root,SourcesEstebanPintos_AVLTree_size,SourcesEstebanPintos_AVLNode_rightChild,SourcesEstebanPintos_AVLStack_stackArray,SourcesEstebanPintos_AVLStack_maxSize,usedObjects]
+               
+               }
+            
+            } else {
+               skip
+            
+            }
+            ;
+            if SourcesEstebanPintos_AVLTreeCondition2[exit_stmt_reached,throw]  {
+               if SourcesEstebanPintos_AVLTreeCondition35[var_10_pathNode]  {
+                  throw:=java_lang_NullPointerExceptionLit
+               
+               } else {
+                  SourcesEstebanPintos_AVLNode_height:=(SourcesEstebanPintos_AVLNode_height)++((var_10_pathNode)->(fun_java_primitive_integer_value_add[JavaPrimitiveIntegerLiteral1,t_14]))
+               
+               }
+            
+            } else {
+               skip
+            
+            }
+            ;
+            if SourcesEstebanPintos_AVLTreeCondition2[exit_stmt_reached,throw]  {
+               t_16:=(pred_java_primitive_integer_value_lt[var_10_pathNode.SourcesEstebanPintos_AVLNode_balance,JavaPrimitiveIntegerLiteralMinus1]=>(true)else(false))
+            
+            } else {
+               skip
+            
+            }
+            ;
+            if SourcesEstebanPintos_AVLTreeCondition2[exit_stmt_reached,throw]  {
+               if SourcesEstebanPintos_AVLTreeCondition39[t_16]  {
+                  if SourcesEstebanPintos_AVLTreeCondition2[exit_stmt_reached,throw]  {
+                     t_15:=true
+                  
+                  } else {
+                     skip
+                  
+                  }
+               
+               } else {
+                  if SourcesEstebanPintos_AVLTreeCondition2[exit_stmt_reached,throw]  {
+                     t_17:=(pred_java_primitive_integer_value_gt[var_10_pathNode.SourcesEstebanPintos_AVLNode_balance,JavaPrimitiveIntegerLiteral1]=>(true)else(false))
+                  
+                  } else {
+                     skip
+                  
+                  }
+                  ;
+                  if SourcesEstebanPintos_AVLTreeCondition2[exit_stmt_reached,throw]  {
+                     if SourcesEstebanPintos_AVLTreeCondition37[t_17]  {
+                        if SourcesEstebanPintos_AVLTreeCondition2[exit_stmt_reached,throw]  {
+                           t_15:=true
+                        
+                        } else {
+                           skip
+                        
+                        }
+                     
+                     } else {
+                        if SourcesEstebanPintos_AVLTreeCondition2[exit_stmt_reached,throw]  {
+                           t_15:=false
+                        
+                        } else {
+                           skip
+                        
+                        }
+                     
+                     }
+                  
+                  } else {
+                     skip
+                  
+                  }
+               
+               }
+            
+            } else {
+               skip
+            
+            }
+            ;
+            if SourcesEstebanPintos_AVLTreeCondition2[exit_stmt_reached,throw]  {
+               if SourcesEstebanPintos_AVLTreeCondition41[t_15]  {
+                  if SourcesEstebanPintos_AVLTreeCondition2[exit_stmt_reached,throw]  {
+                     var_11_flag:=false
+                  
+                  } else {
+                     skip
+                  
+                  }
+               
+               } else {
+                  skip
+               
+               }
+            
+            } else {
+               skip
+            
+            }
+            ;
+            if SourcesEstebanPintos_AVLTreeCondition2[exit_stmt_reached,throw]  {
+               if SourcesEstebanPintos_AVLTreeCondition12[var_6_S]  {
+                  throw:=java_lang_NullPointerExceptionLit
+               
+               } else {
+                  call SourcesEstebanPintos_AVLStack_isEmpty_0[var_6_S,throw,t_19,java_lang_ObjectArray_length,SourcesEstebanPintos_AVLNode_iData,SourcesEstebanPintos_AVLNode_balance,SourcesEstebanPintos_AVLNode_leftChild,SourcesEstebanPintos_AVLNode_height,java_lang_ObjectArray_contents,SourcesEstebanPintos_AVLStack_top,SourcesEstebanPintos_AVLTree_root,SourcesEstebanPintos_AVLTree_size,SourcesEstebanPintos_AVLNode_rightChild,SourcesEstebanPintos_AVLStack_stackArray,SourcesEstebanPintos_AVLStack_maxSize,usedObjects]
+               
+               }
+            
+            } else {
+               skip
+            
+            }
+            ;
+            if SourcesEstebanPintos_AVLTreeCondition2[exit_stmt_reached,throw]  {
+               t_20:=(equ[t_19,false]=>(true)else(false))
+            
+            } else {
+               skip
+            
+            }
+            ;
+            if SourcesEstebanPintos_AVLTreeCondition2[exit_stmt_reached,throw]  {
+               if SourcesEstebanPintos_AVLTreeCondition45[t_20]  {
+                  if SourcesEstebanPintos_AVLTreeCondition2[exit_stmt_reached,throw]  {
+                     t_21:=(equ[var_11_flag,true]=>(true)else(false))
+                  
+                  } else {
+                     skip
+                  
+                  }
+                  ;
+                  if SourcesEstebanPintos_AVLTreeCondition2[exit_stmt_reached,throw]  {
+                     if SourcesEstebanPintos_AVLTreeCondition43[t_21]  {
+                        if SourcesEstebanPintos_AVLTreeCondition2[exit_stmt_reached,throw]  {
+                           t_18:=true
+                        
+                        } else {
+                           skip
+                        
+                        }
+                     
+                     } else {
+                        if SourcesEstebanPintos_AVLTreeCondition2[exit_stmt_reached,throw]  {
+                           t_18:=false
+                        
+                        } else {
+                           skip
+                        
+                        }
+                     
+                     }
+                  
+                  } else {
+                     skip
+                  
+                  }
+               
+               } else {
+                  if SourcesEstebanPintos_AVLTreeCondition2[exit_stmt_reached,throw]  {
+                     t_18:=false
+                  
+                  } else {
+                     skip
+                  
+                  }
+               
+               }
+            
+            } else {
+               skip
+            
+            }
+            ;
+            if SourcesEstebanPintos_AVLTreeCondition2[exit_stmt_reached,throw]  {
+               var_12_ws_3:=t_18
+            
+            } else {
+               skip
+            
+            }
+         
+         }
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip
+
+}
+
+program SourcesEstebanPintos_AVLTree_max_0[
+  thiz:SourcesEstebanPintos_AVLTree,
+  throw:java_lang_Throwable+null,
+  return:JavaPrimitiveIntegerValue,
+  x:JavaPrimitiveIntegerValue,
+  y:JavaPrimitiveIntegerValue,
+  java_lang_ObjectArray_length:(java_lang_ObjectArray)->one(JavaPrimitiveIntegerValue),
+  SourcesEstebanPintos_AVLNode_iData:(SourcesEstebanPintos_AVLNode)->one(JavaPrimitiveIntegerValue),
+  SourcesEstebanPintos_AVLNode_balance:(SourcesEstebanPintos_AVLNode)->one(JavaPrimitiveIntegerValue),
+  SourcesEstebanPintos_AVLNode_leftChild:(SourcesEstebanPintos_AVLNode)->one(SourcesEstebanPintos_AVLNode+null),
+  SourcesEstebanPintos_AVLNode_height:(SourcesEstebanPintos_AVLNode)->one(JavaPrimitiveIntegerValue),
+  java_lang_ObjectArray_contents:java_lang_ObjectArray -> (JavaPrimitiveIntegerValue set -> lone (java_lang_Object + null)),
+  SourcesEstebanPintos_AVLStack_top:(SourcesEstebanPintos_AVLStack)->one(JavaPrimitiveIntegerValue),
+  SourcesEstebanPintos_AVLTree_root:(SourcesEstebanPintos_AVLTree)->one(SourcesEstebanPintos_AVLNode+null),
+  SourcesEstebanPintos_AVLTree_size:(SourcesEstebanPintos_AVLTree)->one(JavaPrimitiveIntegerValue),
+  SourcesEstebanPintos_AVLNode_rightChild:(SourcesEstebanPintos_AVLNode)->one(SourcesEstebanPintos_AVLNode+null),
+  SourcesEstebanPintos_AVLStack_stackArray:(SourcesEstebanPintos_AVLStack)->one(java_lang_ObjectArray+null),
+  SourcesEstebanPintos_AVLStack_maxSize:(SourcesEstebanPintos_AVLStack)->one(JavaPrimitiveIntegerValue)
+] var [
+  exit_stmt_reached:boolean,
+  t_23:boolean
+]{
+   skip;
+   throw:=null;
+   skip;
+   exit_stmt_reached:=false;
+   skip;
+   if SourcesEstebanPintos_AVLTreeCondition2[exit_stmt_reached,throw]  {
+      t_23:=(pred_java_primitive_integer_value_gt[x,y]=>(true)else(false))
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if SourcesEstebanPintos_AVLTreeCondition2[exit_stmt_reached,throw]  {
+      if SourcesEstebanPintos_AVLTreeCondition50[t_23]  {
+         if SourcesEstebanPintos_AVLTreeCondition2[exit_stmt_reached,throw]  {
+            return:=x;
+            exit_stmt_reached:=true
+         
+         } else {
+            skip
+         
+         }
+      
+      } else {
+         skip
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if SourcesEstebanPintos_AVLTreeCondition2[exit_stmt_reached,throw]  {
+      return:=y;
+      exit_stmt_reached:=true
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip
+
+}
+
+assertCorrectness check_SourcesEstebanPintos_AVLTree_insert_0[
+  SourcesEstebanPintos_AVLNode_balance:(SourcesEstebanPintos_AVLNode)->one(JavaPrimitiveIntegerValue),
+  SourcesEstebanPintos_AVLNode_height:(SourcesEstebanPintos_AVLNode)->one(JavaPrimitiveIntegerValue),
+  SourcesEstebanPintos_AVLNode_iData:(SourcesEstebanPintos_AVLNode)->one(JavaPrimitiveIntegerValue),
+  SourcesEstebanPintos_AVLNode_leftChild:(SourcesEstebanPintos_AVLNode)->one(SourcesEstebanPintos_AVLNode+null),
+  SourcesEstebanPintos_AVLNode_rightChild:(SourcesEstebanPintos_AVLNode)->one(SourcesEstebanPintos_AVLNode+null),
+  SourcesEstebanPintos_AVLStack_maxSize:(SourcesEstebanPintos_AVLStack)->one(JavaPrimitiveIntegerValue),
+  SourcesEstebanPintos_AVLStack_stackArray:(SourcesEstebanPintos_AVLStack)->one(java_lang_ObjectArray+null),
+  SourcesEstebanPintos_AVLStack_top:(SourcesEstebanPintos_AVLStack)->one(JavaPrimitiveIntegerValue),
+  SourcesEstebanPintos_AVLTree_root:(SourcesEstebanPintos_AVLTree)->one(SourcesEstebanPintos_AVLNode+null),
+  SourcesEstebanPintos_AVLTree_size:(SourcesEstebanPintos_AVLTree)->one(JavaPrimitiveIntegerValue),
+  exit_stmt_reached:boolean,
+  id:JavaPrimitiveIntegerValue,
+  java_lang_ObjectArray_contents:java_lang_ObjectArray -> (JavaPrimitiveIntegerValue set -> lone (java_lang_Object + null)),
+  java_lang_ObjectArray_length:(java_lang_ObjectArray)->one(JavaPrimitiveIntegerValue),
+  t_10:boolean,
+  t_11:SourcesEstebanPintos_AVLNode+null,
+  t_12:boolean,
+  t_13:boolean,
+  t_14:JavaPrimitiveIntegerValue,
+  t_15:boolean,
+  t_16:boolean,
+  t_17:boolean,
+  t_18:boolean,
+  t_19:boolean,
+  t_20:boolean,
+  t_21:boolean,
+  t_22:boolean,
+  t_3:SourcesEstebanPintos_AVLNode+null,
+  t_4:SourcesEstebanPintos_AVLStack+null,
+  t_5:boolean,
+  t_6:boolean,
+  t_7:boolean,
+  t_8:boolean,
+  t_9:boolean,
+  thiz:SourcesEstebanPintos_AVLTree,
+  throw:java_lang_Throwable+null,
+  usedObjects:set (java_lang_Object),
+  var_10_pathNode:SourcesEstebanPintos_AVLNode+null,
+  var_11_flag:boolean,
+  var_12_ws_3:boolean,
+  var_3_newNode:SourcesEstebanPintos_AVLNode+null,
+  var_4_current:SourcesEstebanPintos_AVLNode+null,
+  var_5_parent:SourcesEstebanPintos_AVLNode+null,
+  var_6_S:SourcesEstebanPintos_AVLStack+null,
+  var_7_ws_2:boolean,
+  var_8_leftHeight:JavaPrimitiveIntegerValue,
+  var_9_rightHeight:JavaPrimitiveIntegerValue
+]{
+pre={
+   precondition_SourcesEstebanPintos_AVLTree_insert_0[SourcesEstebanPintos_AVLNode_balance,
+                                                     SourcesEstebanPintos_AVLNode_height,
+                                                     SourcesEstebanPintos_AVLNode_iData,
+                                                     SourcesEstebanPintos_AVLNode_leftChild,
+                                                     SourcesEstebanPintos_AVLNode_rightChild,
+                                                     SourcesEstebanPintos_AVLStack_maxSize,
+                                                     SourcesEstebanPintos_AVLStack_stackArray,
+                                                     SourcesEstebanPintos_AVLStack_top,
+                                                     SourcesEstebanPintos_AVLTree_root,
+                                                     SourcesEstebanPintos_AVLTree_size,
+                                                     id,
+                                                     java_lang_ObjectArray_length,
+                                                     thiz,
+                                                     throw,
+                                                     usedObjects]
+
+}
+program={
+   call SourcesEstebanPintos_AVLTree_insert_0[thiz,throw,id,java_lang_ObjectArray_length,SourcesEstebanPintos_AVLNode_iData,SourcesEstebanPintos_AVLNode_balance,SourcesEstebanPintos_AVLNode_leftChild,SourcesEstebanPintos_AVLNode_height,java_lang_ObjectArray_contents,SourcesEstebanPintos_AVLStack_top,SourcesEstebanPintos_AVLTree_root,SourcesEstebanPintos_AVLTree_size,SourcesEstebanPintos_AVLNode_rightChild,SourcesEstebanPintos_AVLStack_stackArray,SourcesEstebanPintos_AVLStack_maxSize,usedObjects]
+
+}
+post={
+   postcondition_SourcesEstebanPintos_AVLTree_insert_0[SourcesEstebanPintos_AVLNode_height',
+                                                      SourcesEstebanPintos_AVLNode_iData',
+                                                      SourcesEstebanPintos_AVLNode_leftChild',
+                                                      SourcesEstebanPintos_AVLNode_rightChild',
+                                                      SourcesEstebanPintos_AVLTree_root',
+                                                      id',
+                                                      thiz',
+                                                      throw']
+
+}
+}
+

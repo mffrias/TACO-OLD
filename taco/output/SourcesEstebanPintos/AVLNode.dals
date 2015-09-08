@@ -1,0 +1,143 @@
+sig SourcesEstebanPintos_AVLNode extends java_lang_Object {}
+{}
+
+
+
+
+pred SourcesEstebanPintos_AVLNodeCondition0[
+  thiz:univ
+]{
+   isEmptyOrNull[thiz]
+
+}
+
+pred SourcesEstebanPintos_AVLNodeCondition1[
+  thiz:univ
+]{
+   not (
+     isEmptyOrNull[thiz])
+
+}
+
+pred SourcesEstebanPintos_AVLNodeCondition2[
+  exit_stmt_reached:univ,
+  throw:univ
+]{
+   (
+     throw=null)
+   and 
+   (
+     exit_stmt_reached=false)
+
+}
+
+pred SourcesEstebanPintos_AVLNodeCondition3[
+  exit_stmt_reached:univ,
+  throw:univ
+]{
+   not (
+     (
+       throw=null)
+     and 
+     (
+       exit_stmt_reached=false)
+   )
+
+}
+
+program SourcesEstebanPintos_AVLNode_Constructor_0[
+  thiz:SourcesEstebanPintos_AVLNode,
+  throw:java_lang_Throwable+null,
+  java_lang_ObjectArray_length:(java_lang_ObjectArray)->one(JavaPrimitiveIntegerValue),
+  SourcesEstebanPintos_AVLNode_iData:(SourcesEstebanPintos_AVLNode)->one(JavaPrimitiveIntegerValue),
+  SourcesEstebanPintos_AVLNode_balance:(SourcesEstebanPintos_AVLNode)->one(JavaPrimitiveIntegerValue),
+  SourcesEstebanPintos_AVLNode_leftChild:(SourcesEstebanPintos_AVLNode)->one(SourcesEstebanPintos_AVLNode+null),
+  SourcesEstebanPintos_AVLNode_height:(SourcesEstebanPintos_AVLNode)->one(JavaPrimitiveIntegerValue),
+  java_lang_ObjectArray_contents:java_lang_ObjectArray -> (JavaPrimitiveIntegerValue set -> lone (java_lang_Object + null)),
+  SourcesEstebanPintos_AVLStack_top:(SourcesEstebanPintos_AVLStack)->one(JavaPrimitiveIntegerValue),
+  SourcesEstebanPintos_AVLTree_root:(SourcesEstebanPintos_AVLTree)->one(SourcesEstebanPintos_AVLNode+null),
+  SourcesEstebanPintos_AVLTree_size:(SourcesEstebanPintos_AVLTree)->one(JavaPrimitiveIntegerValue),
+  SourcesEstebanPintos_AVLNode_rightChild:(SourcesEstebanPintos_AVLNode)->one(SourcesEstebanPintos_AVLNode+null),
+  SourcesEstebanPintos_AVLStack_stackArray:(SourcesEstebanPintos_AVLStack)->one(java_lang_ObjectArray+null),
+  SourcesEstebanPintos_AVLStack_maxSize:(SourcesEstebanPintos_AVLStack)->one(JavaPrimitiveIntegerValue)
+] var [
+  exit_stmt_reached:boolean
+]{
+   skip;
+   throw:=null;
+   skip;
+   exit_stmt_reached:=false;
+   if SourcesEstebanPintos_AVLNodeCondition2[exit_stmt_reached,throw]  {
+      if SourcesEstebanPintos_AVLNodeCondition0[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         SourcesEstebanPintos_AVLNode_iData:=(SourcesEstebanPintos_AVLNode_iData)++((thiz)->(JavaPrimitiveIntegerLiteral0))
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if SourcesEstebanPintos_AVLNodeCondition2[exit_stmt_reached,throw]  {
+      if SourcesEstebanPintos_AVLNodeCondition0[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         SourcesEstebanPintos_AVLNode_leftChild:=(SourcesEstebanPintos_AVLNode_leftChild)++((thiz)->(((SourcesEstebanPintos_AVLNode+null) & (null))))
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if SourcesEstebanPintos_AVLNodeCondition2[exit_stmt_reached,throw]  {
+      if SourcesEstebanPintos_AVLNodeCondition0[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         SourcesEstebanPintos_AVLNode_rightChild:=(SourcesEstebanPintos_AVLNode_rightChild)++((thiz)->(((SourcesEstebanPintos_AVLNode+null) & (null))))
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if SourcesEstebanPintos_AVLNodeCondition2[exit_stmt_reached,throw]  {
+      if SourcesEstebanPintos_AVLNodeCondition0[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         SourcesEstebanPintos_AVLNode_balance:=(SourcesEstebanPintos_AVLNode_balance)++((thiz)->(JavaPrimitiveIntegerLiteral0))
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if SourcesEstebanPintos_AVLNodeCondition2[exit_stmt_reached,throw]  {
+      if SourcesEstebanPintos_AVLNodeCondition0[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         SourcesEstebanPintos_AVLNode_height:=(SourcesEstebanPintos_AVLNode_height)++((thiz)->(JavaPrimitiveIntegerLiteral0))
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip
+
+}
+

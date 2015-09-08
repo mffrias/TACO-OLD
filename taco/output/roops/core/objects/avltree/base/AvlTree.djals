@@ -1,0 +1,2361 @@
+//-------------- roops_core_objects_avltree_base_AvlTree --------------//
+module roops_core_objects_avltree_base_AvlTree
+sig roops_core_objects_avltree_base_AvlTree extends java_lang_Object {}
+{}
+field roops_core_objects_avltree_base_AvlTree_root:(roops_core_objects_avltree_base_AvlTree)->one(null+roops_core_objects_avltree_base_AvlNode) {}
+field roops_core_objects_avltree_base_AvlTree_size:(roops_core_objects_avltree_base_AvlTree)->one(Int) {}
+
+object_invariant
+   all x:null+roops_core_objects_avltree_base_AvlNode | {
+     liftExpression[fun_set_contains[fun_reach[thiz.roops_core_objects_avltree_base_AvlTree_root,roops_core_objects_avltree_base_AvlNode,roops_core_objects_avltree_base_AvlNode_left+roops_core_objects_avltree_base_AvlNode_right],x]]
+     implies 
+             (
+               (
+                 neq[x.roops_core_objects_avltree_base_AvlNode_left,
+                    null]
+                 and 
+                 neq[x.roops_core_objects_avltree_base_AvlNode_right,
+                    null]
+                 and 
+                 lte[(x.roops_core_objects_avltree_base_AvlNode_left).roops_core_objects_avltree_base_AvlNode_height,
+                    (x.roops_core_objects_avltree_base_AvlNode_right).roops_core_objects_avltree_base_AvlNode_height]
+               )
+               implies 
+                       (
+                         equ[x.roops_core_objects_avltree_base_AvlNode_height,
+                            add[(x.roops_core_objects_avltree_base_AvlNode_right).roops_core_objects_avltree_base_AvlNode_height,1]]
+                         and 
+                         lte[sub[(x.roops_core_objects_avltree_base_AvlNode_right).roops_core_objects_avltree_base_AvlNode_height,(x.roops_core_objects_avltree_base_AvlNode_left).roops_core_objects_avltree_base_AvlNode_height],
+                            1]
+                       )
+             )
+   
+   }
+
+object_invariant
+   not (
+     thiz.roops_core_objects_avltree_base_AvlTree_root=null)
+
+object_invariant
+   all x:null+roops_core_objects_avltree_base_AvlNode | {
+     liftExpression[fun_set_contains[fun_reach[thiz.roops_core_objects_avltree_base_AvlTree_root,roops_core_objects_avltree_base_AvlNode,roops_core_objects_avltree_base_AvlNode_left+roops_core_objects_avltree_base_AvlNode_right],x]]
+     implies 
+             (
+               (
+                 equ[x.roops_core_objects_avltree_base_AvlNode_left,
+                    null]
+                 and 
+                 equ[x.roops_core_objects_avltree_base_AvlNode_right,
+                    null]
+               )
+               implies 
+                       equ[x.roops_core_objects_avltree_base_AvlNode_height,
+                          0]
+             )
+   
+   }
+
+object_invariant
+   all x:null+roops_core_objects_avltree_base_AvlNode | {
+     liftExpression[fun_set_contains[fun_reach[thiz.roops_core_objects_avltree_base_AvlTree_root,roops_core_objects_avltree_base_AvlNode,roops_core_objects_avltree_base_AvlNode_left+roops_core_objects_avltree_base_AvlNode_right],x]]
+     implies 
+             (
+               (
+                 neq[x.roops_core_objects_avltree_base_AvlNode_left,
+                    null]
+                 and 
+                 neq[x.roops_core_objects_avltree_base_AvlNode_right,
+                    null]
+                 and 
+                 gt[(x.roops_core_objects_avltree_base_AvlNode_left).roops_core_objects_avltree_base_AvlNode_height,
+                   (x.roops_core_objects_avltree_base_AvlNode_right).roops_core_objects_avltree_base_AvlNode_height]
+               )
+               implies 
+                       (
+                         equ[x.roops_core_objects_avltree_base_AvlNode_height,
+                            add[(x.roops_core_objects_avltree_base_AvlNode_left).roops_core_objects_avltree_base_AvlNode_height,1]]
+                         and 
+                         lte[sub[(x.roops_core_objects_avltree_base_AvlNode_left).roops_core_objects_avltree_base_AvlNode_height,(x.roops_core_objects_avltree_base_AvlNode_right).roops_core_objects_avltree_base_AvlNode_height],
+                            1]
+                       )
+             )
+   
+   }
+
+object_invariant
+   all x:null+roops_core_objects_avltree_base_AvlNode | {
+     liftExpression[fun_set_contains[fun_reach[thiz.roops_core_objects_avltree_base_AvlTree_root,roops_core_objects_avltree_base_AvlNode,roops_core_objects_avltree_base_AvlNode_left+roops_core_objects_avltree_base_AvlNode_right],x]]
+     implies 
+             (
+               equ[fun_set_contains[fun_reach[x.roops_core_objects_avltree_base_AvlNode_left,roops_core_objects_avltree_base_AvlNode,roops_core_objects_avltree_base_AvlNode_right+roops_core_objects_avltree_base_AvlNode_left],x],
+                  false]
+               and 
+               equ[fun_set_contains[fun_reach[x.roops_core_objects_avltree_base_AvlNode_right,roops_core_objects_avltree_base_AvlNode,roops_core_objects_avltree_base_AvlNode_right+roops_core_objects_avltree_base_AvlNode_left],x],
+                  false]
+             )
+   
+   }
+
+object_invariant
+   all x:null+roops_core_objects_avltree_base_AvlNode | {
+     liftExpression[fun_set_contains[fun_reach[thiz.roops_core_objects_avltree_base_AvlTree_root,roops_core_objects_avltree_base_AvlNode,roops_core_objects_avltree_base_AvlNode_left+roops_core_objects_avltree_base_AvlNode_right],x]]
+     implies 
+             (
+               (
+                 neq[x.roops_core_objects_avltree_base_AvlNode_left,
+                    null]
+                 and 
+                 equ[x.roops_core_objects_avltree_base_AvlNode_right,
+                    null]
+               )
+               implies 
+                       (
+                         equ[x.roops_core_objects_avltree_base_AvlNode_height,
+                            1]
+                         and 
+                         equ[(x.roops_core_objects_avltree_base_AvlNode_left).roops_core_objects_avltree_base_AvlNode_height,
+                            0]
+                       )
+             )
+   
+   }
+
+object_invariant
+   all x:null+roops_core_objects_avltree_base_AvlNode | {
+     liftExpression[fun_set_contains[fun_reach[thiz.roops_core_objects_avltree_base_AvlTree_root,roops_core_objects_avltree_base_AvlNode,roops_core_objects_avltree_base_AvlNode_left+roops_core_objects_avltree_base_AvlNode_right],x]]
+     implies 
+             (
+               (
+                 all y:null+roops_core_objects_avltree_base_AvlNode | {
+                   equ[fun_set_contains[fun_reach[x.roops_core_objects_avltree_base_AvlNode_left,roops_core_objects_avltree_base_AvlNode,roops_core_objects_avltree_base_AvlNode_right+roops_core_objects_avltree_base_AvlNode_left],y],
+                      true]
+                   implies 
+                           lt[y.roops_core_objects_avltree_base_AvlNode_element,
+                             x.roops_core_objects_avltree_base_AvlNode_element]
+                 
+                 }
+               )
+               and 
+               (
+                 all y:null+roops_core_objects_avltree_base_AvlNode | {
+                   equ[fun_set_contains[fun_reach[x.roops_core_objects_avltree_base_AvlNode_right,roops_core_objects_avltree_base_AvlNode,roops_core_objects_avltree_base_AvlNode_right+roops_core_objects_avltree_base_AvlNode_left],y],
+                      true]
+                   implies 
+                           lt[x.roops_core_objects_avltree_base_AvlNode_element,
+                             y.roops_core_objects_avltree_base_AvlNode_element]
+                 
+                 }
+               )
+             )
+   
+   }
+
+object_invariant
+   equ[thiz.roops_core_objects_avltree_base_AvlTree_size,
+      fun_set_size[fun_reach[thiz.roops_core_objects_avltree_base_AvlTree_root,roops_core_objects_avltree_base_AvlNode,roops_core_objects_avltree_base_AvlNode_left+roops_core_objects_avltree_base_AvlNode_right]]]
+
+object_invariant
+   all x:null+roops_core_objects_avltree_base_AvlNode | {
+     liftExpression[fun_set_contains[fun_reach[thiz.roops_core_objects_avltree_base_AvlTree_root,roops_core_objects_avltree_base_AvlNode,roops_core_objects_avltree_base_AvlNode_left+roops_core_objects_avltree_base_AvlNode_right],x]]
+     implies 
+             (
+               (
+                 equ[x.roops_core_objects_avltree_base_AvlNode_left,
+                    null]
+                 and 
+                 neq[x.roops_core_objects_avltree_base_AvlNode_right,
+                    null]
+               )
+               implies 
+                       (
+                         equ[x.roops_core_objects_avltree_base_AvlNode_height,
+                            1]
+                         and 
+                         equ[(x.roops_core_objects_avltree_base_AvlNode_right).roops_core_objects_avltree_base_AvlNode_height,
+                            0]
+                       )
+             )
+   
+   }
+
+
+
+program roops_core_objects_avltree_base_AvlTree::privateInsert[
+  var thiz:roops_core_objects_avltree_base_AvlTree,
+  var throw:java_lang_Throwable+null,
+  var return:null+roops_core_objects_avltree_base_AvlNode,
+  var n:null+roops_core_objects_avltree_base_AvlNode,
+  var aux:null+roops_core_objects_avltree_base_AvlNode] 
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         {
+            var param_n_2:null+roops_core_objects_avltree_base_AvlNode;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               param_n_2:=n;
+            } else {
+               skip;
+            };
+            var param_aux_3:null+roops_core_objects_avltree_base_AvlNode;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               param_aux_3:=aux;
+            } else {
+               skip;
+            };
+            var t_26:boolean;
+            var t_27:Int;
+            var t_28:Int;
+            var t_29:Int;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               t_26:=(equ[param_n_2,
+                  null]=>(true)else(false));
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if t_26=true{
+                  if (
+                    throw=null)
+                  and 
+                  (
+                    exit_stmt_reached=false){
+                     param_n_2:=param_aux_3;
+                  } else {
+                     skip;
+                  };
+               } else    {
+                     var t_25:boolean;
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        t_25:=(lt[aux.roops_core_objects_avltree_base_AvlNode_element,
+                          n.roops_core_objects_avltree_base_AvlNode_element]=>(true)else(false));
+                     } else {
+                        skip;
+                     };
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        if t_25=true   {
+                              var t_8:null+roops_core_objects_avltree_base_AvlNode;
+                              var t_12:Int;
+                              var t_13:Int;
+                              var t_14:Int;
+                              var t_15:boolean;
+                              if (
+                                throw=null)
+                              and 
+                              (
+                                exit_stmt_reached=false){
+                                 if isEmptyOrNull[n]
+                                 or 
+                                 isEmptyOrNull[thiz]
+                                 {
+                                    throw:=java_lang_NullPointerExceptionLit;
+                                 } else {
+                                    call privateInsert[thiz,throw,t_8,n.roops_core_objects_avltree_base_AvlNode_left,param_aux_3];
+                                 };
+                              } else {
+                                 skip;
+                              };
+                              if (
+                                throw=null)
+                              and 
+                              (
+                                exit_stmt_reached=false){
+                                 if isEmptyOrNull[n]{
+                                    throw:=java_lang_NullPointerExceptionLit;
+                                 } else {
+                                    n.roops_core_objects_avltree_base_AvlNode_left:=t_8;
+                                 };
+                              } else {
+                                 skip;
+                              };
+                              if (
+                                throw=null)
+                              and 
+                              (
+                                exit_stmt_reached=false){
+                                 if isEmptyOrNull[n]{
+                                    throw:=java_lang_NullPointerExceptionLit;
+                                 } else {
+                                    call roops_core_objects_avltree_base_AvlTree_height[throw,t_12,n.roops_core_objects_avltree_base_AvlNode_left];
+                                 };
+                              } else {
+                                 skip;
+                              };
+                              if (
+                                throw=null)
+                              and 
+                              (
+                                exit_stmt_reached=false){
+                                 if isEmptyOrNull[n]{
+                                    throw:=java_lang_NullPointerExceptionLit;
+                                 } else {
+                                    call roops_core_objects_avltree_base_AvlTree_height[throw,t_13,n.roops_core_objects_avltree_base_AvlNode_right];
+                                 };
+                              } else {
+                                 skip;
+                              };
+                              if (
+                                throw=null)
+                              and 
+                              (
+                                exit_stmt_reached=false){
+                                 t_14:=sub[t_12,t_13];
+                              } else {
+                                 skip;
+                              };
+                              if (
+                                throw=null)
+                              and 
+                              (
+                                exit_stmt_reached=false){
+                                 t_15:=(equ[t_14,
+                                    2]=>(true)else(false));
+                              } else {
+                                 skip;
+                              };
+                              if (
+                                throw=null)
+                              and 
+                              (
+                                exit_stmt_reached=false){
+                                 if t_15=true   {
+                                       var t_11:boolean;
+                                       if (
+                                         throw=null)
+                                       and 
+                                       (
+                                         exit_stmt_reached=false){
+                                          t_11:=(lt[aux.roops_core_objects_avltree_base_AvlNode_element,
+                                            (n.roops_core_objects_avltree_base_AvlNode_left).roops_core_objects_avltree_base_AvlNode_element]=>(true)else(false));
+                                       } else {
+                                          skip;
+                                       };
+                                       if (
+                                         throw=null)
+                                       and 
+                                       (
+                                         exit_stmt_reached=false){
+                                          if t_11=true   {
+                                                var t_9:null+roops_core_objects_avltree_base_AvlNode;
+                                                if (
+                                                  throw=null)
+                                                and 
+                                                (
+                                                  exit_stmt_reached=false){
+                                                   call roops_core_objects_avltree_base_AvlTree_rotateWithLeftChild[throw,t_9,param_n_2];
+                                                } else {
+                                                   skip;
+                                                };
+                                                if (
+                                                  throw=null)
+                                                and 
+                                                (
+                                                  exit_stmt_reached=false){
+                                                   param_n_2:=t_9;
+                                                } else {
+                                                   skip;
+                                                };
+                                             
+                                             }
+                                           else    {
+                                                var t_10:null+roops_core_objects_avltree_base_AvlNode;
+                                                if (
+                                                  throw=null)
+                                                and 
+                                                (
+                                                  exit_stmt_reached=false){
+                                                   call roops_core_objects_avltree_base_AvlTree_doubleWithLeftChild[throw,t_10,param_n_2];
+                                                } else {
+                                                   skip;
+                                                };
+                                                if (
+                                                  throw=null)
+                                                and 
+                                                (
+                                                  exit_stmt_reached=false){
+                                                   param_n_2:=t_10;
+                                                } else {
+                                                   skip;
+                                                };
+                                             
+                                             }
+                                          ;
+                                       } else {
+                                          skip;
+                                       };
+                                    
+                                    }
+                                  else {
+                                    skip;
+                                 };
+                              } else {
+                                 skip;
+                              };
+                           
+                           }
+                         else    {
+                              var t_24:boolean;
+                              if (
+                                throw=null)
+                              and 
+                              (
+                                exit_stmt_reached=false){
+                                 t_24:=(gt[aux.roops_core_objects_avltree_base_AvlNode_element,
+                                   n.roops_core_objects_avltree_base_AvlNode_element]=>(true)else(false));
+                              } else {
+                                 skip;
+                              };
+                              if (
+                                throw=null)
+                              and 
+                              (
+                                exit_stmt_reached=false){
+                                 if t_24=true   {
+                                       var t_16:null+roops_core_objects_avltree_base_AvlNode;
+                                       var t_20:Int;
+                                       var t_21:Int;
+                                       var t_22:Int;
+                                       var t_23:boolean;
+                                       if (
+                                         throw=null)
+                                       and 
+                                       (
+                                         exit_stmt_reached=false){
+                                          if isEmptyOrNull[n]
+                                          or 
+                                          isEmptyOrNull[thiz]
+                                          {
+                                             throw:=java_lang_NullPointerExceptionLit;
+                                          } else {
+                                             call privateInsert[thiz,throw,t_16,n.roops_core_objects_avltree_base_AvlNode_right,param_aux_3];
+                                          };
+                                       } else {
+                                          skip;
+                                       };
+                                       if (
+                                         throw=null)
+                                       and 
+                                       (
+                                         exit_stmt_reached=false){
+                                          if isEmptyOrNull[n]{
+                                             throw:=java_lang_NullPointerExceptionLit;
+                                          } else {
+                                             n.roops_core_objects_avltree_base_AvlNode_right:=t_16;
+                                          };
+                                       } else {
+                                          skip;
+                                       };
+                                       if (
+                                         throw=null)
+                                       and 
+                                       (
+                                         exit_stmt_reached=false){
+                                          if isEmptyOrNull[n]{
+                                             throw:=java_lang_NullPointerExceptionLit;
+                                          } else {
+                                             call roops_core_objects_avltree_base_AvlTree_height[throw,t_20,n.roops_core_objects_avltree_base_AvlNode_right];
+                                          };
+                                       } else {
+                                          skip;
+                                       };
+                                       if (
+                                         throw=null)
+                                       and 
+                                       (
+                                         exit_stmt_reached=false){
+                                          if isEmptyOrNull[n]{
+                                             throw:=java_lang_NullPointerExceptionLit;
+                                          } else {
+                                             call roops_core_objects_avltree_base_AvlTree_height[throw,t_21,n.roops_core_objects_avltree_base_AvlNode_left];
+                                          };
+                                       } else {
+                                          skip;
+                                       };
+                                       if (
+                                         throw=null)
+                                       and 
+                                       (
+                                         exit_stmt_reached=false){
+                                          t_22:=sub[t_20,t_21];
+                                       } else {
+                                          skip;
+                                       };
+                                       if (
+                                         throw=null)
+                                       and 
+                                       (
+                                         exit_stmt_reached=false){
+                                          t_23:=(equ[t_22,
+                                             2]=>(true)else(false));
+                                       } else {
+                                          skip;
+                                       };
+                                       if (
+                                         throw=null)
+                                       and 
+                                       (
+                                         exit_stmt_reached=false){
+                                          if t_23=true   {
+                                                var t_19:boolean;
+                                                if (
+                                                  throw=null)
+                                                and 
+                                                (
+                                                  exit_stmt_reached=false){
+                                                   t_19:=(gt[aux.roops_core_objects_avltree_base_AvlNode_element,
+                                                     (n.roops_core_objects_avltree_base_AvlNode_right).roops_core_objects_avltree_base_AvlNode_element]=>(true)else(false));
+                                                } else {
+                                                   skip;
+                                                };
+                                                if (
+                                                  throw=null)
+                                                and 
+                                                (
+                                                  exit_stmt_reached=false){
+                                                   if t_19=true   {
+                                                         var t_17:null+roops_core_objects_avltree_base_AvlNode;
+                                                         if (
+                                                           throw=null)
+                                                         and 
+                                                         (
+                                                           exit_stmt_reached=false){
+                                                            call roops_core_objects_avltree_base_AvlTree_rotateWithRightChild[throw,t_17,param_n_2];
+                                                         } else {
+                                                            skip;
+                                                         };
+                                                         if (
+                                                           throw=null)
+                                                         and 
+                                                         (
+                                                           exit_stmt_reached=false){
+                                                            param_n_2:=t_17;
+                                                         } else {
+                                                            skip;
+                                                         };
+                                                      
+                                                      }
+                                                    else    {
+                                                         var t_18:null+roops_core_objects_avltree_base_AvlNode;
+                                                         if (
+                                                           throw=null)
+                                                         and 
+                                                         (
+                                                           exit_stmt_reached=false){
+                                                            call roops_core_objects_avltree_base_AvlTree_doubleWithRightChild[throw,t_18,param_n_2];
+                                                         } else {
+                                                            skip;
+                                                         };
+                                                         if (
+                                                           throw=null)
+                                                         and 
+                                                         (
+                                                           exit_stmt_reached=false){
+                                                            param_n_2:=t_18;
+                                                         } else {
+                                                            skip;
+                                                         };
+                                                      
+                                                      }
+                                                   ;
+                                                } else {
+                                                   skip;
+                                                };
+                                             
+                                             }
+                                           else {
+                                             skip;
+                                          };
+                                       } else {
+                                          skip;
+                                       };
+                                    
+                                    }
+                                  else {
+                                    skip;
+                                 };
+                              } else {
+                                 skip;
+                              };
+                           
+                           }
+                        ;
+                     } else {
+                        skip;
+                     };
+                  
+                  }
+               ;
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[n]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  call roops_core_objects_avltree_base_AvlTree_height[throw,t_27,n.roops_core_objects_avltree_base_AvlNode_left];
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[n]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  call roops_core_objects_avltree_base_AvlTree_height[throw,t_28,n.roops_core_objects_avltree_base_AvlNode_right];
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               call roops_core_objects_avltree_base_AvlTree_max[throw,t_29,t_27,t_28];
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[n]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  n.roops_core_objects_avltree_base_AvlNode_height:=add[t_29,1];
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false)   {
+                  return:=param_n_2;
+                  exit_stmt_reached:=true;
+               
+               }
+             else {
+               skip;
+            };
+         
+         }
+      
+      }
+      skip;
+   
+   }
+
+
+program roops_core_objects_avltree_base_AvlTree::findMax[
+  var thiz:roops_core_objects_avltree_base_AvlTree,
+  var throw:java_lang_Throwable+null,
+  var return:Int] 
+Specification 
+{
+  SpecCase #0 {
+   requires {
+      true=true
+   }
+   
+   ensures {
+      instanceOf[throw',
+                java_lang_Exception]
+      implies 
+              liftExpression[false]
+   }
+   
+   ensures {
+      (
+        throw'=null)
+      implies 
+              (
+                gt[fun_set_size[fun_reach[thiz'.roops_core_objects_avltree_base_AvlTree_root',roops_core_objects_avltree_base_AvlNode,roops_core_objects_avltree_base_AvlNode_left'+roops_core_objects_avltree_base_AvlNode_right']],
+                  0]
+                implies 
+                        (
+                          some max_node:null+roops_core_objects_avltree_base_AvlNode | {
+                            liftExpression[fun_set_contains[fun_reach[thiz'.roops_core_objects_avltree_base_AvlTree_root',roops_core_objects_avltree_base_AvlNode,roops_core_objects_avltree_base_AvlNode_left'+roops_core_objects_avltree_base_AvlNode_right'],max_node]]
+                            and 
+                            equ[max_node.roops_core_objects_avltree_base_AvlNode_element',
+                               return']
+                            and 
+                            (
+                              all node:null+roops_core_objects_avltree_base_AvlNode | {
+                                liftExpression[fun_set_contains[fun_reach[thiz'.roops_core_objects_avltree_base_AvlTree_root',roops_core_objects_avltree_base_AvlNode,roops_core_objects_avltree_base_AvlNode_left'+roops_core_objects_avltree_base_AvlNode_right'],node]]
+                                implies 
+                                        gte[return',
+                                           node.roops_core_objects_avltree_base_AvlNode_element']
+                              
+                              }
+                            )
+                          
+                          }
+                        )
+              )
+   }
+   
+   ensures {
+      (
+        throw'=null)
+      implies 
+              (
+                equ[fun_set_size[fun_reach[thiz'.roops_core_objects_avltree_base_AvlTree_root',roops_core_objects_avltree_base_AvlNode,roops_core_objects_avltree_base_AvlNode_left'+roops_core_objects_avltree_base_AvlNode_right']],
+                   0]
+                implies 
+                        equ[return',
+                           negate[1]]
+              )
+   }
+   
+   modifies {
+   EVERYTHING}
+  }
+}
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         {
+            var t_3:boolean;
+            var var_5_n:null+roops_core_objects_avltree_base_AvlNode;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  var_5_n:=thiz.roops_core_objects_avltree_base_AvlTree_root;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               t_3:=(equ[var_5_n,
+                  null]=>(true)else(false));
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if t_3=true{
+                  if (
+                    throw=null)
+                  and 
+                  (
+                    exit_stmt_reached=false)   {
+                        return:=negate[1];
+                        exit_stmt_reached:=true;
+                     
+                     }
+                   else {
+                     skip;
+                  };
+               } else {
+                  skip;
+               };
+            } else {
+               skip;
+            };
+            var var_6_ws_3:boolean;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               var_6_ws_3:=(neq[var_5_n.roops_core_objects_avltree_base_AvlNode_right,
+                  null]=>(true)else(false));
+            } else {
+               skip;
+            };
+            while liftExpression[var_6_ws_3]
+            and 
+            (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false)
+            
+               {
+                  if (
+                    throw=null)
+                  and 
+                  (
+                    exit_stmt_reached=false){
+                     if isEmptyOrNull[var_5_n]{
+                        throw:=java_lang_NullPointerExceptionLit;
+                     } else {
+                        var_5_n:=var_5_n.roops_core_objects_avltree_base_AvlNode_right;
+                     };
+                  } else {
+                     skip;
+                  };
+                  if (
+                    throw=null)
+                  and 
+                  (
+                    exit_stmt_reached=false){
+                     var_6_ws_3:=(neq[var_5_n.roops_core_objects_avltree_base_AvlNode_right,
+                        null]=>(true)else(false));
+                  } else {
+                     skip;
+                  };
+               
+               }
+            ;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false)   {
+                  if isEmptyOrNull[var_5_n]{
+                     throw:=java_lang_NullPointerExceptionLit;
+                  } else {
+                     return:=var_5_n.roops_core_objects_avltree_base_AvlNode_element;
+                  };
+                  exit_stmt_reached:=true;
+               
+               }
+             else {
+               skip;
+            };
+         
+         }
+      
+      }
+      skip;
+   
+   }
+
+
+program roops_core_objects_avltree_base_AvlTree::find[
+  var thiz:roops_core_objects_avltree_base_AvlTree,
+  var throw:java_lang_Throwable+null,
+  var return:null+roops_core_objects_avltree_base_AvlNode,
+  var x:Int] 
+Specification 
+{
+  SpecCase #0 {
+   ensures {
+      instanceOf[throw',
+                java_lang_Exception]
+      implies 
+              liftExpression[false]
+   }
+   
+   ensures {
+      (
+        throw'=null)
+      implies 
+              (
+                (
+                  all n:null+roops_core_objects_avltree_base_AvlNode | {
+                    liftExpression[fun_set_contains[fun_reach[thiz'.roops_core_objects_avltree_base_AvlTree_root',roops_core_objects_avltree_base_AvlNode,roops_core_objects_avltree_base_AvlNode_left'+roops_core_objects_avltree_base_AvlNode_right'],n]]
+                    implies 
+                            neq[n.roops_core_objects_avltree_base_AvlNode_element',
+                               x']
+                  
+                  }
+                )
+                implies 
+                        equ[return',
+                           null]
+              )
+   }
+   
+   ensures {
+      (
+        throw'=null)
+      implies 
+              (
+                (
+                  some n:null+roops_core_objects_avltree_base_AvlNode | {
+                    liftExpression[fun_set_contains[fun_reach[thiz'.roops_core_objects_avltree_base_AvlTree_root',roops_core_objects_avltree_base_AvlNode,roops_core_objects_avltree_base_AvlNode_left'+roops_core_objects_avltree_base_AvlNode_right'],n]]
+                    and 
+                    equ[n.roops_core_objects_avltree_base_AvlNode_element',
+                       x']
+                  
+                  }
+                )
+                implies 
+                        (
+                          (
+                            fun_set_contains[fun_reach[thiz'.roops_core_objects_avltree_base_AvlTree_root',roops_core_objects_avltree_base_AvlNode,roops_core_objects_avltree_base_AvlNode_left'+roops_core_objects_avltree_base_AvlNode_right'],return']=true)
+                          and 
+                          equ[return'.roops_core_objects_avltree_base_AvlNode_element',
+                             x']
+                        )
+              )
+   }
+   
+   modifies {
+   EVERYTHING}
+  }
+}
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         {
+            var param_x_0:Int;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               param_x_0:=x;
+            } else {
+               skip;
+            };
+            var var_1_n:null+roops_core_objects_avltree_base_AvlNode;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  var_1_n:=thiz.roops_core_objects_avltree_base_AvlTree_root;
+               };
+            } else {
+               skip;
+            };
+            var var_2_ws_1:boolean;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               var_2_ws_1:=(neq[var_1_n,
+                  null]=>(true)else(false));
+            } else {
+               skip;
+            };
+            while liftExpression[var_2_ws_1]
+            and 
+            (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false)
+            
+               {
+                  var t_2:boolean;
+                  if (
+                    throw=null)
+                  and 
+                  (
+                    exit_stmt_reached=false){
+                     t_2:=(lt[param_x_0,
+                       var_1_n.roops_core_objects_avltree_base_AvlNode_element]=>(true)else(false));
+                  } else {
+                     skip;
+                  };
+                  if (
+                    throw=null)
+                  and 
+                  (
+                    exit_stmt_reached=false){
+                     if t_2=true{
+                        if (
+                          throw=null)
+                        and 
+                        (
+                          exit_stmt_reached=false){
+                           if isEmptyOrNull[var_1_n]{
+                              throw:=java_lang_NullPointerExceptionLit;
+                           } else {
+                              var_1_n:=var_1_n.roops_core_objects_avltree_base_AvlNode_left;
+                           };
+                        } else {
+                           skip;
+                        };
+                     } else    {
+                           var t_1:boolean;
+                           if (
+                             throw=null)
+                           and 
+                           (
+                             exit_stmt_reached=false){
+                              t_1:=(gt[param_x_0,
+                                var_1_n.roops_core_objects_avltree_base_AvlNode_element]=>(true)else(false));
+                           } else {
+                              skip;
+                           };
+                           if (
+                             throw=null)
+                           and 
+                           (
+                             exit_stmt_reached=false){
+                              if t_1=true{
+                                 if (
+                                   throw=null)
+                                 and 
+                                 (
+                                   exit_stmt_reached=false){
+                                    if isEmptyOrNull[var_1_n]{
+                                       throw:=java_lang_NullPointerExceptionLit;
+                                    } else {
+                                       var_1_n:=var_1_n.roops_core_objects_avltree_base_AvlNode_right;
+                                    };
+                                 } else {
+                                    skip;
+                                 };
+                              } else {
+                                 if (
+                                   throw=null)
+                                 and 
+                                 (
+                                   exit_stmt_reached=false)   {
+                                       return:=var_1_n;
+                                       exit_stmt_reached:=true;
+                                    
+                                    }
+                                  else {
+                                    skip;
+                                 };
+                              };
+                           } else {
+                              skip;
+                           };
+                        
+                        }
+                     ;
+                  } else {
+                     skip;
+                  };
+                  if (
+                    throw=null)
+                  and 
+                  (
+                    exit_stmt_reached=false){
+                     var_2_ws_1:=(neq[var_1_n,
+                        null]=>(true)else(false));
+                  } else {
+                     skip;
+                  };
+               
+               }
+            ;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false)   {
+                  return:=((null+roops_core_objects_avltree_base_AvlNode) & (null));
+                  exit_stmt_reached:=true;
+               
+               }
+             else {
+               skip;
+            };
+         
+         }
+      
+      }
+      skip;
+   
+   }
+
+
+program roops_core_objects_avltree_base_AvlTree::doubleWithRightChild[
+  var throw:java_lang_Throwable+null,
+  var return:null+roops_core_objects_avltree_base_AvlNode,
+  var k1:null+roops_core_objects_avltree_base_AvlNode] 
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         {
+            var param_k1_5:null+roops_core_objects_avltree_base_AvlNode;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               param_k1_5:=k1;
+            } else {
+               skip;
+            };
+            var t_32:null+roops_core_objects_avltree_base_AvlNode;
+            var t_33:null+roops_core_objects_avltree_base_AvlNode;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[k1]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  call roops_core_objects_avltree_base_AvlTree_rotateWithLeftChild[throw,t_32,k1.roops_core_objects_avltree_base_AvlNode_right];
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[k1]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  k1.roops_core_objects_avltree_base_AvlNode_right:=t_32;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               call roops_core_objects_avltree_base_AvlTree_rotateWithRightChild[throw,t_33,param_k1_5];
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false)   {
+                  return:=t_33;
+                  exit_stmt_reached:=true;
+               
+               }
+             else {
+               skip;
+            };
+         
+         }
+      
+      }
+      skip;
+   
+   }
+
+
+program roops_core_objects_avltree_base_AvlTree::height[
+  var throw:java_lang_Throwable+null,
+  var return:Int,
+  var t:null+roops_core_objects_avltree_base_AvlNode] 
+Specification 
+{
+  SpecCase #0 {
+   requires {
+      not (
+        t=null)
+   }
+  }
+}
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         {
+            var param_t_6:null+roops_core_objects_avltree_base_AvlNode;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               param_t_6:=t;
+            } else {
+               skip;
+            };
+            var t_34:Int;
+            var t_35:boolean;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               t_35:=(equ[param_t_6,
+                  null]=>(true)else(false));
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if t_35=true{
+                  if (
+                    throw=null)
+                  and 
+                  (
+                    exit_stmt_reached=false){
+                     t_34:=negate[1];
+                  } else {
+                     skip;
+                  };
+               } else {
+                  if (
+                    throw=null)
+                  and 
+                  (
+                    exit_stmt_reached=false){
+                     if isEmptyOrNull[t]{
+                        throw:=java_lang_NullPointerExceptionLit;
+                     } else {
+                        t_34:=t.roops_core_objects_avltree_base_AvlNode_height;
+                     };
+                  } else {
+                     skip;
+                  };
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false)   {
+                  return:=t_34;
+                  exit_stmt_reached:=true;
+               
+               }
+             else {
+               skip;
+            };
+         
+         }
+      
+      }
+      skip;
+   
+   }
+
+
+program roops_core_objects_avltree_base_AvlTree::AvlTree[
+  var thiz:roops_core_objects_avltree_base_AvlTree,
+  var throw:java_lang_Throwable+null] 
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         if (
+           throw=null)
+         and 
+         (
+           exit_stmt_reached=false){
+            if isEmptyOrNull[thiz]{
+               throw:=java_lang_NullPointerExceptionLit;
+            } else {
+               thiz.roops_core_objects_avltree_base_AvlTree_size:=0;
+            };
+         } else {
+            skip;
+         };
+      
+      }
+      skip;
+   
+   }
+
+
+program roops_core_objects_avltree_base_AvlTree::rotateWithRightChild[
+  var throw:java_lang_Throwable+null,
+  var return:null+roops_core_objects_avltree_base_AvlNode,
+  var k1:null+roops_core_objects_avltree_base_AvlNode] 
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         {
+            var param_k1_10:null+roops_core_objects_avltree_base_AvlNode;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               param_k1_10:=k1;
+            } else {
+               skip;
+            };
+            var t_43:Int;
+            var t_44:Int;
+            var t_45:Int;
+            var t_46:Int;
+            var t_47:Int;
+            var var_9_k2:null+roops_core_objects_avltree_base_AvlNode;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[k1]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  var_9_k2:=k1.roops_core_objects_avltree_base_AvlNode_right;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[k1]
+               or 
+               isEmptyOrNull[var_9_k2]
+               {
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  k1.roops_core_objects_avltree_base_AvlNode_right:=var_9_k2.roops_core_objects_avltree_base_AvlNode_left;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[var_9_k2]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  var_9_k2.roops_core_objects_avltree_base_AvlNode_left:=param_k1_10;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[k1]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  call roops_core_objects_avltree_base_AvlTree_height[throw,t_43,k1.roops_core_objects_avltree_base_AvlNode_left];
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[k1]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  call roops_core_objects_avltree_base_AvlTree_height[throw,t_44,k1.roops_core_objects_avltree_base_AvlNode_right];
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               call roops_core_objects_avltree_base_AvlTree_max[throw,t_45,t_43,t_44];
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[k1]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  k1.roops_core_objects_avltree_base_AvlNode_height:=add[t_45,1];
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[var_9_k2]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  call roops_core_objects_avltree_base_AvlTree_height[throw,t_46,var_9_k2.roops_core_objects_avltree_base_AvlNode_right];
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[k1]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  call roops_core_objects_avltree_base_AvlTree_max[throw,t_47,t_46,k1.roops_core_objects_avltree_base_AvlNode_height];
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[var_9_k2]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  var_9_k2.roops_core_objects_avltree_base_AvlNode_height:=add[t_47,1];
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false)   {
+                  return:=var_9_k2;
+                  exit_stmt_reached:=true;
+               
+               }
+             else {
+               skip;
+            };
+         
+         }
+      
+      }
+      skip;
+   
+   }
+
+
+program roops_core_objects_avltree_base_AvlTree::main[
+  var throw:java_lang_Throwable+null,
+  var args:java_lang_ObjectArray+null] 
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         {
+            var param_args_11:java_lang_ObjectArray+null;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               param_args_11:=args;
+            } else {
+               skip;
+            };
+            var t_48:null+roops_core_objects_avltree_base_AvlTree;
+            var t_49:null+roops_core_objects_avltree_base_AvlNode;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false)   {
+                  createObject<roops_core_objects_avltree_base_AvlTree>[t_48];
+                  if isEmptyOrNull[t_48]{
+                     throw:=java_lang_NullPointerExceptionLit;
+                  } else {
+                     call Constructor[t_48,throw];
+                  };
+               
+               }
+             else {
+               skip;
+            };
+            var var_10_t:null+roops_core_objects_avltree_base_AvlTree;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               var_10_t:=t_48;
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false)   {
+                  createObject<roops_core_objects_avltree_base_AvlNode>[t_49];
+                  if isEmptyOrNull[t_49]{
+                     throw:=java_lang_NullPointerExceptionLit;
+                  } else {
+                     call Constructor[t_49,throw];
+                  };
+               
+               }
+             else {
+               skip;
+            };
+            var var_11_n:null+roops_core_objects_avltree_base_AvlNode;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               var_11_n:=t_49;
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[var_11_n]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  var_11_n.roops_core_objects_avltree_base_AvlNode_element:=3;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[var_10_t]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  var_10_t.roops_core_objects_avltree_base_AvlTree_root:=var_11_n;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[var_10_t]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  var_10_t.roops_core_objects_avltree_base_AvlTree_size:=1;
+               };
+            } else {
+               skip;
+            };
+            if isEmptyOrNull[var_10_t]{
+               throw:=java_lang_NullPointerExceptionLit;
+            } else {
+               call insert[var_10_t,throw,6];
+            };
+         
+         }
+      
+      }
+      skip;
+   
+   }
+
+
+program roops_core_objects_avltree_base_AvlTree::max[
+  var throw:java_lang_Throwable+null,
+  var return:Int,
+  var lhs:Int,
+  var rhs:Int] 
+Specification 
+{
+  SpecCase #0 {
+   
+  }
+}
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         {
+            var param_lhs_7:Int;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               param_lhs_7:=lhs;
+            } else {
+               skip;
+            };
+            var param_rhs_8:Int;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               param_rhs_8:=rhs;
+            } else {
+               skip;
+            };
+            var t_36:Int;
+            var t_37:boolean;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               t_37:=(gt[param_lhs_7,
+                 param_rhs_8]=>(true)else(false));
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if t_37=true{
+                  if (
+                    throw=null)
+                  and 
+                  (
+                    exit_stmt_reached=false){
+                     t_36:=param_lhs_7;
+                  } else {
+                     skip;
+                  };
+               } else {
+                  if (
+                    throw=null)
+                  and 
+                  (
+                    exit_stmt_reached=false){
+                     t_36:=param_rhs_8;
+                  } else {
+                     skip;
+                  };
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false)   {
+                  return:=t_36;
+                  exit_stmt_reached:=true;
+               
+               }
+             else {
+               skip;
+            };
+         
+         }
+      
+      }
+      skip;
+   
+   }
+
+
+program roops_core_objects_avltree_base_AvlTree::insert[
+  var thiz:roops_core_objects_avltree_base_AvlTree,
+  var throw:java_lang_Throwable+null,
+  var x:Int] 
+Specification 
+{
+  SpecCase #0 {
+   requires {
+      true=true
+   }
+   
+   requires {
+      all n:null+roops_core_objects_avltree_base_AvlNode | {
+        equ[fun_set_contains[fun_reach[thiz.roops_core_objects_avltree_base_AvlTree_root,roops_core_objects_avltree_base_AvlNode,roops_core_objects_avltree_base_AvlNode_left+roops_core_objects_avltree_base_AvlNode_right],n],
+           true]
+        implies 
+                neq[n.roops_core_objects_avltree_base_AvlNode_element,
+                   x]
+      
+      }
+   }
+   
+   ensures {
+      instanceOf[throw',
+                java_lang_Exception]
+      implies 
+              liftExpression[false]
+   }
+   
+   ensures {
+      (
+        throw'=null)
+      implies 
+              equ[fun_set_size[fun_reach[thiz'.roops_core_objects_avltree_base_AvlTree_root',roops_core_objects_avltree_base_AvlNode,roops_core_objects_avltree_base_AvlNode_left'+roops_core_objects_avltree_base_AvlNode_right']],
+                 add[fun_set_size[fun_reach[thiz.roops_core_objects_avltree_base_AvlTree_root,roops_core_objects_avltree_base_AvlNode,roops_core_objects_avltree_base_AvlNode_left+roops_core_objects_avltree_base_AvlNode_right]],1]]
+   }
+   
+   ensures {
+      (
+        throw'=null)
+      implies 
+              (
+                some n:null+roops_core_objects_avltree_base_AvlNode | {
+                  equ[fun_set_contains[fun_reach[thiz'.roops_core_objects_avltree_base_AvlTree_root',roops_core_objects_avltree_base_AvlNode,roops_core_objects_avltree_base_AvlNode_left'+roops_core_objects_avltree_base_AvlNode_right'],n],
+                     true]
+                  and 
+                  equ[n.roops_core_objects_avltree_base_AvlNode_element',
+                     x']
+                
+                }
+              )
+   }
+   
+   modifies {
+   EVERYTHING}
+  }
+}
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         {
+            var param_x_1:Int;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               param_x_1:=x;
+            } else {
+               skip;
+            };
+            var t_4:null+roops_core_objects_avltree_base_AvlNode;
+            var t_6:boolean;
+            var t_7:Int;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false)   {
+                  createObject<roops_core_objects_avltree_base_AvlNode>[t_4];
+                  if isEmptyOrNull[t_4]{
+                     throw:=java_lang_NullPointerExceptionLit;
+                  } else {
+                     call Constructor[t_4,throw];
+                  };
+               
+               }
+             else {
+               skip;
+            };
+            var var_7_n:null+roops_core_objects_avltree_base_AvlNode;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               var_7_n:=t_4;
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[var_7_n]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  var_7_n.roops_core_objects_avltree_base_AvlNode_element:=param_x_1;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               t_6:=(equ[thiz.roops_core_objects_avltree_base_AvlTree_root,
+                  null]=>(true)else(false));
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if t_6=true{
+                  if (
+                    throw=null)
+                  and 
+                  (
+                    exit_stmt_reached=false){
+                     if isEmptyOrNull[thiz]{
+                        throw:=java_lang_NullPointerExceptionLit;
+                     } else {
+                        thiz.roops_core_objects_avltree_base_AvlTree_root:=var_7_n;
+                     };
+                  } else {
+                     skip;
+                  };
+               } else    {
+                     var t_5:null+roops_core_objects_avltree_base_AvlNode;
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        if isEmptyOrNull[thiz]
+                        or 
+                        isEmptyOrNull[thiz]
+                        {
+                           throw:=java_lang_NullPointerExceptionLit;
+                        } else {
+                           call privateInsert[thiz,throw,t_5,thiz.roops_core_objects_avltree_base_AvlTree_root,var_7_n];
+                        };
+                     } else {
+                        skip;
+                     };
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        if isEmptyOrNull[thiz]{
+                           throw:=java_lang_NullPointerExceptionLit;
+                        } else {
+                           thiz.roops_core_objects_avltree_base_AvlTree_root:=t_5;
+                        };
+                     } else {
+                        skip;
+                     };
+                  
+                  }
+               ;
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  t_7:=thiz.roops_core_objects_avltree_base_AvlTree_size;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]
+               or 
+               isEmptyOrNull[thiz]
+               {
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.roops_core_objects_avltree_base_AvlTree_size:=add[thiz.roops_core_objects_avltree_base_AvlTree_size,1];
+               };
+            } else {
+               skip;
+            };
+         
+         }
+      
+      }
+      skip;
+   
+   }
+
+
+program roops_core_objects_avltree_base_AvlTree::findMin[
+  var thiz:roops_core_objects_avltree_base_AvlTree,
+  var throw:java_lang_Throwable+null,
+  var return:Int] 
+Specification 
+{
+  SpecCase #0 {
+   requires {
+      neq[thiz.roops_core_objects_avltree_base_AvlTree_root,
+         null]
+   }
+   
+   ensures {
+      instanceOf[throw',
+                java_lang_Exception]
+      implies 
+              liftExpression[false]
+   }
+   
+   ensures {
+      (
+        throw'=null)
+      implies 
+              (
+                some min_node:null+roops_core_objects_avltree_base_AvlNode | {
+                  liftExpression[fun_set_contains[fun_reach[thiz'.roops_core_objects_avltree_base_AvlTree_root',roops_core_objects_avltree_base_AvlNode,roops_core_objects_avltree_base_AvlNode_left'+roops_core_objects_avltree_base_AvlNode_right'],min_node]]
+                  and 
+                  equ[min_node.roops_core_objects_avltree_base_AvlNode_element',
+                     return']
+                  and 
+                  (
+                    all node:null+roops_core_objects_avltree_base_AvlNode | {
+                      liftExpression[fun_set_contains[fun_reach[thiz'.roops_core_objects_avltree_base_AvlTree_root',roops_core_objects_avltree_base_AvlNode,roops_core_objects_avltree_base_AvlNode_left'+roops_core_objects_avltree_base_AvlNode_right'],node]]
+                      implies 
+                              lte[return',
+                                 node.roops_core_objects_avltree_base_AvlNode_element']
+                    
+                    }
+                  )
+                
+                }
+              )
+   }
+   
+   modifies {
+   EVERYTHING}
+  }
+}
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         {
+            var var_3_n:null+roops_core_objects_avltree_base_AvlNode;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  var_3_n:=thiz.roops_core_objects_avltree_base_AvlTree_root;
+               };
+            } else {
+               skip;
+            };
+            var var_4_ws_2:boolean;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               var_4_ws_2:=(neq[var_3_n.roops_core_objects_avltree_base_AvlNode_left,
+                  null]=>(true)else(false));
+            } else {
+               skip;
+            };
+            while liftExpression[var_4_ws_2]
+            and 
+            (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false)
+            
+               {
+                  if (
+                    throw=null)
+                  and 
+                  (
+                    exit_stmt_reached=false){
+                     if isEmptyOrNull[var_3_n]{
+                        throw:=java_lang_NullPointerExceptionLit;
+                     } else {
+                        var_3_n:=var_3_n.roops_core_objects_avltree_base_AvlNode_left;
+                     };
+                  } else {
+                     skip;
+                  };
+                  if (
+                    throw=null)
+                  and 
+                  (
+                    exit_stmt_reached=false){
+                     var_4_ws_2:=(neq[var_3_n.roops_core_objects_avltree_base_AvlNode_left,
+                        null]=>(true)else(false));
+                  } else {
+                     skip;
+                  };
+               
+               }
+            ;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false)   {
+                  if isEmptyOrNull[var_3_n]{
+                     throw:=java_lang_NullPointerExceptionLit;
+                  } else {
+                     return:=var_3_n.roops_core_objects_avltree_base_AvlNode_element;
+                  };
+                  exit_stmt_reached:=true;
+               
+               }
+             else {
+               skip;
+            };
+         
+         }
+      
+      }
+      skip;
+   
+   }
+
+
+program roops_core_objects_avltree_base_AvlTree::rotateWithLeftChild[
+  var throw:java_lang_Throwable+null,
+  var return:null+roops_core_objects_avltree_base_AvlNode,
+  var k2:null+roops_core_objects_avltree_base_AvlNode] 
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         {
+            var param_k2_9:null+roops_core_objects_avltree_base_AvlNode;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               param_k2_9:=k2;
+            } else {
+               skip;
+            };
+            var t_38:Int;
+            var t_39:Int;
+            var t_40:Int;
+            var t_41:Int;
+            var t_42:Int;
+            var var_8_k1:null+roops_core_objects_avltree_base_AvlNode;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[k2]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  var_8_k1:=k2.roops_core_objects_avltree_base_AvlNode_left;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[k2]
+               or 
+               isEmptyOrNull[var_8_k1]
+               {
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  k2.roops_core_objects_avltree_base_AvlNode_left:=var_8_k1.roops_core_objects_avltree_base_AvlNode_right;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[var_8_k1]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  var_8_k1.roops_core_objects_avltree_base_AvlNode_right:=param_k2_9;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[k2]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  call roops_core_objects_avltree_base_AvlTree_height[throw,t_38,k2.roops_core_objects_avltree_base_AvlNode_left];
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[k2]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  call roops_core_objects_avltree_base_AvlTree_height[throw,t_39,k2.roops_core_objects_avltree_base_AvlNode_right];
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               call roops_core_objects_avltree_base_AvlTree_max[throw,t_40,t_38,t_39];
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[k2]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  k2.roops_core_objects_avltree_base_AvlNode_height:=add[t_40,1];
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[var_8_k1]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  call roops_core_objects_avltree_base_AvlTree_height[throw,t_41,var_8_k1.roops_core_objects_avltree_base_AvlNode_left];
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[k2]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  call roops_core_objects_avltree_base_AvlTree_max[throw,t_42,t_41,k2.roops_core_objects_avltree_base_AvlNode_height];
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[var_8_k1]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  var_8_k1.roops_core_objects_avltree_base_AvlNode_height:=add[t_42,1];
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false)   {
+                  return:=var_8_k1;
+                  exit_stmt_reached:=true;
+               
+               }
+             else {
+               skip;
+            };
+         
+         }
+      
+      }
+      skip;
+   
+   }
+
+
+program roops_core_objects_avltree_base_AvlTree::doubleWithLeftChild[
+  var throw:java_lang_Throwable+null,
+  var return:null+roops_core_objects_avltree_base_AvlNode,
+  var k3:null+roops_core_objects_avltree_base_AvlNode] 
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         {
+            var param_k3_4:null+roops_core_objects_avltree_base_AvlNode;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               param_k3_4:=k3;
+            } else {
+               skip;
+            };
+            var t_30:null+roops_core_objects_avltree_base_AvlNode;
+            var t_31:null+roops_core_objects_avltree_base_AvlNode;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[k3]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  call roops_core_objects_avltree_base_AvlTree_rotateWithRightChild[throw,t_30,k3.roops_core_objects_avltree_base_AvlNode_left];
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[k3]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  k3.roops_core_objects_avltree_base_AvlNode_left:=t_30;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               call roops_core_objects_avltree_base_AvlTree_rotateWithLeftChild[throw,t_31,param_k3_4];
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false)   {
+                  return:=t_31;
+                  exit_stmt_reached:=true;
+               
+               }
+             else {
+               skip;
+            };
+         
+         }
+      
+      }
+      skip;
+   
+   }
+
+
+

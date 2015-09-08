@@ -1,0 +1,5 @@
+//-------------- JavaPrimitiveIntegerLiteral28 --------------//
+module JavaPrimitiveIntegerLiteral28
+one sig JavaPrimitiveIntegerLiteral28 extends JavaPrimitiveIntegerValue {}
+{pred_java_primitive_integer_value_literal_28[JavaPrimitiveIntegerLiteral28]
+}

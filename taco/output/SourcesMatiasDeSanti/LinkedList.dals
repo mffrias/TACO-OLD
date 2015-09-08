@@ -1,0 +1,432 @@
+sig SourcesMatiasDeSanti_LinkedList extends java_lang_Object {}
+{}
+
+
+
+
+pred SourcesMatiasDeSanti_LinkedListCondition6[
+  var_2_current:univ
+]{
+   isEmptyOrNull[var_2_current]
+
+}
+
+pred SourcesMatiasDeSanti_LinkedListCondition7[
+  var_2_current:univ
+]{
+   not (
+     isEmptyOrNull[var_2_current])
+
+}
+
+pred SourcesMatiasDeSanti_LinkedList_ensures[
+  SourcesMatiasDeSanti_LinkedList_head':univ->univ,
+  SourcesMatiasDeSanti_Node_data':univ->univ,
+  SourcesMatiasDeSanti_Node_next':univ->univ,
+  d':univ,
+  thiz':univ,
+  throw':univ
+]{
+   (
+     instanceOf[throw',
+               java_lang_Exception]
+     implies 
+             liftExpression[false]
+   )
+   and 
+   (
+     (
+       throw'=null)
+     implies 
+             (
+               some n:SourcesMatiasDeSanti_Node+null | {
+                 equ[n.SourcesMatiasDeSanti_Node_data',
+                    d']
+                 and 
+                 equ[fun_set_contains[fun_reach[thiz'.SourcesMatiasDeSanti_LinkedList_head',SourcesMatiasDeSanti_Node,SourcesMatiasDeSanti_Node_next'],n],
+                    true]
+                 and 
+                 equ[fun_java_primitive_integer_value_size_of[fun_reach[thiz'.SourcesMatiasDeSanti_LinkedList_head',SourcesMatiasDeSanti_Node,SourcesMatiasDeSanti_Node_next']],
+                    QF.SK_jml_pred_java_primitive_integer_value_add_ARG_result_0]
+               
+               }
+             )
+   )
+
+}
+
+pred postcondition_SourcesMatiasDeSanti_LinkedList_add_0[
+  SourcesMatiasDeSanti_LinkedList_head':univ->univ,
+  SourcesMatiasDeSanti_Node_data':univ->univ,
+  SourcesMatiasDeSanti_Node_next':univ->univ,
+  d':univ,
+  thiz':univ,
+  throw':univ
+]{
+   SourcesMatiasDeSanti_LinkedList_ensures[SourcesMatiasDeSanti_LinkedList_head',
+                                          SourcesMatiasDeSanti_Node_data',
+                                          SourcesMatiasDeSanti_Node_next',
+                                          d',
+                                          thiz',
+                                          throw']
+   and 
+   (
+     not (
+       throw'=AssertionFailureLit)
+   )
+   and 
+   (
+     all objx':SourcesMatiasDeSanti_LinkedList | {
+       SourcesMatiasDeSanti_LinkedList_object_invariant[SourcesMatiasDeSanti_LinkedList_head',
+                                                       SourcesMatiasDeSanti_Node_next',
+                                                       objx']
+     
+     }
+   )
+
+}
+
+pred SourcesMatiasDeSanti_LinkedListCondition8[
+  exit_stmt_reached:univ,
+  throw:univ,
+  var_3_ws_1:univ
+]{
+   liftExpression[var_3_ws_1]
+   and 
+   (
+     throw=null)
+   and 
+   (
+     exit_stmt_reached=false)
+
+}
+
+pred SourcesMatiasDeSanti_LinkedListCondition2[
+  t_2:univ
+]{
+   isEmptyOrNull[t_2]
+
+}
+
+pred precondition_SourcesMatiasDeSanti_LinkedList_add_0[
+  SourcesMatiasDeSanti_LinkedList_head:univ->univ,
+  SourcesMatiasDeSanti_Node_data:univ->univ,
+  SourcesMatiasDeSanti_Node_next:univ->univ,
+  d:univ,
+  thiz:univ,
+  throw:univ,
+  usedObjects:univ
+]{
+   (
+     all objx:SourcesMatiasDeSanti_LinkedList | {
+       SourcesMatiasDeSanti_LinkedList_object_invariant[SourcesMatiasDeSanti_LinkedList_head,
+                                                       SourcesMatiasDeSanti_Node_next,
+                                                       objx]
+     
+     }
+   )
+   and 
+   equ[throw,
+      null]
+   and 
+   SourcesMatiasDeSanti_LinkedList_requires[SourcesMatiasDeSanti_LinkedList_head,
+                                           SourcesMatiasDeSanti_Node_data,
+                                           SourcesMatiasDeSanti_Node_next,
+                                           d,
+                                           thiz,
+                                           usedObjects]
+
+}
+
+pred SourcesMatiasDeSanti_LinkedListCondition3[
+  t_2:univ
+]{
+   not (
+     isEmptyOrNull[t_2])
+
+}
+
+pred SourcesMatiasDeSanti_LinkedList_object_invariant[
+  SourcesMatiasDeSanti_LinkedList_head:univ->univ,
+  SourcesMatiasDeSanti_Node_next:univ->univ,
+  thiz:univ
+]{
+   (
+     all n:SourcesMatiasDeSanti_Node+null | {
+       equ[fun_set_contains[fun_reach[thiz.SourcesMatiasDeSanti_LinkedList_head,SourcesMatiasDeSanti_Node,SourcesMatiasDeSanti_Node_next],n],
+          true]
+       implies 
+               equ[fun_set_contains[fun_reach[n.SourcesMatiasDeSanti_Node_next,SourcesMatiasDeSanti_Node,SourcesMatiasDeSanti_Node_next],n],
+                  false]
+     
+     }
+   )
+   and 
+   neq[thiz.SourcesMatiasDeSanti_LinkedList_head,
+      null]
+
+}
+
+pred SourcesMatiasDeSanti_LinkedListCondition1[
+  exit_stmt_reached:univ,
+  throw:univ
+]{
+   not (
+     (
+       throw=null)
+     and 
+     (
+       exit_stmt_reached=false)
+   )
+
+}
+
+pred SourcesMatiasDeSanti_LinkedListCondition0[
+  exit_stmt_reached:univ,
+  throw:univ
+]{
+   (
+     throw=null)
+   and 
+   (
+     exit_stmt_reached=false)
+
+}
+
+pred SourcesMatiasDeSanti_LinkedListCondition5[
+  thiz:univ
+]{
+   not (
+     isEmptyOrNull[thiz])
+
+}
+
+pred SourcesMatiasDeSanti_LinkedListCondition4[
+  thiz:univ
+]{
+   isEmptyOrNull[thiz]
+
+}
+
+pred SourcesMatiasDeSanti_LinkedList_requires[
+  SourcesMatiasDeSanti_LinkedList_head:univ->univ,
+  SourcesMatiasDeSanti_Node_data:univ->univ,
+  SourcesMatiasDeSanti_Node_next:univ->univ,
+  d:univ,
+  thiz:univ,
+  usedObjects:univ
+]{
+   (
+     true=true)
+   and 
+   (
+     not (
+       d=null)
+   )
+   and 
+   (
+     usedObjects=fun_weak_reach[none+thiz+d,java_lang_Object,(none)->(none)+SourcesMatiasDeSanti_LinkedList_head+SourcesMatiasDeSanti_Node_next+SourcesMatiasDeSanti_Node_data])
+
+}
+
+program SourcesMatiasDeSanti_LinkedList_add_0[
+  thiz:SourcesMatiasDeSanti_LinkedList,
+  throw:java_lang_Throwable+null,
+  d:java_lang_Object+null,
+  SourcesMatiasDeSanti_LinkedList_head:(SourcesMatiasDeSanti_LinkedList)->one(SourcesMatiasDeSanti_Node+null),
+  SourcesMatiasDeSanti_Node_data:(SourcesMatiasDeSanti_Node)->one(java_lang_Object+null),
+  SourcesMatiasDeSanti_Node_next:(SourcesMatiasDeSanti_Node)->one(SourcesMatiasDeSanti_Node+null),
+  usedObjects:set (java_lang_Object)
+] var [
+  t_2:SourcesMatiasDeSanti_Node+null,
+  t_3:SourcesMatiasDeSanti_Node+null,
+  exit_stmt_reached:boolean,
+  var_1_temp:SourcesMatiasDeSanti_Node+null,
+  var_3_ws_1:boolean,
+  t_4:SourcesMatiasDeSanti_Node+null,
+  var_2_current:SourcesMatiasDeSanti_Node+null,
+  param_d_0:java_lang_Object+null,
+  t_5:SourcesMatiasDeSanti_Node+null
+]{
+   skip;
+   throw:=null;
+   skip;
+   exit_stmt_reached:=false;
+   skip;
+   if SourcesMatiasDeSanti_LinkedListCondition0[exit_stmt_reached,throw]  {
+      param_d_0:=d
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip;
+   skip;
+   if SourcesMatiasDeSanti_LinkedListCondition0[exit_stmt_reached,throw]  {
+      getUnusedObject[t_2,usedObjects];
+      assume instanceOf[t_2,SourcesMatiasDeSanti_Node];
+      if SourcesMatiasDeSanti_LinkedListCondition2[t_2]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         call SourcesMatiasDeSanti_Node_Constructor_0[t_2,throw,param_d_0,SourcesMatiasDeSanti_LinkedList_head,SourcesMatiasDeSanti_Node_data,SourcesMatiasDeSanti_Node_next,usedObjects]
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip;
+   if SourcesMatiasDeSanti_LinkedListCondition0[exit_stmt_reached,throw]  {
+      var_1_temp:=t_2
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip;
+   if SourcesMatiasDeSanti_LinkedListCondition0[exit_stmt_reached,throw]  {
+      if SourcesMatiasDeSanti_LinkedListCondition4[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         var_2_current:=thiz.SourcesMatiasDeSanti_LinkedList_head
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip;
+   if SourcesMatiasDeSanti_LinkedListCondition0[exit_stmt_reached,throw]  {
+      if SourcesMatiasDeSanti_LinkedListCondition6[var_2_current]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         call SourcesMatiasDeSanti_Node_getNext_0[var_2_current,throw,t_3,SourcesMatiasDeSanti_LinkedList_head,SourcesMatiasDeSanti_Node_data,SourcesMatiasDeSanti_Node_next,usedObjects]
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if SourcesMatiasDeSanti_LinkedListCondition0[exit_stmt_reached,throw]  {
+      var_3_ws_1:=(neq[t_3,null]=>(true)else(false))
+   
+   } else {
+      skip
+   
+   }
+   ;
+   while SourcesMatiasDeSanti_LinkedListCondition8[exit_stmt_reached,throw,var_3_ws_1]do {
+      skip;
+      skip;
+      if SourcesMatiasDeSanti_LinkedListCondition0[exit_stmt_reached,throw]  {
+         if SourcesMatiasDeSanti_LinkedListCondition6[var_2_current]  {
+            throw:=java_lang_NullPointerExceptionLit
+         
+         } else {
+            call SourcesMatiasDeSanti_Node_getNext_0[var_2_current,throw,t_4,SourcesMatiasDeSanti_LinkedList_head,SourcesMatiasDeSanti_Node_data,SourcesMatiasDeSanti_Node_next,usedObjects]
+         
+         }
+      
+      } else {
+         skip
+      
+      }
+      ;
+      if SourcesMatiasDeSanti_LinkedListCondition0[exit_stmt_reached,throw]  {
+         var_2_current:=t_4
+      
+      } else {
+         skip
+      
+      }
+      ;
+      if SourcesMatiasDeSanti_LinkedListCondition0[exit_stmt_reached,throw]  {
+         if SourcesMatiasDeSanti_LinkedListCondition6[var_2_current]  {
+            throw:=java_lang_NullPointerExceptionLit
+         
+         } else {
+            call SourcesMatiasDeSanti_Node_getNext_0[var_2_current,throw,t_5,SourcesMatiasDeSanti_LinkedList_head,SourcesMatiasDeSanti_Node_data,SourcesMatiasDeSanti_Node_next,usedObjects]
+         
+         }
+      
+      } else {
+         skip
+      
+      }
+      ;
+      if SourcesMatiasDeSanti_LinkedListCondition0[exit_stmt_reached,throw]  {
+         var_3_ws_1:=(neq[t_5,null]=>(true)else(false))
+      
+      } else {
+         skip
+      
+      }
+   
+   }
+   ;
+   if SourcesMatiasDeSanti_LinkedListCondition6[var_2_current]  {
+      throw:=java_lang_NullPointerExceptionLit
+   
+   } else {
+      call SourcesMatiasDeSanti_Node_setNext_0[var_2_current,throw,var_1_temp,SourcesMatiasDeSanti_LinkedList_head,SourcesMatiasDeSanti_Node_data,SourcesMatiasDeSanti_Node_next,usedObjects]
+   
+   }
+   ;
+   skip
+
+}
+
+assertCorrectness check_SourcesMatiasDeSanti_LinkedList_add_0[
+  SourcesMatiasDeSanti_LinkedList_head:(SourcesMatiasDeSanti_LinkedList)->one(SourcesMatiasDeSanti_Node+null),
+  SourcesMatiasDeSanti_Node_data:(SourcesMatiasDeSanti_Node)->one(java_lang_Object+null),
+  SourcesMatiasDeSanti_Node_next:(SourcesMatiasDeSanti_Node)->one(SourcesMatiasDeSanti_Node+null),
+  d:java_lang_Object+null,
+  exit_stmt_reached:boolean,
+  param_d_0:java_lang_Object+null,
+  t_2:SourcesMatiasDeSanti_Node+null,
+  t_3:SourcesMatiasDeSanti_Node+null,
+  t_4:SourcesMatiasDeSanti_Node+null,
+  t_5:SourcesMatiasDeSanti_Node+null,
+  thiz:SourcesMatiasDeSanti_LinkedList,
+  throw:java_lang_Throwable+null,
+  usedObjects:set (java_lang_Object),
+  var_1_temp:SourcesMatiasDeSanti_Node+null,
+  var_2_current:SourcesMatiasDeSanti_Node+null,
+  var_3_ws_1:boolean
+]{
+pre={
+   precondition_SourcesMatiasDeSanti_LinkedList_add_0[SourcesMatiasDeSanti_LinkedList_head,
+                                                     SourcesMatiasDeSanti_Node_data,
+                                                     SourcesMatiasDeSanti_Node_next,
+                                                     d,
+                                                     thiz,
+                                                     throw,
+                                                     usedObjects]
+
+}
+program={
+   call SourcesMatiasDeSanti_LinkedList_add_0[thiz,throw,d,SourcesMatiasDeSanti_LinkedList_head,SourcesMatiasDeSanti_Node_data,SourcesMatiasDeSanti_Node_next,usedObjects]
+
+}
+post={
+   postcondition_SourcesMatiasDeSanti_LinkedList_add_0[SourcesMatiasDeSanti_LinkedList_head',
+                                                      SourcesMatiasDeSanti_Node_data',
+                                                      SourcesMatiasDeSanti_Node_next',
+                                                      d',
+                                                      thiz',
+                                                      throw']
+
+}
+}
+

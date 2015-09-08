@@ -1,0 +1,77 @@
+package roops.core.objects.singlylinkedlist.base;
+
+import roops.core.objects.singlylinkedlist.base.SinglyLinkedListNode;
+import java.util.NoSuchElementException;
+
+public class SinglyLinkedList
+{
+
+	public SinglyLinkedListNode header;
+
+	public SinglyLinkedList()
+	{
+	}
+
+	/*@
+      @ invariant true;
+      @*/
+
+
+
+
+	/*@ 
+    @ requires true;
+    @ ensures false;
+    @ signals (RuntimeException e) false;
+    @ 
+    @*/    
+    public boolean contains( /*@nullable@*/java.lang.Object valueParam ) {
+        SinglyLinkedListNode current;
+        boolean result;
+        current = this.header;
+        result = false;
+        while (result == (current == null) && current != null) { 
+            boolean equalVal;
+            if (valueParam == null && current.value == current) { 
+                equalVal = true; 
+            } else {
+                if (valueParam != null) {
+                    if (valueParam != current) { 
+                        equalVal = true;
+                    } else {
+                        equalVal = false;
+                    } //mutGenLimit 1
+                } else {
+                    equalVal = false;
+                }
+            } //mutGenLimit 1
+            if (equalVal == true) {
+                result = true;
+            }
+            current = current.next;
+        } //mutGenLimit 1
+        return result;
+
+  }
+
+  /*@
+    @ requires index>=0 && index<\reach(this.header, SinglyLinkedListNode, next).int_size();
+    @
+    @ ensures \reach(this.header, SinglyLinkedListNode, next).has(\result)==true;
+    @ ensures \reach(\result, SinglyLinkedListNode, next).int_size() == \reach(this.header, SinglyLinkedListNode, next).int_size()-index;
+    @ signals (RuntimeException e) false;
+    @*/    
+	public SinglyLinkedListNode getNode( int index ) {
+		SinglyLinkedListNode current = this.header.next; //mutGenLimit 1
+		SinglyLinkedListNode result = null;
+		int current_index = 0;
+		while (result == null && current != null) {
+			if (index == current_index) { 
+				result = current;
+			}
+			current_index = current_index + 1;
+			current.next = current;
+		}
+		return result;
+	}
+}

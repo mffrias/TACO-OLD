@@ -1,0 +1,3460 @@
+/* 
+ * DynAlloy translator options 
+ * --------------------------- 
+ * assertionId= check_modelfields_TreeSet_contains_0
+ * loopUnroll= 3
+ * removeQuantifiers= true
+ * strictUnrolling= false
+ * build_dynalloy_trace= false
+ */ 
+
+//-------------- prelude--------------//
+module moduleId
+open util/integer
+open util/sequniv as sequniv
+one sig null {}
+fun fun_reach[h: univ, 
+              type: set univ, 
+              field: univ -> univ
+]: set univ { 
+  h.*(field & type->(type+null)) & type 
+}
+
+fun fun_weak_reach[h: univ, 
+              type: set univ, 
+              field: univ -> univ
+]: set univ { 
+  h.*(field) & type 
+}
+
+one
+sig AssertionFailureLit extends java_lang_Throwable {}
+abstract sig boolean {}
+one sig true extends boolean {}
+one sig false extends boolean {}
+abstract sig char {}
+pred TruePred[] {}
+pred FalsePred[] { not TruePred[] }
+pred equ[l,r:univ] {l=r}
+pred neq[l,r:univ] {l!=r}
+fun shl[l,r: Int]: Int { l << r } 
+fun sshr[l,r: Int]: Int { l >> r } 
+fun ushr[l,r: Int]: Int { l >>> r } 
+
+fun fun_univ_equals[
+  l:univ, 
+  r: univ 
+]: boolean { 
+  (equ[l,r]) => true else false 
+} 
+
+fun fun_set_add[
+  l: set univ,
+  e: univ
+]: set univ { 
+  l+e 
+} 
+
+fun fun_set_remove[
+  l: set univ,
+  e: univ
+]: set univ {
+  l-e
+}
+fun fun_set_contains[
+  l: set univ,
+  e: univ
+]: boolean {
+  (e in l) => true else false 
+}
+pred isSubset[
+  l: set univ,
+  r: set univ
+] {
+  (l in r) 
+}
+pred isNotSubset[
+  l: set univ,
+  r: set univ
+] {
+  (l !in r) 
+}
+fun fun_set_size[s: set univ]: Int { #s } 
+
+fun fun_not_empty_set[s: set univ]: boolean { (no s) => false else true } 
+
+fun fun_set_is_empty[s: set univ]: boolean { (no s) => true else false }
+pred pred_empty_set[l: set univ] { (no l) }
+pred pred_set_some[l: set univ] { some l }
+pred pred_set_one[l: set univ] { one l }
+pred pred_set_lone[l: set univ] { lone l }
+pred pred_Object_subset[
+  s: set univ
+] {
+  s in java_lang_Object+null
+}
+fun fun_set_intersection[
+  l: set univ,
+  r: set univ
+]: set univ {
+  l & r 
+} 
+fun fun_set_difference[
+  l: set univ,
+  r: set univ
+]: set univ {
+  l - r 
+} 
+fun fun_rel_difference[ 
+  rel: univ -> univ, 
+  l: univ,
+  r: univ
+]: univ->univ {
+ rel - (l->r) 
+}
+fun fun_rel_add[ 
+  rel: univ -> univ, 
+  l: univ,
+  r: univ
+]: univ->univ {
+ rel + (l->r) 
+}
+fun fun_set_sum[
+  s: set Int
+]: Int {
+  sum s 
+}
+pred pred_empty_list[l: Int -> univ] { (no l) }
+fun fun_list_add[
+  l: Int -> univ,
+  e: univ
+]: Int -> univ {
+  l + (Int[#(l.univ)]->e)
+} 
+
+fun fun_list_get[
+  l: Int -> univ, 
+  index: Int
+]: univ { 
+  index.l 
+} 
+
+fun fun_list_contains[
+  l: Int -> univ, 
+  e: univ
+]: boolean { 
+  (e in Int.l) => true else false 
+} 
+
+fun fun_list_remove[
+  l: Int -> univ, 
+  index: Int
+]: Int -> univ { 
+  prevs[index]<:(l-(index->univ)) + next.(nexts[index]<:(l-(index->univ))) 
+} 
+
+fun fun_list_size[s: Int -> univ]: Int { #s } 
+
+fun fun_list_equals[
+  s1:Int -> univ, 
+  s2: Int -> univ
+]: boolean { 
+  (s1=s2) => true else false 
+} 
+
+fun fun_list_empty[s: Int -> univ]: boolean { (#s = 0) => true else false }
+pred pred_empty_map[map: univ -> univ] { (no map) }
+fun fun_map_put[
+  map: univ->univ, 
+  k: univ, 
+  v: univ
+]: univ-> univ { 
+  map ++ (k->v) 
+}
+
+fun fun_map_contains_key[
+  map: univ -> univ, 
+  k: univ
+]: boolean { 
+  (some k.map) => true else false 
+}
+
+fun fun_map_remove[
+  map: univ -> univ, 
+  k: univ
+]: univ->univ {
+  map - (k->univ) 
+} 
+
+fun fun_map_get[
+  map: univ -> univ, 
+  k: univ
+]: univ { 
+  (some k.map) => k.map else null 
+} 
+
+fun fun_map_is_empty[
+  map: univ -> univ, 
+]: boolean { 
+  (some map) => false else true 
+}
+
+fun fun_map_clear[
+  mapEntries1: univ -> univ -> univ, 
+  map: univ
+]: univ -> univ -> univ { 
+  mapEntries1 - (map -> univ -> univ)
+}
+
+fun fun_map_size[
+  map: univ -> univ, 
+]: univ {
+  #map 
+}
+pred isEmptyOrNull[u: univ] { u in null }
+fun fun_closure[
+  rel: univ -> univ 
+]: univ -> univ {
+  ^rel 
+} 
+
+fun fun_reflexive_closure[
+  rel: univ -> univ 
+]: univ -> univ {
+  *rel 
+} 
+
+fun fun_transpose[
+  rel: univ -> univ 
+]: univ -> univ {
+  ~rel 
+}
+pred liftExpression[
+  expr: univ 
+] {
+  expr=true 
+}
+fun rel_override[
+  r:univ->univ,
+  k:univ, 
+  v:univ
+]: univ->univ { 
+  r - (k->univ) + (k->v) 
+} 
+
+fun Not[a: boolean]: boolean {
+    (a=true) => false else true 
+}
+fun Or[a: boolean, b: boolean]: boolean {
+    (a=true or b=true) => true else false
+}
+fun And[a: boolean, b: boolean]: boolean {
+    (a=true and b=true) => true else false
+}
+fun Xor[a: boolean, b: boolean]: boolean {
+    ((a==true and b==false) or (a==false and b==true)) => true else false
+}
+fun AdderCarry[a: boolean, b: boolean, cin: boolean]: boolean {
+    Or[ And[a,b], And[cin, Xor[a,b]]] 
+}
+fun AdderSum[a: boolean, b: boolean, cin: boolean]: boolean {
+    Xor[Xor[a, b], cin]
+}
+pred updateFieldPost[
+  f1:univ->univ,
+  f0:univ->univ,
+  l:univ,
+  r:univ
+]{ 
+  (r=none) => f1=f0-(l->univ) else f1 = f0 ++ (l->r) 
+}
+pred havocVarPost[u:univ]{}
+pred havocVariable2Post[u:univ->univ]{}
+pred havocVariable3Post[u:univ->(seq univ)]{}
+pred havocFieldPost[f0,f1: univ->univ, u:univ]{ 
+  u<:f0 = u<:f1 
+  some u.f1  
+}
+pred havocFieldContentsPost[target: univ, 
+                            field_0: univ -> univ, 
+                            field_1: univ -> univ] { 
+  field_1 - (target->univ) = field_0 - (target->univ) 
+}
+pred havocListSeqPost[target: univ,
+                            field_0: univ -> Int -> univ, 
+                            field_1: univ -> Int -> univ] { 
+  field_1 - (target->Int->univ) = field_0 - (target->Int->univ) 
+}
+pred pred_in[n: univ, t: set univ] { n in t }
+pred instanceOf[n: univ, t: set univ] { n in t }
+pred isCasteableTo[n: univ, t: set univ] { (n in t) or (n = null) }
+pred getUnusedObjectPost[
+  usedObjects1:set java_lang_Object, 
+  usedObjects0:set java_lang_Object,
+  n1: java_lang_Object+null
+]{ 
+  n1 !in usedObjects0 
+  usedObjects1 = usedObjects0 + (n1)
+}
+//-------------- ClassFields--------------//
+one
+sig ClassFields {}
+{}
+
+
+
+
+//-------------- java_lang_RuntimeException--------------//
+abstract sig java_lang_RuntimeException extends java_lang_Exception {}
+{}
+
+
+
+one
+sig java_lang_RuntimeExceptionLit extends java_lang_RuntimeException {}
+{}
+
+//-------------- java_lang_Exception--------------//
+abstract sig java_lang_Exception extends java_lang_Throwable {}
+{}
+
+
+
+one
+sig java_lang_ExceptionLit extends java_lang_Exception {}
+{}
+
+//-------------- java_lang_Throwable--------------//
+abstract sig java_lang_Throwable extends java_lang_Object {}
+{}
+
+
+
+one
+sig java_lang_ThrowableLit extends java_lang_Throwable {}
+{}
+//-------------- java_lang_Object--------------//
+abstract sig java_lang_Object {}
+{}
+
+
+
+
+//-------------- modelfields_TreeSet--------------//
+sig modelfields_TreeSet extends java_lang_Object {}
+{}
+pred modelfields_TreeSetCondition15[
+  modelfields_TreeSetEntry_left:univ->univ,
+  modelfields_TreeSetEntry_right:univ->univ,
+  modelfields_TreeSet_root:univ->univ,
+  thiz:univ,
+  variant_0:univ
+]{
+   not (
+     gte[fun_set_size[fun_reach[thiz.modelfields_TreeSet_root,modelfields_TreeSetEntry,modelfields_TreeSetEntry_left+modelfields_TreeSetEntry_right]],
+        variant_0]
+   )
+
+}
+pred modelfields_TreeSetCondition14[
+  modelfields_TreeSetEntry_left:univ->univ,
+  modelfields_TreeSetEntry_right:univ->univ,
+  modelfields_TreeSet_root:univ->univ,
+  thiz:univ,
+  variant_0:univ
+]{
+   gte[fun_set_size[fun_reach[thiz.modelfields_TreeSet_root,modelfields_TreeSetEntry,modelfields_TreeSetEntry_left+modelfields_TreeSetEntry_right]],
+      variant_0]
+
+}
+pred modelfields_TreeSetEntry_modelfields_TreeSetEntry_blackHeight_abstraction[
+  modelfields_TreeSetEntry_blackHeight:univ->univ,
+  modelfields_TreeSetEntry_color:univ->univ,
+  modelfields_TreeSetEntry_left:univ->univ,
+  modelfields_TreeSetEntry_right:univ->univ,
+  thiz:univ
+]{
+   (
+     (
+       equ[thiz.modelfields_TreeSetEntry_left,
+          null]
+       and 
+       equ[thiz.modelfields_TreeSetEntry_right,
+          null]
+     )
+     implies 
+             equ[thiz.modelfields_TreeSetEntry_blackHeight,
+                1]
+   )
+   and 
+   (
+     (
+       neq[thiz.modelfields_TreeSetEntry_left,
+          null]
+       and 
+       equ[thiz.modelfields_TreeSetEntry_right,
+          null]
+     )
+     implies 
+             (
+               equ[(thiz.modelfields_TreeSetEntry_left).modelfields_TreeSetEntry_color,
+                  false]
+               and 
+               equ[(thiz.modelfields_TreeSetEntry_left).modelfields_TreeSetEntry_blackHeight,
+                  1]
+               and 
+               equ[thiz.modelfields_TreeSetEntry_blackHeight,
+                  1]
+             )
+   )
+   and 
+   (
+     (
+       equ[thiz.modelfields_TreeSetEntry_left,
+          null]
+       and 
+       neq[thiz.modelfields_TreeSetEntry_right,
+          null]
+     )
+     implies 
+             (
+               equ[(thiz.modelfields_TreeSetEntry_right).modelfields_TreeSetEntry_color,
+                  false]
+               and 
+               equ[(thiz.modelfields_TreeSetEntry_right).modelfields_TreeSetEntry_blackHeight,
+                  1]
+               and 
+               equ[thiz.modelfields_TreeSetEntry_blackHeight,
+                  1]
+             )
+   )
+   and 
+   (
+     (
+       neq[thiz.modelfields_TreeSetEntry_left,
+          null]
+       and 
+       neq[thiz.modelfields_TreeSetEntry_right,
+          null]
+       and 
+       equ[(thiz.modelfields_TreeSetEntry_left).modelfields_TreeSetEntry_color,
+          false]
+       and 
+       equ[(thiz.modelfields_TreeSetEntry_right).modelfields_TreeSetEntry_color,
+          false]
+     )
+     implies 
+             (
+               equ[(thiz.modelfields_TreeSetEntry_left).modelfields_TreeSetEntry_blackHeight,
+                  (thiz.modelfields_TreeSetEntry_right).modelfields_TreeSetEntry_blackHeight]
+               and 
+               equ[thiz.modelfields_TreeSetEntry_blackHeight,
+                  (thiz.modelfields_TreeSetEntry_left).modelfields_TreeSetEntry_blackHeight]
+             )
+   )
+   and 
+   (
+     (
+       neq[thiz.modelfields_TreeSetEntry_left,
+          null]
+       and 
+       neq[thiz.modelfields_TreeSetEntry_right,
+          null]
+       and 
+       equ[(thiz.modelfields_TreeSetEntry_left).modelfields_TreeSetEntry_color,
+          true]
+       and 
+       equ[(thiz.modelfields_TreeSetEntry_right).modelfields_TreeSetEntry_color,
+          true]
+     )
+     implies 
+             (
+               equ[(thiz.modelfields_TreeSetEntry_left).modelfields_TreeSetEntry_blackHeight,
+                  (thiz.modelfields_TreeSetEntry_right).modelfields_TreeSetEntry_blackHeight]
+               and 
+               equ[thiz.modelfields_TreeSetEntry_blackHeight,
+                  add[(thiz.modelfields_TreeSetEntry_left).modelfields_TreeSetEntry_blackHeight,1]]
+             )
+   )
+   and 
+   (
+     (
+       neq[thiz.modelfields_TreeSetEntry_left,
+          null]
+       and 
+       neq[thiz.modelfields_TreeSetEntry_right,
+          null]
+       and 
+       equ[(thiz.modelfields_TreeSetEntry_left).modelfields_TreeSetEntry_color,
+          false]
+       and 
+       equ[(thiz.modelfields_TreeSetEntry_right).modelfields_TreeSetEntry_color,
+          true]
+     )
+     implies 
+             (
+               equ[(thiz.modelfields_TreeSetEntry_left).modelfields_TreeSetEntry_blackHeight,
+                  add[(thiz.modelfields_TreeSetEntry_right).modelfields_TreeSetEntry_blackHeight,1]]
+               and 
+               equ[thiz.modelfields_TreeSetEntry_blackHeight,
+                  (thiz.modelfields_TreeSetEntry_left).modelfields_TreeSetEntry_blackHeight]
+             )
+   )
+   and 
+   (
+     (
+       neq[thiz.modelfields_TreeSetEntry_left,
+          null]
+       and 
+       neq[thiz.modelfields_TreeSetEntry_right,
+          null]
+       and 
+       equ[(thiz.modelfields_TreeSetEntry_left).modelfields_TreeSetEntry_color,
+          true]
+       and 
+       equ[(thiz.modelfields_TreeSetEntry_right).modelfields_TreeSetEntry_color,
+          false]
+     )
+     implies 
+             (
+               equ[(thiz.modelfields_TreeSetEntry_right).modelfields_TreeSetEntry_blackHeight,
+                  add[(thiz.modelfields_TreeSetEntry_left).modelfields_TreeSetEntry_blackHeight,1]]
+               and 
+               equ[thiz.modelfields_TreeSetEntry_blackHeight,
+                  (thiz.modelfields_TreeSetEntry_right).modelfields_TreeSetEntry_blackHeight]
+             )
+   )
+
+}
+pred modelfields_TreeSetCondition3[
+  thiz:univ
+]{
+   not (
+     isEmptyOrNull[thiz])
+
+}
+pred precondition_modelfields_TreeSet_contains_0[
+  modelfields_TreeSetEntry_blackHeight:univ->univ,
+  modelfields_TreeSetEntry_color:univ->univ,
+  modelfields_TreeSetEntry_key:univ->univ,
+  modelfields_TreeSetEntry_left:univ->univ,
+  modelfields_TreeSetEntry_parent:univ->univ,
+  modelfields_TreeSetEntry_right:univ->univ,
+  modelfields_TreeSet_BLACK:univ->univ,
+  modelfields_TreeSet_RED:univ->univ,
+  modelfields_TreeSet_modCount:univ->univ,
+  modelfields_TreeSet_root:univ->univ,
+  modelfields_TreeSet_size:univ->univ,
+  return:univ,
+  thiz:univ,
+  throw:univ,
+  usedObjects:univ,
+  value:univ
+]{
+   (
+     all objx:modelfields_TreeSetEntry | {
+       modelfields_TreeSetEntry_modelfields_TreeSetEntry_blackHeight_abstraction[modelfields_TreeSetEntry_blackHeight,
+                                                                                modelfields_TreeSetEntry_color,
+                                                                                modelfields_TreeSetEntry_left,
+                                                                                modelfields_TreeSetEntry_right,
+                                                                                objx]
+     
+     }
+   )
+   and 
+   modelfields_TreeSet_object_invariant[modelfields_TreeSetEntry_color,
+                                       modelfields_TreeSetEntry_key,
+                                       modelfields_TreeSetEntry_left,
+                                       modelfields_TreeSetEntry_parent,
+                                       modelfields_TreeSetEntry_right,
+                                       modelfields_TreeSet_BLACK,
+                                       modelfields_TreeSet_RED,
+                                       modelfields_TreeSet_root,
+                                       modelfields_TreeSet_size,
+                                       thiz]
+   and 
+   equ[throw,
+      null]
+   and 
+   modelfields_TreeSet_requires[modelfields_TreeSetEntry_blackHeight,
+                               modelfields_TreeSetEntry_color,
+                               modelfields_TreeSetEntry_key,
+                               modelfields_TreeSetEntry_left,
+                               modelfields_TreeSetEntry_parent,
+                               modelfields_TreeSetEntry_right,
+                               modelfields_TreeSet_BLACK,
+                               modelfields_TreeSet_RED,
+                               modelfields_TreeSet_modCount,
+                               modelfields_TreeSet_root,
+                               modelfields_TreeSet_size,
+                               return,
+                               thiz,
+                               usedObjects,
+                               value]
+
+}
+pred modelfields_TreeSetCondition2[
+  thiz:univ
+]{
+   isEmptyOrNull[thiz]
+
+}
+pred modelfields_TreeSetCondition5[
+  throw:univ
+]{
+   not (
+     isEmptyOrNull[throw])
+
+}
+pred modelfields_TreeSetCondition8[
+  var_1_p:univ
+]{
+   isEmptyOrNull[var_1_p]
+
+}
+pred modelfields_TreeSetCondition16[
+  exit_stmt_reached:univ,
+  throw:univ,
+  var_2_ws_1:univ
+]{
+   liftExpression[var_2_ws_1]
+   and 
+   (
+     throw=null)
+   and 
+   (
+     exit_stmt_reached=false)
+
+}
+pred modelfields_TreeSetCondition7[
+  modelfields_TreeSetEntry_left:univ->univ,
+  modelfields_TreeSetEntry_right:univ->univ,
+  modelfields_TreeSet_root:univ->univ,
+  thiz:univ
+]{
+   not (
+     lt[fun_set_size[fun_reach[thiz.modelfields_TreeSet_root,modelfields_TreeSetEntry,modelfields_TreeSetEntry_left+modelfields_TreeSetEntry_right]],
+       0]
+   )
+
+}
+pred modelfields_TreeSetCondition6[
+  modelfields_TreeSetEntry_left:univ->univ,
+  modelfields_TreeSetEntry_right:univ->univ,
+  modelfields_TreeSet_root:univ->univ,
+  thiz:univ
+]{
+   lt[fun_set_size[fun_reach[thiz.modelfields_TreeSet_root,modelfields_TreeSetEntry,modelfields_TreeSetEntry_left+modelfields_TreeSetEntry_right]],
+     0]
+
+}
+pred modelfields_TreeSetCondition10[
+  t_1:univ
+]{
+   t_1=true
+
+}
+pred modelfields_TreeSet_requires[
+  modelfields_TreeSetEntry_blackHeight:univ->univ,
+  modelfields_TreeSetEntry_color:univ->univ,
+  modelfields_TreeSetEntry_key:univ->univ,
+  modelfields_TreeSetEntry_left:univ->univ,
+  modelfields_TreeSetEntry_parent:univ->univ,
+  modelfields_TreeSetEntry_right:univ->univ,
+  modelfields_TreeSet_BLACK:univ->univ,
+  modelfields_TreeSet_RED:univ->univ,
+  modelfields_TreeSet_modCount:univ->univ,
+  modelfields_TreeSet_root:univ->univ,
+  modelfields_TreeSet_size:univ->univ,
+  return:univ,
+  thiz:univ,
+  usedObjects:univ,
+  value:univ
+]{
+   neq[thiz.modelfields_TreeSet_root,
+      null]
+   and 
+   (
+     usedObjects=fun_weak_reach[none+thiz+return+value,java_lang_Object,(none)->(none)+modelfields_TreeSet_root+modelfields_TreeSet_size+modelfields_TreeSet_modCount+modelfields_TreeSet_RED+modelfields_TreeSet_BLACK+modelfields_TreeSetEntry_key+modelfields_TreeSetEntry_parent+modelfields_TreeSetEntry_color+modelfields_TreeSetEntry_left+modelfields_TreeSetEntry_right+modelfields_TreeSetEntry_blackHeight])
+
+}
+pred modelfields_TreeSetCondition12[
+  t_2:univ
+]{
+   t_2=true
+
+}
+pred modelfields_TreeSetCondition11[
+  t_1:univ
+]{
+   not (
+     t_1=true)
+
+}
+pred modelfields_TreeSet_object_invariant[
+  modelfields_TreeSetEntry_color:univ->univ,
+  modelfields_TreeSetEntry_key:univ->univ,
+  modelfields_TreeSetEntry_left:univ->univ,
+  modelfields_TreeSetEntry_parent:univ->univ,
+  modelfields_TreeSetEntry_right:univ->univ,
+  modelfields_TreeSet_BLACK:univ->univ,
+  modelfields_TreeSet_RED:univ->univ,
+  modelfields_TreeSet_root:univ->univ,
+  modelfields_TreeSet_size:univ->univ,
+  thiz:univ
+]{
+   equ[thiz.modelfields_TreeSet_size,
+      fun_set_size[fun_reach[thiz.modelfields_TreeSet_root,modelfields_TreeSetEntry,modelfields_TreeSetEntry_left+modelfields_TreeSetEntry_right]]]
+   and 
+   equ[thiz.modelfields_TreeSet_RED,
+      false]
+   and 
+   equ[thiz.modelfields_TreeSet_BLACK,
+      true]
+   and 
+   equ[(thiz.modelfields_TreeSet_root).modelfields_TreeSetEntry_parent,
+      null]
+   and 
+   (
+     neq[thiz.modelfields_TreeSet_root,
+        null]
+     implies 
+             equ[(thiz.modelfields_TreeSet_root).modelfields_TreeSetEntry_color,
+                thiz.modelfields_TreeSet_BLACK]
+   )
+   and 
+   (
+     all n:modelfields_TreeSetEntry+null | {
+       liftExpression[fun_set_contains[fun_reach[thiz.modelfields_TreeSet_root,modelfields_TreeSetEntry,modelfields_TreeSetEntry_left+modelfields_TreeSetEntry_right],n]]
+       implies 
+               (
+                 (
+                   neq[n.modelfields_TreeSetEntry_left,
+                      null]
+                   implies 
+                           equ[(n.modelfields_TreeSetEntry_left).modelfields_TreeSetEntry_parent,
+                              n]
+                 )
+                 and 
+                 (
+                   neq[n.modelfields_TreeSetEntry_right,
+                      null]
+                   implies 
+                           equ[(n.modelfields_TreeSetEntry_right).modelfields_TreeSetEntry_parent,
+                              n]
+                 )
+                 and 
+                 (
+                   neq[n.modelfields_TreeSetEntry_parent,
+                      null]
+                   implies 
+                           (
+                             equ[(n.modelfields_TreeSetEntry_parent).modelfields_TreeSetEntry_left,
+                                n]
+                             or 
+                             equ[(n.modelfields_TreeSetEntry_parent).modelfields_TreeSetEntry_right,
+                                n]
+                           )
+                 )
+                 and 
+                 equ[fun_set_contains[fun_reach[n.modelfields_TreeSetEntry_parent,modelfields_TreeSetEntry,modelfields_TreeSetEntry_parent],n],
+                    false]
+                 and 
+                 (
+                   all x:modelfields_TreeSetEntry+null | {
+                     liftExpression[fun_set_contains[fun_reach[n.modelfields_TreeSetEntry_left,modelfields_TreeSetEntry,modelfields_TreeSetEntry_left+modelfields_TreeSetEntry_right],x]]
+                     implies 
+                             gt[n.modelfields_TreeSetEntry_key,
+                               x.modelfields_TreeSetEntry_key]
+                   
+                   }
+                 )
+                 and 
+                 (
+                   all x:modelfields_TreeSetEntry+null | {
+                     liftExpression[fun_set_contains[fun_reach[n.modelfields_TreeSetEntry_right,modelfields_TreeSetEntry,modelfields_TreeSetEntry_left+modelfields_TreeSetEntry_right],x]]
+                     implies 
+                             gt[x.modelfields_TreeSetEntry_key,
+                               n.modelfields_TreeSetEntry_key]
+                   
+                   }
+                 )
+                 and 
+                 (
+                   (
+                     equ[n.modelfields_TreeSetEntry_color,
+                        thiz.modelfields_TreeSet_RED]
+                     and 
+                     neq[n.modelfields_TreeSetEntry_parent,
+                        null]
+                   )
+                   implies 
+                           equ[(n.modelfields_TreeSetEntry_parent).modelfields_TreeSetEntry_color,
+                              thiz.modelfields_TreeSet_BLACK]
+                 )
+               )
+     
+     }
+   )
+
+}
+pred modelfields_TreeSetCondition13[
+  t_2:univ
+]{
+   not (
+     t_2=true)
+
+}
+pred modelfields_TreeSetCondition1[
+  exit_stmt_reached:univ,
+  throw:univ
+]{
+   not (
+     (
+       throw=null)
+     and 
+     (
+       exit_stmt_reached=false)
+   )
+
+}
+pred modelfields_TreeSetCondition0[
+  exit_stmt_reached:univ,
+  throw:univ
+]{
+   (
+     throw=null)
+   and 
+   (
+     exit_stmt_reached=false)
+
+}
+pred modelfields_TreeSetCondition9[
+  var_1_p:univ
+]{
+   not (
+     isEmptyOrNull[var_1_p])
+
+}
+pred modelfields_TreeSetCondition4[
+  throw:univ
+]{
+   isEmptyOrNull[throw]
+
+}
+pred postcondition_modelfields_TreeSet_contains_0[
+  modelfields_TreeSetEntry_color:univ->univ,
+  modelfields_TreeSetEntry_color':univ->univ,
+  modelfields_TreeSetEntry_key:univ->univ,
+  modelfields_TreeSetEntry_key':univ->univ,
+  modelfields_TreeSetEntry_left:univ->univ,
+  modelfields_TreeSetEntry_left':univ->univ,
+  modelfields_TreeSetEntry_right:univ->univ,
+  modelfields_TreeSetEntry_right':univ->univ,
+  modelfields_TreeSet_root':univ->univ,
+  return':univ,
+  thiz':univ,
+  throw':univ,
+  value':univ
+]{
+   modelfields_TreeSet_ensures[modelfields_TreeSetEntry_color,
+                              modelfields_TreeSetEntry_color',
+                              modelfields_TreeSetEntry_key,
+                              modelfields_TreeSetEntry_key',
+                              modelfields_TreeSetEntry_left,
+                              modelfields_TreeSetEntry_left',
+                              modelfields_TreeSetEntry_right,
+                              modelfields_TreeSetEntry_right',
+                              modelfields_TreeSet_root',
+                              return',
+                              thiz',
+                              throw',
+                              value']
+   and 
+   (
+     not (
+       throw'=AssertionFailureLit)
+   )
+
+}
+pred modelfields_TreeSet_ensures[
+  modelfields_TreeSetEntry_color:univ->univ,
+  modelfields_TreeSetEntry_color':univ->univ,
+  modelfields_TreeSetEntry_key:univ->univ,
+  modelfields_TreeSetEntry_key':univ->univ,
+  modelfields_TreeSetEntry_left:univ->univ,
+  modelfields_TreeSetEntry_left':univ->univ,
+  modelfields_TreeSetEntry_right:univ->univ,
+  modelfields_TreeSetEntry_right':univ->univ,
+  modelfields_TreeSet_root':univ->univ,
+  return':univ,
+  thiz':univ,
+  throw':univ,
+  value':univ
+]{
+   (
+     instanceOf[throw',
+               java_lang_Exception]
+     implies 
+             liftExpression[false]
+   )
+   and 
+   (
+     (
+       throw'=null)
+     implies 
+             (
+               all e:modelfields_TreeSetEntry+null | {
+                 liftExpression[fun_set_contains[fun_reach[thiz'.modelfields_TreeSet_root',modelfields_TreeSetEntry,modelfields_TreeSetEntry_left'+modelfields_TreeSetEntry_right'],e]]
+                 implies 
+                         (
+                           equ[e.modelfields_TreeSetEntry_left',
+                              e.modelfields_TreeSetEntry_left]
+                           and 
+                           equ[e.modelfields_TreeSetEntry_right',
+                              e.modelfields_TreeSetEntry_right]
+                           and 
+                           equ[e.modelfields_TreeSetEntry_color',
+                              e.modelfields_TreeSetEntry_color]
+                           and 
+                           equ[e.modelfields_TreeSetEntry_key',
+                              e.modelfields_TreeSetEntry_key]
+                         )
+               
+               }
+             )
+   )
+   and 
+   (
+     (
+       throw'=null)
+     implies 
+             (
+               (
+                 equ[return',
+                    true]
+                 implies 
+                         (
+                           some e:modelfields_TreeSetEntry+null | {
+                             liftExpression[fun_set_contains[fun_reach[thiz'.modelfields_TreeSet_root',modelfields_TreeSetEntry,modelfields_TreeSetEntry_left'+modelfields_TreeSetEntry_right'],e]]
+                             and 
+                             equ[e.modelfields_TreeSetEntry_key',
+                                value']
+                           
+                           }
+                         )
+               )
+               and 
+               (
+                 (
+                   some e:modelfields_TreeSetEntry+null | {
+                     liftExpression[fun_set_contains[fun_reach[thiz'.modelfields_TreeSet_root',modelfields_TreeSetEntry,modelfields_TreeSetEntry_left'+modelfields_TreeSetEntry_right'],e]]
+                     and 
+                     equ[e.modelfields_TreeSetEntry_key',
+                        value']
+                   
+                   }
+                 )
+                 implies 
+                         equ[return',
+                            true]
+               )
+             )
+   )
+
+}
+//-------------- java_lang_NullPointerException--------------//
+abstract one sig java_lang_NullPointerException extends java_lang_RuntimeException {}
+{}
+
+
+
+one
+sig java_lang_NullPointerExceptionLit extends java_lang_NullPointerException {}
+{}
+
+//-------------- modelfields_TreeSetEntry--------------//
+sig modelfields_TreeSetEntry extends java_lang_Object {}
+{}
+check check_modelfields_TreeSet_contains_0 for 3 but 4 int, 7 seq, 1 modelfields_TreeSet, 4 modelfields_TreeSetEntry
+
+
+
+pred updateVariable[
+  l_1: univ,
+  r_0: univ
+]{
+  TruePred[]
+  and 
+  equ[l_1,
+     r_0]
+}
+
+
+pred getUnusedObject[
+  n_1: java_lang_Object + null,
+  usedObjects_0: set java_lang_Object,
+  usedObjects_1: set java_lang_Object
+]{
+  TruePred[]
+  and 
+  getUnusedObjectPost[usedObjects_1,
+                     usedObjects_0,
+                     n_1]
+}
+
+
+pred havocVariable[
+  v_1: univ
+]{
+  TruePred[]
+  and 
+  havocVarPost[v_1]
+}
+
+
+pred havocFieldContents[
+  target_0: univ,
+  field_0: univ -> univ,
+  field_1: univ -> univ
+]{
+  TruePred[]
+  and 
+  havocFieldContentsPost[target_0,
+                        field_0,
+                        field_1]
+}
+
+
+pred havocVariable3[
+  u_1: univ -> ( seq univ )
+]{
+  TruePred[]
+  and 
+  havocVariable3Post[u_1]
+}
+
+
+pred havocVariable2[
+  u_1: univ -> univ
+]{
+  TruePred[]
+  and 
+  havocVariable2Post[u_1]
+}
+
+
+pred havocField[
+  f_0: univ -> univ,
+  f_1: univ -> univ,
+  u_0: univ
+]{
+  TruePred[]
+  and 
+  havocFieldPost[f_0,
+                f_1,
+                u_0]
+}
+
+
+pred havocListSeq[
+  target_0: univ,
+  field_0: univ -> Int -> univ,
+  field_1: univ -> Int -> univ
+]{
+  TruePred[]
+  and 
+  havocListSeqPost[target_0,
+                  field_0,
+                  field_1]
+}
+
+
+pred updateField[
+  l_0: univ,
+  f_0: univ -> univ,
+  f_1: univ -> univ,
+  r_0: univ
+]{
+  TruePred[]
+  and 
+  updateFieldPost[f_1,
+                 f_0,
+                 l_0,
+                 r_0]
+}
+
+
+pred modelfields_TreeSet_contains_0[
+  thiz_0: modelfields_TreeSet,
+  throw_1: java_lang_Throwable + null,
+  throw_2: java_lang_Throwable + null,
+  throw_3: java_lang_Throwable + null,
+  throw_4: java_lang_Throwable + null,
+  throw_5: java_lang_Throwable + null,
+  throw_6: java_lang_Throwable + null,
+  throw_7: java_lang_Throwable + null,
+  throw_8: java_lang_Throwable + null,
+  throw_9: java_lang_Throwable + null,
+  throw_10: java_lang_Throwable + null,
+  throw_11: java_lang_Throwable + null,
+  throw_12: java_lang_Throwable + null,
+  throw_13: java_lang_Throwable + null,
+  throw_14: java_lang_Throwable + null,
+  throw_15: java_lang_Throwable + null,
+  throw_16: java_lang_Throwable + null,
+  throw_17: java_lang_Throwable + null,
+  throw_18: java_lang_Throwable + null,
+  throw_19: java_lang_Throwable + null,
+  throw_20: java_lang_Throwable + null,
+  return_0: boolean,
+  return_1: boolean,
+  return_2: boolean,
+  return_3: boolean,
+  return_4: boolean,
+  value_0: Int,
+  modelfields_TreeSet_root_0: ( modelfields_TreeSet ) -> one ( modelfields_TreeSetEntry + null ),
+  modelfields_TreeSetEntry_right_0: ( modelfields_TreeSetEntry ) -> one ( modelfields_TreeSetEntry + null ),
+  modelfields_TreeSetEntry_key_0: ( modelfields_TreeSetEntry ) -> one ( Int ),
+  modelfields_TreeSetEntry_left_0: ( modelfields_TreeSetEntry ) -> one ( modelfields_TreeSetEntry + null ),
+  usedObjects_0: set ( java_lang_Object ),
+  usedObjects_1: set ( java_lang_Object ),
+  usedObjects_2: set ( java_lang_Object ),
+  usedObjects_3: set ( java_lang_Object ),
+  usedObjects_4: set ( java_lang_Object ),
+  usedObjects_5: set ( java_lang_Object ),
+  usedObjects_6: set ( java_lang_Object ),
+  t_2_0: boolean,
+  t_2_1: boolean,
+  t_2_2: boolean,
+  t_2_3: boolean,
+  param_value_0_0: Int,
+  param_value_0_1: Int,
+  exit_stmt_reached_1: boolean,
+  exit_stmt_reached_2: boolean,
+  exit_stmt_reached_3: boolean,
+  exit_stmt_reached_4: boolean,
+  exit_stmt_reached_5: boolean,
+  t_1_0: boolean,
+  t_1_1: boolean,
+  t_1_2: boolean,
+  t_1_3: boolean,
+  variant_0_0: Int,
+  variant_0_1: Int,
+  variant_0_2: Int,
+  variant_0_3: Int,
+  var_2_ws_1_0: boolean,
+  var_2_ws_1_1: boolean,
+  var_2_ws_1_2: boolean,
+  var_2_ws_1_3: boolean,
+  var_2_ws_1_4: boolean,
+  var_1_p_0: modelfields_TreeSetEntry + null,
+  var_1_p_1: modelfields_TreeSetEntry + null,
+  var_1_p_2: modelfields_TreeSetEntry + null,
+  var_1_p_3: modelfields_TreeSetEntry + null,
+  var_1_p_4: modelfields_TreeSetEntry + null
+]{
+  TruePred[]
+  and 
+  (
+    throw_1=null)
+  and 
+  TruePred[]
+  and 
+  (
+    exit_stmt_reached_1=false)
+  and 
+  TruePred[]
+  and 
+  (
+    (
+      modelfields_TreeSetCondition0[exit_stmt_reached_1,
+                                   throw_1]
+      and 
+      (
+        param_value_0_1=value_0)
+    )
+    or 
+    (
+      (
+        not (
+          modelfields_TreeSetCondition0[exit_stmt_reached_1,
+                                       throw_1]
+        )
+      )
+      and 
+      TruePred[]
+      and 
+      (
+        param_value_0_0=param_value_0_1)
+    )
+  )
+  and 
+  TruePred[]
+  and 
+  (
+    (
+      modelfields_TreeSetCondition0[exit_stmt_reached_1,
+                                   throw_1]
+      and 
+      (
+        (
+          modelfields_TreeSetCondition2[thiz_0]
+          and 
+          (
+            throw_2=java_lang_NullPointerExceptionLit)
+          and 
+          (
+            var_1_p_0=var_1_p_1)
+        )
+        or 
+        (
+          (
+            not (
+              modelfields_TreeSetCondition2[thiz_0])
+          )
+          and 
+          (
+            var_1_p_1=thiz_0.modelfields_TreeSet_root_0)
+          and 
+          (
+            throw_1=throw_2)
+        )
+      )
+    )
+    or 
+    (
+      (
+        not (
+          modelfields_TreeSetCondition0[exit_stmt_reached_1,
+                                       throw_1]
+        )
+      )
+      and 
+      TruePred[]
+      and 
+      (
+        var_1_p_0=var_1_p_1)
+      and 
+      (
+        throw_1=throw_2)
+    )
+  )
+  and 
+  TruePred[]
+  and 
+  (
+    (
+      modelfields_TreeSetCondition0[exit_stmt_reached_1,
+                                   throw_2]
+      and 
+      (
+        var_2_ws_1_1=(neq[var_1_p_1,
+           null]=>(true)else(false))
+      )
+    )
+    or 
+    (
+      (
+        not (
+          modelfields_TreeSetCondition0[exit_stmt_reached_1,
+                                       throw_2]
+        )
+      )
+      and 
+      TruePred[]
+      and 
+      (
+        var_2_ws_1_0=var_2_ws_1_1)
+    )
+  )
+  and 
+  (
+    (
+      modelfields_TreeSetCondition16[exit_stmt_reached_1,
+                                    throw_2,
+                                    var_2_ws_1_1]
+      and 
+      TruePred[]
+      and 
+      (
+        (
+          modelfields_TreeSetCondition0[exit_stmt_reached_1,
+                                       throw_2]
+          and 
+          (
+            (
+              modelfields_TreeSetCondition2[thiz_0]
+              and 
+              (
+                throw_3=java_lang_NullPointerExceptionLit)
+              and 
+              (
+                variant_0_0=variant_0_1)
+            )
+            or 
+            (
+              (
+                not (
+                  modelfields_TreeSetCondition2[thiz_0])
+              )
+              and 
+              (
+                variant_0_1=fun_set_size[fun_reach[thiz_0.modelfields_TreeSet_root_0,modelfields_TreeSetEntry,modelfields_TreeSetEntry_left_0+modelfields_TreeSetEntry_right_0]])
+              and 
+              (
+                throw_2=throw_3)
+            )
+          )
+        )
+        or 
+        (
+          (
+            not (
+              modelfields_TreeSetCondition0[exit_stmt_reached_1,
+                                           throw_2]
+            )
+          )
+          and 
+          TruePred[]
+          and 
+          (
+            variant_0_0=variant_0_1)
+          and 
+          (
+            throw_2=throw_3)
+        )
+      )
+      and 
+      (
+        (
+          modelfields_TreeSetCondition0[exit_stmt_reached_1,
+                                       throw_3]
+          and 
+          (
+            (
+              modelfields_TreeSetCondition2[thiz_0]
+              and 
+              (
+                throw_5=java_lang_NullPointerExceptionLit)
+              and 
+              (
+                usedObjects_0=usedObjects_1)
+            )
+            or 
+            (
+              (
+                not (
+                  modelfields_TreeSetCondition2[thiz_0])
+              )
+              and 
+              (
+                (
+                  modelfields_TreeSetCondition6[modelfields_TreeSetEntry_left_0,
+                                               modelfields_TreeSetEntry_right_0,
+                                               modelfields_TreeSet_root_0,
+                                               thiz_0]
+                  and 
+                  getUnusedObject[throw_4,
+                                 usedObjects_0,
+                                 usedObjects_1]
+                  and 
+                  instanceOf[throw_4,
+                            java_lang_Object]
+                  and 
+                  (
+                    (
+                      modelfields_TreeSetCondition4[throw_4]
+                      and 
+                      (
+                        throw_5=java_lang_NullPointerExceptionLit)
+                    )
+                    or 
+                    (
+                      (
+                        not (
+                          modelfields_TreeSetCondition4[throw_4])
+                      )
+                      and 
+                      java_lang_Throwable_Constructor_0[]
+                      and 
+                      (
+                        throw_4=throw_5)
+                    )
+                  )
+                )
+                or 
+                (
+                  (
+                    not (
+                      modelfields_TreeSetCondition6[modelfields_TreeSetEntry_left_0,
+                                                   modelfields_TreeSetEntry_right_0,
+                                                   modelfields_TreeSet_root_0,
+                                                   thiz_0]
+                    )
+                  )
+                  and 
+                  TruePred[]
+                  and 
+                  (
+                    throw_3=throw_5)
+                  and 
+                  (
+                    usedObjects_0=usedObjects_1)
+                )
+              )
+            )
+          )
+        )
+        or 
+        (
+          (
+            not (
+              modelfields_TreeSetCondition0[exit_stmt_reached_1,
+                                           throw_3]
+            )
+          )
+          and 
+          TruePred[]
+          and 
+          (
+            usedObjects_0=usedObjects_1)
+          and 
+          (
+            throw_3=throw_5)
+        )
+      )
+      and 
+      TruePred[]
+      and 
+      (
+        (
+          modelfields_TreeSetCondition0[exit_stmt_reached_1,
+                                       throw_5]
+          and 
+          (
+            t_2_1=(equ[value_0,
+               var_1_p_1.modelfields_TreeSetEntry_key_0]=>(true)else(false))
+          )
+        )
+        or 
+        (
+          (
+            not (
+              modelfields_TreeSetCondition0[exit_stmt_reached_1,
+                                           throw_5]
+            )
+          )
+          and 
+          TruePred[]
+          and 
+          (
+            t_2_0=t_2_1)
+        )
+      )
+      and 
+      (
+        (
+          modelfields_TreeSetCondition0[exit_stmt_reached_1,
+                                       throw_5]
+          and 
+          (
+            (
+              modelfields_TreeSetCondition12[t_2_1]
+              and 
+              (
+                (
+                  modelfields_TreeSetCondition0[exit_stmt_reached_1,
+                                               throw_5]
+                  and 
+                  (
+                    return_1=true)
+                  and 
+                  (
+                    exit_stmt_reached_2=true)
+                )
+                or 
+                (
+                  (
+                    not (
+                      modelfields_TreeSetCondition0[exit_stmt_reached_1,
+                                                   throw_5]
+                    )
+                  )
+                  and 
+                  TruePred[]
+                  and 
+                  (
+                    return_0=return_1)
+                  and 
+                  (
+                    exit_stmt_reached_1=exit_stmt_reached_2)
+                )
+              )
+              and 
+              (
+                t_1_0=t_1_1)
+              and 
+              (
+                var_1_p_1=var_1_p_2)
+              and 
+              (
+                throw_5=throw_6)
+            )
+            or 
+            (
+              (
+                not (
+                  modelfields_TreeSetCondition12[t_2_1])
+              )
+              and 
+              TruePred[]
+              and 
+              (
+                (
+                  modelfields_TreeSetCondition0[exit_stmt_reached_1,
+                                               throw_5]
+                  and 
+                  (
+                    t_1_1=(lt[value_0,
+                      var_1_p_1.modelfields_TreeSetEntry_key_0]=>(true)else(false))
+                  )
+                )
+                or 
+                (
+                  (
+                    not (
+                      modelfields_TreeSetCondition0[exit_stmt_reached_1,
+                                                   throw_5]
+                    )
+                  )
+                  and 
+                  TruePred[]
+                  and 
+                  (
+                    t_1_0=t_1_1)
+                )
+              )
+              and 
+              (
+                (
+                  modelfields_TreeSetCondition0[exit_stmt_reached_1,
+                                               throw_5]
+                  and 
+                  (
+                    (
+                      modelfields_TreeSetCondition10[t_1_1]
+                      and 
+                      (
+                        (
+                          modelfields_TreeSetCondition0[exit_stmt_reached_1,
+                                                       throw_5]
+                          and 
+                          (
+                            (
+                              modelfields_TreeSetCondition8[var_1_p_1]
+                              and 
+                              (
+                                throw_6=java_lang_NullPointerExceptionLit)
+                              and 
+                              (
+                                var_1_p_1=var_1_p_2)
+                            )
+                            or 
+                            (
+                              (
+                                not (
+                                  modelfields_TreeSetCondition8[var_1_p_1])
+                              )
+                              and 
+                              (
+                                var_1_p_2=var_1_p_1.modelfields_TreeSetEntry_left_0)
+                              and 
+                              (
+                                throw_5=throw_6)
+                            )
+                          )
+                        )
+                        or 
+                        (
+                          (
+                            not (
+                              modelfields_TreeSetCondition0[exit_stmt_reached_1,
+                                                           throw_5]
+                            )
+                          )
+                          and 
+                          TruePred[]
+                          and 
+                          (
+                            var_1_p_1=var_1_p_2)
+                          and 
+                          (
+                            throw_5=throw_6)
+                        )
+                      )
+                    )
+                    or 
+                    (
+                      (
+                        not (
+                          modelfields_TreeSetCondition10[t_1_1])
+                      )
+                      and 
+                      (
+                        (
+                          modelfields_TreeSetCondition0[exit_stmt_reached_1,
+                                                       throw_5]
+                          and 
+                          (
+                            (
+                              modelfields_TreeSetCondition8[var_1_p_1]
+                              and 
+                              (
+                                throw_6=java_lang_NullPointerExceptionLit)
+                              and 
+                              (
+                                var_1_p_1=var_1_p_2)
+                            )
+                            or 
+                            (
+                              (
+                                not (
+                                  modelfields_TreeSetCondition8[var_1_p_1])
+                              )
+                              and 
+                              (
+                                var_1_p_2=var_1_p_1.modelfields_TreeSetEntry_right_0)
+                              and 
+                              (
+                                throw_5=throw_6)
+                            )
+                          )
+                        )
+                        or 
+                        (
+                          (
+                            not (
+                              modelfields_TreeSetCondition0[exit_stmt_reached_1,
+                                                           throw_5]
+                            )
+                          )
+                          and 
+                          TruePred[]
+                          and 
+                          (
+                            var_1_p_1=var_1_p_2)
+                          and 
+                          (
+                            throw_5=throw_6)
+                        )
+                      )
+                    )
+                  )
+                )
+                or 
+                (
+                  (
+                    not (
+                      modelfields_TreeSetCondition0[exit_stmt_reached_1,
+                                                   throw_5]
+                    )
+                  )
+                  and 
+                  TruePred[]
+                  and 
+                  (
+                    var_1_p_1=var_1_p_2)
+                  and 
+                  (
+                    throw_5=throw_6)
+                )
+              )
+              and 
+              (
+                return_0=return_1)
+              and 
+              (
+                exit_stmt_reached_1=exit_stmt_reached_2)
+            )
+          )
+        )
+        or 
+        (
+          (
+            not (
+              modelfields_TreeSetCondition0[exit_stmt_reached_1,
+                                           throw_5]
+            )
+          )
+          and 
+          TruePred[]
+          and 
+          (
+            t_1_0=t_1_1)
+          and 
+          (
+            return_0=return_1)
+          and 
+          (
+            var_1_p_1=var_1_p_2)
+          and 
+          (
+            throw_5=throw_6)
+          and 
+          (
+            exit_stmt_reached_1=exit_stmt_reached_2)
+        )
+      )
+      and 
+      (
+        (
+          modelfields_TreeSetCondition0[exit_stmt_reached_2,
+                                       throw_6]
+          and 
+          (
+            var_2_ws_1_2=(neq[var_1_p_2,
+               null]=>(true)else(false))
+          )
+        )
+        or 
+        (
+          (
+            not (
+              modelfields_TreeSetCondition0[exit_stmt_reached_2,
+                                           throw_6]
+            )
+          )
+          and 
+          TruePred[]
+          and 
+          (
+            var_2_ws_1_1=var_2_ws_1_2)
+        )
+      )
+      and 
+      (
+        (
+          modelfields_TreeSetCondition0[exit_stmt_reached_2,
+                                       throw_6]
+          and 
+          (
+            (
+              modelfields_TreeSetCondition2[thiz_0]
+              and 
+              (
+                throw_8=java_lang_NullPointerExceptionLit)
+              and 
+              (
+                usedObjects_1=usedObjects_2)
+            )
+            or 
+            (
+              (
+                not (
+                  modelfields_TreeSetCondition2[thiz_0])
+              )
+              and 
+              (
+                (
+                  modelfields_TreeSetCondition14[modelfields_TreeSetEntry_left_0,
+                                                modelfields_TreeSetEntry_right_0,
+                                                modelfields_TreeSet_root_0,
+                                                thiz_0,
+                                                variant_0_1]
+                  and 
+                  getUnusedObject[throw_7,
+                                 usedObjects_1,
+                                 usedObjects_2]
+                  and 
+                  instanceOf[throw_7,
+                            java_lang_Object]
+                  and 
+                  (
+                    (
+                      modelfields_TreeSetCondition4[throw_7]
+                      and 
+                      (
+                        throw_8=java_lang_NullPointerExceptionLit)
+                    )
+                    or 
+                    (
+                      (
+                        not (
+                          modelfields_TreeSetCondition4[throw_7])
+                      )
+                      and 
+                      java_lang_Throwable_Constructor_0[]
+                      and 
+                      (
+                        throw_7=throw_8)
+                    )
+                  )
+                )
+                or 
+                (
+                  (
+                    not (
+                      modelfields_TreeSetCondition14[modelfields_TreeSetEntry_left_0,
+                                                    modelfields_TreeSetEntry_right_0,
+                                                    modelfields_TreeSet_root_0,
+                                                    thiz_0,
+                                                    variant_0_1]
+                    )
+                  )
+                  and 
+                  TruePred[]
+                  and 
+                  (
+                    throw_6=throw_8)
+                  and 
+                  (
+                    usedObjects_1=usedObjects_2)
+                )
+              )
+            )
+          )
+        )
+        or 
+        (
+          (
+            not (
+              modelfields_TreeSetCondition0[exit_stmt_reached_2,
+                                           throw_6]
+            )
+          )
+          and 
+          TruePred[]
+          and 
+          (
+            usedObjects_1=usedObjects_2)
+          and 
+          (
+            throw_6=throw_8)
+        )
+      )
+      and 
+      (
+        (
+          modelfields_TreeSetCondition16[exit_stmt_reached_2,
+                                        throw_8,
+                                        var_2_ws_1_2]
+          and 
+          TruePred[]
+          and 
+          (
+            (
+              modelfields_TreeSetCondition0[exit_stmt_reached_2,
+                                           throw_8]
+              and 
+              (
+                (
+                  modelfields_TreeSetCondition2[thiz_0]
+                  and 
+                  (
+                    throw_9=java_lang_NullPointerExceptionLit)
+                  and 
+                  (
+                    variant_0_1=variant_0_2)
+                )
+                or 
+                (
+                  (
+                    not (
+                      modelfields_TreeSetCondition2[thiz_0])
+                  )
+                  and 
+                  (
+                    variant_0_2=fun_set_size[fun_reach[thiz_0.modelfields_TreeSet_root_0,modelfields_TreeSetEntry,modelfields_TreeSetEntry_left_0+modelfields_TreeSetEntry_right_0]])
+                  and 
+                  (
+                    throw_8=throw_9)
+                )
+              )
+            )
+            or 
+            (
+              (
+                not (
+                  modelfields_TreeSetCondition0[exit_stmt_reached_2,
+                                               throw_8]
+                )
+              )
+              and 
+              TruePred[]
+              and 
+              (
+                variant_0_1=variant_0_2)
+              and 
+              (
+                throw_8=throw_9)
+            )
+          )
+          and 
+          (
+            (
+              modelfields_TreeSetCondition0[exit_stmt_reached_2,
+                                           throw_9]
+              and 
+              (
+                (
+                  modelfields_TreeSetCondition2[thiz_0]
+                  and 
+                  (
+                    throw_11=java_lang_NullPointerExceptionLit)
+                  and 
+                  (
+                    usedObjects_2=usedObjects_3)
+                )
+                or 
+                (
+                  (
+                    not (
+                      modelfields_TreeSetCondition2[thiz_0])
+                  )
+                  and 
+                  (
+                    (
+                      modelfields_TreeSetCondition6[modelfields_TreeSetEntry_left_0,
+                                                   modelfields_TreeSetEntry_right_0,
+                                                   modelfields_TreeSet_root_0,
+                                                   thiz_0]
+                      and 
+                      getUnusedObject[throw_10,
+                                     usedObjects_2,
+                                     usedObjects_3]
+                      and 
+                      instanceOf[throw_10,
+                                java_lang_Object]
+                      and 
+                      (
+                        (
+                          modelfields_TreeSetCondition4[throw_10]
+                          and 
+                          (
+                            throw_11=java_lang_NullPointerExceptionLit)
+                        )
+                        or 
+                        (
+                          (
+                            not (
+                              modelfields_TreeSetCondition4[throw_10])
+                          )
+                          and 
+                          java_lang_Throwable_Constructor_0[]
+                          and 
+                          (
+                            throw_10=throw_11)
+                        )
+                      )
+                    )
+                    or 
+                    (
+                      (
+                        not (
+                          modelfields_TreeSetCondition6[modelfields_TreeSetEntry_left_0,
+                                                       modelfields_TreeSetEntry_right_0,
+                                                       modelfields_TreeSet_root_0,
+                                                       thiz_0]
+                        )
+                      )
+                      and 
+                      TruePred[]
+                      and 
+                      (
+                        throw_9=throw_11)
+                      and 
+                      (
+                        usedObjects_2=usedObjects_3)
+                    )
+                  )
+                )
+              )
+            )
+            or 
+            (
+              (
+                not (
+                  modelfields_TreeSetCondition0[exit_stmt_reached_2,
+                                               throw_9]
+                )
+              )
+              and 
+              TruePred[]
+              and 
+              (
+                usedObjects_2=usedObjects_3)
+              and 
+              (
+                throw_9=throw_11)
+            )
+          )
+          and 
+          TruePred[]
+          and 
+          (
+            (
+              modelfields_TreeSetCondition0[exit_stmt_reached_2,
+                                           throw_11]
+              and 
+              (
+                t_2_2=(equ[value_0,
+                   var_1_p_2.modelfields_TreeSetEntry_key_0]=>(true)else(false))
+              )
+            )
+            or 
+            (
+              (
+                not (
+                  modelfields_TreeSetCondition0[exit_stmt_reached_2,
+                                               throw_11]
+                )
+              )
+              and 
+              TruePred[]
+              and 
+              (
+                t_2_1=t_2_2)
+            )
+          )
+          and 
+          (
+            (
+              modelfields_TreeSetCondition0[exit_stmt_reached_2,
+                                           throw_11]
+              and 
+              (
+                (
+                  modelfields_TreeSetCondition12[t_2_2]
+                  and 
+                  (
+                    (
+                      modelfields_TreeSetCondition0[exit_stmt_reached_2,
+                                                   throw_11]
+                      and 
+                      (
+                        return_2=true)
+                      and 
+                      (
+                        exit_stmt_reached_3=true)
+                    )
+                    or 
+                    (
+                      (
+                        not (
+                          modelfields_TreeSetCondition0[exit_stmt_reached_2,
+                                                       throw_11]
+                        )
+                      )
+                      and 
+                      TruePred[]
+                      and 
+                      (
+                        return_1=return_2)
+                      and 
+                      (
+                        exit_stmt_reached_2=exit_stmt_reached_3)
+                    )
+                  )
+                  and 
+                  (
+                    t_1_1=t_1_2)
+                  and 
+                  (
+                    var_1_p_2=var_1_p_3)
+                  and 
+                  (
+                    throw_11=throw_12)
+                )
+                or 
+                (
+                  (
+                    not (
+                      modelfields_TreeSetCondition12[t_2_2])
+                  )
+                  and 
+                  TruePred[]
+                  and 
+                  (
+                    (
+                      modelfields_TreeSetCondition0[exit_stmt_reached_2,
+                                                   throw_11]
+                      and 
+                      (
+                        t_1_2=(lt[value_0,
+                          var_1_p_2.modelfields_TreeSetEntry_key_0]=>(true)else(false))
+                      )
+                    )
+                    or 
+                    (
+                      (
+                        not (
+                          modelfields_TreeSetCondition0[exit_stmt_reached_2,
+                                                       throw_11]
+                        )
+                      )
+                      and 
+                      TruePred[]
+                      and 
+                      (
+                        t_1_1=t_1_2)
+                    )
+                  )
+                  and 
+                  (
+                    (
+                      modelfields_TreeSetCondition0[exit_stmt_reached_2,
+                                                   throw_11]
+                      and 
+                      (
+                        (
+                          modelfields_TreeSetCondition10[t_1_2]
+                          and 
+                          (
+                            (
+                              modelfields_TreeSetCondition0[exit_stmt_reached_2,
+                                                           throw_11]
+                              and 
+                              (
+                                (
+                                  modelfields_TreeSetCondition8[var_1_p_2]
+                                  and 
+                                  (
+                                    throw_12=java_lang_NullPointerExceptionLit)
+                                  and 
+                                  (
+                                    var_1_p_2=var_1_p_3)
+                                )
+                                or 
+                                (
+                                  (
+                                    not (
+                                      modelfields_TreeSetCondition8[var_1_p_2])
+                                  )
+                                  and 
+                                  (
+                                    var_1_p_3=var_1_p_2.modelfields_TreeSetEntry_left_0)
+                                  and 
+                                  (
+                                    throw_11=throw_12)
+                                )
+                              )
+                            )
+                            or 
+                            (
+                              (
+                                not (
+                                  modelfields_TreeSetCondition0[exit_stmt_reached_2,
+                                                               throw_11]
+                                )
+                              )
+                              and 
+                              TruePred[]
+                              and 
+                              (
+                                var_1_p_2=var_1_p_3)
+                              and 
+                              (
+                                throw_11=throw_12)
+                            )
+                          )
+                        )
+                        or 
+                        (
+                          (
+                            not (
+                              modelfields_TreeSetCondition10[t_1_2])
+                          )
+                          and 
+                          (
+                            (
+                              modelfields_TreeSetCondition0[exit_stmt_reached_2,
+                                                           throw_11]
+                              and 
+                              (
+                                (
+                                  modelfields_TreeSetCondition8[var_1_p_2]
+                                  and 
+                                  (
+                                    throw_12=java_lang_NullPointerExceptionLit)
+                                  and 
+                                  (
+                                    var_1_p_2=var_1_p_3)
+                                )
+                                or 
+                                (
+                                  (
+                                    not (
+                                      modelfields_TreeSetCondition8[var_1_p_2])
+                                  )
+                                  and 
+                                  (
+                                    var_1_p_3=var_1_p_2.modelfields_TreeSetEntry_right_0)
+                                  and 
+                                  (
+                                    throw_11=throw_12)
+                                )
+                              )
+                            )
+                            or 
+                            (
+                              (
+                                not (
+                                  modelfields_TreeSetCondition0[exit_stmt_reached_2,
+                                                               throw_11]
+                                )
+                              )
+                              and 
+                              TruePred[]
+                              and 
+                              (
+                                var_1_p_2=var_1_p_3)
+                              and 
+                              (
+                                throw_11=throw_12)
+                            )
+                          )
+                        )
+                      )
+                    )
+                    or 
+                    (
+                      (
+                        not (
+                          modelfields_TreeSetCondition0[exit_stmt_reached_2,
+                                                       throw_11]
+                        )
+                      )
+                      and 
+                      TruePred[]
+                      and 
+                      (
+                        var_1_p_2=var_1_p_3)
+                      and 
+                      (
+                        throw_11=throw_12)
+                    )
+                  )
+                  and 
+                  (
+                    return_1=return_2)
+                  and 
+                  (
+                    exit_stmt_reached_2=exit_stmt_reached_3)
+                )
+              )
+            )
+            or 
+            (
+              (
+                not (
+                  modelfields_TreeSetCondition0[exit_stmt_reached_2,
+                                               throw_11]
+                )
+              )
+              and 
+              TruePred[]
+              and 
+              (
+                t_1_1=t_1_2)
+              and 
+              (
+                return_1=return_2)
+              and 
+              (
+                var_1_p_2=var_1_p_3)
+              and 
+              (
+                throw_11=throw_12)
+              and 
+              (
+                exit_stmt_reached_2=exit_stmt_reached_3)
+            )
+          )
+          and 
+          (
+            (
+              modelfields_TreeSetCondition0[exit_stmt_reached_3,
+                                           throw_12]
+              and 
+              (
+                var_2_ws_1_3=(neq[var_1_p_3,
+                   null]=>(true)else(false))
+              )
+            )
+            or 
+            (
+              (
+                not (
+                  modelfields_TreeSetCondition0[exit_stmt_reached_3,
+                                               throw_12]
+                )
+              )
+              and 
+              TruePred[]
+              and 
+              (
+                var_2_ws_1_2=var_2_ws_1_3)
+            )
+          )
+          and 
+          (
+            (
+              modelfields_TreeSetCondition0[exit_stmt_reached_3,
+                                           throw_12]
+              and 
+              (
+                (
+                  modelfields_TreeSetCondition2[thiz_0]
+                  and 
+                  (
+                    throw_14=java_lang_NullPointerExceptionLit)
+                  and 
+                  (
+                    usedObjects_3=usedObjects_4)
+                )
+                or 
+                (
+                  (
+                    not (
+                      modelfields_TreeSetCondition2[thiz_0])
+                  )
+                  and 
+                  (
+                    (
+                      modelfields_TreeSetCondition14[modelfields_TreeSetEntry_left_0,
+                                                    modelfields_TreeSetEntry_right_0,
+                                                    modelfields_TreeSet_root_0,
+                                                    thiz_0,
+                                                    variant_0_2]
+                      and 
+                      getUnusedObject[throw_13,
+                                     usedObjects_3,
+                                     usedObjects_4]
+                      and 
+                      instanceOf[throw_13,
+                                java_lang_Object]
+                      and 
+                      (
+                        (
+                          modelfields_TreeSetCondition4[throw_13]
+                          and 
+                          (
+                            throw_14=java_lang_NullPointerExceptionLit)
+                        )
+                        or 
+                        (
+                          (
+                            not (
+                              modelfields_TreeSetCondition4[throw_13])
+                          )
+                          and 
+                          java_lang_Throwable_Constructor_0[]
+                          and 
+                          (
+                            throw_13=throw_14)
+                        )
+                      )
+                    )
+                    or 
+                    (
+                      (
+                        not (
+                          modelfields_TreeSetCondition14[modelfields_TreeSetEntry_left_0,
+                                                        modelfields_TreeSetEntry_right_0,
+                                                        modelfields_TreeSet_root_0,
+                                                        thiz_0,
+                                                        variant_0_2]
+                        )
+                      )
+                      and 
+                      TruePred[]
+                      and 
+                      (
+                        throw_12=throw_14)
+                      and 
+                      (
+                        usedObjects_3=usedObjects_4)
+                    )
+                  )
+                )
+              )
+            )
+            or 
+            (
+              (
+                not (
+                  modelfields_TreeSetCondition0[exit_stmt_reached_3,
+                                               throw_12]
+                )
+              )
+              and 
+              TruePred[]
+              and 
+              (
+                usedObjects_3=usedObjects_4)
+              and 
+              (
+                throw_12=throw_14)
+            )
+          )
+          and 
+          (
+            (
+              modelfields_TreeSetCondition16[exit_stmt_reached_3,
+                                            throw_14,
+                                            var_2_ws_1_3]
+              and 
+              TruePred[]
+              and 
+              (
+                (
+                  modelfields_TreeSetCondition0[exit_stmt_reached_3,
+                                               throw_14]
+                  and 
+                  (
+                    (
+                      modelfields_TreeSetCondition2[thiz_0]
+                      and 
+                      (
+                        throw_15=java_lang_NullPointerExceptionLit)
+                      and 
+                      (
+                        variant_0_2=variant_0_3)
+                    )
+                    or 
+                    (
+                      (
+                        not (
+                          modelfields_TreeSetCondition2[thiz_0])
+                      )
+                      and 
+                      (
+                        variant_0_3=fun_set_size[fun_reach[thiz_0.modelfields_TreeSet_root_0,modelfields_TreeSetEntry,modelfields_TreeSetEntry_left_0+modelfields_TreeSetEntry_right_0]])
+                      and 
+                      (
+                        throw_14=throw_15)
+                    )
+                  )
+                )
+                or 
+                (
+                  (
+                    not (
+                      modelfields_TreeSetCondition0[exit_stmt_reached_3,
+                                                   throw_14]
+                    )
+                  )
+                  and 
+                  TruePred[]
+                  and 
+                  (
+                    variant_0_2=variant_0_3)
+                  and 
+                  (
+                    throw_14=throw_15)
+                )
+              )
+              and 
+              (
+                (
+                  modelfields_TreeSetCondition0[exit_stmt_reached_3,
+                                               throw_15]
+                  and 
+                  (
+                    (
+                      modelfields_TreeSetCondition2[thiz_0]
+                      and 
+                      (
+                        throw_17=java_lang_NullPointerExceptionLit)
+                      and 
+                      (
+                        usedObjects_4=usedObjects_5)
+                    )
+                    or 
+                    (
+                      (
+                        not (
+                          modelfields_TreeSetCondition2[thiz_0])
+                      )
+                      and 
+                      (
+                        (
+                          modelfields_TreeSetCondition6[modelfields_TreeSetEntry_left_0,
+                                                       modelfields_TreeSetEntry_right_0,
+                                                       modelfields_TreeSet_root_0,
+                                                       thiz_0]
+                          and 
+                          getUnusedObject[throw_16,
+                                         usedObjects_4,
+                                         usedObjects_5]
+                          and 
+                          instanceOf[throw_16,
+                                    java_lang_Object]
+                          and 
+                          (
+                            (
+                              modelfields_TreeSetCondition4[throw_16]
+                              and 
+                              (
+                                throw_17=java_lang_NullPointerExceptionLit)
+                            )
+                            or 
+                            (
+                              (
+                                not (
+                                  modelfields_TreeSetCondition4[throw_16])
+                              )
+                              and 
+                              java_lang_Throwable_Constructor_0[]
+                              and 
+                              (
+                                throw_16=throw_17)
+                            )
+                          )
+                        )
+                        or 
+                        (
+                          (
+                            not (
+                              modelfields_TreeSetCondition6[modelfields_TreeSetEntry_left_0,
+                                                           modelfields_TreeSetEntry_right_0,
+                                                           modelfields_TreeSet_root_0,
+                                                           thiz_0]
+                            )
+                          )
+                          and 
+                          TruePred[]
+                          and 
+                          (
+                            throw_15=throw_17)
+                          and 
+                          (
+                            usedObjects_4=usedObjects_5)
+                        )
+                      )
+                    )
+                  )
+                )
+                or 
+                (
+                  (
+                    not (
+                      modelfields_TreeSetCondition0[exit_stmt_reached_3,
+                                                   throw_15]
+                    )
+                  )
+                  and 
+                  TruePred[]
+                  and 
+                  (
+                    usedObjects_4=usedObjects_5)
+                  and 
+                  (
+                    throw_15=throw_17)
+                )
+              )
+              and 
+              TruePred[]
+              and 
+              (
+                (
+                  modelfields_TreeSetCondition0[exit_stmt_reached_3,
+                                               throw_17]
+                  and 
+                  (
+                    t_2_3=(equ[value_0,
+                       var_1_p_3.modelfields_TreeSetEntry_key_0]=>(true)else(false))
+                  )
+                )
+                or 
+                (
+                  (
+                    not (
+                      modelfields_TreeSetCondition0[exit_stmt_reached_3,
+                                                   throw_17]
+                    )
+                  )
+                  and 
+                  TruePred[]
+                  and 
+                  (
+                    t_2_2=t_2_3)
+                )
+              )
+              and 
+              (
+                (
+                  modelfields_TreeSetCondition0[exit_stmt_reached_3,
+                                               throw_17]
+                  and 
+                  (
+                    (
+                      modelfields_TreeSetCondition12[t_2_3]
+                      and 
+                      (
+                        (
+                          modelfields_TreeSetCondition0[exit_stmt_reached_3,
+                                                       throw_17]
+                          and 
+                          (
+                            return_3=true)
+                          and 
+                          (
+                            exit_stmt_reached_4=true)
+                        )
+                        or 
+                        (
+                          (
+                            not (
+                              modelfields_TreeSetCondition0[exit_stmt_reached_3,
+                                                           throw_17]
+                            )
+                          )
+                          and 
+                          TruePred[]
+                          and 
+                          (
+                            return_2=return_3)
+                          and 
+                          (
+                            exit_stmt_reached_3=exit_stmt_reached_4)
+                        )
+                      )
+                      and 
+                      (
+                        t_1_2=t_1_3)
+                      and 
+                      (
+                        var_1_p_3=var_1_p_4)
+                      and 
+                      (
+                        throw_17=throw_18)
+                    )
+                    or 
+                    (
+                      (
+                        not (
+                          modelfields_TreeSetCondition12[t_2_3])
+                      )
+                      and 
+                      TruePred[]
+                      and 
+                      (
+                        (
+                          modelfields_TreeSetCondition0[exit_stmt_reached_3,
+                                                       throw_17]
+                          and 
+                          (
+                            t_1_3=(lt[value_0,
+                              var_1_p_3.modelfields_TreeSetEntry_key_0]=>(true)else(false))
+                          )
+                        )
+                        or 
+                        (
+                          (
+                            not (
+                              modelfields_TreeSetCondition0[exit_stmt_reached_3,
+                                                           throw_17]
+                            )
+                          )
+                          and 
+                          TruePred[]
+                          and 
+                          (
+                            t_1_2=t_1_3)
+                        )
+                      )
+                      and 
+                      (
+                        (
+                          modelfields_TreeSetCondition0[exit_stmt_reached_3,
+                                                       throw_17]
+                          and 
+                          (
+                            (
+                              modelfields_TreeSetCondition10[t_1_3]
+                              and 
+                              (
+                                (
+                                  modelfields_TreeSetCondition0[exit_stmt_reached_3,
+                                                               throw_17]
+                                  and 
+                                  (
+                                    (
+                                      modelfields_TreeSetCondition8[var_1_p_3]
+                                      and 
+                                      (
+                                        throw_18=java_lang_NullPointerExceptionLit)
+                                      and 
+                                      (
+                                        var_1_p_3=var_1_p_4)
+                                    )
+                                    or 
+                                    (
+                                      (
+                                        not (
+                                          modelfields_TreeSetCondition8[var_1_p_3])
+                                      )
+                                      and 
+                                      (
+                                        var_1_p_4=var_1_p_3.modelfields_TreeSetEntry_left_0)
+                                      and 
+                                      (
+                                        throw_17=throw_18)
+                                    )
+                                  )
+                                )
+                                or 
+                                (
+                                  (
+                                    not (
+                                      modelfields_TreeSetCondition0[exit_stmt_reached_3,
+                                                                   throw_17]
+                                    )
+                                  )
+                                  and 
+                                  TruePred[]
+                                  and 
+                                  (
+                                    var_1_p_3=var_1_p_4)
+                                  and 
+                                  (
+                                    throw_17=throw_18)
+                                )
+                              )
+                            )
+                            or 
+                            (
+                              (
+                                not (
+                                  modelfields_TreeSetCondition10[t_1_3])
+                              )
+                              and 
+                              (
+                                (
+                                  modelfields_TreeSetCondition0[exit_stmt_reached_3,
+                                                               throw_17]
+                                  and 
+                                  (
+                                    (
+                                      modelfields_TreeSetCondition8[var_1_p_3]
+                                      and 
+                                      (
+                                        throw_18=java_lang_NullPointerExceptionLit)
+                                      and 
+                                      (
+                                        var_1_p_3=var_1_p_4)
+                                    )
+                                    or 
+                                    (
+                                      (
+                                        not (
+                                          modelfields_TreeSetCondition8[var_1_p_3])
+                                      )
+                                      and 
+                                      (
+                                        var_1_p_4=var_1_p_3.modelfields_TreeSetEntry_right_0)
+                                      and 
+                                      (
+                                        throw_17=throw_18)
+                                    )
+                                  )
+                                )
+                                or 
+                                (
+                                  (
+                                    not (
+                                      modelfields_TreeSetCondition0[exit_stmt_reached_3,
+                                                                   throw_17]
+                                    )
+                                  )
+                                  and 
+                                  TruePred[]
+                                  and 
+                                  (
+                                    var_1_p_3=var_1_p_4)
+                                  and 
+                                  (
+                                    throw_17=throw_18)
+                                )
+                              )
+                            )
+                          )
+                        )
+                        or 
+                        (
+                          (
+                            not (
+                              modelfields_TreeSetCondition0[exit_stmt_reached_3,
+                                                           throw_17]
+                            )
+                          )
+                          and 
+                          TruePred[]
+                          and 
+                          (
+                            var_1_p_3=var_1_p_4)
+                          and 
+                          (
+                            throw_17=throw_18)
+                        )
+                      )
+                      and 
+                      (
+                        return_2=return_3)
+                      and 
+                      (
+                        exit_stmt_reached_3=exit_stmt_reached_4)
+                    )
+                  )
+                )
+                or 
+                (
+                  (
+                    not (
+                      modelfields_TreeSetCondition0[exit_stmt_reached_3,
+                                                   throw_17]
+                    )
+                  )
+                  and 
+                  TruePred[]
+                  and 
+                  (
+                    t_1_2=t_1_3)
+                  and 
+                  (
+                    return_2=return_3)
+                  and 
+                  (
+                    var_1_p_3=var_1_p_4)
+                  and 
+                  (
+                    throw_17=throw_18)
+                  and 
+                  (
+                    exit_stmt_reached_3=exit_stmt_reached_4)
+                )
+              )
+              and 
+              (
+                (
+                  modelfields_TreeSetCondition0[exit_stmt_reached_4,
+                                               throw_18]
+                  and 
+                  (
+                    var_2_ws_1_4=(neq[var_1_p_4,
+                       null]=>(true)else(false))
+                  )
+                )
+                or 
+                (
+                  (
+                    not (
+                      modelfields_TreeSetCondition0[exit_stmt_reached_4,
+                                                   throw_18]
+                    )
+                  )
+                  and 
+                  TruePred[]
+                  and 
+                  (
+                    var_2_ws_1_3=var_2_ws_1_4)
+                )
+              )
+              and 
+              (
+                (
+                  modelfields_TreeSetCondition0[exit_stmt_reached_4,
+                                               throw_18]
+                  and 
+                  (
+                    (
+                      modelfields_TreeSetCondition2[thiz_0]
+                      and 
+                      (
+                        throw_20=java_lang_NullPointerExceptionLit)
+                      and 
+                      (
+                        usedObjects_5=usedObjects_6)
+                    )
+                    or 
+                    (
+                      (
+                        not (
+                          modelfields_TreeSetCondition2[thiz_0])
+                      )
+                      and 
+                      (
+                        (
+                          modelfields_TreeSetCondition14[modelfields_TreeSetEntry_left_0,
+                                                        modelfields_TreeSetEntry_right_0,
+                                                        modelfields_TreeSet_root_0,
+                                                        thiz_0,
+                                                        variant_0_3]
+                          and 
+                          getUnusedObject[throw_19,
+                                         usedObjects_5,
+                                         usedObjects_6]
+                          and 
+                          instanceOf[throw_19,
+                                    java_lang_Object]
+                          and 
+                          (
+                            (
+                              modelfields_TreeSetCondition4[throw_19]
+                              and 
+                              (
+                                throw_20=java_lang_NullPointerExceptionLit)
+                            )
+                            or 
+                            (
+                              (
+                                not (
+                                  modelfields_TreeSetCondition4[throw_19])
+                              )
+                              and 
+                              java_lang_Throwable_Constructor_0[]
+                              and 
+                              (
+                                throw_19=throw_20)
+                            )
+                          )
+                        )
+                        or 
+                        (
+                          (
+                            not (
+                              modelfields_TreeSetCondition14[modelfields_TreeSetEntry_left_0,
+                                                            modelfields_TreeSetEntry_right_0,
+                                                            modelfields_TreeSet_root_0,
+                                                            thiz_0,
+                                                            variant_0_3]
+                            )
+                          )
+                          and 
+                          TruePred[]
+                          and 
+                          (
+                            throw_18=throw_20)
+                          and 
+                          (
+                            usedObjects_5=usedObjects_6)
+                        )
+                      )
+                    )
+                  )
+                )
+                or 
+                (
+                  (
+                    not (
+                      modelfields_TreeSetCondition0[exit_stmt_reached_4,
+                                                   throw_18]
+                    )
+                  )
+                  and 
+                  TruePred[]
+                  and 
+                  (
+                    usedObjects_5=usedObjects_6)
+                  and 
+                  (
+                    throw_18=throw_20)
+                )
+              )
+              and 
+              TruePred[]
+            )
+            or 
+            (
+              (
+                not (
+                  modelfields_TreeSetCondition16[exit_stmt_reached_3,
+                                                throw_14,
+                                                var_2_ws_1_3]
+                )
+              )
+              and 
+              TruePred[]
+              and 
+              (
+                return_2=return_3)
+              and 
+              (
+                t_1_2=t_1_3)
+              and 
+              (
+                t_2_2=t_2_3)
+              and 
+              (
+                variant_0_2=variant_0_3)
+              and 
+              (
+                var_1_p_3=var_1_p_4)
+              and 
+              (
+                usedObjects_4=usedObjects_6)
+              and 
+              (
+                throw_14=throw_20)
+              and 
+              (
+                exit_stmt_reached_3=exit_stmt_reached_4)
+              and 
+              (
+                var_2_ws_1_3=var_2_ws_1_4)
+            )
+          )
+        )
+        or 
+        (
+          (
+            not (
+              modelfields_TreeSetCondition16[exit_stmt_reached_2,
+                                            throw_8,
+                                            var_2_ws_1_2]
+            )
+          )
+          and 
+          TruePred[]
+          and 
+          (
+            return_1=return_3)
+          and 
+          (
+            t_1_1=t_1_3)
+          and 
+          (
+            t_2_1=t_2_3)
+          and 
+          (
+            variant_0_1=variant_0_3)
+          and 
+          (
+            var_1_p_2=var_1_p_4)
+          and 
+          (
+            usedObjects_2=usedObjects_6)
+          and 
+          (
+            throw_8=throw_20)
+          and 
+          (
+            exit_stmt_reached_2=exit_stmt_reached_4)
+          and 
+          (
+            var_2_ws_1_2=var_2_ws_1_4)
+        )
+      )
+    )
+    or 
+    (
+      (
+        not (
+          modelfields_TreeSetCondition16[exit_stmt_reached_1,
+                                        throw_2,
+                                        var_2_ws_1_1]
+        )
+      )
+      and 
+      TruePred[]
+      and 
+      (
+        return_0=return_3)
+      and 
+      (
+        t_1_0=t_1_3)
+      and 
+      (
+        t_2_0=t_2_3)
+      and 
+      (
+        variant_0_0=variant_0_3)
+      and 
+      (
+        var_1_p_1=var_1_p_4)
+      and 
+      (
+        usedObjects_0=usedObjects_6)
+      and 
+      (
+        throw_2=throw_20)
+      and 
+      (
+        exit_stmt_reached_1=exit_stmt_reached_4)
+      and 
+      (
+        var_2_ws_1_1=var_2_ws_1_4)
+    )
+  )
+  and 
+  (
+    not (
+      modelfields_TreeSetCondition16[exit_stmt_reached_4,
+                                    throw_20,
+                                    var_2_ws_1_4]
+    )
+  )
+  and 
+  (
+    (
+      modelfields_TreeSetCondition0[exit_stmt_reached_4,
+                                   throw_20]
+      and 
+      (
+        return_4=false)
+      and 
+      (
+        exit_stmt_reached_5=true)
+    )
+    or 
+    (
+      (
+        not (
+          modelfields_TreeSetCondition0[exit_stmt_reached_4,
+                                       throw_20]
+        )
+      )
+      and 
+      TruePred[]
+      and 
+      (
+        return_3=return_4)
+      and 
+      (
+        exit_stmt_reached_4=exit_stmt_reached_5)
+    )
+  )
+  and 
+  TruePred[]
+
+}
+
+
+
+pred java_lang_Throwable_Constructor_0[
+]{
+  TruePred[]
+}
+
+//-------------SMB sigs-------------// 
+one sig modelfields_TreeSet_0 extends modelfields_TreeSet {} 
+
+one sig modelfields_TreeSetEntry_0, modelfields_TreeSetEntry_1, modelfields_TreeSetEntry_2, modelfields_TreeSetEntry_3 extends modelfields_TreeSetEntry {} 
+
+fact {
+  no ( QF.fmodelfields_TreeSetEntry_parent_0.univ & QF.bmodelfields_TreeSetEntry_parent_0.univ ) and 
+  modelfields_TreeSetEntry = QF.fmodelfields_TreeSetEntry_parent_0.univ + QF.bmodelfields_TreeSetEntry_parent_0.univ 
+}
+fact {
+  no ( QF.fmodelfields_TreeSetEntry_left_0.univ & QF.bmodelfields_TreeSetEntry_left_0.univ ) and 
+  modelfields_TreeSetEntry = QF.fmodelfields_TreeSetEntry_left_0.univ + QF.bmodelfields_TreeSetEntry_left_0.univ 
+}
+fact {
+  no ( QF.fmodelfields_TreeSetEntry_right_0.univ & QF.bmodelfields_TreeSetEntry_right_0.univ ) and 
+  modelfields_TreeSetEntry = QF.fmodelfields_TreeSetEntry_right_0.univ + QF.bmodelfields_TreeSetEntry_right_0.univ 
+}
+//-----SMB: local_ordering()-----//
+fun next_modelfields_TreeSet [] : modelfields_TreeSet -> lone modelfields_TreeSet { 
+none -> none 
+}
+fun min_modelfields_TreeSet [os: set modelfields_TreeSet] : lone modelfields_TreeSet {
+  os - os.^(next_modelfields_TreeSet[]) 
+}
+fun prevs_modelfields_TreeSet[o : modelfields_TreeSet] : set modelfields_TreeSet {
+  o.^(~next_modelfields_TreeSet[]) 
+}
+fun next_modelfields_TreeSetEntry [] : modelfields_TreeSetEntry -> lone modelfields_TreeSetEntry { 
+  modelfields_TreeSetEntry_0 -> modelfields_TreeSetEntry_1 +
+  modelfields_TreeSetEntry_1 -> modelfields_TreeSetEntry_2 +
+  modelfields_TreeSetEntry_2 -> modelfields_TreeSetEntry_3 
+}
+fun min_modelfields_TreeSetEntry [os: set modelfields_TreeSetEntry] : lone modelfields_TreeSetEntry {
+  os - os.^(next_modelfields_TreeSetEntry[]) 
+}
+fun prevs_modelfields_TreeSetEntry[o : modelfields_TreeSetEntry] : set modelfields_TreeSetEntry {
+  o.^(~next_modelfields_TreeSetEntry[]) 
+}
+//-----SMB: global_ordering()-----//
+fun globalNext[]: java_lang_Object -> lone java_lang_Object {
+modelfields_TreeSet_0 -> modelfields_TreeSetEntry_0  +  modelfields_TreeSetEntry_0 -> modelfields_TreeSetEntry_1  +  modelfields_TreeSetEntry_1 -> modelfields_TreeSetEntry_2  +  modelfields_TreeSetEntry_2 -> modelfields_TreeSetEntry_3
+}
+fun globalMin[s : set java_lang_Object] : lone java_lang_Object {
+s - s.^globalNext[] 
+}
+//-----SMB: define_min_parent()-----//
+fun minP_modelfields_TreeSetEntry [o : modelfields_TreeSetEntry] : java_lang_Object {
+  globalMin[(QF.modelfields_TreeSet_root_0 + QF.fmodelfields_TreeSetEntry_parent_0 + QF.fmodelfields_TreeSetEntry_left_0 + QF.fmodelfields_TreeSetEntry_right_0).o]
+}
+//-----SMB: define_freach()-----//
+fun FReach[] : set java_lang_Object {
+(QF.thiz_0 + QF.value_0).*(QF.modelfields_TreeSet_root_0 + QF.modelfields_TreeSet_size_0 + QF.modelfields_TreeSet_modCount_0 + QF.modelfields_TreeSet_RED_0 + QF.modelfields_TreeSet_BLACK_0 + QF.modelfields_TreeSetEntry_key_0 + QF.modelfields_TreeSetEntry_color_0 + QF.fmodelfields_TreeSetEntry_parent_0 + QF.fmodelfields_TreeSetEntry_left_0 + QF.fmodelfields_TreeSetEntry_right_0) - null
+}
+//-----SMB: order_root_nodes()-----//
+//-----SMB: root_is_minimum()-----//
+fact {
+((QF.thiz_0 != null) implies QF.thiz_0 = modelfields_TreeSet_0 )
+}
+//-----SMB: order_same_min_parent()-----//
+fact {
+ all disj o1, o2: modelfields_TreeSetEntry |
+  let p1=minP_modelfields_TreeSetEntry[o1]|
+  let p2=minP_modelfields_TreeSetEntry[o2]|
+  (o1+o2 in FReach[] and
+  some p1 and some p2 and
+  p1=p2 and p1 in modelfields_TreeSetEntry) implies 
+(((p1.((QF.fmodelfields_TreeSetEntry_parent_0))=o1 and p1.((QF.fmodelfields_TreeSetEntry_left_0))=o2) implies
+  o2 = o1.next_modelfields_TreeSetEntry[])
+and((p1.((QF.fmodelfields_TreeSetEntry_parent_0))=o1  and minP_modelfields_TreeSetEntry[p1.((QF.fmodelfields_TreeSetEntry_left_0))] != p1 and p1.((QF.fmodelfields_TreeSetEntry_right_0))=o2) implies
+  o2 = o1.next_modelfields_TreeSetEntry[])
+and((p1.((QF.fmodelfields_TreeSetEntry_left_0))=o1 and p1.((QF.fmodelfields_TreeSetEntry_right_0))=o2) implies
+  o2 = o1.next_modelfields_TreeSetEntry[])
+)
+}
+//-----SMB: order_same_min_parent_type()-----//
+fact {
+ all disj o1, o2:modelfields_TreeSetEntry |
+  let p1=minP_modelfields_TreeSetEntry[o1]|
+  let p2=minP_modelfields_TreeSetEntry[o2]|
+  (o1 + o2 in FReach[] and
+  some p1 and some p2 and
+  p1!=p2 and p1+p2 in modelfields_TreeSetEntry and p1 in prevs_modelfields_TreeSetEntry[p2] )
+  implies o1 in prevs_modelfields_TreeSetEntry[o2]
+}
+//-----SMB: order_diff_min_parent_type()-----//
+fact {
+ all disj o1, o2:modelfields_TreeSetEntry |
+  let p1=minP_modelfields_TreeSetEntry[o1]|
+  let p2=minP_modelfields_TreeSetEntry[o2]|
+  ( o1+o2 in FReach[] and
+ some p1 and some p2 and
+p1 in modelfields_TreeSet and p2 in modelfields_TreeSetEntry )
+implies o1 in prevs_modelfields_TreeSetEntry[o2]
+}
+//-----SMB: avoid_holes()-----//
+fact {
+ all o : modelfields_TreeSet | 
+  o in FReach[] implies
+   prevs_modelfields_TreeSet[o] in FReach[]
+}
+fact {
+ all o : modelfields_TreeSetEntry | 
+  o in FReach[] implies
+   prevs_modelfields_TreeSetEntry[o] in FReach[]
+}
+/*
+type ordering:
+==============
+1) modelfields_TreeSet
+2) modelfields_TreeSetEntry
+
+root nodes ordering:
+====================
+1) thiz:modelfields_TreeSet
+2) value:Int
+
+recursive field ordering:
+=========================
+1) modelfields_TreeSetEntry_parent:(modelfields_TreeSetEntry)->one(modelfields_TreeSetEntry+null)
+2) modelfields_TreeSetEntry_left:(modelfields_TreeSetEntry)->one(modelfields_TreeSetEntry+null)
+3) modelfields_TreeSetEntry_right:(modelfields_TreeSetEntry)->one(modelfields_TreeSetEntry+null)
+
+non-recursive field ordering:
+=============================
+1) modelfields_TreeSet_root:(modelfields_TreeSet)->one(modelfields_TreeSetEntry+null)
+2) modelfields_TreeSet_size:(modelfields_TreeSet)->one(Int)
+3) modelfields_TreeSet_modCount:(modelfields_TreeSet)->one(Int)
+4) modelfields_TreeSet_RED:(modelfields_TreeSet)->one(boolean)
+5) modelfields_TreeSet_BLACK:(modelfields_TreeSet)->one(boolean)
+6) modelfields_TreeSetEntry_key:(modelfields_TreeSetEntry)->one(Int)
+7) modelfields_TreeSetEntry_color:(modelfields_TreeSetEntry)->one(boolean)
+*/
+one sig QF {
+  bmodelfields_TreeSetEntry_left_0:(modelfields_TreeSetEntry) -> lone((modelfields_TreeSetEntry)),
+  bmodelfields_TreeSetEntry_parent_0:(modelfields_TreeSetEntry) -> lone((modelfields_TreeSetEntry)),
+  bmodelfields_TreeSetEntry_right_0:(modelfields_TreeSetEntry) -> lone((modelfields_TreeSetEntry)),
+  fmodelfields_TreeSetEntry_left_0:(modelfields_TreeSetEntry) -> lone((null + modelfields_TreeSetEntry)),
+  fmodelfields_TreeSetEntry_parent_0:(modelfields_TreeSetEntry) -> lone((null + modelfields_TreeSetEntry)),
+  fmodelfields_TreeSetEntry_right_0:(modelfields_TreeSetEntry) -> lone((null + modelfields_TreeSetEntry)),
+  l6_exit_stmt_reached_1: boolean,
+  l6_exit_stmt_reached_2: boolean,
+  l6_exit_stmt_reached_3: boolean,
+  l6_exit_stmt_reached_4: boolean,
+  l6_exit_stmt_reached_5: boolean,
+  l6_param_value_0_0: Int,
+  l6_param_value_0_1: Int,
+  l6_t_1_0: boolean,
+  l6_t_1_1: boolean,
+  l6_t_1_2: boolean,
+  l6_t_1_3: boolean,
+  l6_t_2_0: boolean,
+  l6_t_2_1: boolean,
+  l6_t_2_2: boolean,
+  l6_t_2_3: boolean,
+  l6_var_1_p_0: modelfields_TreeSetEntry + null,
+  l6_var_1_p_1: modelfields_TreeSetEntry + null,
+  l6_var_1_p_2: modelfields_TreeSetEntry + null,
+  l6_var_1_p_3: modelfields_TreeSetEntry + null,
+  l6_var_1_p_4: modelfields_TreeSetEntry + null,
+  l6_var_2_ws_1_0: boolean,
+  l6_var_2_ws_1_1: boolean,
+  l6_var_2_ws_1_2: boolean,
+  l6_var_2_ws_1_3: boolean,
+  l6_var_2_ws_1_4: boolean,
+  l6_variant_0_0: Int,
+  l6_variant_0_1: Int,
+  l6_variant_0_2: Int,
+  l6_variant_0_3: Int,
+  modelfields_TreeSetEntry_blackHeight_0: ( modelfields_TreeSetEntry ) -> one ( Int ),
+  modelfields_TreeSetEntry_color_0: ( modelfields_TreeSetEntry ) -> one ( boolean ),
+  modelfields_TreeSetEntry_key_0: ( modelfields_TreeSetEntry ) -> one ( Int ),
+  modelfields_TreeSet_BLACK_0: ( modelfields_TreeSet ) -> one ( boolean ),
+  modelfields_TreeSet_RED_0: ( modelfields_TreeSet ) -> one ( boolean ),
+  modelfields_TreeSet_modCount_0: ( modelfields_TreeSet ) -> one ( Int ),
+  modelfields_TreeSet_root_0: ( modelfields_TreeSet ) -> one ( modelfields_TreeSetEntry + null ),
+  modelfields_TreeSet_size_0: ( modelfields_TreeSet ) -> one ( Int ),
+  return_0: boolean,
+  return_1: boolean,
+  return_2: boolean,
+  return_3: boolean,
+  return_4: boolean,
+  thiz_0: modelfields_TreeSet,
+  throw_0: java_lang_Throwable + null,
+  throw_1: java_lang_Throwable + null,
+  throw_10: java_lang_Throwable + null,
+  throw_11: java_lang_Throwable + null,
+  throw_12: java_lang_Throwable + null,
+  throw_13: java_lang_Throwable + null,
+  throw_14: java_lang_Throwable + null,
+  throw_15: java_lang_Throwable + null,
+  throw_16: java_lang_Throwable + null,
+  throw_17: java_lang_Throwable + null,
+  throw_18: java_lang_Throwable + null,
+  throw_19: java_lang_Throwable + null,
+  throw_2: java_lang_Throwable + null,
+  throw_20: java_lang_Throwable + null,
+  throw_3: java_lang_Throwable + null,
+  throw_4: java_lang_Throwable + null,
+  throw_5: java_lang_Throwable + null,
+  throw_6: java_lang_Throwable + null,
+  throw_7: java_lang_Throwable + null,
+  throw_8: java_lang_Throwable + null,
+  throw_9: java_lang_Throwable + null,
+  usedObjects_0: set ( java_lang_Object ),
+  usedObjects_1: set ( java_lang_Object ),
+  usedObjects_2: set ( java_lang_Object ),
+  usedObjects_3: set ( java_lang_Object ),
+  usedObjects_4: set ( java_lang_Object ),
+  usedObjects_5: set ( java_lang_Object ),
+  usedObjects_6: set ( java_lang_Object ),
+  value_0: Int
+}
+
+
+fact {
+  precondition_modelfields_TreeSet_contains_0[QF.modelfields_TreeSetEntry_blackHeight_0,
+                                             QF.modelfields_TreeSetEntry_color_0,
+                                             QF.modelfields_TreeSetEntry_key_0,
+                                             (QF.bmodelfields_TreeSetEntry_left_0)+(QF.fmodelfields_TreeSetEntry_left_0),
+                                             (QF.bmodelfields_TreeSetEntry_parent_0)+(QF.fmodelfields_TreeSetEntry_parent_0),
+                                             (QF.bmodelfields_TreeSetEntry_right_0)+(QF.fmodelfields_TreeSetEntry_right_0),
+                                             QF.modelfields_TreeSet_BLACK_0,
+                                             QF.modelfields_TreeSet_RED_0,
+                                             QF.modelfields_TreeSet_modCount_0,
+                                             QF.modelfields_TreeSet_root_0,
+                                             QF.modelfields_TreeSet_size_0,
+                                             QF.return_0,
+                                             QF.thiz_0,
+                                             QF.throw_0,
+                                             QF.usedObjects_0,
+                                             QF.value_0]
+
+}
+
+fact {
+  modelfields_TreeSet_contains_0[QF.thiz_0,
+                                QF.throw_1,
+                                QF.throw_2,
+                                QF.throw_3,
+                                QF.throw_4,
+                                QF.throw_5,
+                                QF.throw_6,
+                                QF.throw_7,
+                                QF.throw_8,
+                                QF.throw_9,
+                                QF.throw_10,
+                                QF.throw_11,
+                                QF.throw_12,
+                                QF.throw_13,
+                                QF.throw_14,
+                                QF.throw_15,
+                                QF.throw_16,
+                                QF.throw_17,
+                                QF.throw_18,
+                                QF.throw_19,
+                                QF.throw_20,
+                                QF.return_0,
+                                QF.return_1,
+                                QF.return_2,
+                                QF.return_3,
+                                QF.return_4,
+                                QF.value_0,
+                                QF.modelfields_TreeSet_root_0,
+                                (QF.bmodelfields_TreeSetEntry_right_0)+(QF.fmodelfields_TreeSetEntry_right_0),
+                                QF.modelfields_TreeSetEntry_key_0,
+                                (QF.bmodelfields_TreeSetEntry_left_0)+(QF.fmodelfields_TreeSetEntry_left_0),
+                                QF.usedObjects_0,
+                                QF.usedObjects_1,
+                                QF.usedObjects_2,
+                                QF.usedObjects_3,
+                                QF.usedObjects_4,
+                                QF.usedObjects_5,
+                                QF.usedObjects_6,
+                                QF.l6_t_2_0,
+                                QF.l6_t_2_1,
+                                QF.l6_t_2_2,
+                                QF.l6_t_2_3,
+                                QF.l6_param_value_0_0,
+                                QF.l6_param_value_0_1,
+                                QF.l6_exit_stmt_reached_1,
+                                QF.l6_exit_stmt_reached_2,
+                                QF.l6_exit_stmt_reached_3,
+                                QF.l6_exit_stmt_reached_4,
+                                QF.l6_exit_stmt_reached_5,
+                                QF.l6_t_1_0,
+                                QF.l6_t_1_1,
+                                QF.l6_t_1_2,
+                                QF.l6_t_1_3,
+                                QF.l6_variant_0_0,
+                                QF.l6_variant_0_1,
+                                QF.l6_variant_0_2,
+                                QF.l6_variant_0_3,
+                                QF.l6_var_2_ws_1_0,
+                                QF.l6_var_2_ws_1_1,
+                                QF.l6_var_2_ws_1_2,
+                                QF.l6_var_2_ws_1_3,
+                                QF.l6_var_2_ws_1_4,
+                                QF.l6_var_1_p_0,
+                                QF.l6_var_1_p_1,
+                                QF.l6_var_1_p_2,
+                                QF.l6_var_1_p_3,
+                                QF.l6_var_1_p_4]
+
+}
+
+assert check_modelfields_TreeSet_contains_0{
+  postcondition_modelfields_TreeSet_contains_0[QF.modelfields_TreeSetEntry_color_0,
+                                              QF.modelfields_TreeSetEntry_color_0,
+                                              QF.modelfields_TreeSetEntry_key_0,
+                                              QF.modelfields_TreeSetEntry_key_0,
+                                              (QF.bmodelfields_TreeSetEntry_left_0)+(QF.fmodelfields_TreeSetEntry_left_0),
+                                              (QF.bmodelfields_TreeSetEntry_left_0)+(QF.fmodelfields_TreeSetEntry_left_0),
+                                              (QF.bmodelfields_TreeSetEntry_right_0)+(QF.fmodelfields_TreeSetEntry_right_0),
+                                              (QF.bmodelfields_TreeSetEntry_right_0)+(QF.fmodelfields_TreeSetEntry_right_0),
+                                              QF.modelfields_TreeSet_root_0,
+                                              QF.return_4,
+                                              QF.thiz_0,
+                                              QF.throw_20,
+                                              QF.value_0]
+}

@@ -1,0 +1,1769 @@
+//-------------- SourcesCristianOntivero_BST --------------//
+module SourcesCristianOntivero_BST
+sig SourcesCristianOntivero_BST extends java_lang_Object {}
+{}
+field SourcesCristianOntivero_BST_root:(SourcesCristianOntivero_BST)->one(SourcesCristianOntivero_TreeNode+null) {}
+
+object_invariant
+   all n:SourcesCristianOntivero_TreeNode+null | {
+     equ[fun_set_contains[fun_reach[thiz.SourcesCristianOntivero_BST_root,SourcesCristianOntivero_TreeNode,SourcesCristianOntivero_TreeNode_left+SourcesCristianOntivero_TreeNode_right],n],
+        true]
+     implies 
+             (
+               (
+                 all m:SourcesCristianOntivero_TreeNode+null | {
+                   equ[fun_set_contains[fun_reach[n.SourcesCristianOntivero_TreeNode_left,SourcesCristianOntivero_TreeNode,SourcesCristianOntivero_TreeNode_left+SourcesCristianOntivero_TreeNode_right],m],
+                      true]
+                   implies 
+                           pred_java_primitive_integer_value_lte[m.SourcesCristianOntivero_TreeNode_data,
+                                                                n.SourcesCristianOntivero_TreeNode_data]
+                 
+                 }
+               )
+               and 
+               (
+                 all m:SourcesCristianOntivero_TreeNode+null | {
+                   equ[fun_set_contains[fun_reach[n.SourcesCristianOntivero_TreeNode_right,SourcesCristianOntivero_TreeNode,SourcesCristianOntivero_TreeNode_left+SourcesCristianOntivero_TreeNode_right],m],
+                      true]
+                   implies 
+                           pred_java_primitive_integer_value_gt[m.SourcesCristianOntivero_TreeNode_data,
+                                                               n.SourcesCristianOntivero_TreeNode_data]
+                 
+                 }
+               )
+             )
+   
+   }
+
+object_invariant
+   all n:SourcesCristianOntivero_TreeNode+null | {
+     equ[fun_set_contains[fun_reach[thiz.SourcesCristianOntivero_BST_root,SourcesCristianOntivero_TreeNode,SourcesCristianOntivero_TreeNode_left+SourcesCristianOntivero_TreeNode_right],n],
+        true]
+     implies 
+             (
+               equ[fun_set_contains[fun_reach[n.SourcesCristianOntivero_TreeNode_right,SourcesCristianOntivero_TreeNode,SourcesCristianOntivero_TreeNode_right+SourcesCristianOntivero_TreeNode_left],n],
+                  false]
+               and 
+               equ[fun_set_contains[fun_reach[n.SourcesCristianOntivero_TreeNode_left,SourcesCristianOntivero_TreeNode,SourcesCristianOntivero_TreeNode_left+SourcesCristianOntivero_TreeNode_right],n],
+                  false]
+             )
+   
+   }
+
+
+
+program SourcesCristianOntivero_BST::searchRec[
+  var thiz:SourcesCristianOntivero_BST,
+  var throw:java_lang_Throwable+null,
+  var return:boolean,
+  var r:SourcesCristianOntivero_TreeNode+null,
+  var val:JavaPrimitiveIntegerValue] 
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         {
+            var param_r_7:SourcesCristianOntivero_TreeNode+null;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               param_r_7:=r;
+            } else {
+               skip;
+            };
+            var param_val_8:JavaPrimitiveIntegerValue;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               param_val_8:=val;
+            } else {
+               skip;
+            };
+            var t_33:boolean;
+            var t_34:boolean;
+            var t_35:boolean;
+            var var_10_found:boolean;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               var_10_found:=false;
+            } else {
+               skip;
+            };
+            var var_11_ws_2:boolean;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               t_34:=(neq[param_r_7,
+                  null]=>(true)else(false));
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if t_34=true   {
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        t_35:=Not[var_10_found];
+                     } else {
+                        skip;
+                     };
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        if t_35=true{
+                           if (
+                             throw=null)
+                           and 
+                           (
+                             exit_stmt_reached=false){
+                              t_33:=true;
+                           } else {
+                              skip;
+                           };
+                        } else {
+                           if (
+                             throw=null)
+                           and 
+                           (
+                             exit_stmt_reached=false){
+                              t_33:=false;
+                           } else {
+                              skip;
+                           };
+                        };
+                     } else {
+                        skip;
+                     };
+                  
+                  }
+                else {
+                  if (
+                    throw=null)
+                  and 
+                  (
+                    exit_stmt_reached=false){
+                     t_33:=false;
+                  } else {
+                     skip;
+                  };
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               var_11_ws_2:=t_33;
+            } else {
+               skip;
+            };
+            while liftExpression[var_11_ws_2]
+            and 
+            (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false)
+            
+               {
+                  var t_36:JavaPrimitiveIntegerValue;
+                  var t_40:boolean;
+                  var t_41:boolean;
+                  var t_42:boolean;
+                  var t_43:boolean;
+                  var t_44:boolean;
+                  if (
+                    throw=null)
+                  and 
+                  (
+                    exit_stmt_reached=false){
+                     if isEmptyOrNull[param_r_7]{
+                        throw:=java_lang_NullPointerExceptionLit;
+                     } else {
+                        call getData[param_r_7,throw,t_36];
+                     };
+                  } else {
+                     skip;
+                  };
+                  var var_12_rval:JavaPrimitiveIntegerValue;
+                  if (
+                    throw=null)
+                  and 
+                  (
+                    exit_stmt_reached=false){
+                     var_12_rval:=t_36;
+                  } else {
+                     skip;
+                  };
+                  if (
+                    throw=null)
+                  and 
+                  (
+                    exit_stmt_reached=false){
+                     t_40:=(pred_java_primitive_integer_value_lt[param_val_8,
+                                                         var_12_rval]=>(true)else(false));
+                  } else {
+                     skip;
+                  };
+                  if (
+                    throw=null)
+                  and 
+                  (
+                    exit_stmt_reached=false){
+                     if t_40=true   {
+                           var t_37:SourcesCristianOntivero_TreeNode+null;
+                           if (
+                             throw=null)
+                           and 
+                           (
+                             exit_stmt_reached=false){
+                              if isEmptyOrNull[param_r_7]{
+                                 throw:=java_lang_NullPointerExceptionLit;
+                              } else {
+                                 call getLeft[param_r_7,throw,t_37];
+                              };
+                           } else {
+                              skip;
+                           };
+                           if (
+                             throw=null)
+                           and 
+                           (
+                             exit_stmt_reached=false){
+                              param_r_7:=t_37;
+                           } else {
+                              skip;
+                           };
+                        
+                        }
+                      else    {
+                           var t_39:boolean;
+                           if (
+                             throw=null)
+                           and 
+                           (
+                             exit_stmt_reached=false){
+                              t_39:=(pred_java_primitive_integer_value_gt[param_val_8,
+                                                                  var_12_rval]=>(true)else(false));
+                           } else {
+                              skip;
+                           };
+                           if (
+                             throw=null)
+                           and 
+                           (
+                             exit_stmt_reached=false){
+                              if t_39=true   {
+                                    var t_38:SourcesCristianOntivero_TreeNode+null;
+                                    if (
+                                      throw=null)
+                                    and 
+                                    (
+                                      exit_stmt_reached=false){
+                                       if isEmptyOrNull[param_r_7]{
+                                          throw:=java_lang_NullPointerExceptionLit;
+                                       } else {
+                                          call getRight[param_r_7,throw,t_38];
+                                       };
+                                    } else {
+                                       skip;
+                                    };
+                                    if (
+                                      throw=null)
+                                    and 
+                                    (
+                                      exit_stmt_reached=false){
+                                       param_r_7:=t_38;
+                                    } else {
+                                       skip;
+                                    };
+                                 
+                                 }
+                               else {
+                                 if (
+                                   throw=null)
+                                 and 
+                                 (
+                                   exit_stmt_reached=false)   {
+                                       return:=true;
+                                       exit_stmt_reached:=true;
+                                    
+                                    }
+                                  else {
+                                    skip;
+                                 };
+                              };
+                           } else {
+                              skip;
+                           };
+                        
+                        }
+                     ;
+                  } else {
+                     skip;
+                  };
+                  if (
+                    throw=null)
+                  and 
+                  (
+                    exit_stmt_reached=false){
+                     if isEmptyOrNull[thiz]{
+                        throw:=java_lang_NullPointerExceptionLit;
+                     } else {
+                        call searchRec[thiz,throw,t_41,param_r_7,param_val_8];
+                     };
+                  } else {
+                     skip;
+                  };
+                  if (
+                    throw=null)
+                  and 
+                  (
+                    exit_stmt_reached=false){
+                     var_10_found:=t_41;
+                  } else {
+                     skip;
+                  };
+                  if (
+                    throw=null)
+                  and 
+                  (
+                    exit_stmt_reached=false){
+                     t_43:=(neq[param_r_7,
+                        null]=>(true)else(false));
+                  } else {
+                     skip;
+                  };
+                  if (
+                    throw=null)
+                  and 
+                  (
+                    exit_stmt_reached=false){
+                     if t_43=true   {
+                           if (
+                             throw=null)
+                           and 
+                           (
+                             exit_stmt_reached=false){
+                              t_44:=Not[var_10_found];
+                           } else {
+                              skip;
+                           };
+                           if (
+                             throw=null)
+                           and 
+                           (
+                             exit_stmt_reached=false){
+                              if t_44=true{
+                                 if (
+                                   throw=null)
+                                 and 
+                                 (
+                                   exit_stmt_reached=false){
+                                    t_42:=true;
+                                 } else {
+                                    skip;
+                                 };
+                              } else {
+                                 if (
+                                   throw=null)
+                                 and 
+                                 (
+                                   exit_stmt_reached=false){
+                                    t_42:=false;
+                                 } else {
+                                    skip;
+                                 };
+                              };
+                           } else {
+                              skip;
+                           };
+                        
+                        }
+                      else {
+                        if (
+                          throw=null)
+                        and 
+                        (
+                          exit_stmt_reached=false){
+                           t_42:=false;
+                        } else {
+                           skip;
+                        };
+                     };
+                  } else {
+                     skip;
+                  };
+                  if (
+                    throw=null)
+                  and 
+                  (
+                    exit_stmt_reached=false){
+                     var_11_ws_2:=t_42;
+                  } else {
+                     skip;
+                  };
+               
+               }
+            ;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false)   {
+                  return:=var_10_found;
+                  exit_stmt_reached:=true;
+               
+               }
+             else {
+               skip;
+            };
+         
+         }
+      
+      }
+      skip;
+   
+   }
+
+
+program SourcesCristianOntivero_BST::search[
+  var thiz:SourcesCristianOntivero_BST,
+  var throw:java_lang_Throwable+null,
+  var return:boolean,
+  var val:JavaPrimitiveIntegerValue] 
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         {
+            var param_val_6:JavaPrimitiveIntegerValue;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               param_val_6:=val;
+            } else {
+               skip;
+            };
+            var t_32:boolean;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]
+               or 
+               isEmptyOrNull[thiz]
+               {
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  call searchRec[thiz,throw,t_32,thiz.SourcesCristianOntivero_BST_root,param_val_6];
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false)   {
+                  return:=t_32;
+                  exit_stmt_reached:=true;
+               
+               }
+             else {
+               skip;
+            };
+         
+         }
+      
+      }
+      skip;
+   
+   }
+
+
+program SourcesCristianOntivero_BST::isEmpty[
+  var thiz:SourcesCristianOntivero_BST,
+  var throw:java_lang_Throwable+null,
+  var return:boolean] 
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         {
+            var t_1:boolean;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               t_1:=(equ[thiz.SourcesCristianOntivero_BST_root,
+                  null]=>(true)else(false));
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false)   {
+                  return:=t_1;
+                  exit_stmt_reached:=true;
+               
+               }
+             else {
+               skip;
+            };
+         
+         }
+      
+      }
+      skip;
+   
+   }
+
+
+program SourcesCristianOntivero_BST::insertRec[
+  var thiz:SourcesCristianOntivero_BST,
+  var throw:java_lang_Throwable+null,
+  var return:SourcesCristianOntivero_TreeNode+null,
+  var node:SourcesCristianOntivero_TreeNode+null,
+  var data:JavaPrimitiveIntegerValue] 
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         {
+            var param_node_1:SourcesCristianOntivero_TreeNode+null;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               param_node_1:=node;
+            } else {
+               skip;
+            };
+            var param_data_2:JavaPrimitiveIntegerValue;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               param_data_2:=data;
+            } else {
+               skip;
+            };
+            var t_8:boolean;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               t_8:=(equ[param_node_1,
+                  null]=>(true)else(false));
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if t_8=true   {
+                     var t_3:SourcesCristianOntivero_TreeNode+null;
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false)   {
+                           createObject<SourcesCristianOntivero_TreeNode>[t_3];
+                           if isEmptyOrNull[t_3]{
+                              throw:=java_lang_NullPointerExceptionLit;
+                           } else {
+                              call Constructor[t_3,throw,param_data_2];
+                           };
+                        
+                        }
+                      else {
+                        skip;
+                     };
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        param_node_1:=t_3;
+                     } else {
+                        skip;
+                     };
+                  
+                  }
+                else    {
+                     var t_6:JavaPrimitiveIntegerValue;
+                     var t_7:boolean;
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        if isEmptyOrNull[param_node_1]{
+                           throw:=java_lang_NullPointerExceptionLit;
+                        } else {
+                           call getData[param_node_1,throw,t_6];
+                        };
+                     } else {
+                        skip;
+                     };
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        t_7:=(pred_java_primitive_integer_value_lte[param_data_2,
+                                                             t_6]=>(true)else(false));
+                     } else {
+                        skip;
+                     };
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        if t_7=true   {
+                              var t_4:SourcesCristianOntivero_TreeNode+null;
+                              if (
+                                throw=null)
+                              and 
+                              (
+                                exit_stmt_reached=false){
+                                 if isEmptyOrNull[node]
+                                 or 
+                                 isEmptyOrNull[thiz]
+                                 {
+                                    throw:=java_lang_NullPointerExceptionLit;
+                                 } else {
+                                    call insertRec[thiz,throw,t_4,node.SourcesCristianOntivero_TreeNode_left,param_data_2];
+                                 };
+                              } else {
+                                 skip;
+                              };
+                              if (
+                                throw=null)
+                              and 
+                              (
+                                exit_stmt_reached=false){
+                                 if isEmptyOrNull[node]{
+                                    throw:=java_lang_NullPointerExceptionLit;
+                                 } else {
+                                    node.SourcesCristianOntivero_TreeNode_left:=t_4;
+                                 };
+                              } else {
+                                 skip;
+                              };
+                           
+                           }
+                         else    {
+                              var t_5:SourcesCristianOntivero_TreeNode+null;
+                              if (
+                                throw=null)
+                              and 
+                              (
+                                exit_stmt_reached=false){
+                                 if isEmptyOrNull[node]
+                                 or 
+                                 isEmptyOrNull[thiz]
+                                 {
+                                    throw:=java_lang_NullPointerExceptionLit;
+                                 } else {
+                                    call insertRec[thiz,throw,t_5,node.SourcesCristianOntivero_TreeNode_right,param_data_2];
+                                 };
+                              } else {
+                                 skip;
+                              };
+                              if (
+                                throw=null)
+                              and 
+                              (
+                                exit_stmt_reached=false){
+                                 if isEmptyOrNull[node]{
+                                    throw:=java_lang_NullPointerExceptionLit;
+                                 } else {
+                                    node.SourcesCristianOntivero_TreeNode_right:=t_5;
+                                 };
+                              } else {
+                                 skip;
+                              };
+                           
+                           }
+                        ;
+                     } else {
+                        skip;
+                     };
+                  
+                  }
+               ;
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false)   {
+                  return:=node;
+                  exit_stmt_reached:=true;
+               
+               }
+             else {
+               skip;
+            };
+         
+         }
+      
+      }
+      skip;
+   
+   }
+
+
+program SourcesCristianOntivero_BST::Constructor[
+  var thiz:SourcesCristianOntivero_BST,
+  var throw:java_lang_Throwable+null] 
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         {
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.SourcesCristianOntivero_BST_root:=((SourcesCristianOntivero_TreeNode+null) & (null));
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.SourcesCristianOntivero_BST_root:=((SourcesCristianOntivero_TreeNode+null) & (null));
+               };
+            } else {
+               skip;
+            };
+         
+         }
+      
+      }
+      skip;
+   
+   }
+
+
+program SourcesCristianOntivero_BST::deleteRec[
+  var thiz:SourcesCristianOntivero_BST,
+  var throw:java_lang_Throwable+null,
+  var return:SourcesCristianOntivero_TreeNode+null,
+  var root:SourcesCristianOntivero_TreeNode+null,
+  var k:JavaPrimitiveIntegerValue] 
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         {
+            var param_root_4:SourcesCristianOntivero_TreeNode+null;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               param_root_4:=root;
+            } else {
+               skip;
+            };
+            var param_k_5:JavaPrimitiveIntegerValue;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               param_k_5:=k;
+            } else {
+               skip;
+            };
+            var t_24:JavaPrimitiveIntegerValue;
+            var t_25:boolean;
+            var t_30:JavaPrimitiveIntegerValue;
+            var t_31:boolean;
+            var var_4_p:SourcesCristianOntivero_TreeNode+null;
+            var var_5_p2:SourcesCristianOntivero_TreeNode+null;
+            var var_6_n:SourcesCristianOntivero_TreeNode+null;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[param_root_4]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  call getData[param_root_4,throw,t_24];
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               t_25:=(equ[t_24,
+                  param_k_5]=>(true)else(false));
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if t_25=true   {
+                     var t_14:SourcesCristianOntivero_TreeNode+null;
+                     var t_15:SourcesCristianOntivero_TreeNode+null;
+                     var t_21:boolean;
+                     var t_22:boolean;
+                     var t_23:boolean;
+                     var var_7_lt:SourcesCristianOntivero_TreeNode+null;
+                     var var_8_rt:SourcesCristianOntivero_TreeNode+null;
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        if isEmptyOrNull[param_root_4]{
+                           throw:=java_lang_NullPointerExceptionLit;
+                        } else {
+                           call getLeft[param_root_4,throw,t_14];
+                        };
+                     } else {
+                        skip;
+                     };
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        var_7_lt:=t_14;
+                     } else {
+                        skip;
+                     };
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        if isEmptyOrNull[param_root_4]{
+                           throw:=java_lang_NullPointerExceptionLit;
+                        } else {
+                           call getRight[param_root_4,throw,t_15];
+                        };
+                     } else {
+                        skip;
+                     };
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        var_8_rt:=t_15;
+                     } else {
+                        skip;
+                     };
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        t_22:=(equ[var_7_lt,
+                           null]=>(true)else(false));
+                     } else {
+                        skip;
+                     };
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        if t_22=true   {
+                              if (
+                                throw=null)
+                              and 
+                              (
+                                exit_stmt_reached=false){
+                                 t_23:=(equ[var_8_rt,
+                                    null]=>(true)else(false));
+                              } else {
+                                 skip;
+                              };
+                              if (
+                                throw=null)
+                              and 
+                              (
+                                exit_stmt_reached=false){
+                                 if t_23=true{
+                                    if (
+                                      throw=null)
+                                    and 
+                                    (
+                                      exit_stmt_reached=false){
+                                       t_21:=true;
+                                    } else {
+                                       skip;
+                                    };
+                                 } else {
+                                    if (
+                                      throw=null)
+                                    and 
+                                    (
+                                      exit_stmt_reached=false){
+                                       t_21:=false;
+                                    } else {
+                                       skip;
+                                    };
+                                 };
+                              } else {
+                                 skip;
+                              };
+                           
+                           }
+                         else {
+                           if (
+                             throw=null)
+                           and 
+                           (
+                             exit_stmt_reached=false){
+                              t_21:=false;
+                           } else {
+                              skip;
+                           };
+                        };
+                     } else {
+                        skip;
+                     };
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        if t_21=true{
+                           if (
+                             throw=null)
+                           and 
+                           (
+                             exit_stmt_reached=false)   {
+                                 return:=((SourcesCristianOntivero_TreeNode+null) & (null));
+                                 exit_stmt_reached:=true;
+                              
+                              }
+                            else {
+                              skip;
+                           };
+                        } else    {
+                              var t_20:boolean;
+                              if (
+                                throw=null)
+                              and 
+                              (
+                                exit_stmt_reached=false){
+                                 t_20:=(equ[var_7_lt,
+                                    null]=>(true)else(false));
+                              } else {
+                                 skip;
+                              };
+                              if (
+                                throw=null)
+                              and 
+                              (
+                                exit_stmt_reached=false){
+                                 if t_20=true   {
+                                       if (
+                                         throw=null)
+                                       and 
+                                       (
+                                         exit_stmt_reached=false){
+                                          var_4_p:=var_8_rt;
+                                       } else {
+                                          skip;
+                                       };
+                                       if (
+                                         throw=null)
+                                       and 
+                                       (
+                                         exit_stmt_reached=false)   {
+                                             return:=var_4_p;
+                                             exit_stmt_reached:=true;
+                                          
+                                          }
+                                        else {
+                                          skip;
+                                       };
+                                    
+                                    }
+                                  else    {
+                                       var t_19:boolean;
+                                       if (
+                                         throw=null)
+                                       and 
+                                       (
+                                         exit_stmt_reached=false){
+                                          t_19:=(equ[var_8_rt,
+                                             null]=>(true)else(false));
+                                       } else {
+                                          skip;
+                                       };
+                                       if (
+                                         throw=null)
+                                       and 
+                                       (
+                                         exit_stmt_reached=false){
+                                          if t_19=true   {
+                                                if (
+                                                  throw=null)
+                                                and 
+                                                (
+                                                  exit_stmt_reached=false){
+                                                   var_4_p:=var_7_lt;
+                                                } else {
+                                                   skip;
+                                                };
+                                                if (
+                                                  throw=null)
+                                                and 
+                                                (
+                                                  exit_stmt_reached=false)   {
+                                                      return:=var_4_p;
+                                                      exit_stmt_reached:=true;
+                                                   
+                                                   }
+                                                 else {
+                                                   skip;
+                                                };
+                                             
+                                             }
+                                           else    {
+                                                var t_16:SourcesCristianOntivero_TreeNode+null;
+                                                if (
+                                                  throw=null)
+                                                and 
+                                                (
+                                                  exit_stmt_reached=false){
+                                                   var_5_p2:=var_8_rt;
+                                                } else {
+                                                   skip;
+                                                };
+                                                if (
+                                                  throw=null)
+                                                and 
+                                                (
+                                                  exit_stmt_reached=false){
+                                                   var_4_p:=var_8_rt;
+                                                } else {
+                                                   skip;
+                                                };
+                                                var var_9_ws_1:boolean;
+                                                if (
+                                                  throw=null)
+                                                and 
+                                                (
+                                                  exit_stmt_reached=false){
+                                                   if isEmptyOrNull[var_4_p]{
+                                                      throw:=java_lang_NullPointerExceptionLit;
+                                                   } else {
+                                                      call getLeft[var_4_p,throw,t_16];
+                                                   };
+                                                } else {
+                                                   skip;
+                                                };
+                                                if (
+                                                  throw=null)
+                                                and 
+                                                (
+                                                  exit_stmt_reached=false){
+                                                   var_9_ws_1:=(neq[t_16,
+                                                      null]=>(true)else(false));
+                                                } else {
+                                                   skip;
+                                                };
+                                                while liftExpression[var_9_ws_1]
+                                                and 
+                                                (
+                                                  throw=null)
+                                                and 
+                                                (
+                                                  exit_stmt_reached=false)
+                                                
+                                                   {
+                                                      var t_17:SourcesCristianOntivero_TreeNode+null;
+                                                      var t_18:SourcesCristianOntivero_TreeNode+null;
+                                                      if (
+                                                        throw=null)
+                                                      and 
+                                                      (
+                                                        exit_stmt_reached=false){
+                                                         if isEmptyOrNull[var_4_p]{
+                                                            throw:=java_lang_NullPointerExceptionLit;
+                                                         } else {
+                                                            call getLeft[var_4_p,throw,t_17];
+                                                         };
+                                                      } else {
+                                                         skip;
+                                                      };
+                                                      if (
+                                                        throw=null)
+                                                      and 
+                                                      (
+                                                        exit_stmt_reached=false){
+                                                         var_4_p:=t_17;
+                                                      } else {
+                                                         skip;
+                                                      };
+                                                      if (
+                                                        throw=null)
+                                                      and 
+                                                      (
+                                                        exit_stmt_reached=false){
+                                                         if isEmptyOrNull[var_4_p]{
+                                                            throw:=java_lang_NullPointerExceptionLit;
+                                                         } else {
+                                                            call getLeft[var_4_p,throw,t_18];
+                                                         };
+                                                      } else {
+                                                         skip;
+                                                      };
+                                                      if (
+                                                        throw=null)
+                                                      and 
+                                                      (
+                                                        exit_stmt_reached=false){
+                                                         var_9_ws_1:=(neq[t_18,
+                                                            null]=>(true)else(false));
+                                                      } else {
+                                                         skip;
+                                                      };
+                                                   
+                                                   }
+                                                ;
+                                                if isEmptyOrNull[var_4_p]{
+                                                   throw:=java_lang_NullPointerExceptionLit;
+                                                } else {
+                                                   call setLeft[var_4_p,throw,var_7_lt];
+                                                };
+                                                if (
+                                                  throw=null)
+                                                and 
+                                                (
+                                                  exit_stmt_reached=false)   {
+                                                      return:=var_5_p2;
+                                                      exit_stmt_reached:=true;
+                                                   
+                                                   }
+                                                 else {
+                                                   skip;
+                                                };
+                                             
+                                             }
+                                          ;
+                                       } else {
+                                          skip;
+                                       };
+                                    
+                                    }
+                                 ;
+                              } else {
+                                 skip;
+                              };
+                           
+                           }
+                        ;
+                     } else {
+                        skip;
+                     };
+                  
+                  }
+                else {
+                  skip;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[param_root_4]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  call getData[param_root_4,throw,t_30];
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               t_31:=(pred_java_primitive_integer_value_lt[param_k_5,
+                                                   t_30]=>(true)else(false));
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if t_31=true   {
+                     var t_26:SourcesCristianOntivero_TreeNode+null;
+                     var t_27:SourcesCristianOntivero_TreeNode+null;
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        if isEmptyOrNull[param_root_4]{
+                           throw:=java_lang_NullPointerExceptionLit;
+                        } else {
+                           call getLeft[param_root_4,throw,t_26];
+                        };
+                     } else {
+                        skip;
+                     };
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        if isEmptyOrNull[thiz]{
+                           throw:=java_lang_NullPointerExceptionLit;
+                        } else {
+                           call deleteRec[thiz,throw,t_27,t_26,param_k_5];
+                        };
+                     } else {
+                        skip;
+                     };
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        var_6_n:=t_27;
+                     } else {
+                        skip;
+                     };
+                     if isEmptyOrNull[param_root_4]{
+                        throw:=java_lang_NullPointerExceptionLit;
+                     } else {
+                        call setLeft[param_root_4,throw,var_6_n];
+                     };
+                  
+                  }
+                else    {
+                     var t_28:SourcesCristianOntivero_TreeNode+null;
+                     var t_29:SourcesCristianOntivero_TreeNode+null;
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        if isEmptyOrNull[param_root_4]{
+                           throw:=java_lang_NullPointerExceptionLit;
+                        } else {
+                           call getRight[param_root_4,throw,t_28];
+                        };
+                     } else {
+                        skip;
+                     };
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        if isEmptyOrNull[thiz]{
+                           throw:=java_lang_NullPointerExceptionLit;
+                        } else {
+                           call deleteRec[thiz,throw,t_29,t_28,param_k_5];
+                        };
+                     } else {
+                        skip;
+                     };
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        var_6_n:=t_29;
+                     } else {
+                        skip;
+                     };
+                     if isEmptyOrNull[param_root_4]{
+                        throw:=java_lang_NullPointerExceptionLit;
+                     } else {
+                        call setRight[param_root_4,throw,var_6_n];
+                     };
+                  
+                  }
+               ;
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false)   {
+                  return:=root;
+                  exit_stmt_reached:=true;
+               
+               }
+             else {
+               skip;
+            };
+         
+         }
+      
+      }
+      skip;
+   
+   }
+
+
+program SourcesCristianOntivero_BST::delete[
+  var thiz:SourcesCristianOntivero_BST,
+  var throw:java_lang_Throwable+null,
+  var k:JavaPrimitiveIntegerValue] 
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         {
+            var param_k_3:JavaPrimitiveIntegerValue;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               param_k_3:=k;
+            } else {
+               skip;
+            };
+            var t_10:boolean;
+            var t_11:boolean;
+            var t_12:boolean;
+            var t_13:boolean;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  call isEmpty[thiz,throw,t_11];
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               t_12:=Not[t_11];
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if t_12=true   {
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        if isEmptyOrNull[thiz]{
+                           throw:=java_lang_NullPointerExceptionLit;
+                        } else {
+                           call search[thiz,throw,t_13,param_k_3];
+                        };
+                     } else {
+                        skip;
+                     };
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        if t_13=true{
+                           if (
+                             throw=null)
+                           and 
+                           (
+                             exit_stmt_reached=false){
+                              t_10:=true;
+                           } else {
+                              skip;
+                           };
+                        } else {
+                           if (
+                             throw=null)
+                           and 
+                           (
+                             exit_stmt_reached=false){
+                              t_10:=false;
+                           } else {
+                              skip;
+                           };
+                        };
+                     } else {
+                        skip;
+                     };
+                  
+                  }
+                else {
+                  if (
+                    throw=null)
+                  and 
+                  (
+                    exit_stmt_reached=false){
+                     t_10:=false;
+                  } else {
+                     skip;
+                  };
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if t_10=true   {
+                     var t_9:SourcesCristianOntivero_TreeNode+null;
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        if isEmptyOrNull[thiz]
+                        or 
+                        isEmptyOrNull[thiz]
+                        {
+                           throw:=java_lang_NullPointerExceptionLit;
+                        } else {
+                           call deleteRec[thiz,throw,t_9,thiz.SourcesCristianOntivero_BST_root,param_k_3];
+                        };
+                     } else {
+                        skip;
+                     };
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        if isEmptyOrNull[thiz]{
+                           throw:=java_lang_NullPointerExceptionLit;
+                        } else {
+                           thiz.SourcesCristianOntivero_BST_root:=t_9;
+                        };
+                     } else {
+                        skip;
+                     };
+                  
+                  }
+                else {
+                  skip;
+               };
+            } else {
+               skip;
+            };
+         
+         }
+      
+      }
+      skip;
+   
+   }
+
+
+program SourcesCristianOntivero_BST::insert[
+  var thiz:SourcesCristianOntivero_BST,
+  var throw:java_lang_Throwable+null,
+  var return:JavaPrimitiveIntegerValue,
+  var data:JavaPrimitiveIntegerValue] 
+Specification 
+{
+  SpecCase #0 {
+   requires {
+      true=true
+   }
+   
+   ensures {
+      (
+        throw'=null)
+      implies 
+              (
+                some n:SourcesCristianOntivero_TreeNode+null | {
+                  equ[fun_set_contains[fun_reach[thiz'.SourcesCristianOntivero_BST_root',SourcesCristianOntivero_TreeNode,SourcesCristianOntivero_TreeNode_left'+SourcesCristianOntivero_TreeNode_right'],n],
+                     true]
+                  and 
+                  equ[n.SourcesCristianOntivero_TreeNode_data',
+                     data']
+                
+                }
+              )
+   }
+   
+   modifies {
+   EVERYTHING}
+  }
+}
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         {
+            var param_data_0:JavaPrimitiveIntegerValue;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               param_data_0:=data;
+            } else {
+               skip;
+            };
+            var var_1_data2:JavaPrimitiveIntegerValue;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               var_1_data2:=JavaPrimitiveIntegerLiteral0;
+            } else {
+               skip;
+            };
+            var var_2_dws_1:boolean;
+            {
+               var t_2:boolean;
+               if (
+                 throw=null)
+               and 
+               (
+                 exit_stmt_reached=false){
+                  t_2:=(pred_java_primitive_integer_value_gt[data,
+                                                      JavaPrimitiveIntegerLiteral0]=>(true)else(false));
+               } else {
+                  skip;
+               };
+               if (
+                 throw=null)
+               and 
+               (
+                 exit_stmt_reached=false){
+                  if t_2=true   {
+                        var var_3_a:JavaPrimitiveIntegerValue;
+                        if (
+                          throw=null)
+                        and 
+                        (
+                          exit_stmt_reached=false){
+                           var_3_a:=JavaPrimitiveIntegerLiteral7;
+                        } else {
+                           skip;
+                        };
+                        if (
+                          throw=null)
+                        and 
+                        (
+                          exit_stmt_reached=false){
+                           var_3_a:=JavaPrimitiveIntegerLiteral9;
+                        } else {
+                           skip;
+                        };
+                     
+                     }
+                   else {
+                     skip;
+                  };
+               } else {
+                  skip;
+               };
+               if (
+                 throw=null)
+               and 
+               (
+                 exit_stmt_reached=false){
+                  var_2_dws_1:=(pred_java_primitive_integer_value_gt[data,
+                                                      JavaPrimitiveIntegerLiteral0]=>(true)else(false));
+               } else {
+                  skip;
+               };
+               while liftExpression[var_2_dws_1]
+               and 
+               (
+                 throw=null)
+               and 
+               (
+                 exit_stmt_reached=false)
+               
+                  {
+                     var do_body_rename_t_2:boolean;
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        do_body_rename_t_2:=(pred_java_primitive_integer_value_gt[data,
+                                                            JavaPrimitiveIntegerLiteral0]=>(true)else(false));
+                     } else {
+                        skip;
+                     };
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        if do_body_rename_t_2=true   {
+                              var do_body_rename_var_3_a:JavaPrimitiveIntegerValue;
+                              if (
+                                throw=null)
+                              and 
+                              (
+                                exit_stmt_reached=false){
+                                 do_body_rename_var_3_a:=JavaPrimitiveIntegerLiteral7;
+                              } else {
+                                 skip;
+                              };
+                              if (
+                                throw=null)
+                              and 
+                              (
+                                exit_stmt_reached=false){
+                                 do_body_rename_var_3_a:=JavaPrimitiveIntegerLiteral9;
+                              } else {
+                                 skip;
+                              };
+                           
+                           }
+                         else {
+                           skip;
+                        };
+                     } else {
+                        skip;
+                     };
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        var_2_dws_1:=(pred_java_primitive_integer_value_gt[data,
+                                                            JavaPrimitiveIntegerLiteral0]=>(true)else(false));
+                     } else {
+                        skip;
+                     };
+                  
+                  }
+               ;
+            
+            }
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false)   {
+                  return:=data;
+                  exit_stmt_reached:=true;
+               
+               }
+             else {
+               skip;
+            };
+         
+         }
+      
+      }
+      skip;
+   
+   }
+
+
+

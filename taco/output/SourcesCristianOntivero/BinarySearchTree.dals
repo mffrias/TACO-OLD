@@ -1,0 +1,1505 @@
+sig SourcesCristianOntivero_BinarySearchTree extends java_lang_Object {}
+{}
+
+
+
+
+pred SourcesCristianOntivero_BinarySearchTreeCondition43[
+  var_11_inOrderSucc:univ,
+  var_8_current:univ
+]{
+   not (
+     isEmptyOrNull[var_8_current]
+     or 
+     isEmptyOrNull[var_11_inOrderSucc]
+   )
+
+}
+
+pred SourcesCristianOntivero_BinarySearchTreeCondition39[
+  var_11_inOrderSucc:univ
+]{
+   isEmptyOrNull[var_11_inOrderSucc]
+
+}
+
+pred postcondition_SourcesCristianOntivero_BinarySearchTree_delete_0[
+  SourcesCristianOntivero_BSTNode_elem':univ->univ,
+  SourcesCristianOntivero_BSTNode_left':univ->univ,
+  SourcesCristianOntivero_BSTNode_right':univ->univ,
+  SourcesCristianOntivero_BinarySearchTree_root':univ->univ,
+  throw':univ
+]{
+   SourcesCristianOntivero_BinarySearchTree_ensures[throw']
+   and 
+   (
+     not (
+       throw'=AssertionFailureLit)
+   )
+   and 
+   (
+     all objx':SourcesCristianOntivero_BinarySearchTree | {
+       SourcesCristianOntivero_BinarySearchTree_object_invariant[SourcesCristianOntivero_BSTNode_elem',
+                                                                SourcesCristianOntivero_BSTNode_left',
+                                                                SourcesCristianOntivero_BSTNode_right',
+                                                                SourcesCristianOntivero_BinarySearchTree_root',
+                                                                objx']
+     
+     }
+   )
+
+}
+
+pred SourcesCristianOntivero_BinarySearchTreeCondition37[
+  t_21:univ
+]{
+   t_21=true
+
+}
+
+pred SourcesCristianOntivero_BinarySearchTreeCondition38[
+  t_21:univ
+]{
+   not (
+     t_21=true)
+
+}
+
+pred SourcesCristianOntivero_BinarySearchTreeCondition45[
+  var_11_inOrderSucc:univ,
+  var_9_previous:univ
+]{
+   not (
+     isEmptyOrNull[var_9_previous]
+     or 
+     isEmptyOrNull[var_11_inOrderSucc]
+   )
+
+}
+
+pred SourcesCristianOntivero_BinarySearchTreeCondition44[
+  var_11_inOrderSucc:univ,
+  var_9_previous:univ
+]{
+   isEmptyOrNull[var_9_previous]
+   or 
+   isEmptyOrNull[var_11_inOrderSucc]
+
+}
+
+pred SourcesCristianOntivero_BinarySearchTreeCondition16[
+  exit_stmt_reached:univ,
+  throw:univ,
+  var_10_ws_3:univ
+]{
+   liftExpression[var_10_ws_3]
+   and 
+   (
+     throw=null)
+   and 
+   (
+     exit_stmt_reached=false)
+
+}
+
+pred SourcesCristianOntivero_BinarySearchTreeCondition0[
+  exit_stmt_reached:univ,
+  throw:univ
+]{
+   (
+     throw=null)
+   and 
+   (
+     exit_stmt_reached=false)
+
+}
+
+pred SourcesCristianOntivero_BinarySearchTreeCondition3[
+  thiz:univ
+]{
+   not (
+     isEmptyOrNull[thiz])
+
+}
+
+pred SourcesCristianOntivero_BinarySearchTreeCondition2[
+  thiz:univ
+]{
+   isEmptyOrNull[thiz]
+
+}
+
+pred SourcesCristianOntivero_BinarySearchTreeCondition36[
+  t_20:univ
+]{
+   not (
+     t_20=true)
+
+}
+
+pred SourcesCristianOntivero_BinarySearchTreeCondition23[
+  t_16:univ
+]{
+   t_16=true
+
+}
+
+pred SourcesCristianOntivero_BinarySearchTreeCondition35[
+  t_20:univ
+]{
+   t_20=true
+
+}
+
+pred SourcesCristianOntivero_BinarySearchTreeCondition24[
+  t_16:univ
+]{
+   not (
+     t_16=true)
+
+}
+
+pred SourcesCristianOntivero_BinarySearchTreeCondition30[
+  var_8_current:univ,
+  var_9_previous:univ
+]{
+   not (
+     isEmptyOrNull[var_9_previous]
+     or 
+     isEmptyOrNull[var_8_current]
+   )
+
+}
+
+pred SourcesCristianOntivero_BinarySearchTreeCondition41[
+  exit_stmt_reached:univ,
+  throw:univ,
+  var_12_ws_4:univ
+]{
+   liftExpression[var_12_ws_4]
+   and 
+   (
+     throw=null)
+   and 
+   (
+     exit_stmt_reached=false)
+
+}
+
+pred SourcesCristianOntivero_BinarySearchTreeCondition25[
+  t_17:univ
+]{
+   t_17=true
+
+}
+
+pred SourcesCristianOntivero_BinarySearchTreeCondition47[
+  t_22:univ
+]{
+   not (
+     t_22=true)
+
+}
+
+pred SourcesCristianOntivero_BinarySearchTreeCondition26[
+  t_17:univ
+]{
+   not (
+     t_17=true)
+
+}
+
+pred SourcesCristianOntivero_BinarySearchTreeCondition46[
+  t_22:univ
+]{
+   t_22=true
+
+}
+
+pred SourcesCristianOntivero_BinarySearchTreeCondition42[
+  var_11_inOrderSucc:univ,
+  var_8_current:univ
+]{
+   isEmptyOrNull[var_8_current]
+   or 
+   isEmptyOrNull[var_11_inOrderSucc]
+
+}
+
+pred SourcesCristianOntivero_BinarySearchTreeCondition49[
+  t_23:univ
+]{
+   not (
+     t_23=true)
+
+}
+
+pred precondition_SourcesCristianOntivero_BinarySearchTree_delete_0[
+  SourcesCristianOntivero_BSTNode_elem:univ->univ,
+  SourcesCristianOntivero_BSTNode_left:univ->univ,
+  SourcesCristianOntivero_BSTNode_right:univ->univ,
+  SourcesCristianOntivero_BinarySearchTree_root:univ->univ,
+  thiz:univ,
+  throw:univ
+]{
+   equ[throw,
+      null]
+   and 
+   SourcesCristianOntivero_BinarySearchTree_requires[SourcesCristianOntivero_BSTNode_elem,
+                                                    SourcesCristianOntivero_BSTNode_left,
+                                                    SourcesCristianOntivero_BSTNode_right,
+                                                    SourcesCristianOntivero_BinarySearchTree_root,
+                                                    thiz]
+   and 
+   (
+     all objx:SourcesCristianOntivero_BinarySearchTree | {
+       SourcesCristianOntivero_BinarySearchTree_object_invariant[SourcesCristianOntivero_BSTNode_elem,
+                                                                SourcesCristianOntivero_BSTNode_left,
+                                                                SourcesCristianOntivero_BSTNode_right,
+                                                                SourcesCristianOntivero_BinarySearchTree_root,
+                                                                objx]
+     
+     }
+   )
+
+}
+
+pred SourcesCristianOntivero_BinarySearchTreeCondition48[
+  t_23:univ
+]{
+   t_23=true
+
+}
+
+pred SourcesCristianOntivero_BinarySearchTreeCondition29[
+  var_8_current:univ,
+  var_9_previous:univ
+]{
+   isEmptyOrNull[var_9_previous]
+   or 
+   isEmptyOrNull[var_8_current]
+
+}
+
+pred SourcesCristianOntivero_BinarySearchTreeCondition31[
+  t_18:univ
+]{
+   t_18=true
+
+}
+
+pred SourcesCristianOntivero_BinarySearchTree_object_invariant[
+  SourcesCristianOntivero_BSTNode_elem:univ->univ,
+  SourcesCristianOntivero_BSTNode_left:univ->univ,
+  SourcesCristianOntivero_BSTNode_right:univ->univ,
+  SourcesCristianOntivero_BinarySearchTree_root:univ->univ,
+  thiz:univ
+]{
+   (
+     all n:SourcesCristianOntivero_BSTNode+null | {
+       equ[fun_set_contains[fun_reach[thiz.SourcesCristianOntivero_BinarySearchTree_root,SourcesCristianOntivero_BSTNode,SourcesCristianOntivero_BSTNode_left+SourcesCristianOntivero_BSTNode_right],n],
+          true]
+       implies 
+               (
+                 (
+                   all m:SourcesCristianOntivero_BSTNode+null | {
+                     equ[fun_set_contains[fun_reach[n.SourcesCristianOntivero_BSTNode_left,SourcesCristianOntivero_BSTNode,SourcesCristianOntivero_BSTNode_left+SourcesCristianOntivero_BSTNode_right],m],
+                        true]
+                     implies 
+                             pred_java_primitive_integer_value_lte[m.SourcesCristianOntivero_BSTNode_elem,
+                                                                  n.SourcesCristianOntivero_BSTNode_elem]
+                   
+                   }
+                 )
+                 and 
+                 (
+                   all m:SourcesCristianOntivero_BSTNode+null | {
+                     equ[fun_set_contains[fun_reach[n.SourcesCristianOntivero_BSTNode_right,SourcesCristianOntivero_BSTNode,SourcesCristianOntivero_BSTNode_left+SourcesCristianOntivero_BSTNode_right],m],
+                        true]
+                     implies 
+                             pred_java_primitive_integer_value_gt[m.SourcesCristianOntivero_BSTNode_elem,
+                                                                 n.SourcesCristianOntivero_BSTNode_elem]
+                   
+                   }
+                 )
+               )
+     
+     }
+   )
+   and 
+   (
+     all n:SourcesCristianOntivero_BSTNode+null | {
+       equ[fun_set_contains[fun_reach[thiz.SourcesCristianOntivero_BinarySearchTree_root,SourcesCristianOntivero_BSTNode,SourcesCristianOntivero_BSTNode_left+SourcesCristianOntivero_BSTNode_right],n],
+          true]
+       implies 
+               (
+                 equ[fun_set_contains[fun_reach[n.SourcesCristianOntivero_BSTNode_right,SourcesCristianOntivero_BSTNode,SourcesCristianOntivero_BSTNode_right+SourcesCristianOntivero_BSTNode_left],n],
+                    false]
+                 and 
+                 equ[fun_set_contains[fun_reach[n.SourcesCristianOntivero_BSTNode_left,SourcesCristianOntivero_BSTNode,SourcesCristianOntivero_BSTNode_left+SourcesCristianOntivero_BSTNode_right],n],
+                    false]
+               )
+     
+     }
+   )
+
+}
+
+pred SourcesCristianOntivero_BinarySearchTreeCondition34[
+  t_19:univ
+]{
+   not (
+     t_19=true)
+
+}
+
+pred SourcesCristianOntivero_BinarySearchTreeCondition33[
+  t_19:univ
+]{
+   t_19=true
+
+}
+
+pred SourcesCristianOntivero_BinarySearchTreeCondition32[
+  t_18:univ
+]{
+   not (
+     t_18=true)
+
+}
+
+pred SourcesCristianOntivero_BinarySearchTreeCondition28[
+  thiz:univ,
+  var_8_current:univ
+]{
+   not (
+     isEmptyOrNull[thiz]
+     or 
+     isEmptyOrNull[var_8_current]
+   )
+
+}
+
+pred SourcesCristianOntivero_BinarySearchTree_ensures[
+  throw':univ
+]{
+   throw'=null
+
+}
+
+pred SourcesCristianOntivero_BinarySearchTreeCondition27[
+  thiz:univ,
+  var_8_current:univ
+]{
+   isEmptyOrNull[thiz]
+   or 
+   isEmptyOrNull[var_8_current]
+
+}
+
+pred SourcesCristianOntivero_BinarySearchTree_requires[
+  SourcesCristianOntivero_BSTNode_elem:univ->univ,
+  SourcesCristianOntivero_BSTNode_left:univ->univ,
+  SourcesCristianOntivero_BSTNode_right:univ->univ,
+  SourcesCristianOntivero_BinarySearchTree_root:univ->univ,
+  thiz:univ
+]{
+   (
+     all n:SourcesCristianOntivero_BSTNode+null | {
+       equ[fun_set_contains[fun_reach[thiz.SourcesCristianOntivero_BinarySearchTree_root,SourcesCristianOntivero_BSTNode,SourcesCristianOntivero_BSTNode_left+SourcesCristianOntivero_BSTNode_right],n],
+          true]
+       implies 
+               (
+                 pred_java_primitive_integer_value_gte[n.SourcesCristianOntivero_BSTNode_elem,
+                                                      JavaPrimitiveIntegerLiteral0]
+                 and 
+                 pred_java_primitive_integer_value_lt[n.SourcesCristianOntivero_BSTNode_elem,
+                                                     JavaPrimitiveIntegerLiteral2]
+               )
+     
+     }
+   )
+   and 
+   (
+     true=true)
+
+}
+
+pred SourcesCristianOntivero_BinarySearchTreeCondition53[
+  t_25:univ
+]{
+   not (
+     t_25=true)
+
+}
+
+pred SourcesCristianOntivero_BinarySearchTreeCondition52[
+  t_25:univ
+]{
+   t_25=true
+
+}
+
+pred SourcesCristianOntivero_BinarySearchTreeCondition51[
+  t_24:univ
+]{
+   not (
+     t_24=true)
+
+}
+
+pred SourcesCristianOntivero_BinarySearchTreeCondition1[
+  exit_stmt_reached:univ,
+  throw:univ
+]{
+   not (
+     (
+       throw=null)
+     and 
+     (
+       exit_stmt_reached=false)
+   )
+
+}
+
+pred SourcesCristianOntivero_BinarySearchTreeCondition50[
+  t_24:univ
+]{
+   t_24=true
+
+}
+
+pred SourcesCristianOntivero_BinarySearchTreeCondition40[
+  var_11_inOrderSucc:univ
+]{
+   not (
+     isEmptyOrNull[var_11_inOrderSucc])
+
+}
+
+pred SourcesCristianOntivero_BinarySearchTreeCondition21[
+  var_9_previous:univ
+]{
+   isEmptyOrNull[var_9_previous]
+
+}
+
+pred SourcesCristianOntivero_BinarySearchTreeCondition55[
+  t_28:univ
+]{
+   not (
+     t_28=true)
+
+}
+
+pred SourcesCristianOntivero_BinarySearchTreeCondition22[
+  var_9_previous:univ
+]{
+   not (
+     isEmptyOrNull[var_9_previous])
+
+}
+
+pred SourcesCristianOntivero_BinarySearchTreeCondition18[
+  t_27:univ
+]{
+   not (
+     t_27=true)
+
+}
+
+pred SourcesCristianOntivero_BinarySearchTreeCondition17[
+  t_27:univ
+]{
+   t_27=true
+
+}
+
+pred SourcesCristianOntivero_BinarySearchTreeCondition54[
+  t_28:univ
+]{
+   t_28=true
+
+}
+
+pred SourcesCristianOntivero_BinarySearchTreeCondition19[
+  t_26:univ
+]{
+   t_26=true
+
+}
+
+pred SourcesCristianOntivero_BinarySearchTreeCondition8[
+  var_8_current:univ
+]{
+   isEmptyOrNull[var_8_current]
+
+}
+
+pred SourcesCristianOntivero_BinarySearchTreeCondition9[
+  var_8_current:univ
+]{
+   not (
+     isEmptyOrNull[var_8_current])
+
+}
+
+pred SourcesCristianOntivero_BinarySearchTreeCondition7[
+  t_10:univ
+]{
+   not (
+     t_10=true)
+
+}
+
+pred SourcesCristianOntivero_BinarySearchTreeCondition12[
+  t_15:univ
+]{
+   t_15=true
+
+}
+
+pred SourcesCristianOntivero_BinarySearchTreeCondition10[
+  t_12:univ
+]{
+   t_12=true
+
+}
+
+pred SourcesCristianOntivero_BinarySearchTreeCondition6[
+  t_10:univ
+]{
+   t_10=true
+
+}
+
+pred SourcesCristianOntivero_BinarySearchTreeCondition11[
+  t_12:univ
+]{
+   not (
+     t_12=true)
+
+}
+
+pred SourcesCristianOntivero_BinarySearchTreeCondition4[
+  t_11:univ
+]{
+   t_11=true
+
+}
+
+pred SourcesCristianOntivero_BinarySearchTreeCondition14[
+  t_14:univ
+]{
+   t_14=true
+
+}
+
+pred SourcesCristianOntivero_BinarySearchTreeCondition5[
+  t_11:univ
+]{
+   not (
+     t_11=true)
+
+}
+
+pred SourcesCristianOntivero_BinarySearchTreeCondition15[
+  t_14:univ
+]{
+   not (
+     t_14=true)
+
+}
+
+pred SourcesCristianOntivero_BinarySearchTreeCondition57[
+  t_29:univ
+]{
+   not (
+     t_29=true)
+
+}
+
+pred SourcesCristianOntivero_BinarySearchTreeCondition13[
+  t_15:univ
+]{
+   not (
+     t_15=true)
+
+}
+
+pred SourcesCristianOntivero_BinarySearchTreeCondition20[
+  t_26:univ
+]{
+   not (
+     t_26=true)
+
+}
+
+pred SourcesCristianOntivero_BinarySearchTreeCondition56[
+  t_29:univ
+]{
+   t_29=true
+
+}
+
+program SourcesCristianOntivero_BinarySearchTree_delete_0[
+  thiz:SourcesCristianOntivero_BinarySearchTree,
+  throw:java_lang_Throwable+null,
+  elem:JavaPrimitiveIntegerValue,
+  SourcesCristianOntivero_BSTNode_left:(SourcesCristianOntivero_BSTNode)->one(SourcesCristianOntivero_BSTNode+null),
+  SourcesCristianOntivero_BSTNode_right:(SourcesCristianOntivero_BSTNode)->one(SourcesCristianOntivero_BSTNode+null),
+  SourcesCristianOntivero_BSTNode_elem:(SourcesCristianOntivero_BSTNode)->one(JavaPrimitiveIntegerValue),
+  SourcesCristianOntivero_BinarySearchTree_root:(SourcesCristianOntivero_BinarySearchTree)->one(SourcesCristianOntivero_BSTNode+null),
+  usedObjects:set (java_lang_Object)
+] var [
+  t_15:boolean,
+  t_16:boolean,
+  t_13:boolean,
+  t_14:boolean,
+  t_11:boolean,
+  t_12:boolean,
+  t_10:boolean,
+  var_10_ws_3:boolean,
+  var_9_previous:SourcesCristianOntivero_BSTNode+null,
+  t_19:boolean,
+  t_18:boolean,
+  t_17:boolean,
+  var_11_inOrderSucc:SourcesCristianOntivero_BSTNode+null,
+  param_elem_2:JavaPrimitiveIntegerValue,
+  var_8_current:SourcesCristianOntivero_BSTNode+null,
+  t_24:boolean,
+  t_25:boolean,
+  t_26:boolean,
+  t_27:boolean,
+  t_20:boolean,
+  t_21:boolean,
+  t_22:boolean,
+  t_23:boolean,
+  exit_stmt_reached:boolean,
+  t_29:boolean,
+  t_28:boolean,
+  var_12_ws_4:boolean,
+  t_9:boolean
+]{
+   skip;
+   throw:=null;
+   skip;
+   exit_stmt_reached:=false;
+   skip;
+   if SourcesCristianOntivero_BinarySearchTreeCondition0[exit_stmt_reached,throw]  {
+      param_elem_2:=elem
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip;
+   skip;
+   if SourcesCristianOntivero_BinarySearchTreeCondition0[exit_stmt_reached,throw]  {
+      if SourcesCristianOntivero_BinarySearchTreeCondition2[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         var_8_current:=thiz.SourcesCristianOntivero_BinarySearchTree_root
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip;
+   if SourcesCristianOntivero_BinarySearchTreeCondition0[exit_stmt_reached,throw]  {
+      var_9_previous:=((SourcesCristianOntivero_BSTNode+null) & (null))
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if SourcesCristianOntivero_BinarySearchTreeCondition0[exit_stmt_reached,throw]  {
+      t_29:=(neq[var_8_current,null]=>(true)else(false))
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if SourcesCristianOntivero_BinarySearchTreeCondition0[exit_stmt_reached,throw]  {
+      if SourcesCristianOntivero_BinarySearchTreeCondition56[t_29]  {
+         skip;
+         skip;
+         skip;
+         skip;
+         skip;
+         if SourcesCristianOntivero_BinarySearchTreeCondition0[exit_stmt_reached,throw]  {
+            t_10:=(neq[var_8_current,null]=>(true)else(false))
+         
+         } else {
+            skip
+         
+         }
+         ;
+         if SourcesCristianOntivero_BinarySearchTreeCondition0[exit_stmt_reached,throw]  {
+            if SourcesCristianOntivero_BinarySearchTreeCondition6[t_10]  {
+               if SourcesCristianOntivero_BinarySearchTreeCondition0[exit_stmt_reached,throw]  {
+                  t_11:=(neq[var_8_current.SourcesCristianOntivero_BSTNode_elem,param_elem_2]=>(true)else(false))
+               
+               } else {
+                  skip
+               
+               }
+               ;
+               if SourcesCristianOntivero_BinarySearchTreeCondition0[exit_stmt_reached,throw]  {
+                  if SourcesCristianOntivero_BinarySearchTreeCondition4[t_11]  {
+                     if SourcesCristianOntivero_BinarySearchTreeCondition0[exit_stmt_reached,throw]  {
+                        t_9:=true
+                     
+                     } else {
+                        skip
+                     
+                     }
+                  
+                  } else {
+                     if SourcesCristianOntivero_BinarySearchTreeCondition0[exit_stmt_reached,throw]  {
+                        t_9:=false
+                     
+                     } else {
+                        skip
+                     
+                     }
+                  
+                  }
+               
+               } else {
+                  skip
+               
+               }
+            
+            } else {
+               if SourcesCristianOntivero_BinarySearchTreeCondition0[exit_stmt_reached,throw]  {
+                  t_9:=false
+               
+               } else {
+                  skip
+               
+               }
+            
+            }
+         
+         } else {
+            skip
+         
+         }
+         ;
+         if SourcesCristianOntivero_BinarySearchTreeCondition0[exit_stmt_reached,throw]  {
+            var_10_ws_3:=t_9
+         
+         } else {
+            skip
+         
+         }
+         ;
+         while SourcesCristianOntivero_BinarySearchTreeCondition16[exit_stmt_reached,throw,var_10_ws_3]do {
+            skip;
+            skip;
+            skip;
+            skip;
+            if SourcesCristianOntivero_BinarySearchTreeCondition0[exit_stmt_reached,throw]  {
+               var_9_previous:=var_8_current
+            
+            } else {
+               skip
+            
+            }
+            ;
+            if SourcesCristianOntivero_BinarySearchTreeCondition0[exit_stmt_reached,throw]  {
+               t_12:=(pred_java_primitive_integer_value_gt[var_8_current.SourcesCristianOntivero_BSTNode_elem,param_elem_2]=>(true)else(false))
+            
+            } else {
+               skip
+            
+            }
+            ;
+            if SourcesCristianOntivero_BinarySearchTreeCondition0[exit_stmt_reached,throw]  {
+               if SourcesCristianOntivero_BinarySearchTreeCondition10[t_12]  {
+                  if SourcesCristianOntivero_BinarySearchTreeCondition0[exit_stmt_reached,throw]  {
+                     if SourcesCristianOntivero_BinarySearchTreeCondition8[var_8_current]  {
+                        throw:=java_lang_NullPointerExceptionLit
+                     
+                     } else {
+                        var_8_current:=var_8_current.SourcesCristianOntivero_BSTNode_left
+                     
+                     }
+                  
+                  } else {
+                     skip
+                  
+                  }
+               
+               } else {
+                  if SourcesCristianOntivero_BinarySearchTreeCondition0[exit_stmt_reached,throw]  {
+                     if SourcesCristianOntivero_BinarySearchTreeCondition8[var_8_current]  {
+                        throw:=java_lang_NullPointerExceptionLit
+                     
+                     } else {
+                        var_8_current:=var_8_current.SourcesCristianOntivero_BSTNode_right
+                     
+                     }
+                  
+                  } else {
+                     skip
+                  
+                  }
+               
+               }
+            
+            } else {
+               skip
+            
+            }
+            ;
+            if SourcesCristianOntivero_BinarySearchTreeCondition0[exit_stmt_reached,throw]  {
+               t_14:=(neq[var_8_current,null]=>(true)else(false))
+            
+            } else {
+               skip
+            
+            }
+            ;
+            if SourcesCristianOntivero_BinarySearchTreeCondition0[exit_stmt_reached,throw]  {
+               if SourcesCristianOntivero_BinarySearchTreeCondition14[t_14]  {
+                  if SourcesCristianOntivero_BinarySearchTreeCondition0[exit_stmt_reached,throw]  {
+                     t_15:=(neq[var_8_current.SourcesCristianOntivero_BSTNode_elem,param_elem_2]=>(true)else(false))
+                  
+                  } else {
+                     skip
+                  
+                  }
+                  ;
+                  if SourcesCristianOntivero_BinarySearchTreeCondition0[exit_stmt_reached,throw]  {
+                     if SourcesCristianOntivero_BinarySearchTreeCondition12[t_15]  {
+                        if SourcesCristianOntivero_BinarySearchTreeCondition0[exit_stmt_reached,throw]  {
+                           t_13:=true
+                        
+                        } else {
+                           skip
+                        
+                        }
+                     
+                     } else {
+                        if SourcesCristianOntivero_BinarySearchTreeCondition0[exit_stmt_reached,throw]  {
+                           t_13:=false
+                        
+                        } else {
+                           skip
+                        
+                        }
+                     
+                     }
+                  
+                  } else {
+                     skip
+                  
+                  }
+               
+               } else {
+                  if SourcesCristianOntivero_BinarySearchTreeCondition0[exit_stmt_reached,throw]  {
+                     t_13:=false
+                  
+                  } else {
+                     skip
+                  
+                  }
+               
+               }
+            
+            } else {
+               skip
+            
+            }
+            ;
+            if SourcesCristianOntivero_BinarySearchTreeCondition0[exit_stmt_reached,throw]  {
+               var_10_ws_3:=t_13
+            
+            } else {
+               skip
+            
+            }
+         
+         }
+         ;
+         if SourcesCristianOntivero_BinarySearchTreeCondition0[exit_stmt_reached,throw]  {
+            t_28:=(neq[var_8_current,null]=>(true)else(false))
+         
+         } else {
+            skip
+         
+         }
+         ;
+         if SourcesCristianOntivero_BinarySearchTreeCondition0[exit_stmt_reached,throw]  {
+            if SourcesCristianOntivero_BinarySearchTreeCondition54[t_28]  {
+               skip;
+               skip;
+               skip;
+               if SourcesCristianOntivero_BinarySearchTreeCondition0[exit_stmt_reached,throw]  {
+                  t_26:=(equ[var_8_current.SourcesCristianOntivero_BSTNode_left,null]=>(true)else(false))
+               
+               } else {
+                  skip
+               
+               }
+               ;
+               if SourcesCristianOntivero_BinarySearchTreeCondition0[exit_stmt_reached,throw]  {
+                  if SourcesCristianOntivero_BinarySearchTreeCondition19[t_26]  {
+                     if SourcesCristianOntivero_BinarySearchTreeCondition0[exit_stmt_reached,throw]  {
+                        t_27:=(equ[var_8_current.SourcesCristianOntivero_BSTNode_right,null]=>(true)else(false))
+                     
+                     } else {
+                        skip
+                     
+                     }
+                     ;
+                     if SourcesCristianOntivero_BinarySearchTreeCondition0[exit_stmt_reached,throw]  {
+                        if SourcesCristianOntivero_BinarySearchTreeCondition17[t_27]  {
+                           if SourcesCristianOntivero_BinarySearchTreeCondition0[exit_stmt_reached,throw]  {
+                              t_25:=true
+                           
+                           } else {
+                              skip
+                           
+                           }
+                        
+                        } else {
+                           if SourcesCristianOntivero_BinarySearchTreeCondition0[exit_stmt_reached,throw]  {
+                              t_25:=false
+                           
+                           } else {
+                              skip
+                           
+                           }
+                        
+                        }
+                     
+                     } else {
+                        skip
+                     
+                     }
+                  
+                  } else {
+                     if SourcesCristianOntivero_BinarySearchTreeCondition0[exit_stmt_reached,throw]  {
+                        t_25:=false
+                     
+                     } else {
+                        skip
+                     
+                     }
+                  
+                  }
+               
+               } else {
+                  skip
+               
+               }
+               ;
+               if SourcesCristianOntivero_BinarySearchTreeCondition0[exit_stmt_reached,throw]  {
+                  if SourcesCristianOntivero_BinarySearchTreeCondition52[t_25]  {
+                     skip;
+                     if SourcesCristianOntivero_BinarySearchTreeCondition0[exit_stmt_reached,throw]  {
+                        t_17:=(equ[var_9_previous,null]=>(true)else(false))
+                     
+                     } else {
+                        skip
+                     
+                     }
+                     ;
+                     if SourcesCristianOntivero_BinarySearchTreeCondition0[exit_stmt_reached,throw]  {
+                        if SourcesCristianOntivero_BinarySearchTreeCondition25[t_17]  {
+                           if SourcesCristianOntivero_BinarySearchTreeCondition0[exit_stmt_reached,throw]  {
+                              if SourcesCristianOntivero_BinarySearchTreeCondition2[thiz]  {
+                                 throw:=java_lang_NullPointerExceptionLit
+                              
+                              } else {
+                                 SourcesCristianOntivero_BinarySearchTree_root:=(SourcesCristianOntivero_BinarySearchTree_root)++((thiz)->(((SourcesCristianOntivero_BSTNode+null) & (null))))
+                              
+                              }
+                           
+                           } else {
+                              skip
+                           
+                           }
+                        
+                        } else {
+                           skip;
+                           if SourcesCristianOntivero_BinarySearchTreeCondition0[exit_stmt_reached,throw]  {
+                              t_16:=(pred_java_primitive_integer_value_gt[var_9_previous.SourcesCristianOntivero_BSTNode_elem,param_elem_2]=>(true)else(false))
+                           
+                           } else {
+                              skip
+                           
+                           }
+                           ;
+                           if SourcesCristianOntivero_BinarySearchTreeCondition0[exit_stmt_reached,throw]  {
+                              if SourcesCristianOntivero_BinarySearchTreeCondition23[t_16]  {
+                                 if SourcesCristianOntivero_BinarySearchTreeCondition0[exit_stmt_reached,throw]  {
+                                    if SourcesCristianOntivero_BinarySearchTreeCondition21[var_9_previous]  {
+                                       throw:=java_lang_NullPointerExceptionLit
+                                    
+                                    } else {
+                                       SourcesCristianOntivero_BSTNode_left:=(SourcesCristianOntivero_BSTNode_left)++((var_9_previous)->(((SourcesCristianOntivero_BSTNode+null) & (null))))
+                                    
+                                    }
+                                 
+                                 } else {
+                                    skip
+                                 
+                                 }
+                              
+                              } else {
+                                 if SourcesCristianOntivero_BinarySearchTreeCondition0[exit_stmt_reached,throw]  {
+                                    if SourcesCristianOntivero_BinarySearchTreeCondition21[var_9_previous]  {
+                                       throw:=java_lang_NullPointerExceptionLit
+                                    
+                                    } else {
+                                       SourcesCristianOntivero_BSTNode_right:=(SourcesCristianOntivero_BSTNode_right)++((var_9_previous)->(((SourcesCristianOntivero_BSTNode+null) & (null))))
+                                    
+                                    }
+                                 
+                                 } else {
+                                    skip
+                                 
+                                 }
+                              
+                              }
+                           
+                           } else {
+                              skip
+                           
+                           }
+                        
+                        }
+                     
+                     } else {
+                        skip
+                     
+                     }
+                  
+                  } else {
+                     skip;
+                     if SourcesCristianOntivero_BinarySearchTreeCondition0[exit_stmt_reached,throw]  {
+                        t_24:=(equ[var_8_current.SourcesCristianOntivero_BSTNode_left,null]=>(true)else(false))
+                     
+                     } else {
+                        skip
+                     
+                     }
+                     ;
+                     if SourcesCristianOntivero_BinarySearchTreeCondition0[exit_stmt_reached,throw]  {
+                        if SourcesCristianOntivero_BinarySearchTreeCondition50[t_24]  {
+                           skip;
+                           if SourcesCristianOntivero_BinarySearchTreeCondition0[exit_stmt_reached,throw]  {
+                              t_19:=(equ[var_9_previous,null]=>(true)else(false))
+                           
+                           } else {
+                              skip
+                           
+                           }
+                           ;
+                           if SourcesCristianOntivero_BinarySearchTreeCondition0[exit_stmt_reached,throw]  {
+                              if SourcesCristianOntivero_BinarySearchTreeCondition33[t_19]  {
+                                 if SourcesCristianOntivero_BinarySearchTreeCondition0[exit_stmt_reached,throw]  {
+                                    if SourcesCristianOntivero_BinarySearchTreeCondition27[thiz,var_8_current]  {
+                                       throw:=java_lang_NullPointerExceptionLit
+                                    
+                                    } else {
+                                       SourcesCristianOntivero_BinarySearchTree_root:=(SourcesCristianOntivero_BinarySearchTree_root)++((thiz)->(var_8_current.SourcesCristianOntivero_BSTNode_right))
+                                    
+                                    }
+                                 
+                                 } else {
+                                    skip
+                                 
+                                 }
+                              
+                              } else {
+                                 skip;
+                                 if SourcesCristianOntivero_BinarySearchTreeCondition0[exit_stmt_reached,throw]  {
+                                    t_18:=(pred_java_primitive_integer_value_gt[var_9_previous.SourcesCristianOntivero_BSTNode_elem,param_elem_2]=>(true)else(false))
+                                 
+                                 } else {
+                                    skip
+                                 
+                                 }
+                                 ;
+                                 if SourcesCristianOntivero_BinarySearchTreeCondition0[exit_stmt_reached,throw]  {
+                                    if SourcesCristianOntivero_BinarySearchTreeCondition31[t_18]  {
+                                       if SourcesCristianOntivero_BinarySearchTreeCondition0[exit_stmt_reached,throw]  {
+                                          if SourcesCristianOntivero_BinarySearchTreeCondition29[var_8_current,var_9_previous]  {
+                                             throw:=java_lang_NullPointerExceptionLit
+                                          
+                                          } else {
+                                             SourcesCristianOntivero_BSTNode_left:=(SourcesCristianOntivero_BSTNode_left)++((var_9_previous)->(var_8_current.SourcesCristianOntivero_BSTNode_right))
+                                          
+                                          }
+                                       
+                                       } else {
+                                          skip
+                                       
+                                       }
+                                    
+                                    } else {
+                                       if SourcesCristianOntivero_BinarySearchTreeCondition0[exit_stmt_reached,throw]  {
+                                          if SourcesCristianOntivero_BinarySearchTreeCondition29[var_8_current,var_9_previous]  {
+                                             throw:=java_lang_NullPointerExceptionLit
+                                          
+                                          } else {
+                                             SourcesCristianOntivero_BSTNode_right:=(SourcesCristianOntivero_BSTNode_right)++((var_9_previous)->(var_8_current.SourcesCristianOntivero_BSTNode_right))
+                                          
+                                          }
+                                       
+                                       } else {
+                                          skip
+                                       
+                                       }
+                                    
+                                    }
+                                 
+                                 } else {
+                                    skip
+                                 
+                                 }
+                              
+                              }
+                           
+                           } else {
+                              skip
+                           
+                           }
+                        
+                        } else {
+                           skip;
+                           if SourcesCristianOntivero_BinarySearchTreeCondition0[exit_stmt_reached,throw]  {
+                              t_23:=(equ[var_8_current.SourcesCristianOntivero_BSTNode_right,null]=>(true)else(false))
+                           
+                           } else {
+                              skip
+                           
+                           }
+                           ;
+                           if SourcesCristianOntivero_BinarySearchTreeCondition0[exit_stmt_reached,throw]  {
+                              if SourcesCristianOntivero_BinarySearchTreeCondition48[t_23]  {
+                                 skip;
+                                 if SourcesCristianOntivero_BinarySearchTreeCondition0[exit_stmt_reached,throw]  {
+                                    t_21:=(equ[var_9_previous,null]=>(true)else(false))
+                                 
+                                 } else {
+                                    skip
+                                 
+                                 }
+                                 ;
+                                 if SourcesCristianOntivero_BinarySearchTreeCondition0[exit_stmt_reached,throw]  {
+                                    if SourcesCristianOntivero_BinarySearchTreeCondition37[t_21]  {
+                                       if SourcesCristianOntivero_BinarySearchTreeCondition0[exit_stmt_reached,throw]  {
+                                          if SourcesCristianOntivero_BinarySearchTreeCondition27[thiz,var_8_current]  {
+                                             throw:=java_lang_NullPointerExceptionLit
+                                          
+                                          } else {
+                                             SourcesCristianOntivero_BinarySearchTree_root:=(SourcesCristianOntivero_BinarySearchTree_root)++((thiz)->(var_8_current.SourcesCristianOntivero_BSTNode_left))
+                                          
+                                          }
+                                       
+                                       } else {
+                                          skip
+                                       
+                                       }
+                                    
+                                    } else {
+                                       skip;
+                                       if SourcesCristianOntivero_BinarySearchTreeCondition0[exit_stmt_reached,throw]  {
+                                          t_20:=(pred_java_primitive_integer_value_gt[var_9_previous.SourcesCristianOntivero_BSTNode_elem,param_elem_2]=>(true)else(false))
+                                       
+                                       } else {
+                                          skip
+                                       
+                                       }
+                                       ;
+                                       if SourcesCristianOntivero_BinarySearchTreeCondition0[exit_stmt_reached,throw]  {
+                                          if SourcesCristianOntivero_BinarySearchTreeCondition35[t_20]  {
+                                             if SourcesCristianOntivero_BinarySearchTreeCondition0[exit_stmt_reached,throw]  {
+                                                if SourcesCristianOntivero_BinarySearchTreeCondition29[var_8_current,var_9_previous]  {
+                                                   throw:=java_lang_NullPointerExceptionLit
+                                                
+                                                } else {
+                                                   SourcesCristianOntivero_BSTNode_left:=(SourcesCristianOntivero_BSTNode_left)++((var_9_previous)->(var_8_current.SourcesCristianOntivero_BSTNode_left))
+                                                
+                                                }
+                                             
+                                             } else {
+                                                skip
+                                             
+                                             }
+                                          
+                                          } else {
+                                             if SourcesCristianOntivero_BinarySearchTreeCondition0[exit_stmt_reached,throw]  {
+                                                if SourcesCristianOntivero_BinarySearchTreeCondition29[var_8_current,var_9_previous]  {
+                                                   throw:=java_lang_NullPointerExceptionLit
+                                                
+                                                } else {
+                                                   SourcesCristianOntivero_BSTNode_right:=(SourcesCristianOntivero_BSTNode_right)++((var_9_previous)->(var_8_current.SourcesCristianOntivero_BSTNode_left))
+                                                
+                                                }
+                                             
+                                             } else {
+                                                skip
+                                             
+                                             }
+                                          
+                                          }
+                                       
+                                       } else {
+                                          skip
+                                       
+                                       }
+                                    
+                                    }
+                                 
+                                 } else {
+                                    skip
+                                 
+                                 }
+                              
+                              } else {
+                                 skip;
+                                 skip;
+                                 if SourcesCristianOntivero_BinarySearchTreeCondition0[exit_stmt_reached,throw]  {
+                                    if SourcesCristianOntivero_BinarySearchTreeCondition8[var_8_current]  {
+                                       throw:=java_lang_NullPointerExceptionLit
+                                    
+                                    } else {
+                                       var_11_inOrderSucc:=var_8_current.SourcesCristianOntivero_BSTNode_right
+                                    
+                                    }
+                                 
+                                 } else {
+                                    skip
+                                 
+                                 }
+                                 ;
+                                 if SourcesCristianOntivero_BinarySearchTreeCondition0[exit_stmt_reached,throw]  {
+                                    var_9_previous:=((SourcesCristianOntivero_BSTNode+null) & (null))
+                                 
+                                 } else {
+                                    skip
+                                 
+                                 }
+                                 ;
+                                 skip;
+                                 if SourcesCristianOntivero_BinarySearchTreeCondition0[exit_stmt_reached,throw]  {
+                                    var_12_ws_4:=(neq[var_11_inOrderSucc.SourcesCristianOntivero_BSTNode_left,null]=>(true)else(false))
+                                 
+                                 } else {
+                                    skip
+                                 
+                                 }
+                                 ;
+                                 while SourcesCristianOntivero_BinarySearchTreeCondition41[exit_stmt_reached,throw,var_12_ws_4]do {
+                                    if SourcesCristianOntivero_BinarySearchTreeCondition0[exit_stmt_reached,throw]  {
+                                       var_9_previous:=var_11_inOrderSucc
+                                    
+                                    } else {
+                                       skip
+                                    
+                                    }
+                                    ;
+                                    if SourcesCristianOntivero_BinarySearchTreeCondition0[exit_stmt_reached,throw]  {
+                                       if SourcesCristianOntivero_BinarySearchTreeCondition39[var_11_inOrderSucc]  {
+                                          throw:=java_lang_NullPointerExceptionLit
+                                       
+                                       } else {
+                                          var_11_inOrderSucc:=var_11_inOrderSucc.SourcesCristianOntivero_BSTNode_left
+                                       
+                                       }
+                                    
+                                    } else {
+                                       skip
+                                    
+                                    }
+                                    ;
+                                    if SourcesCristianOntivero_BinarySearchTreeCondition0[exit_stmt_reached,throw]  {
+                                       var_12_ws_4:=(neq[var_11_inOrderSucc.SourcesCristianOntivero_BSTNode_left,null]=>(true)else(false))
+                                    
+                                    } else {
+                                       skip
+                                    
+                                    }
+                                 
+                                 }
+                                 ;
+                                 if SourcesCristianOntivero_BinarySearchTreeCondition0[exit_stmt_reached,throw]  {
+                                    if SourcesCristianOntivero_BinarySearchTreeCondition42[var_11_inOrderSucc,var_8_current]  {
+                                       throw:=java_lang_NullPointerExceptionLit
+                                    
+                                    } else {
+                                       SourcesCristianOntivero_BSTNode_elem:=(SourcesCristianOntivero_BSTNode_elem)++((var_8_current)->(var_11_inOrderSucc.SourcesCristianOntivero_BSTNode_elem))
+                                    
+                                    }
+                                 
+                                 } else {
+                                    skip
+                                 
+                                 }
+                                 ;
+                                 if SourcesCristianOntivero_BinarySearchTreeCondition0[exit_stmt_reached,throw]  {
+                                    t_22:=(equ[var_9_previous,null]=>(true)else(false))
+                                 
+                                 } else {
+                                    skip
+                                 
+                                 }
+                                 ;
+                                 if SourcesCristianOntivero_BinarySearchTreeCondition0[exit_stmt_reached,throw]  {
+                                    if SourcesCristianOntivero_BinarySearchTreeCondition46[t_22]  {
+                                       if SourcesCristianOntivero_BinarySearchTreeCondition0[exit_stmt_reached,throw]  {
+                                          if SourcesCristianOntivero_BinarySearchTreeCondition42[var_11_inOrderSucc,var_8_current]  {
+                                             throw:=java_lang_NullPointerExceptionLit
+                                          
+                                          } else {
+                                             SourcesCristianOntivero_BSTNode_right:=(SourcesCristianOntivero_BSTNode_right)++((var_8_current)->(var_11_inOrderSucc.SourcesCristianOntivero_BSTNode_right))
+                                          
+                                          }
+                                       
+                                       } else {
+                                          skip
+                                       
+                                       }
+                                    
+                                    } else {
+                                       if SourcesCristianOntivero_BinarySearchTreeCondition0[exit_stmt_reached,throw]  {
+                                          if SourcesCristianOntivero_BinarySearchTreeCondition44[var_11_inOrderSucc,var_9_previous]  {
+                                             throw:=java_lang_NullPointerExceptionLit
+                                          
+                                          } else {
+                                             SourcesCristianOntivero_BSTNode_left:=(SourcesCristianOntivero_BSTNode_left)++((var_9_previous)->(var_11_inOrderSucc.SourcesCristianOntivero_BSTNode_right))
+                                          
+                                          }
+                                       
+                                       } else {
+                                          skip
+                                       
+                                       }
+                                    
+                                    }
+                                 
+                                 } else {
+                                    skip
+                                 
+                                 }
+                              
+                              }
+                           
+                           } else {
+                              skip
+                           
+                           }
+                        
+                        }
+                     
+                     } else {
+                        skip
+                     
+                     }
+                  
+                  }
+               
+               } else {
+                  skip
+               
+               }
+            
+            } else {
+               skip
+            
+            }
+         
+         } else {
+            skip
+         
+         }
+      
+      } else {
+         skip
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip
+
+}
+
+assertCorrectness check_SourcesCristianOntivero_BinarySearchTree_delete_0[
+  SourcesCristianOntivero_BSTNode_elem:(SourcesCristianOntivero_BSTNode)->one(JavaPrimitiveIntegerValue),
+  SourcesCristianOntivero_BSTNode_left:(SourcesCristianOntivero_BSTNode)->one(SourcesCristianOntivero_BSTNode+null),
+  SourcesCristianOntivero_BSTNode_right:(SourcesCristianOntivero_BSTNode)->one(SourcesCristianOntivero_BSTNode+null),
+  SourcesCristianOntivero_BinarySearchTree_root:(SourcesCristianOntivero_BinarySearchTree)->one(SourcesCristianOntivero_BSTNode+null),
+  elem:JavaPrimitiveIntegerValue,
+  exit_stmt_reached:boolean,
+  param_elem_2:JavaPrimitiveIntegerValue,
+  t_10:boolean,
+  t_11:boolean,
+  t_12:boolean,
+  t_13:boolean,
+  t_14:boolean,
+  t_15:boolean,
+  t_16:boolean,
+  t_17:boolean,
+  t_18:boolean,
+  t_19:boolean,
+  t_20:boolean,
+  t_21:boolean,
+  t_22:boolean,
+  t_23:boolean,
+  t_24:boolean,
+  t_25:boolean,
+  t_26:boolean,
+  t_27:boolean,
+  t_28:boolean,
+  t_29:boolean,
+  t_9:boolean,
+  thiz:SourcesCristianOntivero_BinarySearchTree,
+  throw:java_lang_Throwable+null,
+  usedObjects:set (java_lang_Object),
+  var_10_ws_3:boolean,
+  var_11_inOrderSucc:SourcesCristianOntivero_BSTNode+null,
+  var_12_ws_4:boolean,
+  var_8_current:SourcesCristianOntivero_BSTNode+null,
+  var_9_previous:SourcesCristianOntivero_BSTNode+null
+]{
+pre={
+   precondition_SourcesCristianOntivero_BinarySearchTree_delete_0[SourcesCristianOntivero_BSTNode_elem,
+                                                                 SourcesCristianOntivero_BSTNode_left,
+                                                                 SourcesCristianOntivero_BSTNode_right,
+                                                                 SourcesCristianOntivero_BinarySearchTree_root,
+                                                                 thiz,
+                                                                 throw]
+
+}
+program={
+   call SourcesCristianOntivero_BinarySearchTree_delete_0[thiz,throw,elem,SourcesCristianOntivero_BSTNode_left,SourcesCristianOntivero_BSTNode_right,SourcesCristianOntivero_BSTNode_elem,SourcesCristianOntivero_BinarySearchTree_root,usedObjects]
+
+}
+post={
+   postcondition_SourcesCristianOntivero_BinarySearchTree_delete_0[SourcesCristianOntivero_BSTNode_elem',
+                                                                  SourcesCristianOntivero_BSTNode_left',
+                                                                  SourcesCristianOntivero_BSTNode_right',
+                                                                  SourcesCristianOntivero_BinarySearchTree_root',
+                                                                  throw']
+
+}
+}
+

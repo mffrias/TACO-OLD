@@ -1,0 +1,63 @@
+sig java_lang_IntArray extends java_lang_Object {}
+{}
+
+
+
+
+pred java_lang_IntArrayCondition1[
+  java_lang_IntArray_contents:univ->univ->univ,
+  thiz:univ
+]{
+   thiz.java_lang_IntArray_contents=(none)->(none)
+
+}
+
+pred java_lang_IntArrayCondition3[
+  new_length:univ
+]{
+   not (
+     pred_java_primitive_integer_value_lt_zero[new_length])
+
+}
+
+pred java_lang_IntArrayCondition0[
+  java_lang_IntArray_length:univ->univ,
+  new_length:univ,
+  thiz:univ
+]{
+   thiz.java_lang_IntArray_length=new_length
+
+}
+
+pred java_lang_IntArrayCondition2[
+  new_length:univ
+]{
+   pred_java_primitive_integer_value_lt_zero[new_length]
+
+}
+
+program java_lang_IntArray_Constructor_0[
+  thiz:java_lang_IntArray,
+  throw:java_lang_Throwable+null,
+  new_length:JavaPrimitiveIntegerValue,
+  java_lang_IntArray_contents:java_lang_IntArray -> (JavaPrimitiveIntegerValue set -> lone JavaPrimitiveIntegerValue),
+  java_lang_IntArray_length:(java_lang_IntArray)->one(JavaPrimitiveIntegerValue),
+  ar_edu_taco_floatTest_FloatTest_att:(ar_edu_taco_floatTest_FloatTest)->one(JavaPrimitiveIntegerValue),
+  usedObjects:set (java_lang_Object)
+] var [
+
+]{
+   throw:=null;
+   if java_lang_IntArrayCondition2[new_length] lblpos if_1 {
+      throw:=java_lang_NegativeArraySizeExceptionLit
+   
+   } else {
+      assume java_lang_IntArrayCondition0[java_lang_IntArray_length,new_length,thiz];
+      assume java_lang_IntArrayCondition1[java_lang_IntArray_contents,thiz]
+   
+   }
+   ;
+   skip
+
+}
+

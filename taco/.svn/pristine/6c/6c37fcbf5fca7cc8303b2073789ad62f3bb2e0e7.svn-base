@@ -1,0 +1,474 @@
+sig qu_edu_qa_Fraction extends java_lang_Object {}
+{}
+
+
+
+
+pred qu_edu_qa_Fraction_object_invariant[
+  qu_edu_qa_Fraction_denum:univ->univ,
+  thiz:univ
+]{
+   neq[thiz.qu_edu_qa_Fraction_denum,
+      JavaPrimitiveIntegerLiteral0]
+
+}
+
+pred qu_edu_qa_FractionCondition1[
+  f1:univ
+]{
+   isEmptyOrNull[f1]
+
+}
+
+pred qu_edu_qa_FractionCondition2[
+  f1:univ
+]{
+   not (
+     isEmptyOrNull[f1])
+
+}
+
+pred qu_edu_qa_FractionCondition4[
+  f2:univ
+]{
+   isEmptyOrNull[f2]
+
+}
+
+pred qu_edu_qa_FractionCondition11[
+  SK_pred_java_primitive_integer_value_mul_ARG_left_1:univ,
+  SK_pred_java_primitive_integer_value_mul_ARG_overflow_1:univ,
+  SK_pred_java_primitive_integer_value_mul_ARG_result_1:univ,
+  SK_pred_java_primitive_integer_value_mul_ARG_right_1:univ
+]{
+   pred_java_primitive_integer_value_mul_marker[SK_pred_java_primitive_integer_value_mul_ARG_left_1,
+                                               SK_pred_java_primitive_integer_value_mul_ARG_right_1,
+                                               SK_pred_java_primitive_integer_value_mul_ARG_result_1,
+                                               SK_pred_java_primitive_integer_value_mul_ARG_overflow_1]
+
+}
+
+pred qu_edu_qa_FractionCondition3[
+  SK_pred_java_primitive_integer_value_mul_ARG_right_0:univ,
+  f2:univ,
+  qu_edu_qa_Fraction_num:univ->univ
+]{
+   equ[SK_pred_java_primitive_integer_value_mul_ARG_right_0,
+      f2.qu_edu_qa_Fraction_num]
+
+}
+
+pred precondition_qu_edu_qa_Fraction_mul_0[
+  f1:univ,
+  f2:univ,
+  f3:univ,
+  qu_edu_qa_Fraction_denum:univ->univ,
+  thiz:univ,
+  throw:univ
+]{
+   qu_edu_qa_Fraction_requires[f1,
+                              f2,
+                              f3,
+                              qu_edu_qa_Fraction_denum]
+   and 
+   equ[throw,
+      null]
+   and 
+   qu_edu_qa_Fraction_object_invariant[qu_edu_qa_Fraction_denum,
+                                      thiz]
+
+}
+
+pred qu_edu_qa_FractionCondition0[
+  SK_pred_java_primitive_integer_value_mul_ARG_left_0:univ,
+  f1:univ,
+  qu_edu_qa_Fraction_num:univ->univ
+]{
+   equ[SK_pred_java_primitive_integer_value_mul_ARG_left_0,
+      f1.qu_edu_qa_Fraction_num]
+
+}
+
+pred postcondition_qu_edu_qa_Fraction_mul_0[
+  SK_jml_pred_java_primitive_integer_value_mul_ARG_result_0:univ,
+  SK_jml_pred_java_primitive_integer_value_mul_ARG_result_1:univ,
+  f3':univ,
+  qu_edu_qa_Fraction_denum':univ->univ,
+  qu_edu_qa_Fraction_num':univ->univ,
+  thiz':univ,
+  throw':univ
+]{
+   qu_edu_qa_Fraction_ensures[SK_jml_pred_java_primitive_integer_value_mul_ARG_result_0,
+                             SK_jml_pred_java_primitive_integer_value_mul_ARG_result_1,
+                             f3',
+                             qu_edu_qa_Fraction_denum',
+                             qu_edu_qa_Fraction_num',
+                             throw']
+   and 
+   (
+     not (
+       throw'=AssertionFailureLit)
+   )
+   and 
+   qu_edu_qa_Fraction_object_invariant[qu_edu_qa_Fraction_denum',
+                                      thiz']
+
+}
+
+pred qu_edu_qa_FractionCondition5[
+  f2:univ
+]{
+   not (
+     isEmptyOrNull[f2])
+
+}
+
+pred qu_edu_qa_FractionCondition10[
+  SK_pred_java_primitive_integer_value_mul_ARG_right_1:univ,
+  f2:univ,
+  qu_edu_qa_Fraction_denum:univ->univ
+]{
+   equ[SK_pred_java_primitive_integer_value_mul_ARG_right_1,
+      f2.qu_edu_qa_Fraction_denum]
+
+}
+
+pred qu_edu_qa_FractionCondition9[
+  SK_pred_java_primitive_integer_value_mul_ARG_left_1:univ,
+  f1:univ,
+  qu_edu_qa_Fraction_denum:univ->univ
+]{
+   equ[SK_pred_java_primitive_integer_value_mul_ARG_left_1,
+      f1.qu_edu_qa_Fraction_denum]
+
+}
+
+pred qu_edu_qa_Fraction_requires[
+  f1:univ,
+  f2:univ,
+  f3:univ,
+  qu_edu_qa_Fraction_denum:univ->univ
+]{
+   neq[f1.qu_edu_qa_Fraction_denum,
+      JavaPrimitiveIntegerLiteral0]
+   and 
+   neq[f2.qu_edu_qa_Fraction_denum,
+      JavaPrimitiveIntegerLiteral0]
+   and 
+   (
+     not (
+       f1=null)
+   )
+   and 
+   (
+     not (
+       f2=null)
+   )
+   and 
+   (
+     not (
+       f3=null)
+   )
+
+}
+
+pred qu_edu_qa_FractionCondition8[
+  exit_stmt_reached:univ,
+  throw:univ
+]{
+   not (
+     (
+       throw=null)
+     and 
+     (
+       exit_stmt_reached=false)
+   )
+
+}
+
+pred qu_edu_qa_FractionCondition6[
+  SK_pred_java_primitive_integer_value_mul_ARG_left_0:univ,
+  SK_pred_java_primitive_integer_value_mul_ARG_overflow_0:univ,
+  SK_pred_java_primitive_integer_value_mul_ARG_result_0:univ,
+  SK_pred_java_primitive_integer_value_mul_ARG_right_0:univ
+]{
+   pred_java_primitive_integer_value_mul_marker[SK_pred_java_primitive_integer_value_mul_ARG_left_0,
+                                               SK_pred_java_primitive_integer_value_mul_ARG_right_0,
+                                               SK_pred_java_primitive_integer_value_mul_ARG_result_0,
+                                               SK_pred_java_primitive_integer_value_mul_ARG_overflow_0]
+
+}
+
+pred qu_edu_qa_FractionCondition7[
+  exit_stmt_reached:univ,
+  throw:univ
+]{
+   (
+     throw=null)
+   and 
+   (
+     exit_stmt_reached=false)
+
+}
+
+pred qu_edu_qa_FractionCondition13[
+  f3:univ
+]{
+   not (
+     isEmptyOrNull[f3])
+
+}
+
+pred qu_edu_qa_Fraction_ensures[
+  SK_jml_pred_java_primitive_integer_value_mul_ARG_result_0:univ,
+  SK_jml_pred_java_primitive_integer_value_mul_ARG_result_1:univ,
+  f3':univ,
+  qu_edu_qa_Fraction_denum':univ->univ,
+  qu_edu_qa_Fraction_num':univ->univ,
+  throw':univ
+]{
+   (
+     instanceOf[throw',
+               java_lang_Exception]
+     implies 
+             liftExpression[true]
+   )
+   and 
+   (
+     (
+       throw'=null)
+     implies 
+             equ[f3'.qu_edu_qa_Fraction_denum',
+                SK_jml_pred_java_primitive_integer_value_mul_ARG_result_1]
+   )
+   and 
+   (
+     (
+       throw'=null)
+     implies 
+             equ[f3'.qu_edu_qa_Fraction_num',
+                SK_jml_pred_java_primitive_integer_value_mul_ARG_result_0]
+   )
+
+}
+
+pred qu_edu_qa_FractionCondition12[
+  f3:univ
+]{
+   isEmptyOrNull[f3]
+
+}
+
+program qu_edu_qa_Fraction_mul_0[
+  thiz:qu_edu_qa_Fraction,
+  throw:java_lang_Throwable+null,
+  return:null+qu_edu_qa_Fraction,
+  f1:null+qu_edu_qa_Fraction,
+  f2:null+qu_edu_qa_Fraction,
+  f3:null+qu_edu_qa_Fraction,
+  SK_jml_pred_java_primitive_integer_value_mul_ARG_overflow_1:boolean,
+  SK_jml_pred_java_primitive_integer_value_mul_ARG_overflow_0:boolean,
+  SK_jml_pred_java_primitive_integer_value_mul_ARG_result_1:JavaPrimitiveIntegerValue,
+  SK_jml_pred_java_primitive_integer_value_mul_ARG_result_0:JavaPrimitiveIntegerValue,
+  qu_edu_qa_Fraction_num:(qu_edu_qa_Fraction)->one(JavaPrimitiveIntegerValue),
+  qu_edu_qa_Fraction_denum:(qu_edu_qa_Fraction)->one(JavaPrimitiveIntegerValue),
+  usedObjects:set (java_lang_Object)
+] var [
+  t_2:JavaPrimitiveIntegerValue,
+  var_1_n:JavaPrimitiveIntegerValue,
+  SK_pred_java_primitive_integer_value_mul_ARG_right_0:JavaPrimitiveIntegerValue,
+  SK_pred_java_primitive_integer_value_mul_ARG_left_1:JavaPrimitiveIntegerValue,
+  exit_stmt_reached:boolean,
+  SK_pred_java_primitive_integer_value_mul_ARG_overflow_1:boolean,
+  SK_pred_java_primitive_integer_value_mul_ARG_left_0:JavaPrimitiveIntegerValue,
+  t_1:JavaPrimitiveIntegerValue,
+  SK_pred_java_primitive_integer_value_mul_ARG_overflow_0:boolean,
+  SK_pred_java_primitive_integer_value_mul_ARG_result_1:JavaPrimitiveIntegerValue,
+  SK_pred_java_primitive_integer_value_mul_ARG_right_1:JavaPrimitiveIntegerValue,
+  SK_pred_java_primitive_integer_value_mul_ARG_result_0:JavaPrimitiveIntegerValue,
+  var_2_d:JavaPrimitiveIntegerValue
+]{
+   skip;
+   throw:=null;
+   skip;
+   exit_stmt_reached:=false;
+   skip;
+   skip;
+   skip;
+   skip;
+   skip;
+   skip;
+   havocVariable[SK_pred_java_primitive_integer_value_mul_ARG_left_0];
+   havocVariable[SK_pred_java_primitive_integer_value_mul_ARG_right_0];
+   havocVariable[SK_pred_java_primitive_integer_value_mul_ARG_result_0];
+   havocVariable[SK_pred_java_primitive_integer_value_mul_ARG_overflow_0];
+   if qu_edu_qa_FractionCondition1[f1]  {
+      throw:=java_lang_NullPointerExceptionLit
+   
+   } else {
+      assume qu_edu_qa_FractionCondition0[SK_pred_java_primitive_integer_value_mul_ARG_left_0,f1,qu_edu_qa_Fraction_num]
+   
+   }
+   ;
+   if qu_edu_qa_FractionCondition4[f2]  {
+      throw:=java_lang_NullPointerExceptionLit
+   
+   } else {
+      assume qu_edu_qa_FractionCondition3[SK_pred_java_primitive_integer_value_mul_ARG_right_0,f2,qu_edu_qa_Fraction_num]
+   
+   }
+   ;
+   assume qu_edu_qa_FractionCondition6[SK_pred_java_primitive_integer_value_mul_ARG_left_0,SK_pred_java_primitive_integer_value_mul_ARG_overflow_0,SK_pred_java_primitive_integer_value_mul_ARG_result_0,SK_pred_java_primitive_integer_value_mul_ARG_right_0];
+   if qu_edu_qa_FractionCondition7[exit_stmt_reached,throw]  {
+      t_1:=SK_pred_java_primitive_integer_value_mul_ARG_result_0
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip;
+   if qu_edu_qa_FractionCondition7[exit_stmt_reached,throw]  {
+      var_1_n:=t_1
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip;
+   skip;
+   skip;
+   skip;
+   havocVariable[SK_pred_java_primitive_integer_value_mul_ARG_left_1];
+   havocVariable[SK_pred_java_primitive_integer_value_mul_ARG_right_1];
+   havocVariable[SK_pred_java_primitive_integer_value_mul_ARG_result_1];
+   havocVariable[SK_pred_java_primitive_integer_value_mul_ARG_overflow_1];
+   if qu_edu_qa_FractionCondition1[f1]  {
+      throw:=java_lang_NullPointerExceptionLit
+   
+   } else {
+      assume qu_edu_qa_FractionCondition9[SK_pred_java_primitive_integer_value_mul_ARG_left_1,f1,qu_edu_qa_Fraction_denum]
+   
+   }
+   ;
+   if qu_edu_qa_FractionCondition4[f2]  {
+      throw:=java_lang_NullPointerExceptionLit
+   
+   } else {
+      assume qu_edu_qa_FractionCondition10[SK_pred_java_primitive_integer_value_mul_ARG_right_1,f2,qu_edu_qa_Fraction_denum]
+   
+   }
+   ;
+   assume qu_edu_qa_FractionCondition11[SK_pred_java_primitive_integer_value_mul_ARG_left_1,SK_pred_java_primitive_integer_value_mul_ARG_overflow_1,SK_pred_java_primitive_integer_value_mul_ARG_result_1,SK_pred_java_primitive_integer_value_mul_ARG_right_1];
+   if qu_edu_qa_FractionCondition7[exit_stmt_reached,throw]  {
+      t_2:=SK_pred_java_primitive_integer_value_mul_ARG_result_1
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip;
+   if qu_edu_qa_FractionCondition7[exit_stmt_reached,throw]  {
+      var_2_d:=t_2
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if qu_edu_qa_FractionCondition7[exit_stmt_reached,throw]  {
+      if qu_edu_qa_FractionCondition12[f3]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         qu_edu_qa_Fraction_num:=(qu_edu_qa_Fraction_num)++((f3)->(var_1_n))
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if qu_edu_qa_FractionCondition7[exit_stmt_reached,throw]  {
+      if qu_edu_qa_FractionCondition12[f3]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         qu_edu_qa_Fraction_denum:=(qu_edu_qa_Fraction_denum)++((f3)->(var_2_d))
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if qu_edu_qa_FractionCondition7[exit_stmt_reached,throw]  {
+      return:=f3;
+      exit_stmt_reached:=true
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip
+
+}
+
+assertCorrectness check_qu_edu_qa_Fraction_mul_0[
+  SK_jml_pred_java_primitive_integer_value_mul_ARG_overflow_0:boolean,
+  SK_jml_pred_java_primitive_integer_value_mul_ARG_overflow_1:boolean,
+  SK_jml_pred_java_primitive_integer_value_mul_ARG_result_0:JavaPrimitiveIntegerValue,
+  SK_jml_pred_java_primitive_integer_value_mul_ARG_result_1:JavaPrimitiveIntegerValue,
+  SK_pred_java_primitive_integer_value_mul_ARG_left_0:JavaPrimitiveIntegerValue,
+  SK_pred_java_primitive_integer_value_mul_ARG_left_1:JavaPrimitiveIntegerValue,
+  SK_pred_java_primitive_integer_value_mul_ARG_overflow_0:boolean,
+  SK_pred_java_primitive_integer_value_mul_ARG_overflow_1:boolean,
+  SK_pred_java_primitive_integer_value_mul_ARG_result_0:JavaPrimitiveIntegerValue,
+  SK_pred_java_primitive_integer_value_mul_ARG_result_1:JavaPrimitiveIntegerValue,
+  SK_pred_java_primitive_integer_value_mul_ARG_right_0:JavaPrimitiveIntegerValue,
+  SK_pred_java_primitive_integer_value_mul_ARG_right_1:JavaPrimitiveIntegerValue,
+  exit_stmt_reached:boolean,
+  f1:null+qu_edu_qa_Fraction,
+  f2:null+qu_edu_qa_Fraction,
+  f3:null+qu_edu_qa_Fraction,
+  qu_edu_qa_Fraction_denum:(qu_edu_qa_Fraction)->one(JavaPrimitiveIntegerValue),
+  qu_edu_qa_Fraction_num:(qu_edu_qa_Fraction)->one(JavaPrimitiveIntegerValue),
+  return:null+qu_edu_qa_Fraction,
+  t_1:JavaPrimitiveIntegerValue,
+  t_2:JavaPrimitiveIntegerValue,
+  thiz:qu_edu_qa_Fraction,
+  throw:java_lang_Throwable+null,
+  usedObjects:set (java_lang_Object),
+  var_1_n:JavaPrimitiveIntegerValue,
+  var_2_d:JavaPrimitiveIntegerValue
+]{
+pre={
+   precondition_qu_edu_qa_Fraction_mul_0[f1,
+                                        f2,
+                                        f3,
+                                        qu_edu_qa_Fraction_denum,
+                                        thiz,
+                                        throw]
+
+}
+program={
+   call qu_edu_qa_Fraction_mul_0[thiz,throw,return,f1,f2,f3,SK_jml_pred_java_primitive_integer_value_mul_ARG_overflow_1,SK_jml_pred_java_primitive_integer_value_mul_ARG_overflow_0,SK_jml_pred_java_primitive_integer_value_mul_ARG_result_1,SK_jml_pred_java_primitive_integer_value_mul_ARG_result_0,qu_edu_qa_Fraction_num,qu_edu_qa_Fraction_denum,usedObjects]
+
+}
+post={
+   postcondition_qu_edu_qa_Fraction_mul_0[SK_jml_pred_java_primitive_integer_value_mul_ARG_result_0,
+                                         SK_jml_pred_java_primitive_integer_value_mul_ARG_result_1,
+                                         f3',
+                                         qu_edu_qa_Fraction_denum',
+                                         qu_edu_qa_Fraction_num',
+                                         thiz',
+                                         throw']
+
+}
+}
+

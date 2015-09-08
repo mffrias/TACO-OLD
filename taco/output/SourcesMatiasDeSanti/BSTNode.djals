@@ -1,0 +1,272 @@
+//-------------- SourcesMatiasDeSanti_BSTNode --------------//
+module SourcesMatiasDeSanti_BSTNode
+sig SourcesMatiasDeSanti_BSTNode extends java_lang_Object {}
+{}
+field SourcesMatiasDeSanti_BSTNode_el:(SourcesMatiasDeSanti_BSTNode)->one(JavaPrimitiveIntegerValue) {}
+field SourcesMatiasDeSanti_BSTNode_left:(SourcesMatiasDeSanti_BSTNode)->one(SourcesMatiasDeSanti_BSTNode+null) {}
+field SourcesMatiasDeSanti_BSTNode_right:(SourcesMatiasDeSanti_BSTNode)->one(SourcesMatiasDeSanti_BSTNode+null) {}
+
+program SourcesMatiasDeSanti_BSTNode::Constructor[
+  var thiz:SourcesMatiasDeSanti_BSTNode,
+  var throw:java_lang_Throwable+null,
+  var el:JavaPrimitiveIntegerValue] 
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         {
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.SourcesMatiasDeSanti_BSTNode_el:=JavaPrimitiveIntegerLiteral0;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.SourcesMatiasDeSanti_BSTNode_left:=((SourcesMatiasDeSanti_BSTNode+null) & (null));
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.SourcesMatiasDeSanti_BSTNode_right:=((SourcesMatiasDeSanti_BSTNode+null) & (null));
+               };
+            } else {
+               skip;
+            };
+         
+         }
+      
+      }
+      skip;
+   
+   }
+
+
+program SourcesMatiasDeSanti_BSTNode::Constructor[
+  var thiz:SourcesMatiasDeSanti_BSTNode,
+  var throw:java_lang_Throwable+null,
+  var el:JavaPrimitiveIntegerValue,
+  var lt:SourcesMatiasDeSanti_BSTNode+null,
+  var rt:SourcesMatiasDeSanti_BSTNode+null] 
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         {
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.SourcesMatiasDeSanti_BSTNode_el:=JavaPrimitiveIntegerLiteral0;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.SourcesMatiasDeSanti_BSTNode_left:=((SourcesMatiasDeSanti_BSTNode+null) & (null));
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.SourcesMatiasDeSanti_BSTNode_right:=((SourcesMatiasDeSanti_BSTNode+null) & (null));
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.SourcesMatiasDeSanti_BSTNode_el:=el;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.SourcesMatiasDeSanti_BSTNode_left:=lt;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.SourcesMatiasDeSanti_BSTNode_right:=rt;
+               };
+            } else {
+               skip;
+            };
+         
+         }
+      
+      }
+      skip;
+   
+   }
+
+
+program SourcesMatiasDeSanti_BSTNode::Constructor[
+  var thiz:SourcesMatiasDeSanti_BSTNode,
+  var throw:java_lang_Throwable+null] 
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         {
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.SourcesMatiasDeSanti_BSTNode_el:=JavaPrimitiveIntegerLiteral0;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.SourcesMatiasDeSanti_BSTNode_left:=((SourcesMatiasDeSanti_BSTNode+null) & (null));
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.SourcesMatiasDeSanti_BSTNode_right:=((SourcesMatiasDeSanti_BSTNode+null) & (null));
+               };
+            } else {
+               skip;
+            };
+            var t_27:SourcesMatiasDeSanti_BSTNode+null;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.SourcesMatiasDeSanti_BSTNode_right:=((SourcesMatiasDeSanti_BSTNode+null) & (null));
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  t_27:=thiz.SourcesMatiasDeSanti_BSTNode_right;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.SourcesMatiasDeSanti_BSTNode_left:=t_27;
+               };
+            } else {
+               skip;
+            };
+         
+         }
+      
+      }
+      skip;
+   
+   }
+
+
+

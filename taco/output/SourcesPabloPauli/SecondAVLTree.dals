@@ -1,0 +1,411 @@
+sig SourcesPabloPauli_SecondAVLTree extends java_lang_Object {}
+{}
+
+
+
+
+pred SourcesPabloPauli_SecondAVLTreeCondition1[
+  exit_stmt_reached:univ,
+  throw:univ
+]{
+   not (
+     (
+       throw=null)
+     and 
+     (
+       exit_stmt_reached=false)
+   )
+
+}
+
+pred SourcesPabloPauli_SecondAVLTree_object_invariant[
+  SourcesPabloPauli_SecondAVLNode_left:univ->univ,
+  SourcesPabloPauli_SecondAVLNode_right:univ->univ,
+  SourcesPabloPauli_SecondAVLNode_value:univ->univ,
+  SourcesPabloPauli_SecondAVLTree_root:univ->univ,
+  thiz:univ
+]{
+   (
+     all n:SourcesPabloPauli_SecondAVLNode+null | {
+       equ[n.SourcesPabloPauli_SecondAVLNode_right,
+          null]
+       or 
+       (
+         pred_java_primitive_integer_value_gt[(n.SourcesPabloPauli_SecondAVLNode_right).SourcesPabloPauli_SecondAVLNode_value,
+                                             n.SourcesPabloPauli_SecondAVLNode_value]
+         and 
+         equ[n.SourcesPabloPauli_SecondAVLNode_left,
+            null]
+       )
+       
+       or 
+       pred_java_primitive_integer_value_lte[(n.SourcesPabloPauli_SecondAVLNode_left).SourcesPabloPauli_SecondAVLNode_value,
+                                            n.SourcesPabloPauli_SecondAVLNode_value]
+     
+     }
+   )
+   and 
+   (
+     all n:SourcesPabloPauli_SecondAVLNode+null | {
+       equ[fun_set_contains[fun_reach[thiz.SourcesPabloPauli_SecondAVLTree_root,SourcesPabloPauli_SecondAVLNode,SourcesPabloPauli_SecondAVLNode_left+SourcesPabloPauli_SecondAVLNode_right],n],
+          true]
+       implies 
+               (
+                 equ[fun_set_contains[fun_reach[n.SourcesPabloPauli_SecondAVLNode_right,SourcesPabloPauli_SecondAVLNode,SourcesPabloPauli_SecondAVLNode_right+SourcesPabloPauli_SecondAVLNode_left],n],
+                    false]
+                 and 
+                 equ[fun_set_contains[fun_reach[n.SourcesPabloPauli_SecondAVLNode_left,SourcesPabloPauli_SecondAVLNode,SourcesPabloPauli_SecondAVLNode_left+SourcesPabloPauli_SecondAVLNode_right],n],
+                    false]
+               )
+     
+     }
+   )
+
+}
+
+pred SourcesPabloPauli_SecondAVLTreeCondition7[
+  t_2:univ
+]{
+   not (
+     t_2=true)
+
+}
+
+pred SourcesPabloPauli_SecondAVLTreeCondition0[
+  exit_stmt_reached:univ,
+  throw:univ
+]{
+   (
+     throw=null)
+   and 
+   (
+     exit_stmt_reached=false)
+
+}
+
+pred SourcesPabloPauli_SecondAVLTreeCondition6[
+  t_2:univ
+]{
+   t_2=true
+
+}
+
+pred SourcesPabloPauli_SecondAVLTreeCondition5[
+  var_1_currentNode:univ
+]{
+   not (
+     isEmptyOrNull[var_1_currentNode])
+
+}
+
+pred SourcesPabloPauli_SecondAVLTreeCondition4[
+  var_1_currentNode:univ
+]{
+   isEmptyOrNull[var_1_currentNode]
+
+}
+
+pred postcondition_SourcesPabloPauli_SecondAVLTree_lookup_0[
+  throw':univ
+]{
+   SourcesPabloPauli_SecondAVLTree_ensures[throw']
+   and 
+   (
+     not (
+       throw'=AssertionFailureLit)
+   )
+
+}
+
+pred SourcesPabloPauli_SecondAVLTree_requires[
+]{
+   true=true
+
+}
+
+pred SourcesPabloPauli_SecondAVLTreeCondition3[
+  thiz:univ
+]{
+   not (
+     isEmptyOrNull[thiz])
+
+}
+
+pred SourcesPabloPauli_SecondAVLTreeCondition2[
+  thiz:univ
+]{
+   isEmptyOrNull[thiz]
+
+}
+
+pred SourcesPabloPauli_SecondAVLTreeCondition10[
+  exit_stmt_reached:univ,
+  throw:univ,
+  var_2_ws_1:univ
+]{
+   liftExpression[var_2_ws_1]
+   and 
+   (
+     throw=null)
+   and 
+   (
+     exit_stmt_reached=false)
+
+}
+
+pred SourcesPabloPauli_SecondAVLTree_ensures[
+  throw':univ
+]{
+   (
+     throw'=null)
+   implies 
+           liftExpression[true]
+
+}
+
+pred SourcesPabloPauli_SecondAVLTreeCondition8[
+  t_3:univ
+]{
+   t_3=true
+
+}
+
+pred precondition_SourcesPabloPauli_SecondAVLTree_lookup_0[
+  SourcesPabloPauli_SecondAVLNode_left:univ->univ,
+  SourcesPabloPauli_SecondAVLNode_right:univ->univ,
+  SourcesPabloPauli_SecondAVLNode_value:univ->univ,
+  SourcesPabloPauli_SecondAVLTree_root:univ->univ,
+  throw:univ
+]{
+   equ[throw,
+      null]
+   and 
+   SourcesPabloPauli_SecondAVLTree_requires[]
+   and 
+   (
+     all objx:SourcesPabloPauli_SecondAVLTree | {
+       SourcesPabloPauli_SecondAVLTree_object_invariant[SourcesPabloPauli_SecondAVLNode_left,
+                                                       SourcesPabloPauli_SecondAVLNode_right,
+                                                       SourcesPabloPauli_SecondAVLNode_value,
+                                                       SourcesPabloPauli_SecondAVLTree_root,
+                                                       objx]
+     
+     }
+   )
+
+}
+
+pred SourcesPabloPauli_SecondAVLTreeCondition9[
+  t_3:univ
+]{
+   not (
+     t_3=true)
+
+}
+
+program SourcesPabloPauli_SecondAVLTree_lookup_0[
+  thiz:SourcesPabloPauli_SecondAVLTree,
+  throw:java_lang_Throwable+null,
+  return:SourcesPabloPauli_SecondAVLNode+null,
+  value:JavaPrimitiveIntegerValue,
+  SourcesPabloPauli_SecondAVLNode_left:(SourcesPabloPauli_SecondAVLNode)->one(SourcesPabloPauli_SecondAVLNode+null),
+  SourcesPabloPauli_SecondAVLNode_parent:(SourcesPabloPauli_SecondAVLNode)->one(SourcesPabloPauli_SecondAVLNode+null),
+  SourcesPabloPauli_SecondAVLNode_object:(SourcesPabloPauli_SecondAVLNode)->one(java_lang_Object+null),
+  SourcesPabloPauli_SecondAVLNode_height:(SourcesPabloPauli_SecondAVLNode)->one(JavaPrimitiveIntegerValue),
+  SourcesPabloPauli_SecondAVLTree_root:(SourcesPabloPauli_SecondAVLTree)->one(SourcesPabloPauli_SecondAVLNode+null),
+  SourcesPabloPauli_SecondAVLNode_value:(SourcesPabloPauli_SecondAVLNode)->one(JavaPrimitiveIntegerValue),
+  SourcesPabloPauli_SecondAVLNode_right:(SourcesPabloPauli_SecondAVLNode)->one(SourcesPabloPauli_SecondAVLNode+null),
+  usedObjects:set (java_lang_Object)
+] var [
+  t_2:boolean,
+  t_3:boolean,
+  param_value_0:JavaPrimitiveIntegerValue,
+  exit_stmt_reached:boolean,
+  t_1:SourcesPabloPauli_SecondAVLNode+null,
+  var_1_currentNode:SourcesPabloPauli_SecondAVLNode+null,
+  var_2_ws_1:boolean
+]{
+   skip;
+   throw:=null;
+   skip;
+   exit_stmt_reached:=false;
+   skip;
+   if SourcesPabloPauli_SecondAVLTreeCondition0[exit_stmt_reached,throw]  {
+      param_value_0:=value
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip;
+   if SourcesPabloPauli_SecondAVLTreeCondition0[exit_stmt_reached,throw]  {
+      if SourcesPabloPauli_SecondAVLTreeCondition2[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         var_1_currentNode:=thiz.SourcesPabloPauli_SecondAVLTree_root
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip;
+   if SourcesPabloPauli_SecondAVLTreeCondition0[exit_stmt_reached,throw]  {
+      var_2_ws_1:=(neq[var_1_currentNode,null]=>(true)else(false))
+   
+   } else {
+      skip
+   
+   }
+   ;
+   while SourcesPabloPauli_SecondAVLTreeCondition10[exit_stmt_reached,throw,var_2_ws_1]do {
+      skip;
+      if SourcesPabloPauli_SecondAVLTreeCondition0[exit_stmt_reached,throw]  {
+         t_3:=(equ[var_1_currentNode.SourcesPabloPauli_SecondAVLNode_value,param_value_0]=>(true)else(false))
+      
+      } else {
+         skip
+      
+      }
+      ;
+      if SourcesPabloPauli_SecondAVLTreeCondition0[exit_stmt_reached,throw]  {
+         if SourcesPabloPauli_SecondAVLTreeCondition8[t_3]  {
+            if SourcesPabloPauli_SecondAVLTreeCondition0[exit_stmt_reached,throw]  {
+               return:=var_1_currentNode;
+               exit_stmt_reached:=true
+            
+            } else {
+               skip
+            
+            }
+         
+         } else {
+            skip;
+            skip;
+            if SourcesPabloPauli_SecondAVLTreeCondition0[exit_stmt_reached,throw]  {
+               t_2:=(pred_java_primitive_integer_value_lt[param_value_0,var_1_currentNode.SourcesPabloPauli_SecondAVLNode_value]=>(true)else(false))
+            
+            } else {
+               skip
+            
+            }
+            ;
+            if SourcesPabloPauli_SecondAVLTreeCondition0[exit_stmt_reached,throw]  {
+               if SourcesPabloPauli_SecondAVLTreeCondition6[t_2]  {
+                  if SourcesPabloPauli_SecondAVLTreeCondition0[exit_stmt_reached,throw]  {
+                     if SourcesPabloPauli_SecondAVLTreeCondition4[var_1_currentNode]  {
+                        throw:=java_lang_NullPointerExceptionLit
+                     
+                     } else {
+                        t_1:=var_1_currentNode.SourcesPabloPauli_SecondAVLNode_left
+                     
+                     }
+                  
+                  } else {
+                     skip
+                  
+                  }
+               
+               } else {
+                  if SourcesPabloPauli_SecondAVLTreeCondition0[exit_stmt_reached,throw]  {
+                     if SourcesPabloPauli_SecondAVLTreeCondition4[var_1_currentNode]  {
+                        throw:=java_lang_NullPointerExceptionLit
+                     
+                     } else {
+                        t_1:=var_1_currentNode.SourcesPabloPauli_SecondAVLNode_right
+                     
+                     }
+                  
+                  } else {
+                     skip
+                  
+                  }
+               
+               }
+            
+            } else {
+               skip
+            
+            }
+            ;
+            if SourcesPabloPauli_SecondAVLTreeCondition0[exit_stmt_reached,throw]  {
+               var_1_currentNode:=t_1
+            
+            } else {
+               skip
+            
+            }
+         
+         }
+      
+      } else {
+         skip
+      
+      }
+      ;
+      if SourcesPabloPauli_SecondAVLTreeCondition0[exit_stmt_reached,throw]  {
+         var_2_ws_1:=(neq[var_1_currentNode,null]=>(true)else(false))
+      
+      } else {
+         skip
+      
+      }
+   
+   }
+   ;
+   if SourcesPabloPauli_SecondAVLTreeCondition0[exit_stmt_reached,throw]  {
+      return:=((SourcesPabloPauli_SecondAVLNode+null) & (null));
+      exit_stmt_reached:=true
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip
+
+}
+
+assertCorrectness check_SourcesPabloPauli_SecondAVLTree_lookup_0[
+  SourcesPabloPauli_SecondAVLNode_height:(SourcesPabloPauli_SecondAVLNode)->one(JavaPrimitiveIntegerValue),
+  SourcesPabloPauli_SecondAVLNode_left:(SourcesPabloPauli_SecondAVLNode)->one(SourcesPabloPauli_SecondAVLNode+null),
+  SourcesPabloPauli_SecondAVLNode_object:(SourcesPabloPauli_SecondAVLNode)->one(java_lang_Object+null),
+  SourcesPabloPauli_SecondAVLNode_parent:(SourcesPabloPauli_SecondAVLNode)->one(SourcesPabloPauli_SecondAVLNode+null),
+  SourcesPabloPauli_SecondAVLNode_right:(SourcesPabloPauli_SecondAVLNode)->one(SourcesPabloPauli_SecondAVLNode+null),
+  SourcesPabloPauli_SecondAVLNode_value:(SourcesPabloPauli_SecondAVLNode)->one(JavaPrimitiveIntegerValue),
+  SourcesPabloPauli_SecondAVLTree_root:(SourcesPabloPauli_SecondAVLTree)->one(SourcesPabloPauli_SecondAVLNode+null),
+  exit_stmt_reached:boolean,
+  param_value_0:JavaPrimitiveIntegerValue,
+  return:SourcesPabloPauli_SecondAVLNode+null,
+  t_1:SourcesPabloPauli_SecondAVLNode+null,
+  t_2:boolean,
+  t_3:boolean,
+  thiz:SourcesPabloPauli_SecondAVLTree,
+  throw:java_lang_Throwable+null,
+  usedObjects:set (java_lang_Object),
+  value:JavaPrimitiveIntegerValue,
+  var_1_currentNode:SourcesPabloPauli_SecondAVLNode+null,
+  var_2_ws_1:boolean
+]{
+pre={
+   precondition_SourcesPabloPauli_SecondAVLTree_lookup_0[SourcesPabloPauli_SecondAVLNode_left,
+                                                        SourcesPabloPauli_SecondAVLNode_right,
+                                                        SourcesPabloPauli_SecondAVLNode_value,
+                                                        SourcesPabloPauli_SecondAVLTree_root,
+                                                        throw]
+
+}
+program={
+   call SourcesPabloPauli_SecondAVLTree_lookup_0[thiz,throw,return,value,SourcesPabloPauli_SecondAVLNode_left,SourcesPabloPauli_SecondAVLNode_parent,SourcesPabloPauli_SecondAVLNode_object,SourcesPabloPauli_SecondAVLNode_height,SourcesPabloPauli_SecondAVLTree_root,SourcesPabloPauli_SecondAVLNode_value,SourcesPabloPauli_SecondAVLNode_right,usedObjects]
+
+}
+post={
+   postcondition_SourcesPabloPauli_SecondAVLTree_lookup_0[throw']
+
+}
+}
+

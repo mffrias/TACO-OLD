@@ -1,0 +1,127 @@
+sig ar_edu_itba_alu_crpereyr_impl_linkedlist1_Node extends java_lang_Object {}
+{}
+
+
+
+
+pred ar_edu_itba_alu_crpereyr_impl_linkedlist1_NodeCondition0[
+  thiz:univ
+]{
+   isEmptyOrNull[thiz]
+
+}
+
+pred ar_edu_itba_alu_crpereyr_impl_linkedlist1_NodeCondition1[
+  thiz:univ
+]{
+   not (
+     isEmptyOrNull[thiz])
+
+}
+
+pred ar_edu_itba_alu_crpereyr_impl_linkedlist1_NodeCondition2[
+  exit_stmt_reached:univ,
+  throw:univ
+]{
+   (
+     throw=null)
+   and 
+   (
+     exit_stmt_reached=false)
+
+}
+
+pred ar_edu_itba_alu_crpereyr_impl_linkedlist1_NodeCondition3[
+  exit_stmt_reached:univ,
+  throw:univ
+]{
+   not (
+     (
+       throw=null)
+     and 
+     (
+       exit_stmt_reached=false)
+   )
+
+}
+
+program ar_edu_itba_alu_crpereyr_impl_linkedlist1_Node_getNext_0[
+  thiz:ar_edu_itba_alu_crpereyr_impl_linkedlist1_Node,
+  throw:java_lang_Throwable+null,
+  return:ar_edu_itba_alu_crpereyr_impl_linkedlist1_Node+null,
+  ar_edu_itba_alu_crpereyr_impl_linkedlist1_SinglyLinkedList_head:(ar_edu_itba_alu_crpereyr_impl_linkedlist1_SinglyLinkedList)->one(ar_edu_itba_alu_crpereyr_impl_linkedlist1_Node+null),
+  ar_edu_itba_alu_crpereyr_impl_linkedlist1_Node_data:(ar_edu_itba_alu_crpereyr_impl_linkedlist1_Node)->one(java_lang_Object+null),
+  ar_edu_itba_alu_crpereyr_impl_linkedlist1_Node_next:(ar_edu_itba_alu_crpereyr_impl_linkedlist1_Node)->one(ar_edu_itba_alu_crpereyr_impl_linkedlist1_Node+null),
+  ar_edu_itba_alu_crpereyr_impl_linkedlist1_SinglyLinkedList_listCount:(ar_edu_itba_alu_crpereyr_impl_linkedlist1_SinglyLinkedList)->one(JavaPrimitiveIntegerValue),
+  usedObjects:set (java_lang_Object)
+] var [
+  exit_stmt_reached:boolean
+]{
+   skip;
+   throw:=null;
+   skip;
+   exit_stmt_reached:=false;
+   if ar_edu_itba_alu_crpereyr_impl_linkedlist1_NodeCondition2[exit_stmt_reached,throw]  {
+      if ar_edu_itba_alu_crpereyr_impl_linkedlist1_NodeCondition0[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         return:=thiz.ar_edu_itba_alu_crpereyr_impl_linkedlist1_Node_next
+      
+      }
+      ;
+      exit_stmt_reached:=true
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip
+
+}
+
+program ar_edu_itba_alu_crpereyr_impl_linkedlist1_Node_setNext_0[
+  thiz:ar_edu_itba_alu_crpereyr_impl_linkedlist1_Node,
+  throw:java_lang_Throwable+null,
+  nextValue:ar_edu_itba_alu_crpereyr_impl_linkedlist1_Node+null,
+  ar_edu_itba_alu_crpereyr_impl_linkedlist1_SinglyLinkedList_head:(ar_edu_itba_alu_crpereyr_impl_linkedlist1_SinglyLinkedList)->one(ar_edu_itba_alu_crpereyr_impl_linkedlist1_Node+null),
+  ar_edu_itba_alu_crpereyr_impl_linkedlist1_Node_data:(ar_edu_itba_alu_crpereyr_impl_linkedlist1_Node)->one(java_lang_Object+null),
+  ar_edu_itba_alu_crpereyr_impl_linkedlist1_Node_next:(ar_edu_itba_alu_crpereyr_impl_linkedlist1_Node)->one(ar_edu_itba_alu_crpereyr_impl_linkedlist1_Node+null),
+  ar_edu_itba_alu_crpereyr_impl_linkedlist1_SinglyLinkedList_listCount:(ar_edu_itba_alu_crpereyr_impl_linkedlist1_SinglyLinkedList)->one(JavaPrimitiveIntegerValue),
+  usedObjects:set (java_lang_Object)
+] var [
+  exit_stmt_reached:boolean,
+  param_nextValue_9:ar_edu_itba_alu_crpereyr_impl_linkedlist1_Node+null
+]{
+   skip;
+   throw:=null;
+   skip;
+   exit_stmt_reached:=false;
+   skip;
+   if ar_edu_itba_alu_crpereyr_impl_linkedlist1_NodeCondition2[exit_stmt_reached,throw]  {
+      param_nextValue_9:=nextValue
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if ar_edu_itba_alu_crpereyr_impl_linkedlist1_NodeCondition2[exit_stmt_reached,throw]  {
+      if ar_edu_itba_alu_crpereyr_impl_linkedlist1_NodeCondition0[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         ar_edu_itba_alu_crpereyr_impl_linkedlist1_Node_next:=(ar_edu_itba_alu_crpereyr_impl_linkedlist1_Node_next)++((thiz)->(param_nextValue_9))
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip
+
+}
+

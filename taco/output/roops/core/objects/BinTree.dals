@@ -1,0 +1,814 @@
+sig roops_core_objects_BinTree extends java_lang_Object {}
+{}
+
+
+
+
+pred roops_core_objects_BinTreeCondition15[
+  t_4:univ
+]{
+   t_4=true
+
+}
+
+pred roops_core_objects_BinTreeCondition20[
+  thiz:univ
+]{
+   not (
+     isEmptyOrNull[thiz]
+     or 
+     isEmptyOrNull[thiz]
+   )
+
+}
+
+pred roops_core_objects_BinTreeCondition16[
+  t_4:univ
+]{
+   not (
+     t_4=true)
+
+}
+
+pred precondition_roops_core_objects_BinTree_insert_0[
+  k:univ,
+  return:univ,
+  roops_core_objects_BinTreeNode_key:univ->univ,
+  roops_core_objects_BinTreeNode_left:univ->univ,
+  roops_core_objects_BinTreeNode_parent:univ->univ,
+  roops_core_objects_BinTreeNode_right:univ->univ,
+  roops_core_objects_BinTree_root:univ->univ,
+  roops_core_objects_BinTree_size:univ->univ,
+  thiz:univ,
+  throw:univ,
+  usedObjects:univ
+]{
+   equ[throw,
+      null]
+   and 
+   roops_core_objects_BinTree_object_invariant[roops_core_objects_BinTreeNode_key,
+                                              roops_core_objects_BinTreeNode_left,
+                                              roops_core_objects_BinTreeNode_parent,
+                                              roops_core_objects_BinTreeNode_right,
+                                              roops_core_objects_BinTree_root,
+                                              roops_core_objects_BinTree_size,
+                                              thiz]
+   and 
+   roops_core_objects_BinTree_requires[k,
+                                      return,
+                                      roops_core_objects_BinTreeNode_key,
+                                      roops_core_objects_BinTreeNode_left,
+                                      roops_core_objects_BinTreeNode_parent,
+                                      roops_core_objects_BinTreeNode_right,
+                                      roops_core_objects_BinTree_root,
+                                      roops_core_objects_BinTree_size,
+                                      thiz,
+                                      usedObjects]
+
+}
+
+pred roops_core_objects_BinTreeCondition13[
+  var_1_y:univ
+]{
+   isEmptyOrNull[var_1_y]
+
+}
+
+pred roops_core_objects_BinTreeCondition14[
+  var_1_y:univ
+]{
+   not (
+     isEmptyOrNull[var_1_y])
+
+}
+
+pred roops_core_objects_BinTreeCondition18[
+  t_5:univ
+]{
+   not (
+     t_5=true)
+
+}
+
+pred roops_core_objects_BinTreeCondition17[
+  t_5:univ
+]{
+   t_5=true
+
+}
+
+pred roops_core_objects_BinTree_requires[
+  k:univ,
+  return:univ,
+  roops_core_objects_BinTreeNode_key:univ->univ,
+  roops_core_objects_BinTreeNode_left:univ->univ,
+  roops_core_objects_BinTreeNode_parent:univ->univ,
+  roops_core_objects_BinTreeNode_right:univ->univ,
+  roops_core_objects_BinTree_root:univ->univ,
+  roops_core_objects_BinTree_size:univ->univ,
+  thiz:univ,
+  usedObjects:univ
+]{
+   (
+     true=true)
+   and 
+   (
+     usedObjects=fun_weak_reach[none+thiz+return+k,java_lang_Object,(none)->(none)+roops_core_objects_BinTree_root+roops_core_objects_BinTree_size+roops_core_objects_BinTreeNode_key+roops_core_objects_BinTreeNode_left+roops_core_objects_BinTreeNode_right+roops_core_objects_BinTreeNode_parent])
+
+}
+
+pred roops_core_objects_BinTreeCondition12[
+  t_3:univ
+]{
+   not (
+     isEmptyOrNull[t_3])
+
+}
+
+pred roops_core_objects_BinTreeCondition9[
+  t_2:univ
+]{
+   not (
+     t_2=true)
+
+}
+
+pred roops_core_objects_BinTreeCondition11[
+  t_3:univ
+]{
+   isEmptyOrNull[t_3]
+
+}
+
+pred roops_core_objects_BinTreeCondition1[
+  exit_stmt_reached:univ,
+  throw:univ
+]{
+   not (
+     (
+       throw=null)
+     and 
+     (
+       exit_stmt_reached=false)
+   )
+
+}
+
+pred roops_core_objects_BinTreeCondition2[
+  thiz:univ
+]{
+   isEmptyOrNull[thiz]
+
+}
+
+pred roops_core_objects_BinTreeCondition0[
+  exit_stmt_reached:univ,
+  throw:univ
+]{
+   (
+     throw=null)
+   and 
+   (
+     exit_stmt_reached=false)
+
+}
+
+pred roops_core_objects_BinTreeCondition6[
+  t_1:univ
+]{
+   t_1=true
+
+}
+
+pred roops_core_objects_BinTreeCondition3[
+  thiz:univ
+]{
+   not (
+     isEmptyOrNull[thiz])
+
+}
+
+pred roops_core_objects_BinTreeCondition7[
+  t_1:univ
+]{
+   not (
+     t_1=true)
+
+}
+
+pred roops_core_objects_BinTreeCondition8[
+  t_2:univ
+]{
+   t_2=true
+
+}
+
+pred roops_core_objects_BinTree_object_invariant[
+  roops_core_objects_BinTreeNode_key:univ->univ,
+  roops_core_objects_BinTreeNode_left:univ->univ,
+  roops_core_objects_BinTreeNode_parent:univ->univ,
+  roops_core_objects_BinTreeNode_right:univ->univ,
+  roops_core_objects_BinTree_root:univ->univ,
+  roops_core_objects_BinTree_size:univ->univ,
+  thiz:univ
+]{
+   equ[thiz.roops_core_objects_BinTree_size,
+      fun_set_size[fun_reach[thiz.roops_core_objects_BinTree_root,roops_core_objects_BinTreeNode,roops_core_objects_BinTreeNode_left+roops_core_objects_BinTreeNode_right]]]
+   and 
+   (
+     all n:null+roops_core_objects_BinTreeNode | {
+       equ[fun_set_contains[fun_reach[thiz.roops_core_objects_BinTree_root,roops_core_objects_BinTreeNode,roops_core_objects_BinTreeNode_left+roops_core_objects_BinTreeNode_right],n],
+          true]
+       implies 
+               (
+                 (
+                   all m:null+roops_core_objects_BinTreeNode | {
+                     equ[fun_set_contains[fun_reach[n.roops_core_objects_BinTreeNode_left,roops_core_objects_BinTreeNode,roops_core_objects_BinTreeNode_left+roops_core_objects_BinTreeNode_right],m],
+                        true]
+                     implies 
+                             lte[m.roops_core_objects_BinTreeNode_key,
+                                n.roops_core_objects_BinTreeNode_key]
+                   
+                   }
+                 )
+                 and 
+                 (
+                   all m:null+roops_core_objects_BinTreeNode | {
+                     equ[fun_set_contains[fun_reach[n.roops_core_objects_BinTreeNode_right,roops_core_objects_BinTreeNode,roops_core_objects_BinTreeNode_left+roops_core_objects_BinTreeNode_right],m],
+                        true]
+                     implies 
+                             gt[m.roops_core_objects_BinTreeNode_key,
+                               n.roops_core_objects_BinTreeNode_key]
+                   
+                   }
+                 )
+               )
+     
+     }
+   )
+   and 
+   (
+     all n:null+roops_core_objects_BinTreeNode | {
+       equ[fun_set_contains[fun_reach[thiz.roops_core_objects_BinTree_root,roops_core_objects_BinTreeNode,roops_core_objects_BinTreeNode_left+roops_core_objects_BinTreeNode_right],n],
+          true]
+       implies 
+               (
+                 equ[fun_set_contains[fun_reach[n.roops_core_objects_BinTreeNode_right,roops_core_objects_BinTreeNode,roops_core_objects_BinTreeNode_right+roops_core_objects_BinTreeNode_left],n],
+                    false]
+                 and 
+                 equ[fun_set_contains[fun_reach[n.roops_core_objects_BinTreeNode_left,roops_core_objects_BinTreeNode,roops_core_objects_BinTreeNode_left+roops_core_objects_BinTreeNode_right],n],
+                    false]
+               )
+     
+     }
+   )
+   and 
+   (
+     all n:null+roops_core_objects_BinTreeNode | {
+       equ[fun_set_contains[fun_reach[thiz.roops_core_objects_BinTree_root,roops_core_objects_BinTreeNode,roops_core_objects_BinTreeNode_left+roops_core_objects_BinTreeNode_right],n],
+          true]
+       implies 
+               (
+                 (
+                   neq[n.roops_core_objects_BinTreeNode_left,
+                      null]
+                   implies 
+                           equ[(n.roops_core_objects_BinTreeNode_left).roops_core_objects_BinTreeNode_parent,
+                              n]
+                 )
+                 and 
+                 (
+                   neq[n.roops_core_objects_BinTreeNode_right,
+                      null]
+                   implies 
+                           equ[(n.roops_core_objects_BinTreeNode_right).roops_core_objects_BinTreeNode_parent,
+                              n]
+                 )
+               )
+     
+     }
+   )
+
+}
+
+pred roops_core_objects_BinTreeCondition5[
+  var_2_x:univ
+]{
+   not (
+     isEmptyOrNull[var_2_x])
+
+}
+
+pred roops_core_objects_BinTreeCondition4[
+  var_2_x:univ
+]{
+   isEmptyOrNull[var_2_x]
+
+}
+
+pred roops_core_objects_BinTree_ensures[
+  k':univ,
+  roops_core_objects_BinTreeNode_key':univ->univ,
+  roops_core_objects_BinTreeNode_left:univ->univ,
+  roops_core_objects_BinTreeNode_right:univ->univ,
+  roops_core_objects_BinTree_root:univ->univ,
+  roops_core_objects_BinTree_size:univ->univ,
+  roops_core_objects_BinTree_size':univ->univ,
+  thiz:univ,
+  thiz':univ,
+  throw':univ
+]{
+   (
+     (
+       throw'=null)
+     implies 
+             (
+               (
+                 all n:null+roops_core_objects_BinTreeNode | {
+                   equ[fun_set_contains[fun_reach[thiz.roops_core_objects_BinTree_root,roops_core_objects_BinTreeNode,roops_core_objects_BinTreeNode_left+roops_core_objects_BinTreeNode_right],n],
+                      true]
+                   implies 
+                           neq[n.roops_core_objects_BinTreeNode_key',
+                              k']
+                 
+                 }
+               )
+               implies 
+                       equ[thiz'.roops_core_objects_BinTree_size',
+                          add[thiz.roops_core_objects_BinTree_size,1]]
+             )
+   )
+   and 
+   (
+     (
+       throw'=null)
+     implies 
+             (
+               (
+                 some n:null+roops_core_objects_BinTreeNode | {
+                   equ[fun_set_contains[fun_reach[thiz.roops_core_objects_BinTree_root,roops_core_objects_BinTreeNode,roops_core_objects_BinTreeNode_left+roops_core_objects_BinTreeNode_right],n],
+                      true]
+                   and 
+                   equ[n.roops_core_objects_BinTreeNode_key',
+                      k']
+                 
+                 }
+               )
+               implies 
+                       equ[thiz'.roops_core_objects_BinTree_size',
+                          thiz.roops_core_objects_BinTree_size]
+             )
+   )
+
+}
+
+pred postcondition_roops_core_objects_BinTree_insert_0[
+  k':univ,
+  roops_core_objects_BinTreeNode_key':univ->univ,
+  roops_core_objects_BinTreeNode_left:univ->univ,
+  roops_core_objects_BinTreeNode_left':univ->univ,
+  roops_core_objects_BinTreeNode_parent':univ->univ,
+  roops_core_objects_BinTreeNode_right:univ->univ,
+  roops_core_objects_BinTreeNode_right':univ->univ,
+  roops_core_objects_BinTree_root:univ->univ,
+  roops_core_objects_BinTree_root':univ->univ,
+  roops_core_objects_BinTree_size:univ->univ,
+  roops_core_objects_BinTree_size':univ->univ,
+  thiz:univ,
+  thiz':univ,
+  throw':univ
+]{
+   roops_core_objects_BinTree_ensures[k',
+                                     roops_core_objects_BinTreeNode_key',
+                                     roops_core_objects_BinTreeNode_left,
+                                     roops_core_objects_BinTreeNode_right,
+                                     roops_core_objects_BinTree_root,
+                                     roops_core_objects_BinTree_size,
+                                     roops_core_objects_BinTree_size',
+                                     thiz,
+                                     thiz',
+                                     throw']
+   and 
+   (
+     not (
+       throw'=AssertionFailureLit)
+   )
+   and 
+   roops_core_objects_BinTree_object_invariant[roops_core_objects_BinTreeNode_key',
+                                              roops_core_objects_BinTreeNode_left',
+                                              roops_core_objects_BinTreeNode_parent',
+                                              roops_core_objects_BinTreeNode_right',
+                                              roops_core_objects_BinTree_root',
+                                              roops_core_objects_BinTree_size',
+                                              thiz']
+
+}
+
+pred roops_core_objects_BinTreeCondition10[
+  exit_stmt_reached:univ,
+  throw:univ,
+  var_3_ws_1:univ
+]{
+   liftExpression[var_3_ws_1]
+   and 
+   (
+     throw=null)
+   and 
+   (
+     exit_stmt_reached=false)
+
+}
+
+pred roops_core_objects_BinTreeCondition19[
+  thiz:univ
+]{
+   isEmptyOrNull[thiz]
+   or 
+   isEmptyOrNull[thiz]
+
+}
+
+program roops_core_objects_BinTree_insert_0[
+  thiz:roops_core_objects_BinTree,
+  throw:java_lang_Throwable+null,
+  return:boolean,
+  k:Int,
+  roops_core_objects_BinTreeNode_key:(roops_core_objects_BinTreeNode)->one(Int),
+  roops_core_objects_BinTree_root:(roops_core_objects_BinTree)->one(null+roops_core_objects_BinTreeNode),
+  roops_core_objects_BinTreeNode_parent:(roops_core_objects_BinTreeNode)->one(null+roops_core_objects_BinTreeNode),
+  roops_core_objects_BinTreeNode_right:(roops_core_objects_BinTreeNode)->one(null+roops_core_objects_BinTreeNode),
+  roops_core_objects_BinTree_size:(roops_core_objects_BinTree)->one(Int),
+  roops_core_objects_BinTreeNode_left:(roops_core_objects_BinTreeNode)->one(null+roops_core_objects_BinTreeNode),
+  usedObjects:set (java_lang_Object)
+] var [
+  t_2:boolean,
+  t_3:null+roops_core_objects_BinTreeNode,
+  exit_stmt_reached:boolean,
+  t_1:boolean,
+  var_1_y:null+roops_core_objects_BinTreeNode,
+  var_2_x:null+roops_core_objects_BinTreeNode,
+  param_k_0:Int,
+  var_3_ws_1:boolean,
+  t_4:boolean,
+  t_5:boolean
+]{
+   skip;
+   throw:=null;
+   skip;
+   exit_stmt_reached:=false;
+   skip;
+   if roops_core_objects_BinTreeCondition0[exit_stmt_reached,throw]  {
+      param_k_0:=k
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip;
+   skip;
+   skip;
+   if roops_core_objects_BinTreeCondition0[exit_stmt_reached,throw]  {
+      var_1_y:=((null+roops_core_objects_BinTreeNode) & (null))
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip;
+   if roops_core_objects_BinTreeCondition0[exit_stmt_reached,throw]  {
+      if roops_core_objects_BinTreeCondition2[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         var_2_x:=thiz.roops_core_objects_BinTree_root
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip;
+   if roops_core_objects_BinTreeCondition0[exit_stmt_reached,throw]  {
+      var_3_ws_1:=(neq[var_2_x.roops_core_objects_BinTreeNode_left,null]=>(true)else(false))
+   
+   } else {
+      skip
+   
+   }
+   ;
+   while roops_core_objects_BinTreeCondition10[exit_stmt_reached,throw,var_3_ws_1]do {
+      skip;
+      if roops_core_objects_BinTreeCondition0[exit_stmt_reached,throw]  {
+         var_1_y:=var_2_x
+      
+      } else {
+         skip
+      
+      }
+      ;
+      if roops_core_objects_BinTreeCondition0[exit_stmt_reached,throw]  {
+         t_2:=(lt[param_k_0,var_2_x.roops_core_objects_BinTreeNode_key]=>(true)else(false))
+      
+      } else {
+         skip
+      
+      }
+      ;
+      if roops_core_objects_BinTreeCondition0[exit_stmt_reached,throw]  {
+         if roops_core_objects_BinTreeCondition8[t_2]  {
+            if roops_core_objects_BinTreeCondition0[exit_stmt_reached,throw]  {
+               if roops_core_objects_BinTreeCondition4[var_2_x]  {
+                  throw:=java_lang_NullPointerExceptionLit
+               
+               } else {
+                  var_2_x:=var_2_x.roops_core_objects_BinTreeNode_left
+               
+               }
+            
+            } else {
+               skip
+            
+            }
+         
+         } else {
+            skip;
+            if roops_core_objects_BinTreeCondition0[exit_stmt_reached,throw]  {
+               t_1:=(gt[param_k_0,var_2_x.roops_core_objects_BinTreeNode_key]=>(true)else(false))
+            
+            } else {
+               skip
+            
+            }
+            ;
+            if roops_core_objects_BinTreeCondition0[exit_stmt_reached,throw]  {
+               if roops_core_objects_BinTreeCondition6[t_1]  {
+                  if roops_core_objects_BinTreeCondition0[exit_stmt_reached,throw]  {
+                     if roops_core_objects_BinTreeCondition4[var_2_x]  {
+                        throw:=java_lang_NullPointerExceptionLit
+                     
+                     } else {
+                        var_2_x:=var_2_x.roops_core_objects_BinTreeNode_right
+                     
+                     }
+                  
+                  } else {
+                     skip
+                  
+                  }
+               
+               } else {
+                  if roops_core_objects_BinTreeCondition0[exit_stmt_reached,throw]  {
+                     return:=false;
+                     exit_stmt_reached:=true
+                  
+                  } else {
+                     skip
+                  
+                  }
+               
+               }
+            
+            } else {
+               skip
+            
+            }
+         
+         }
+      
+      } else {
+         skip
+      
+      }
+      ;
+      if roops_core_objects_BinTreeCondition0[exit_stmt_reached,throw]  {
+         var_3_ws_1:=(neq[var_2_x.roops_core_objects_BinTreeNode_left,null]=>(true)else(false))
+      
+      } else {
+         skip
+      
+      }
+   
+   }
+   ;
+   if roops_core_objects_BinTreeCondition0[exit_stmt_reached,throw]  {
+      getUnusedObject[t_3,usedObjects];
+      assume instanceOf[t_3,roops_core_objects_BinTreeNode];
+      if roops_core_objects_BinTreeCondition11[t_3]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         call roops_core_objects_BinTreeNode_Constructor_0[t_3,throw,roops_core_objects_BinTreeNode_key,roops_core_objects_BinTree_root,roops_core_objects_BinTreeNode_parent,roops_core_objects_BinTreeNode_right,roops_core_objects_BinTree_size,roops_core_objects_BinTreeNode_left,usedObjects]
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if roops_core_objects_BinTreeCondition0[exit_stmt_reached,throw]  {
+      var_2_x:=t_3
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if roops_core_objects_BinTreeCondition0[exit_stmt_reached,throw]  {
+      if roops_core_objects_BinTreeCondition4[var_2_x]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         roops_core_objects_BinTreeNode_key:=(roops_core_objects_BinTreeNode_key)++((var_2_x)->(param_k_0))
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if roops_core_objects_BinTreeCondition0[exit_stmt_reached,throw]  {
+      t_5:=(equ[var_1_y,null]=>(true)else(false))
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if roops_core_objects_BinTreeCondition0[exit_stmt_reached,throw]  {
+      if roops_core_objects_BinTreeCondition17[t_5]  {
+         if roops_core_objects_BinTreeCondition0[exit_stmt_reached,throw]  {
+            if roops_core_objects_BinTreeCondition2[thiz]  {
+               throw:=java_lang_NullPointerExceptionLit
+            
+            } else {
+               roops_core_objects_BinTree_root:=(roops_core_objects_BinTree_root)++((thiz)->(var_2_x))
+            
+            }
+         
+         } else {
+            skip
+         
+         }
+      
+      } else {
+         skip;
+         if roops_core_objects_BinTreeCondition0[exit_stmt_reached,throw]  {
+            t_4:=(lt[param_k_0,var_1_y.roops_core_objects_BinTreeNode_key]=>(true)else(false))
+         
+         } else {
+            skip
+         
+         }
+         ;
+         if roops_core_objects_BinTreeCondition0[exit_stmt_reached,throw]  {
+            if roops_core_objects_BinTreeCondition15[t_4]  {
+               if roops_core_objects_BinTreeCondition0[exit_stmt_reached,throw]  {
+                  if roops_core_objects_BinTreeCondition13[var_1_y]  {
+                     throw:=java_lang_NullPointerExceptionLit
+                  
+                  } else {
+                     roops_core_objects_BinTreeNode_left:=(roops_core_objects_BinTreeNode_left)++((var_1_y)->(var_2_x))
+                  
+                  }
+               
+               } else {
+                  skip
+               
+               }
+            
+            } else {
+               if roops_core_objects_BinTreeCondition0[exit_stmt_reached,throw]  {
+                  if roops_core_objects_BinTreeCondition13[var_1_y]  {
+                     throw:=java_lang_NullPointerExceptionLit
+                  
+                  } else {
+                     roops_core_objects_BinTreeNode_right:=(roops_core_objects_BinTreeNode_right)++((var_1_y)->(var_2_x))
+                  
+                  }
+               
+               } else {
+                  skip
+               
+               }
+            
+            }
+         
+         } else {
+            skip
+         
+         }
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if roops_core_objects_BinTreeCondition0[exit_stmt_reached,throw]  {
+      if roops_core_objects_BinTreeCondition4[var_2_x]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         roops_core_objects_BinTreeNode_parent:=(roops_core_objects_BinTreeNode_parent)++((var_2_x)->(var_1_y))
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if roops_core_objects_BinTreeCondition0[exit_stmt_reached,throw] lblpos if_1 {
+      if roops_core_objects_BinTreeCondition19[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         roops_core_objects_BinTree_size:=(roops_core_objects_BinTree_size)++((thiz)->(add[thiz.roops_core_objects_BinTree_size,1]))
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if roops_core_objects_BinTreeCondition0[exit_stmt_reached,throw]  {
+      return:=true;
+      exit_stmt_reached:=true
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip
+
+}
+
+assertCorrectness check_roops_core_objects_BinTree_insert_0[
+  exit_stmt_reached:boolean,
+  k:Int,
+  param_k_0:Int,
+  return:boolean,
+  roops_core_objects_BinTreeNode_key:(roops_core_objects_BinTreeNode)->one(Int),
+  roops_core_objects_BinTreeNode_left:(roops_core_objects_BinTreeNode)->one(null+roops_core_objects_BinTreeNode),
+  roops_core_objects_BinTreeNode_parent:(roops_core_objects_BinTreeNode)->one(null+roops_core_objects_BinTreeNode),
+  roops_core_objects_BinTreeNode_right:(roops_core_objects_BinTreeNode)->one(null+roops_core_objects_BinTreeNode),
+  roops_core_objects_BinTree_root:(roops_core_objects_BinTree)->one(null+roops_core_objects_BinTreeNode),
+  roops_core_objects_BinTree_size:(roops_core_objects_BinTree)->one(Int),
+  t_1:boolean,
+  t_2:boolean,
+  t_3:null+roops_core_objects_BinTreeNode,
+  t_4:boolean,
+  t_5:boolean,
+  thiz:roops_core_objects_BinTree,
+  throw:java_lang_Throwable+null,
+  usedObjects:set (java_lang_Object),
+  var_1_y:null+roops_core_objects_BinTreeNode,
+  var_2_x:null+roops_core_objects_BinTreeNode,
+  var_3_ws_1:boolean
+]{
+pre={
+   precondition_roops_core_objects_BinTree_insert_0[k,
+                                                   return,
+                                                   roops_core_objects_BinTreeNode_key,
+                                                   roops_core_objects_BinTreeNode_left,
+                                                   roops_core_objects_BinTreeNode_parent,
+                                                   roops_core_objects_BinTreeNode_right,
+                                                   roops_core_objects_BinTree_root,
+                                                   roops_core_objects_BinTree_size,
+                                                   thiz,
+                                                   throw,
+                                                   usedObjects]
+
+}
+program={
+   call roops_core_objects_BinTree_insert_0[thiz,throw,return,k,roops_core_objects_BinTreeNode_key,roops_core_objects_BinTree_root,roops_core_objects_BinTreeNode_parent,roops_core_objects_BinTreeNode_right,roops_core_objects_BinTree_size,roops_core_objects_BinTreeNode_left,usedObjects]
+
+}
+post={
+   postcondition_roops_core_objects_BinTree_insert_0[k',
+                                                    roops_core_objects_BinTreeNode_key',
+                                                    roops_core_objects_BinTreeNode_left,
+                                                    roops_core_objects_BinTreeNode_left',
+                                                    roops_core_objects_BinTreeNode_parent',
+                                                    roops_core_objects_BinTreeNode_right,
+                                                    roops_core_objects_BinTreeNode_right',
+                                                    roops_core_objects_BinTree_root,
+                                                    roops_core_objects_BinTree_root',
+                                                    roops_core_objects_BinTree_size,
+                                                    roops_core_objects_BinTree_size',
+                                                    thiz,
+                                                    thiz',
+                                                    throw']
+
+}
+}
+

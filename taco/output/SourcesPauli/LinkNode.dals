@@ -1,0 +1,282 @@
+sig SourcesPauli_LinkNode extends java_lang_Object {}
+{}
+
+
+
+
+pred SourcesPauli_LinkNodeCondition1[
+  thiz:univ
+]{
+   not (
+     isEmptyOrNull[thiz])
+
+}
+
+pred SourcesPauli_LinkNodeCondition0[
+  thiz:univ
+]{
+   isEmptyOrNull[thiz]
+
+}
+
+pred SourcesPauli_LinkNodeCondition3[
+  exit_stmt_reached:univ,
+  throw:univ
+]{
+   not (
+     (
+       throw=null)
+     and 
+     (
+       exit_stmt_reached=false)
+   )
+
+}
+
+pred SourcesPauli_LinkNodeCondition2[
+  exit_stmt_reached:univ,
+  throw:univ
+]{
+   (
+     throw=null)
+   and 
+   (
+     exit_stmt_reached=false)
+
+}
+
+program SourcesPauli_LinkNode_setData_0[
+  thiz:SourcesPauli_LinkNode,
+  throw:java_lang_Throwable+null,
+  data:java_lang_Object+null,
+  SourcesPauli_LinkNode_data:(SourcesPauli_LinkNode)->one(java_lang_Object+null),
+  SourcesPauli_ListLinked_first:(SourcesPauli_ListLinked)->one(SourcesPauli_LinkNode+null),
+  SourcesPauli_LinkNode_next:(SourcesPauli_LinkNode)->one(SourcesPauli_LinkNode+null),
+  SourcesPauli_ListLinked_last:(SourcesPauli_ListLinked)->one(SourcesPauli_LinkNode+null),
+  usedObjects:set (java_lang_Object)
+] var [
+  exit_stmt_reached:boolean,
+  param_data_4:java_lang_Object+null
+]{
+   skip;
+   throw:=null;
+   skip;
+   exit_stmt_reached:=false;
+   skip;
+   if SourcesPauli_LinkNodeCondition2[exit_stmt_reached,throw]  {
+      param_data_4:=data
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if SourcesPauli_LinkNodeCondition2[exit_stmt_reached,throw]  {
+      if SourcesPauli_LinkNodeCondition0[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         SourcesPauli_LinkNode_data:=(SourcesPauli_LinkNode_data)++((thiz)->(param_data_4))
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip
+
+}
+
+program SourcesPauli_LinkNode_getNext_0[
+  thiz:SourcesPauli_LinkNode,
+  throw:java_lang_Throwable+null,
+  return:SourcesPauli_LinkNode+null,
+  SourcesPauli_LinkNode_data:(SourcesPauli_LinkNode)->one(java_lang_Object+null),
+  SourcesPauli_ListLinked_first:(SourcesPauli_ListLinked)->one(SourcesPauli_LinkNode+null),
+  SourcesPauli_LinkNode_next:(SourcesPauli_LinkNode)->one(SourcesPauli_LinkNode+null),
+  SourcesPauli_ListLinked_last:(SourcesPauli_ListLinked)->one(SourcesPauli_LinkNode+null),
+  usedObjects:set (java_lang_Object)
+] var [
+  exit_stmt_reached:boolean
+]{
+   skip;
+   throw:=null;
+   skip;
+   exit_stmt_reached:=false;
+   if SourcesPauli_LinkNodeCondition2[exit_stmt_reached,throw]  {
+      if SourcesPauli_LinkNodeCondition0[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         return:=thiz.SourcesPauli_LinkNode_next
+      
+      }
+      ;
+      exit_stmt_reached:=true
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip
+
+}
+
+program SourcesPauli_LinkNode_Constructor_0[
+  thiz:SourcesPauli_LinkNode,
+  throw:java_lang_Throwable+null,
+  SourcesPauli_LinkNode_data:(SourcesPauli_LinkNode)->one(java_lang_Object+null),
+  SourcesPauli_ListLinked_first:(SourcesPauli_ListLinked)->one(SourcesPauli_LinkNode+null),
+  SourcesPauli_LinkNode_next:(SourcesPauli_LinkNode)->one(SourcesPauli_LinkNode+null),
+  SourcesPauli_ListLinked_last:(SourcesPauli_ListLinked)->one(SourcesPauli_LinkNode+null),
+  usedObjects:set (java_lang_Object)
+] var [
+  exit_stmt_reached:boolean
+]{
+   skip;
+   throw:=null;
+   skip;
+   exit_stmt_reached:=false;
+   if SourcesPauli_LinkNodeCondition2[exit_stmt_reached,throw]  {
+      if SourcesPauli_LinkNodeCondition0[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         SourcesPauli_LinkNode_data:=(SourcesPauli_LinkNode_data)++((thiz)->(((java_lang_Object+null) & (null))))
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if SourcesPauli_LinkNodeCondition2[exit_stmt_reached,throw]  {
+      if SourcesPauli_LinkNodeCondition0[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         SourcesPauli_LinkNode_next:=(SourcesPauli_LinkNode_next)++((thiz)->(((SourcesPauli_LinkNode+null) & (null))))
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if SourcesPauli_LinkNodeCondition2[exit_stmt_reached,throw]  {
+      if SourcesPauli_LinkNodeCondition0[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         SourcesPauli_LinkNode_data:=(SourcesPauli_LinkNode_data)++((thiz)->(null))
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if SourcesPauli_LinkNodeCondition2[exit_stmt_reached,throw]  {
+      if SourcesPauli_LinkNodeCondition0[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         SourcesPauli_LinkNode_next:=(SourcesPauli_LinkNode_next)++((thiz)->(((SourcesPauli_LinkNode+null) & (null))))
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip
+
+}
+
+program SourcesPauli_LinkNode_setNext_0[
+  thiz:SourcesPauli_LinkNode,
+  throw:java_lang_Throwable+null,
+  next:SourcesPauli_LinkNode+null,
+  SourcesPauli_LinkNode_data:(SourcesPauli_LinkNode)->one(java_lang_Object+null),
+  SourcesPauli_ListLinked_first:(SourcesPauli_ListLinked)->one(SourcesPauli_LinkNode+null),
+  SourcesPauli_LinkNode_next:(SourcesPauli_LinkNode)->one(SourcesPauli_LinkNode+null),
+  SourcesPauli_ListLinked_last:(SourcesPauli_ListLinked)->one(SourcesPauli_LinkNode+null),
+  usedObjects:set (java_lang_Object)
+] var [
+  exit_stmt_reached:boolean,
+  param_next_5:SourcesPauli_LinkNode+null
+]{
+   skip;
+   throw:=null;
+   skip;
+   exit_stmt_reached:=false;
+   skip;
+   if SourcesPauli_LinkNodeCondition2[exit_stmt_reached,throw]  {
+      param_next_5:=next
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if SourcesPauli_LinkNodeCondition2[exit_stmt_reached,throw]  {
+      if SourcesPauli_LinkNodeCondition0[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         SourcesPauli_LinkNode_next:=(SourcesPauli_LinkNode_next)++((thiz)->(param_next_5))
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip
+
+}
+
+program SourcesPauli_LinkNode_getData_0[
+  thiz:SourcesPauli_LinkNode,
+  throw:java_lang_Throwable+null,
+  return:java_lang_Object+null,
+  SourcesPauli_LinkNode_data:(SourcesPauli_LinkNode)->one(java_lang_Object+null),
+  SourcesPauli_ListLinked_first:(SourcesPauli_ListLinked)->one(SourcesPauli_LinkNode+null),
+  SourcesPauli_LinkNode_next:(SourcesPauli_LinkNode)->one(SourcesPauli_LinkNode+null),
+  SourcesPauli_ListLinked_last:(SourcesPauli_ListLinked)->one(SourcesPauli_LinkNode+null),
+  usedObjects:set (java_lang_Object)
+] var [
+  exit_stmt_reached:boolean
+]{
+   skip;
+   throw:=null;
+   skip;
+   exit_stmt_reached:=false;
+   if SourcesPauli_LinkNodeCondition2[exit_stmt_reached,throw]  {
+      if SourcesPauli_LinkNodeCondition0[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         return:=thiz.SourcesPauli_LinkNode_data
+      
+      }
+      ;
+      exit_stmt_reached:=true
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip
+
+}
+

@@ -1,0 +1,8 @@
+//-------------- ClassFields --------------//
+module ClassFields
+one sig ClassFields {}
+{}
+field SourcesMatiasDeSanti_StrykerException_serialVersionUID:(ClassFields)->one(JavaPrimitiveLongValue) {}
+field java_lang_Boolean_TRUE:(ClassFields)->one(java_lang_Boolean) {}
+field java_lang_Boolean_FALSE:(ClassFields)->one(java_lang_Boolean) {}
+

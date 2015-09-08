@@ -1,0 +1,266 @@
+//-------------- ar_edu_taco_stryker_LightAccount --------------//
+module ar_edu_taco_stryker_LightAccount
+sig ar_edu_taco_stryker_LightAccount extends java_lang_Object {}
+{}
+field ar_edu_taco_stryker_LightAccount_bal:(ar_edu_taco_stryker_LightAccount)->one(Int) {}
+
+object_invariant
+   gte[thiz.ar_edu_taco_stryker_LightAccount_bal,
+      0]
+
+
+
+program ar_edu_taco_stryker_LightAccount::Constructor[
+  var thiz:ar_edu_taco_stryker_LightAccount,
+  var throw:java_lang_Throwable+null] 
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         {
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.ar_edu_taco_stryker_LightAccount_bal:=0;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.ar_edu_taco_stryker_LightAccount_bal:=0;
+               };
+            } else {
+               skip;
+            };
+         
+         }
+      
+      }
+      skip;
+   
+   }
+
+
+program ar_edu_taco_stryker_LightAccount::balance[
+  var thiz:ar_edu_taco_stryker_LightAccount,
+  var throw:java_lang_Throwable+null,
+  var return:Int] 
+Specification 
+{
+  SpecCase #0 {
+   ensures {
+      (
+        throw'=null)
+      implies 
+              equ[return',
+                 thiz'.ar_edu_taco_stryker_LightAccount_bal']
+   }
+  }
+}
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         if (
+           throw=null)
+         and 
+         (
+           exit_stmt_reached=false)   {
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  return:=thiz.ar_edu_taco_stryker_LightAccount_bal;
+               };
+               exit_stmt_reached:=true;
+            
+            }
+          else {
+            skip;
+         };
+      
+      }
+      skip;
+   
+   }
+
+
+program ar_edu_taco_stryker_LightAccount::Constructor[
+  var thiz:ar_edu_taco_stryker_LightAccount,
+  var throw:java_lang_Throwable+null,
+  var amt:Int] 
+Specification 
+{
+  SpecCase #0 {
+   requires {
+      gte[amt,
+         0]
+   }
+   
+   ensures {
+      (
+        throw'=null)
+      implies 
+              equ[thiz'.ar_edu_taco_stryker_LightAccount_bal',
+                 amt']
+   }
+   
+   modifies {
+     thiz.ar_edu_taco_stryker_LightAccount_bal
+   }
+  }
+}
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         {
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.ar_edu_taco_stryker_LightAccount_bal:=0;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.ar_edu_taco_stryker_LightAccount_bal:=amt;
+               };
+            } else {
+               skip;
+            };
+         
+         }
+      
+      }
+      skip;
+   
+   }
+
+
+program ar_edu_taco_stryker_LightAccount::withdraw[
+  var thiz:ar_edu_taco_stryker_LightAccount,
+  var throw:java_lang_Throwable+null,
+  var amt:Int] 
+Specification 
+{
+  SpecCase #0 {
+   requires {
+      gt[amt,
+        0]
+      and 
+      lte[amt,
+         thiz.ar_edu_taco_stryker_LightAccount_bal]
+   }
+   
+   ensures {
+      instanceOf[throw',
+                java_lang_RuntimeException]
+      implies 
+              liftExpression[true]
+   }
+   
+   ensures {
+      (
+        throw'=null)
+      implies 
+              equ[amt',
+                 5]
+   }
+   
+   modifies {
+     thiz.ar_edu_taco_stryker_LightAccount_bal
+   }
+  }
+}
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         {
+            var t_2:boolean;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               t_2:=(neq[amt,
+                  5]=>(true)else(false));
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if t_2=true   {
+                     var t_1:java_lang_RuntimeException+null;
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        t_1:=java_lang_RuntimeExceptionLit;
+                     } else {
+                        skip;
+                     };
+                     throw:=t_1;
+                     exit_stmt_reached:=true;
+                  
+                  }
+                else {
+                  skip;
+               };
+            } else {
+               skip;
+            };
+         
+         }
+      
+      }
+      skip;
+   
+   }
+
+
+

@@ -1,0 +1,658 @@
+sig SourcesMatiasDeSanti_RedBlackTree extends java_lang_Object {}
+{}
+
+
+
+
+pred SourcesMatiasDeSanti_RedBlackTreeCondition3[
+]{
+   not (
+     true=true)
+
+}
+
+pred SourcesMatiasDeSanti_RedBlackTree_object_invariant[
+  SourcesMatiasDeSanti_RedBlackNode_blackHeight:univ->univ,
+  SourcesMatiasDeSanti_RedBlackNode_color:univ->univ,
+  SourcesMatiasDeSanti_RedBlackNode_data:univ->univ,
+  SourcesMatiasDeSanti_RedBlackNode_left:univ->univ,
+  SourcesMatiasDeSanti_RedBlackNode_parent:univ->univ,
+  SourcesMatiasDeSanti_RedBlackNode_right:univ->univ,
+  SourcesMatiasDeSanti_RedBlackTree_root:univ->univ,
+  thiz:univ
+]{
+   (
+     neq[thiz.SourcesMatiasDeSanti_RedBlackTree_root,
+        null]
+     implies 
+             equ[(thiz.SourcesMatiasDeSanti_RedBlackTree_root).SourcesMatiasDeSanti_RedBlackNode_color,
+                JavaPrimitiveIntegerLiteral1]
+   )
+   and 
+   (
+     neq[thiz.SourcesMatiasDeSanti_RedBlackTree_root,
+        null]
+     implies 
+             equ[(thiz.SourcesMatiasDeSanti_RedBlackTree_root).SourcesMatiasDeSanti_RedBlackNode_parent,
+                null]
+   )
+   and 
+   (
+     all n:SourcesMatiasDeSanti_RedBlackNode+null | {
+       some SK_jml_pred_java_primitive_integer_value_add_ARG_result_0:JavaPrimitiveIntegerValue,
+       SK_jml_pred_java_primitive_integer_value_add_ARG_overflow_0:boolean,
+       SK_jml_pred_java_primitive_integer_value_add_ARG_result_1:JavaPrimitiveIntegerValue,
+       SK_jml_pred_java_primitive_integer_value_add_ARG_overflow_1:boolean | {
+         pred_java_primitive_integer_value_add[(n.SourcesMatiasDeSanti_RedBlackNode_right).SourcesMatiasDeSanti_RedBlackNode_blackHeight,
+                                              JavaPrimitiveIntegerLiteral1,
+                                              SK_jml_pred_java_primitive_integer_value_add_ARG_result_0,
+                                              SK_jml_pred_java_primitive_integer_value_add_ARG_overflow_0]
+         and 
+         (
+           (
+             SK_jml_pred_java_primitive_integer_value_add_ARG_result_0=JavaPrimitiveIntegerLiteral0)
+           or 
+           (
+             SK_jml_pred_java_primitive_integer_value_add_ARG_result_0=JavaPrimitiveIntegerLiteral1)
+           
+           or 
+           (
+             SK_jml_pred_java_primitive_integer_value_add_ARG_result_0=JavaPrimitiveIntegerLiteral2)
+           
+           or 
+           (
+             SK_jml_pred_java_primitive_integer_value_add_ARG_result_0=JavaPrimitiveIntegerLiteral3)
+           
+           or 
+           (
+             SK_jml_pred_java_primitive_integer_value_add_ARG_result_0=JavaPrimitiveIntegerLiteral4)
+           
+           or 
+           (
+             SK_jml_pred_java_primitive_integer_value_add_ARG_result_0=JavaPrimitiveIntegerLiteral5)
+           
+           or 
+           (
+             SK_jml_pred_java_primitive_integer_value_add_ARG_result_0=JavaPrimitiveIntegerLiteral6)
+         )
+         and 
+         pred_java_primitive_integer_value_add[(n.SourcesMatiasDeSanti_RedBlackNode_left).SourcesMatiasDeSanti_RedBlackNode_blackHeight,
+                                              JavaPrimitiveIntegerLiteral1,
+                                              SK_jml_pred_java_primitive_integer_value_add_ARG_result_1,
+                                              SK_jml_pred_java_primitive_integer_value_add_ARG_overflow_1]
+         and 
+         (
+           (
+             SK_jml_pred_java_primitive_integer_value_add_ARG_result_1=JavaPrimitiveIntegerLiteral0)
+           or 
+           (
+             SK_jml_pred_java_primitive_integer_value_add_ARG_result_1=JavaPrimitiveIntegerLiteral1)
+           
+           or 
+           (
+             SK_jml_pred_java_primitive_integer_value_add_ARG_result_1=JavaPrimitiveIntegerLiteral2)
+           
+           or 
+           (
+             SK_jml_pred_java_primitive_integer_value_add_ARG_result_1=JavaPrimitiveIntegerLiteral3)
+           
+           or 
+           (
+             SK_jml_pred_java_primitive_integer_value_add_ARG_result_1=JavaPrimitiveIntegerLiteral4)
+           
+           or 
+           (
+             SK_jml_pred_java_primitive_integer_value_add_ARG_result_1=JavaPrimitiveIntegerLiteral5)
+           
+           or 
+           (
+             SK_jml_pred_java_primitive_integer_value_add_ARG_result_1=JavaPrimitiveIntegerLiteral6)
+         )
+         and 
+         (
+           equ[fun_set_contains[fun_reach[thiz.SourcesMatiasDeSanti_RedBlackTree_root,SourcesMatiasDeSanti_RedBlackNode,SourcesMatiasDeSanti_RedBlackNode_right+SourcesMatiasDeSanti_RedBlackNode_left+SourcesMatiasDeSanti_RedBlackNode_parent],n],
+              true]
+           implies 
+                   (
+                     equ[fun_set_contains[fun_reach[n.SourcesMatiasDeSanti_RedBlackNode_left,SourcesMatiasDeSanti_RedBlackNode,SourcesMatiasDeSanti_RedBlackNode_left+SourcesMatiasDeSanti_RedBlackNode_right],n],
+                        false]
+                     and 
+                     equ[fun_set_contains[fun_reach[n.SourcesMatiasDeSanti_RedBlackNode_right,SourcesMatiasDeSanti_RedBlackNode,SourcesMatiasDeSanti_RedBlackNode_left+SourcesMatiasDeSanti_RedBlackNode_right],n],
+                        false]
+                     and 
+                     (
+                       neq[n.SourcesMatiasDeSanti_RedBlackNode_left,
+                          null]
+                       implies 
+                               equ[(n.SourcesMatiasDeSanti_RedBlackNode_left).SourcesMatiasDeSanti_RedBlackNode_parent,
+                                  n]
+                     )
+                     and 
+                     (
+                       neq[n.SourcesMatiasDeSanti_RedBlackNode_right,
+                          null]
+                       implies 
+                               equ[(n.SourcesMatiasDeSanti_RedBlackNode_right).SourcesMatiasDeSanti_RedBlackNode_parent,
+                                  n]
+                     )
+                     and 
+                     (
+                       all m:SourcesMatiasDeSanti_RedBlackNode+null | {
+                         equ[fun_set_contains[fun_reach[n.SourcesMatiasDeSanti_RedBlackNode_left,SourcesMatiasDeSanti_RedBlackNode,SourcesMatiasDeSanti_RedBlackNode_left+SourcesMatiasDeSanti_RedBlackNode_right],m],
+                            true]
+                         implies 
+                                 pred_java_primitive_integer_value_lt[m.SourcesMatiasDeSanti_RedBlackNode_data,
+                                                                     n.SourcesMatiasDeSanti_RedBlackNode_data]
+                       
+                       }
+                     )
+                     and 
+                     (
+                       all m:SourcesMatiasDeSanti_RedBlackNode+null | {
+                         equ[fun_set_contains[fun_reach[n.SourcesMatiasDeSanti_RedBlackNode_right,SourcesMatiasDeSanti_RedBlackNode,SourcesMatiasDeSanti_RedBlackNode_left+SourcesMatiasDeSanti_RedBlackNode_right],m],
+                            true]
+                         implies 
+                                 pred_java_primitive_integer_value_gt[m.SourcesMatiasDeSanti_RedBlackNode_data,
+                                                                     n.SourcesMatiasDeSanti_RedBlackNode_data]
+                       
+                       }
+                     )
+                     and 
+                     (
+                       (
+                         neq[n.SourcesMatiasDeSanti_RedBlackNode_right,
+                            null]
+                         or 
+                         neq[n.SourcesMatiasDeSanti_RedBlackNode_left,
+                            null]
+                       )
+                       implies 
+                               neq[n.SourcesMatiasDeSanti_RedBlackNode_right,
+                                  n.SourcesMatiasDeSanti_RedBlackNode_left]
+                     )
+                     and 
+                     (
+                       (
+                         equ[n.SourcesMatiasDeSanti_RedBlackNode_left,
+                            null]
+                         and 
+                         equ[n.SourcesMatiasDeSanti_RedBlackNode_right,
+                            null]
+                         and 
+                         equ[n.SourcesMatiasDeSanti_RedBlackNode_color,
+                            JavaPrimitiveIntegerLiteral1]
+                       )
+                       implies 
+                               equ[n.SourcesMatiasDeSanti_RedBlackNode_blackHeight,
+                                  JavaPrimitiveIntegerLiteral1]
+                     )
+                     and 
+                     (
+                       (
+                         equ[n.SourcesMatiasDeSanti_RedBlackNode_left,
+                            null]
+                         and 
+                         equ[n.SourcesMatiasDeSanti_RedBlackNode_right,
+                            null]
+                         and 
+                         equ[n.SourcesMatiasDeSanti_RedBlackNode_color,
+                            JavaPrimitiveIntegerLiteral0]
+                       )
+                       implies 
+                               equ[n.SourcesMatiasDeSanti_RedBlackNode_blackHeight,
+                                  JavaPrimitiveIntegerLiteral0]
+                     )
+                     and 
+                     (
+                       (
+                         neq[n.SourcesMatiasDeSanti_RedBlackNode_left,
+                            null]
+                         and 
+                         equ[n.SourcesMatiasDeSanti_RedBlackNode_right,
+                            null]
+                         and 
+                         equ[n.SourcesMatiasDeSanti_RedBlackNode_color,
+                            JavaPrimitiveIntegerLiteral1]
+                       )
+                       implies 
+                               (
+                                 equ[(n.SourcesMatiasDeSanti_RedBlackNode_left).SourcesMatiasDeSanti_RedBlackNode_color,
+                                    JavaPrimitiveIntegerLiteral0]
+                                 and 
+                                 equ[(n.SourcesMatiasDeSanti_RedBlackNode_left).SourcesMatiasDeSanti_RedBlackNode_blackHeight,
+                                    JavaPrimitiveIntegerLiteral0]
+                                 and 
+                                 equ[n.SourcesMatiasDeSanti_RedBlackNode_blackHeight,
+                                    JavaPrimitiveIntegerLiteral1]
+                               )
+                     )
+                     and 
+                     (
+                       (
+                         neq[n.SourcesMatiasDeSanti_RedBlackNode_left,
+                            null]
+                         and 
+                         equ[n.SourcesMatiasDeSanti_RedBlackNode_right,
+                            null]
+                         and 
+                         equ[n.SourcesMatiasDeSanti_RedBlackNode_color,
+                            JavaPrimitiveIntegerLiteral0]
+                       )
+                       implies 
+                               (
+                                 equ[(n.SourcesMatiasDeSanti_RedBlackNode_left).SourcesMatiasDeSanti_RedBlackNode_color,
+                                    JavaPrimitiveIntegerLiteral0]
+                                 and 
+                                 equ[(n.SourcesMatiasDeSanti_RedBlackNode_left).SourcesMatiasDeSanti_RedBlackNode_blackHeight,
+                                    JavaPrimitiveIntegerLiteral0]
+                                 and 
+                                 equ[n.SourcesMatiasDeSanti_RedBlackNode_blackHeight,
+                                    JavaPrimitiveIntegerLiteral0]
+                               )
+                     )
+                     and 
+                     (
+                       (
+                         equ[n.SourcesMatiasDeSanti_RedBlackNode_left,
+                            null]
+                         and 
+                         neq[n.SourcesMatiasDeSanti_RedBlackNode_right,
+                            null]
+                         and 
+                         equ[n.SourcesMatiasDeSanti_RedBlackNode_color,
+                            JavaPrimitiveIntegerLiteral1]
+                       )
+                       implies 
+                               (
+                                 equ[(n.SourcesMatiasDeSanti_RedBlackNode_right).SourcesMatiasDeSanti_RedBlackNode_color,
+                                    JavaPrimitiveIntegerLiteral0]
+                                 and 
+                                 equ[(n.SourcesMatiasDeSanti_RedBlackNode_right).SourcesMatiasDeSanti_RedBlackNode_blackHeight,
+                                    JavaPrimitiveIntegerLiteral0]
+                                 and 
+                                 equ[n.SourcesMatiasDeSanti_RedBlackNode_blackHeight,
+                                    JavaPrimitiveIntegerLiteral1]
+                               )
+                     )
+                     and 
+                     (
+                       (
+                         equ[n.SourcesMatiasDeSanti_RedBlackNode_left,
+                            null]
+                         and 
+                         neq[n.SourcesMatiasDeSanti_RedBlackNode_right,
+                            null]
+                         and 
+                         equ[n.SourcesMatiasDeSanti_RedBlackNode_color,
+                            JavaPrimitiveIntegerLiteral0]
+                       )
+                       implies 
+                               (
+                                 equ[(n.SourcesMatiasDeSanti_RedBlackNode_right).SourcesMatiasDeSanti_RedBlackNode_color,
+                                    JavaPrimitiveIntegerLiteral0]
+                                 and 
+                                 equ[(n.SourcesMatiasDeSanti_RedBlackNode_right).SourcesMatiasDeSanti_RedBlackNode_blackHeight,
+                                    JavaPrimitiveIntegerLiteral0]
+                                 and 
+                                 equ[n.SourcesMatiasDeSanti_RedBlackNode_blackHeight,
+                                    JavaPrimitiveIntegerLiteral0]
+                               )
+                     )
+                     and 
+                     (
+                       (
+                         neq[n.SourcesMatiasDeSanti_RedBlackNode_left,
+                            null]
+                         and 
+                         neq[n.SourcesMatiasDeSanti_RedBlackNode_right,
+                            null]
+                         and 
+                         equ[n.SourcesMatiasDeSanti_RedBlackNode_color,
+                            JavaPrimitiveIntegerLiteral1]
+                         and 
+                         pred_java_primitive_integer_value_gte[(n.SourcesMatiasDeSanti_RedBlackNode_right).SourcesMatiasDeSanti_RedBlackNode_blackHeight,
+                                                              (n.SourcesMatiasDeSanti_RedBlackNode_left).SourcesMatiasDeSanti_RedBlackNode_blackHeight]
+                       )
+                       implies 
+                               equ[n.SourcesMatiasDeSanti_RedBlackNode_blackHeight,
+                                  SK_jml_pred_java_primitive_integer_value_add_ARG_result_0]
+                     )
+                     and 
+                     (
+                       (
+                         neq[n.SourcesMatiasDeSanti_RedBlackNode_left,
+                            null]
+                         and 
+                         neq[n.SourcesMatiasDeSanti_RedBlackNode_right,
+                            null]
+                         and 
+                         equ[n.SourcesMatiasDeSanti_RedBlackNode_color,
+                            JavaPrimitiveIntegerLiteral1]
+                         and 
+                         pred_java_primitive_integer_value_lt[(n.SourcesMatiasDeSanti_RedBlackNode_right).SourcesMatiasDeSanti_RedBlackNode_blackHeight,
+                                                             (n.SourcesMatiasDeSanti_RedBlackNode_left).SourcesMatiasDeSanti_RedBlackNode_blackHeight]
+                       )
+                       implies 
+                               equ[n.SourcesMatiasDeSanti_RedBlackNode_blackHeight,
+                                  SK_jml_pred_java_primitive_integer_value_add_ARG_result_1]
+                     )
+                     and 
+                     (
+                       (
+                         neq[n.SourcesMatiasDeSanti_RedBlackNode_left,
+                            null]
+                         and 
+                         neq[n.SourcesMatiasDeSanti_RedBlackNode_right,
+                            null]
+                         and 
+                         equ[n.SourcesMatiasDeSanti_RedBlackNode_color,
+                            JavaPrimitiveIntegerLiteral0]
+                         and 
+                         pred_java_primitive_integer_value_gte[(n.SourcesMatiasDeSanti_RedBlackNode_right).SourcesMatiasDeSanti_RedBlackNode_blackHeight,
+                                                              (n.SourcesMatiasDeSanti_RedBlackNode_left).SourcesMatiasDeSanti_RedBlackNode_blackHeight]
+                       )
+                       implies 
+                               equ[n.SourcesMatiasDeSanti_RedBlackNode_blackHeight,
+                                  (n.SourcesMatiasDeSanti_RedBlackNode_right).SourcesMatiasDeSanti_RedBlackNode_blackHeight]
+                     )
+                     and 
+                     (
+                       (
+                         neq[n.SourcesMatiasDeSanti_RedBlackNode_left,
+                            null]
+                         and 
+                         neq[n.SourcesMatiasDeSanti_RedBlackNode_right,
+                            null]
+                         and 
+                         equ[n.SourcesMatiasDeSanti_RedBlackNode_color,
+                            JavaPrimitiveIntegerLiteral0]
+                         and 
+                         pred_java_primitive_integer_value_lt[(n.SourcesMatiasDeSanti_RedBlackNode_right).SourcesMatiasDeSanti_RedBlackNode_blackHeight,
+                                                             (n.SourcesMatiasDeSanti_RedBlackNode_left).SourcesMatiasDeSanti_RedBlackNode_blackHeight]
+                       )
+                       implies 
+                               equ[n.SourcesMatiasDeSanti_RedBlackNode_blackHeight,
+                                  (n.SourcesMatiasDeSanti_RedBlackNode_left).SourcesMatiasDeSanti_RedBlackNode_blackHeight]
+                     )
+                     and 
+                     (
+                       (
+                         equ[n.SourcesMatiasDeSanti_RedBlackNode_color,
+                            JavaPrimitiveIntegerLiteral0]
+                         and 
+                         neq[n.SourcesMatiasDeSanti_RedBlackNode_left,
+                            null]
+                       )
+                       implies 
+                               equ[(n.SourcesMatiasDeSanti_RedBlackNode_left).SourcesMatiasDeSanti_RedBlackNode_color,
+                                  JavaPrimitiveIntegerLiteral1]
+                     )
+                     and 
+                     (
+                       (
+                         equ[n.SourcesMatiasDeSanti_RedBlackNode_color,
+                            JavaPrimitiveIntegerLiteral0]
+                         and 
+                         neq[n.SourcesMatiasDeSanti_RedBlackNode_right,
+                            null]
+                       )
+                       implies 
+                               equ[(n.SourcesMatiasDeSanti_RedBlackNode_right).SourcesMatiasDeSanti_RedBlackNode_color,
+                                  JavaPrimitiveIntegerLiteral1]
+                     )
+                   )
+         )
+       
+       }
+     
+     }
+   )
+   and 
+   (
+     not (
+       thiz.SourcesMatiasDeSanti_RedBlackTree_root=null)
+   )
+
+}
+
+pred SourcesMatiasDeSanti_RedBlackTreeCondition2[
+]{
+   true=true
+
+}
+
+pred precondition_SourcesMatiasDeSanti_RedBlackTree_add_0[
+  SourcesMatiasDeSanti_RedBlackNode_blackHeight:univ->univ,
+  SourcesMatiasDeSanti_RedBlackNode_color:univ->univ,
+  SourcesMatiasDeSanti_RedBlackNode_data:univ->univ,
+  SourcesMatiasDeSanti_RedBlackNode_left:univ->univ,
+  SourcesMatiasDeSanti_RedBlackNode_parent:univ->univ,
+  SourcesMatiasDeSanti_RedBlackNode_right:univ->univ,
+  SourcesMatiasDeSanti_RedBlackTree_root:univ->univ,
+  throw:univ
+]{
+   equ[throw,
+      null]
+   and 
+   (
+     all objx:SourcesMatiasDeSanti_RedBlackTree | {
+       SourcesMatiasDeSanti_RedBlackTree_object_invariant[SourcesMatiasDeSanti_RedBlackNode_blackHeight,
+                                                         SourcesMatiasDeSanti_RedBlackNode_color,
+                                                         SourcesMatiasDeSanti_RedBlackNode_data,
+                                                         SourcesMatiasDeSanti_RedBlackNode_left,
+                                                         SourcesMatiasDeSanti_RedBlackNode_parent,
+                                                         SourcesMatiasDeSanti_RedBlackNode_right,
+                                                         SourcesMatiasDeSanti_RedBlackTree_root,
+                                                         objx]
+     
+     }
+   )
+   and 
+   SourcesMatiasDeSanti_RedBlackTree_requires[]
+
+}
+
+pred SourcesMatiasDeSanti_RedBlackTree_requires[
+]{
+   true=true
+
+}
+
+pred SourcesMatiasDeSanti_RedBlackTreeCondition0[
+  exit_stmt_reached:univ,
+  throw:univ
+]{
+   (
+     throw=null)
+   and 
+   (
+     exit_stmt_reached=false)
+
+}
+
+pred SourcesMatiasDeSanti_RedBlackTreeCondition1[
+  exit_stmt_reached:univ,
+  throw:univ
+]{
+   not (
+     (
+       throw=null)
+     and 
+     (
+       exit_stmt_reached=false)
+   )
+
+}
+
+pred SourcesMatiasDeSanti_RedBlackTree_ensures[
+  SourcesMatiasDeSanti_RedBlackNode_left':univ->univ,
+  SourcesMatiasDeSanti_RedBlackNode_right':univ->univ,
+  SourcesMatiasDeSanti_RedBlackTree_root':univ->univ,
+  thiz':univ,
+  throw':univ
+]{
+   (
+     instanceOf[throw',
+               java_util_NoSuchElementException]
+     implies 
+             liftExpression[false]
+   )
+   and 
+   (
+     (
+       throw'=null)
+     implies 
+             (
+               all rbn:SourcesMatiasDeSanti_RedBlackNode+null | {
+                 liftExpression[fun_set_contains[fun_reach[thiz'.SourcesMatiasDeSanti_RedBlackTree_root',SourcesMatiasDeSanti_RedBlackNode,SourcesMatiasDeSanti_RedBlackNode_left'+SourcesMatiasDeSanti_RedBlackNode_right'],rbn]]
+                 implies 
+                         equ[rbn.SourcesMatiasDeSanti_RedBlackNode_left',
+                            null]
+               
+               }
+             )
+   )
+
+}
+
+pred postcondition_SourcesMatiasDeSanti_RedBlackTree_add_0[
+  SourcesMatiasDeSanti_RedBlackNode_left':univ->univ,
+  SourcesMatiasDeSanti_RedBlackNode_right':univ->univ,
+  SourcesMatiasDeSanti_RedBlackTree_root':univ->univ,
+  thiz':univ,
+  throw':univ
+]{
+   SourcesMatiasDeSanti_RedBlackTree_ensures[SourcesMatiasDeSanti_RedBlackNode_left',
+                                            SourcesMatiasDeSanti_RedBlackNode_right',
+                                            SourcesMatiasDeSanti_RedBlackTree_root',
+                                            thiz',
+                                            throw']
+   and 
+   (
+     not (
+       throw'=AssertionFailureLit)
+   )
+
+}
+
+program SourcesMatiasDeSanti_RedBlackTree_add_0[
+  thiz:SourcesMatiasDeSanti_RedBlackTree,
+  throw:java_lang_Throwable+null,
+  t:SourcesMatiasDeSanti_RedBlackTree+null,
+  obj:JavaPrimitiveIntegerValue,
+  SourcesMatiasDeSanti_RedBlackNode_left:(SourcesMatiasDeSanti_RedBlackNode)->one(SourcesMatiasDeSanti_RedBlackNode+null),
+  SourcesMatiasDeSanti_RedBlackNode_right:(SourcesMatiasDeSanti_RedBlackNode)->one(SourcesMatiasDeSanti_RedBlackNode+null),
+  SourcesMatiasDeSanti_RedBlackNode_color:(SourcesMatiasDeSanti_RedBlackNode)->one(JavaPrimitiveIntegerValue),
+  SourcesMatiasDeSanti_RedBlackNode_parent:(SourcesMatiasDeSanti_RedBlackNode)->one(SourcesMatiasDeSanti_RedBlackNode+null),
+  SourcesMatiasDeSanti_RedBlackNode_data:(SourcesMatiasDeSanti_RedBlackNode)->one(JavaPrimitiveIntegerValue),
+  SourcesMatiasDeSanti_RedBlackNode_blackHeight:(SourcesMatiasDeSanti_RedBlackNode)->one(JavaPrimitiveIntegerValue),
+  SourcesMatiasDeSanti_RedBlackTree_root:(SourcesMatiasDeSanti_RedBlackTree)->one(SourcesMatiasDeSanti_RedBlackNode+null)
+] var [
+  t_2:JavaPrimitiveIntegerValue,
+  exit_stmt_reached:boolean,
+  t_1:JavaPrimitiveIntegerValue,
+  var_1_flag:boolean
+]{
+   skip;
+   throw:=null;
+   skip;
+   exit_stmt_reached:=false;
+   skip;
+   if SourcesMatiasDeSanti_RedBlackTreeCondition0[exit_stmt_reached,throw]  {
+      var_1_flag:=true
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if SourcesMatiasDeSanti_RedBlackTreeCondition0[exit_stmt_reached,throw]  {
+      if SourcesMatiasDeSanti_RedBlackTreeCondition2[]  {
+         skip;
+         if SourcesMatiasDeSanti_RedBlackTreeCondition0[exit_stmt_reached,throw]  {
+            t_1:=obj
+         
+         } else {
+            skip
+         
+         }
+         ;
+         if SourcesMatiasDeSanti_RedBlackTreeCondition0[exit_stmt_reached,throw]  {
+            obj:=fun_java_primitive_integer_value_add[obj,JavaPrimitiveIntegerLiteral1]
+         
+         } else {
+            skip
+         
+         }
+      
+      } else {
+         skip;
+         if SourcesMatiasDeSanti_RedBlackTreeCondition0[exit_stmt_reached,throw]  {
+            t_2:=obj
+         
+         } else {
+            skip
+         
+         }
+         ;
+         if SourcesMatiasDeSanti_RedBlackTreeCondition0[exit_stmt_reached,throw]  {
+            obj:=fun_java_primitive_integer_value_add[obj,JavaPrimitiveIntegerLiteralMinus1]
+         
+         } else {
+            skip
+         
+         }
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip
+
+}
+
+assertCorrectness check_SourcesMatiasDeSanti_RedBlackTree_add_0[
+  SourcesMatiasDeSanti_RedBlackNode_blackHeight:(SourcesMatiasDeSanti_RedBlackNode)->one(JavaPrimitiveIntegerValue),
+  SourcesMatiasDeSanti_RedBlackNode_color:(SourcesMatiasDeSanti_RedBlackNode)->one(JavaPrimitiveIntegerValue),
+  SourcesMatiasDeSanti_RedBlackNode_data:(SourcesMatiasDeSanti_RedBlackNode)->one(JavaPrimitiveIntegerValue),
+  SourcesMatiasDeSanti_RedBlackNode_left:(SourcesMatiasDeSanti_RedBlackNode)->one(SourcesMatiasDeSanti_RedBlackNode+null),
+  SourcesMatiasDeSanti_RedBlackNode_parent:(SourcesMatiasDeSanti_RedBlackNode)->one(SourcesMatiasDeSanti_RedBlackNode+null),
+  SourcesMatiasDeSanti_RedBlackNode_right:(SourcesMatiasDeSanti_RedBlackNode)->one(SourcesMatiasDeSanti_RedBlackNode+null),
+  SourcesMatiasDeSanti_RedBlackTree_root:(SourcesMatiasDeSanti_RedBlackTree)->one(SourcesMatiasDeSanti_RedBlackNode+null),
+  exit_stmt_reached:boolean,
+  obj:JavaPrimitiveIntegerValue,
+  t:SourcesMatiasDeSanti_RedBlackTree+null,
+  t_1:JavaPrimitiveIntegerValue,
+  t_2:JavaPrimitiveIntegerValue,
+  thiz:SourcesMatiasDeSanti_RedBlackTree,
+  throw:java_lang_Throwable+null,
+  var_1_flag:boolean
+]{
+pre={
+   precondition_SourcesMatiasDeSanti_RedBlackTree_add_0[SourcesMatiasDeSanti_RedBlackNode_blackHeight,
+                                                       SourcesMatiasDeSanti_RedBlackNode_color,
+                                                       SourcesMatiasDeSanti_RedBlackNode_data,
+                                                       SourcesMatiasDeSanti_RedBlackNode_left,
+                                                       SourcesMatiasDeSanti_RedBlackNode_parent,
+                                                       SourcesMatiasDeSanti_RedBlackNode_right,
+                                                       SourcesMatiasDeSanti_RedBlackTree_root,
+                                                       throw]
+
+}
+program={
+   call SourcesMatiasDeSanti_RedBlackTree_add_0[thiz,throw,t,obj,SourcesMatiasDeSanti_RedBlackNode_left,SourcesMatiasDeSanti_RedBlackNode_right,SourcesMatiasDeSanti_RedBlackNode_color,SourcesMatiasDeSanti_RedBlackNode_parent,SourcesMatiasDeSanti_RedBlackNode_data,SourcesMatiasDeSanti_RedBlackNode_blackHeight,SourcesMatiasDeSanti_RedBlackTree_root]
+
+}
+post={
+   postcondition_SourcesMatiasDeSanti_RedBlackTree_add_0[SourcesMatiasDeSanti_RedBlackNode_left',
+                                                        SourcesMatiasDeSanti_RedBlackNode_right',
+                                                        SourcesMatiasDeSanti_RedBlackTree_root',
+                                                        thiz',
+                                                        throw']
+
+}
+}
+

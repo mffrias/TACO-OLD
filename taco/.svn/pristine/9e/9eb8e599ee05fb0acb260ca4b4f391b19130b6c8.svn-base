@@ -1,0 +1,244 @@
+//-------------- roops_core_objects_NodeCachingLinkedList --------------//
+module roops_core_objects_NodeCachingLinkedList
+sig roops_core_objects_NodeCachingLinkedList extends java_lang_Object {}
+{}
+field roops_core_objects_NodeCachingLinkedList_header:(roops_core_objects_NodeCachingLinkedList)->one(null+roops_core_objects_LinkedListNode) {}
+field roops_core_objects_NodeCachingLinkedList_size:(roops_core_objects_NodeCachingLinkedList)->one(Int) {}
+field roops_core_objects_NodeCachingLinkedList_modCount:(roops_core_objects_NodeCachingLinkedList)->one(Int) {}
+field roops_core_objects_NodeCachingLinkedList_DEFAULT_MAXIMUM_CACHE_SIZE:(roops_core_objects_NodeCachingLinkedList)->one(Int) {}
+field roops_core_objects_NodeCachingLinkedList_firstCachedNode:(roops_core_objects_NodeCachingLinkedList)->one(null+roops_core_objects_LinkedListNode) {}
+field roops_core_objects_NodeCachingLinkedList_cacheSize:(roops_core_objects_NodeCachingLinkedList)->one(Int) {}
+field roops_core_objects_NodeCachingLinkedList_maximumCacheSize:(roops_core_objects_NodeCachingLinkedList)->one(Int) {}
+
+object_invariant
+   neq[thiz.roops_core_objects_NodeCachingLinkedList_header,
+      null]
+   and 
+   neq[(thiz.roops_core_objects_NodeCachingLinkedList_header).roops_core_objects_LinkedListNode_next,
+      null]
+   and 
+   neq[(thiz.roops_core_objects_NodeCachingLinkedList_header).roops_core_objects_LinkedListNode_previous,
+      null]
+   and 
+   equ[thiz.roops_core_objects_NodeCachingLinkedList_size,
+      sub[fun_set_size[fun_reach[thiz.roops_core_objects_NodeCachingLinkedList_header,roops_core_objects_LinkedListNode,roops_core_objects_LinkedListNode_next]],1]]
+   and 
+   gte[thiz.roops_core_objects_NodeCachingLinkedList_size,
+      0]
+   and 
+   lte[thiz.roops_core_objects_NodeCachingLinkedList_cacheSize,
+      thiz.roops_core_objects_NodeCachingLinkedList_maximumCacheSize]
+   and 
+   equ[thiz.roops_core_objects_NodeCachingLinkedList_DEFAULT_MAXIMUM_CACHE_SIZE,
+      20]
+   and 
+   equ[thiz.roops_core_objects_NodeCachingLinkedList_cacheSize,
+      fun_set_size[fun_reach[thiz.roops_core_objects_NodeCachingLinkedList_firstCachedNode,roops_core_objects_LinkedListNode,roops_core_objects_LinkedListNode_next]]]
+   and 
+   (
+     all m:null+roops_core_objects_LinkedListNode | {
+       liftExpression[fun_set_contains[fun_reach[thiz.roops_core_objects_NodeCachingLinkedList_firstCachedNode,roops_core_objects_LinkedListNode,roops_core_objects_LinkedListNode_next],m]]
+       implies 
+               (
+                 (
+                   Not[fun_set_contains[fun_reach[m.roops_core_objects_LinkedListNode_next,roops_core_objects_LinkedListNode,roops_core_objects_LinkedListNode_next],m]]=true)
+                 and 
+                 equ[m.roops_core_objects_LinkedListNode_previous,
+                    null]
+                 and 
+                 equ[m.roops_core_objects_LinkedListNode_value,
+                    0]
+               )
+     
+     }
+   )
+   and 
+   (
+     all n:null+roops_core_objects_LinkedListNode | {
+       liftExpression[fun_set_contains[fun_reach[thiz.roops_core_objects_NodeCachingLinkedList_header,roops_core_objects_LinkedListNode,roops_core_objects_LinkedListNode_next],n]]
+       implies 
+               (
+                 neq[n,
+                    null]
+                 and 
+                 neq[n.roops_core_objects_LinkedListNode_previous,
+                    null]
+                 and 
+                 equ[(n.roops_core_objects_LinkedListNode_previous).roops_core_objects_LinkedListNode_next,
+                    n]
+                 and 
+                 neq[n.roops_core_objects_LinkedListNode_next,
+                    null]
+                 and 
+                 equ[(n.roops_core_objects_LinkedListNode_next).roops_core_objects_LinkedListNode_previous,
+                    n]
+               )
+     
+     }
+   )
+
+
+
+program roops_core_objects_NodeCachingLinkedList::Constructor[
+  var thiz:roops_core_objects_NodeCachingLinkedList,
+  var throw:java_lang_Throwable+null] 
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         {
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.roops_core_objects_NodeCachingLinkedList_header:=((null+roops_core_objects_LinkedListNode) & (null));
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.roops_core_objects_NodeCachingLinkedList_size:=0;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.roops_core_objects_NodeCachingLinkedList_modCount:=0;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.roops_core_objects_NodeCachingLinkedList_DEFAULT_MAXIMUM_CACHE_SIZE:=0;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.roops_core_objects_NodeCachingLinkedList_firstCachedNode:=((null+roops_core_objects_LinkedListNode) & (null));
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.roops_core_objects_NodeCachingLinkedList_cacheSize:=0;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.roops_core_objects_NodeCachingLinkedList_maximumCacheSize:=0;
+               };
+            } else {
+               skip;
+            };
+         
+         }
+      
+      }
+      skip;
+   
+   }
+
+
+program roops_core_objects_NodeCachingLinkedList::showInstance[
+  var thiz:roops_core_objects_NodeCachingLinkedList,
+  var throw:java_lang_Throwable+null,
+  var list:null+roops_core_objects_NodeCachingLinkedList] 
+Specification 
+{
+  SpecCase #0 {
+   requires {
+      true=true
+   }
+   
+   ensures {
+      (
+        throw'=null)
+      implies 
+              liftExpression[false]
+   }
+   
+   modifies {
+   EVERYTHING}
+  }
+}
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         {
+            var param_list_0:null+roops_core_objects_NodeCachingLinkedList;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               param_list_0:=list;
+            } else {
+               skip;
+            };
+         
+         }
+      
+      }
+      skip;
+   
+   }
+
+
+

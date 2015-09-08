@@ -1,0 +1,89 @@
+//-------------- edu_fiu_sort_SortBug1 --------------//
+module edu_fiu_sort_SortBug1
+sig edu_fiu_sort_SortBug1 extends java_lang_Object {}
+{}
+program edu_fiu_sort_SortBug1::Constructor[
+  var thiz:edu_fiu_sort_SortBug1,
+  var throw:java_lang_Throwable+null] 
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         skip;
+      
+      }
+      skip;
+   
+   }
+
+
+program edu_fiu_sort_SortBug1::insertionSort[
+  var throw:java_lang_Throwable+null,
+  var a:java_lang_IntArray+null] 
+Specification 
+{
+  SpecCase #0 {
+   requires {
+      pred_java_primitive_integer_value_gt[arrayLength[a,java_lang_IntArray_length],
+                                          JavaPrimitiveIntegerLiteral0]
+   }
+   
+   requires {
+      not (
+        a=null)
+   }
+   
+   ensures {
+      (
+        throw'=null)
+      implies 
+              equ[((JavaPrimitiveLongValue) & (arrayAccess[a',java_lang_IntArray_contents',JavaPrimitiveIntegerLiteral0])),
+                 JavaPrimitiveLongLiteral0]
+   }
+   
+   modifies {
+   EVERYTHING}
+  }
+}
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         {
+            var param_a_0:java_lang_IntArray+null;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               param_a_0:=a;
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               param_a_0:=((java_lang_IntArray+null) & (null));
+            } else {
+               skip;
+            };
+         
+         }
+      
+      }
+      skip;
+   
+   }
+
+
+

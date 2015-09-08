@@ -1,0 +1,347 @@
+//-------------- SourcesPauli_LinkList --------------//
+module SourcesPauli_LinkList
+sig SourcesPauli_LinkList extends java_lang_Object {}
+{}
+field SourcesPauli_LinkList_first:(SourcesPauli_LinkList)->one(SourcesPauli_Link+null) {}
+
+object_invariant
+   all n:SourcesPauli_Link+null | {
+     equ[fun_set_contains[fun_reach[thiz.SourcesPauli_LinkList_first,SourcesPauli_Link,SourcesPauli_Link_nextLink],n],
+        true]
+     implies 
+             equ[fun_set_contains[fun_reach[n.SourcesPauli_Link_nextLink,SourcesPauli_Link,SourcesPauli_Link_nextLink],n],
+                false]
+   
+   }
+
+
+
+program SourcesPauli_LinkList::insert[
+  var thiz:SourcesPauli_LinkList,
+  var throw:java_lang_Throwable+null,
+  var d1:JavaPrimitiveIntegerValue,
+  var d2:JavaPrimitiveIntegerValue] 
+Specification 
+{
+  SpecCase #0 {
+   requires {
+      true=true
+   }
+   
+   ensures {
+      (
+        throw'=null)
+      implies 
+              (
+                some n:SourcesPauli_Link+null | {
+                  liftExpression[fun_set_contains[fun_reach[thiz'.SourcesPauli_LinkList_first',SourcesPauli_Link,SourcesPauli_Link_nextLink'],n]]
+                  and 
+                  equ[n.SourcesPauli_Link_data1',
+                     d1']
+                  and 
+                  equ[n.SourcesPauli_Link_data2',
+                     d2']
+                  and 
+                  equ[n.SourcesPauli_Link_nextLink',
+                     null]
+                
+                }
+              )
+   }
+   
+   modifies {
+   EVERYTHING}
+  }
+}
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         {
+            var param_d1_0:JavaPrimitiveIntegerValue;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               param_d1_0:=d1;
+            } else {
+               skip;
+            };
+            var param_d2_1:JavaPrimitiveIntegerValue;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               param_d2_1:=d2;
+            } else {
+               skip;
+            };
+            var t_2:SourcesPauli_Link+null;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false)   {
+                  createObject<SourcesPauli_Link>[t_2];
+                  if isEmptyOrNull[t_2]{
+                     throw:=java_lang_NullPointerExceptionLit;
+                  } else {
+                     call Constructor[t_2,throw,param_d1_0,param_d2_1];
+                  };
+               
+               }
+             else {
+               skip;
+            };
+            var var_1_link:SourcesPauli_Link+null;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               var_1_link:=t_2;
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[var_1_link]
+               or 
+               isEmptyOrNull[thiz]
+               {
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  var_1_link.SourcesPauli_Link_nextLink:=thiz.SourcesPauli_LinkList_first;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.SourcesPauli_LinkList_first:=var_1_link;
+               };
+            } else {
+               skip;
+            };
+         
+         }
+      
+      }
+      skip;
+   
+   }
+
+
+program SourcesPauli_LinkList::delete[
+  var thiz:SourcesPauli_LinkList,
+  var throw:java_lang_Throwable+null,
+  var return:SourcesPauli_Link+null] 
+Specification 
+{
+  SpecCase #0 {
+   requires {
+      true=true
+   }
+   
+   ensures {
+      (
+        throw'=null)
+      implies 
+              (
+                some n:SourcesPauli_Link+null | {
+                  liftExpression[true]
+                  and 
+                  (
+                    all m:SourcesPauli_Link+null | {
+                      (
+                        (
+                          fun_set_contains[fun_reach[thiz.SourcesPauli_LinkList_first,SourcesPauli_Link,SourcesPauli_Link_nextLink],m]=true)
+                        and 
+                        neq[m,
+                           n]
+                      )
+                      implies 
+                              liftExpression[fun_set_contains[fun_reach[thiz'.SourcesPauli_LinkList_first',SourcesPauli_Link,SourcesPauli_Link_nextLink'],m]]
+                    
+                    }
+                  )
+                
+                }
+              )
+   }
+   
+   modifies {
+   EVERYTHING}
+  }
+}
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         {
+            var var_2_temp:SourcesPauli_Link+null;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  var_2_temp:=thiz.SourcesPauli_LinkList_first;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]
+               or 
+               isEmptyOrNull[thiz.SourcesPauli_LinkList_first]
+               
+               or 
+               isEmptyOrNull[thiz]
+               {
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.SourcesPauli_LinkList_first:=(thiz.SourcesPauli_LinkList_first).SourcesPauli_Link_nextLink;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false)   {
+                  return:=var_2_temp;
+                  exit_stmt_reached:=true;
+               
+               }
+             else {
+               skip;
+            };
+         
+         }
+      
+      }
+      skip;
+   
+   }
+
+
+program SourcesPauli_LinkList::isEmpty[
+  var thiz:SourcesPauli_LinkList,
+  var throw:java_lang_Throwable+null,
+  var return:boolean] 
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         {
+            var t_1:boolean;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               t_1:=(equ[thiz.SourcesPauli_LinkList_first,
+                  null]=>(true)else(false));
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false)   {
+                  return:=t_1;
+                  exit_stmt_reached:=true;
+               
+               }
+             else {
+               skip;
+            };
+         
+         }
+      
+      }
+      skip;
+   
+   }
+
+
+program SourcesPauli_LinkList::Constructor[
+  var thiz:SourcesPauli_LinkList,
+  var throw:java_lang_Throwable+null] 
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         {
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.SourcesPauli_LinkList_first:=((SourcesPauli_Link+null) & (null));
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.SourcesPauli_LinkList_first:=((SourcesPauli_Link+null) & (null));
+               };
+            } else {
+               skip;
+            };
+         
+         }
+      
+      }
+      skip;
+   
+   }
+
+
+

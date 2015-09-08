@@ -1,0 +1,30 @@
+abstract sig java_lang_Throwable extends java_lang_Object {}
+{}
+
+
+
+one sig java_lang_ThrowableLit extends java_lang_Throwable {}
+{}
+
+program java_lang_Throwable_Constructor_0[
+  thiz:java_lang_Throwable,
+  throw:java_lang_Throwable+null,
+  modelfields_TreeSet_root:(modelfields_TreeSet)->one(modelfields_TreeSetEntry+null),
+  modelfields_TreeSet_size:(modelfields_TreeSet)->one(Int),
+  modelfields_TreeSet_modCount:(modelfields_TreeSet)->one(Int),
+  modelfields_TreeSet_BLACK:(modelfields_TreeSet)->one(boolean),
+  modelfields_TreeSetEntry_color:(modelfields_TreeSetEntry)->one(boolean),
+  modelfields_TreeSetEntry_right:(modelfields_TreeSetEntry)->one(modelfields_TreeSetEntry+null),
+  modelfields_TreeSetEntry_parent:(modelfields_TreeSetEntry)->one(modelfields_TreeSetEntry+null),
+  modelfields_TreeSetEntry_key:(modelfields_TreeSetEntry)->one(Int),
+  modelfields_TreeSetEntry_left:(modelfields_TreeSetEntry)->one(modelfields_TreeSetEntry+null),
+  modelfields_TreeSet_RED:(modelfields_TreeSet)->one(boolean),
+  modelfields_TreeSetEntry_blackHeight:(modelfields_TreeSetEntry)->one(Int),
+  usedObjects:set (java_lang_Object)
+] var [
+
+]{
+   skip
+
+}
+

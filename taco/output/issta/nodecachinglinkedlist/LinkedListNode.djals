@@ -1,0 +1,69 @@
+//-------------- issta_nodecachinglinkedlist_LinkedListNode --------------//
+module issta_nodecachinglinkedlist_LinkedListNode
+sig issta_nodecachinglinkedlist_LinkedListNode extends java_lang_Object {}
+{}
+field issta_nodecachinglinkedlist_LinkedListNode_previous:(issta_nodecachinglinkedlist_LinkedListNode)->one(issta_nodecachinglinkedlist_LinkedListNode+null) {}
+field issta_nodecachinglinkedlist_LinkedListNode_next:(issta_nodecachinglinkedlist_LinkedListNode)->one(issta_nodecachinglinkedlist_LinkedListNode+null) {}
+field issta_nodecachinglinkedlist_LinkedListNode_value:(issta_nodecachinglinkedlist_LinkedListNode)->one(java_lang_Object+null) {}
+
+program issta_nodecachinglinkedlist_LinkedListNode::LinkedListNode[
+  var thiz:issta_nodecachinglinkedlist_LinkedListNode,
+  var throw:java_lang_Throwable+null] 
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         {
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.issta_nodecachinglinkedlist_LinkedListNode_previous:=((issta_nodecachinglinkedlist_LinkedListNode+null) & (null));
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.issta_nodecachinglinkedlist_LinkedListNode_next:=((issta_nodecachinglinkedlist_LinkedListNode+null) & (null));
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.issta_nodecachinglinkedlist_LinkedListNode_value:=((java_lang_Object+null) & (null));
+               };
+            } else {
+               skip;
+            };
+         
+         }
+      
+      }
+      skip;
+   
+   }
+
+
+

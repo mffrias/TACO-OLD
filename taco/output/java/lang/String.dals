@@ -1,0 +1,59 @@
+sig java_lang_String extends java_lang_Object {}
+{}
+
+
+
+
+pred java_lang_StringCondition0[
+  i:univ,
+  return:univ,
+  stringHashCode:univ->univ
+]{
+   return.stringHashCode=i
+
+}
+
+pred java_lang_StringCondition1[
+  length:univ,
+  return:univ,
+  stringLength:univ->univ
+]{
+   return.stringLength=length
+
+}
+
+program java_lang_String_length_0[
+  thiz:java_lang_String,
+  throw:java_lang_Throwable+null,
+  return:JavaPrimitiveIntegerValue,
+  stringLength:(java_lang_String)->one(JavaPrimitiveIntegerValue),
+  stringHashCode:(java_lang_String)->one(JavaPrimitiveIntegerValue),
+  ar_edu_taco_floatTest_FloatTest_att:(ar_edu_taco_floatTest_FloatTest)->one(JavaPrimitiveIntegerValue),
+  usedObjects:set (java_lang_Object)
+] var [
+
+]{
+   throw:=null;
+   return:=thiz.stringLength
+
+}
+
+program java_lang_String_buildInstance_0[
+  throw:java_lang_Throwable+null,
+  return:java_lang_String,
+  i:JavaPrimitiveIntegerValue,
+  length:JavaPrimitiveIntegerValue,
+  stringLength:(java_lang_String)->one(JavaPrimitiveIntegerValue),
+  stringHashCode:(java_lang_String)->one(JavaPrimitiveIntegerValue),
+  ar_edu_taco_floatTest_FloatTest_att:(ar_edu_taco_floatTest_FloatTest)->one(JavaPrimitiveIntegerValue),
+  usedObjects:set (java_lang_Object)
+] var [
+
+]{
+   throw:=null;
+   havocVariable[return];
+   assume java_lang_StringCondition0[i,return,stringHashCode];
+   assume java_lang_StringCondition1[length,return,stringLength]
+
+}
+

@@ -1,0 +1,1826 @@
+//-------------- SourcesCristianOntivero_AVLTree --------------//
+module SourcesCristianOntivero_AVLTree
+sig SourcesCristianOntivero_AVLTree extends java_lang_Object {}
+{}
+field SourcesCristianOntivero_AVLTree_root:(SourcesCristianOntivero_AVLTree)->one(SourcesCristianOntivero_AVLNode+null) {}
+
+object_invariant
+   all n:SourcesCristianOntivero_AVLNode+null | {
+     equ[fun_set_contains[fun_reach[thiz.SourcesCristianOntivero_AVLTree_root,SourcesCristianOntivero_AVLNode,SourcesCristianOntivero_AVLNode_left+SourcesCristianOntivero_AVLNode_right],n],
+        true]
+     implies 
+             (
+               (
+                 all m:SourcesCristianOntivero_AVLNode+null | {
+                   equ[fun_set_contains[fun_reach[n.SourcesCristianOntivero_AVLNode_left,SourcesCristianOntivero_AVLNode,SourcesCristianOntivero_AVLNode_left+SourcesCristianOntivero_AVLNode_right],m],
+                      true]
+                   implies 
+                           pred_java_primitive_integer_value_lte[m.SourcesCristianOntivero_AVLNode_value,
+                                                                n.SourcesCristianOntivero_AVLNode_value]
+                 
+                 }
+               )
+               and 
+               (
+                 all m:SourcesCristianOntivero_AVLNode+null | {
+                   equ[fun_set_contains[fun_reach[n.SourcesCristianOntivero_AVLNode_right,SourcesCristianOntivero_AVLNode,SourcesCristianOntivero_AVLNode_left+SourcesCristianOntivero_AVLNode_right],m],
+                      true]
+                   implies 
+                           pred_java_primitive_integer_value_gt[m.SourcesCristianOntivero_AVLNode_value,
+                                                               n.SourcesCristianOntivero_AVLNode_value]
+                 
+                 }
+               )
+             )
+   
+   }
+
+object_invariant
+   all n:SourcesCristianOntivero_AVLNode+null | {
+     equ[fun_set_contains[fun_reach[thiz.SourcesCristianOntivero_AVLTree_root,SourcesCristianOntivero_AVLNode,SourcesCristianOntivero_AVLNode_left+SourcesCristianOntivero_AVLNode_right],n],
+        true]
+     implies 
+             (
+               equ[fun_set_contains[fun_reach[n.SourcesCristianOntivero_AVLNode_right,SourcesCristianOntivero_AVLNode,SourcesCristianOntivero_AVLNode_right+SourcesCristianOntivero_AVLNode_left],n],
+                  false]
+               and 
+               equ[fun_set_contains[fun_reach[n.SourcesCristianOntivero_AVLNode_left,SourcesCristianOntivero_AVLNode,SourcesCristianOntivero_AVLNode_left+SourcesCristianOntivero_AVLNode_right],n],
+                  false]
+             )
+   
+   }
+
+
+
+program SourcesCristianOntivero_AVLTree::rotateLeft[
+  var thiz:SourcesCristianOntivero_AVLTree,
+  var throw:java_lang_Throwable+null,
+  var node:SourcesCristianOntivero_AVLNode+null] 
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         {
+            var param_node_6:SourcesCristianOntivero_AVLNode+null;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               param_node_6:=node;
+            } else {
+               skip;
+            };
+            var t_34:boolean;
+            var var_14_newRoot:SourcesCristianOntivero_AVLNode+null;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[node]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  var_14_newRoot:=node.SourcesCristianOntivero_AVLNode_right;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[node]
+               or 
+               isEmptyOrNull[var_14_newRoot]
+               {
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  node.SourcesCristianOntivero_AVLNode_right:=var_14_newRoot.SourcesCristianOntivero_AVLNode_left;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[var_14_newRoot]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  var_14_newRoot.SourcesCristianOntivero_AVLNode_left:=param_node_6;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               t_34:=(equ[node.SourcesCristianOntivero_AVLNode_parent,
+                  null]=>(true)else(false));
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if t_34=true   {
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        if isEmptyOrNull[var_14_newRoot]{
+                           throw:=java_lang_NullPointerExceptionLit;
+                        } else {
+                           var_14_newRoot.SourcesCristianOntivero_AVLNode_parent:=((SourcesCristianOntivero_AVLNode+null) & (null));
+                        };
+                     } else {
+                        skip;
+                     };
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        if isEmptyOrNull[thiz]{
+                           throw:=java_lang_NullPointerExceptionLit;
+                        } else {
+                           thiz.SourcesCristianOntivero_AVLTree_root:=var_14_newRoot;
+                        };
+                     } else {
+                        skip;
+                     };
+                  
+                  }
+                else    {
+                     var t_33:boolean;
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        t_33:=(equ[((node.SourcesCristianOntivero_AVLNode_parent).SourcesCristianOntivero_AVLNode_left).SourcesCristianOntivero_AVLNode_value,
+                           node.SourcesCristianOntivero_AVLNode_value]=>(true)else(false));
+                     } else {
+                        skip;
+                     };
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        if t_33=true{
+                           if (
+                             throw=null)
+                           and 
+                           (
+                             exit_stmt_reached=false){
+                              if isEmptyOrNull[node.SourcesCristianOntivero_AVLNode_parent]
+                              or 
+                              isEmptyOrNull[node]
+                              {
+                                 throw:=java_lang_NullPointerExceptionLit;
+                              } else {
+                                 (node.SourcesCristianOntivero_AVLNode_parent).SourcesCristianOntivero_AVLNode_left:=var_14_newRoot;
+                              };
+                           } else {
+                              skip;
+                           };
+                        } else {
+                           if (
+                             throw=null)
+                           and 
+                           (
+                             exit_stmt_reached=false){
+                              if isEmptyOrNull[node.SourcesCristianOntivero_AVLNode_parent]
+                              or 
+                              isEmptyOrNull[node]
+                              {
+                                 throw:=java_lang_NullPointerExceptionLit;
+                              } else {
+                                 (node.SourcesCristianOntivero_AVLNode_parent).SourcesCristianOntivero_AVLNode_right:=var_14_newRoot;
+                              };
+                           } else {
+                              skip;
+                           };
+                        };
+                     } else {
+                        skip;
+                     };
+                  
+                  }
+               ;
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[var_14_newRoot]
+               or 
+               isEmptyOrNull[node]
+               {
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  var_14_newRoot.SourcesCristianOntivero_AVLNode_parent:=node.SourcesCristianOntivero_AVLNode_parent;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[node]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  node.SourcesCristianOntivero_AVLNode_parent:=var_14_newRoot;
+               };
+            } else {
+               skip;
+            };
+         
+         }
+      
+      }
+      skip;
+   
+   }
+
+
+program SourcesCristianOntivero_AVLTree::rotateRight[
+  var thiz:SourcesCristianOntivero_AVLTree,
+  var throw:java_lang_Throwable+null,
+  var node:SourcesCristianOntivero_AVLNode+null] 
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         {
+            var param_node_5:SourcesCristianOntivero_AVLNode+null;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               param_node_5:=node;
+            } else {
+               skip;
+            };
+            var t_32:boolean;
+            var var_13_newRoot:SourcesCristianOntivero_AVLNode+null;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[node]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  var_13_newRoot:=node.SourcesCristianOntivero_AVLNode_left;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[node]
+               or 
+               isEmptyOrNull[var_13_newRoot]
+               {
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  node.SourcesCristianOntivero_AVLNode_left:=var_13_newRoot.SourcesCristianOntivero_AVLNode_right;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[var_13_newRoot]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  var_13_newRoot.SourcesCristianOntivero_AVLNode_right:=param_node_5;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               t_32:=(equ[node.SourcesCristianOntivero_AVLNode_parent,
+                  null]=>(true)else(false));
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if t_32=true   {
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        if isEmptyOrNull[var_13_newRoot]{
+                           throw:=java_lang_NullPointerExceptionLit;
+                        } else {
+                           var_13_newRoot.SourcesCristianOntivero_AVLNode_parent:=((SourcesCristianOntivero_AVLNode+null) & (null));
+                        };
+                     } else {
+                        skip;
+                     };
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        if isEmptyOrNull[thiz]{
+                           throw:=java_lang_NullPointerExceptionLit;
+                        } else {
+                           thiz.SourcesCristianOntivero_AVLTree_root:=var_13_newRoot;
+                        };
+                     } else {
+                        skip;
+                     };
+                  
+                  }
+                else    {
+                     var t_31:boolean;
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        t_31:=(equ[((node.SourcesCristianOntivero_AVLNode_parent).SourcesCristianOntivero_AVLNode_left).SourcesCristianOntivero_AVLNode_value,
+                           node.SourcesCristianOntivero_AVLNode_value]=>(true)else(false));
+                     } else {
+                        skip;
+                     };
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        if t_31=true{
+                           if (
+                             throw=null)
+                           and 
+                           (
+                             exit_stmt_reached=false){
+                              if isEmptyOrNull[node.SourcesCristianOntivero_AVLNode_parent]
+                              or 
+                              isEmptyOrNull[node]
+                              {
+                                 throw:=java_lang_NullPointerExceptionLit;
+                              } else {
+                                 (node.SourcesCristianOntivero_AVLNode_parent).SourcesCristianOntivero_AVLNode_left:=var_13_newRoot;
+                              };
+                           } else {
+                              skip;
+                           };
+                        } else {
+                           if (
+                             throw=null)
+                           and 
+                           (
+                             exit_stmt_reached=false){
+                              if isEmptyOrNull[node.SourcesCristianOntivero_AVLNode_parent]
+                              or 
+                              isEmptyOrNull[node]
+                              {
+                                 throw:=java_lang_NullPointerExceptionLit;
+                              } else {
+                                 (node.SourcesCristianOntivero_AVLNode_parent).SourcesCristianOntivero_AVLNode_right:=var_13_newRoot;
+                              };
+                           } else {
+                              skip;
+                           };
+                        };
+                     } else {
+                        skip;
+                     };
+                  
+                  }
+               ;
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[var_13_newRoot]
+               or 
+               isEmptyOrNull[node]
+               {
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  var_13_newRoot.SourcesCristianOntivero_AVLNode_parent:=node.SourcesCristianOntivero_AVLNode_parent;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[node]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  node.SourcesCristianOntivero_AVLNode_parent:=var_13_newRoot;
+               };
+            } else {
+               skip;
+            };
+         
+         }
+      
+      }
+      skip;
+   
+   }
+
+
+program SourcesCristianOntivero_AVLTree::find[
+  var thiz:SourcesCristianOntivero_AVLTree,
+  var throw:java_lang_Throwable+null,
+  var return:SourcesCristianOntivero_AVLNode+null,
+  var value:JavaPrimitiveIntegerValue] 
+Specification 
+{
+  SpecCase #0 {
+   requires {
+      true=true
+   }
+   
+   ensures {
+      (
+        throw'=null)
+      implies 
+              (
+                some n:SourcesCristianOntivero_AVLNode+null | {
+                  liftExpression[true]
+                  and 
+                  (
+                    equ[n.SourcesCristianOntivero_AVLNode_value',
+                       value']
+                    implies 
+                            equ[return',
+                               n]
+                  )
+                
+                }
+              )
+   }
+   
+   modifies {
+   EVERYTHING}
+  }
+}
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         {
+            var param_value_0:JavaPrimitiveIntegerValue;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               param_value_0:=value;
+            } else {
+               skip;
+            };
+            var t_1:boolean;
+            var t_2:boolean;
+            var t_3:boolean;
+            var var_1_current:SourcesCristianOntivero_AVLNode+null;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  var_1_current:=thiz.SourcesCristianOntivero_AVLTree_root;
+               };
+            } else {
+               skip;
+            };
+            var var_2_ws_1:boolean;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               t_2:=(neq[var_1_current,
+                  null]=>(true)else(false));
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if t_2=true   {
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        t_3:=(neq[var_1_current.SourcesCristianOntivero_AVLNode_value,
+                           param_value_0]=>(true)else(false));
+                     } else {
+                        skip;
+                     };
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        if t_3=true{
+                           if (
+                             throw=null)
+                           and 
+                           (
+                             exit_stmt_reached=false){
+                              t_1:=true;
+                           } else {
+                              skip;
+                           };
+                        } else {
+                           if (
+                             throw=null)
+                           and 
+                           (
+                             exit_stmt_reached=false){
+                              t_1:=false;
+                           } else {
+                              skip;
+                           };
+                        };
+                     } else {
+                        skip;
+                     };
+                  
+                  }
+                else {
+                  if (
+                    throw=null)
+                  and 
+                  (
+                    exit_stmt_reached=false){
+                     t_1:=false;
+                  } else {
+                     skip;
+                  };
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               var_2_ws_1:=t_1;
+            } else {
+               skip;
+            };
+            while liftExpression[var_2_ws_1]
+            and 
+            (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false)
+            
+               {
+                  var t_4:boolean;
+                  var t_5:boolean;
+                  var t_6:boolean;
+                  var t_7:boolean;
+                  if (
+                    throw=null)
+                  and 
+                  (
+                    exit_stmt_reached=false){
+                     t_4:=(pred_java_primitive_integer_value_lt[var_1_current.SourcesCristianOntivero_AVLNode_value,
+                                                         param_value_0]=>(true)else(false));
+                  } else {
+                     skip;
+                  };
+                  if (
+                    throw=null)
+                  and 
+                  (
+                    exit_stmt_reached=false){
+                     if t_4=true{
+                        if (
+                          throw=null)
+                        and 
+                        (
+                          exit_stmt_reached=false){
+                           if isEmptyOrNull[var_1_current]{
+                              throw:=java_lang_NullPointerExceptionLit;
+                           } else {
+                              var_1_current:=var_1_current.SourcesCristianOntivero_AVLNode_right;
+                           };
+                        } else {
+                           skip;
+                        };
+                     } else {
+                        if (
+                          throw=null)
+                        and 
+                        (
+                          exit_stmt_reached=false){
+                           if isEmptyOrNull[var_1_current]{
+                              throw:=java_lang_NullPointerExceptionLit;
+                           } else {
+                              var_1_current:=var_1_current.SourcesCristianOntivero_AVLNode_left;
+                           };
+                        } else {
+                           skip;
+                        };
+                     };
+                  } else {
+                     skip;
+                  };
+                  if (
+                    throw=null)
+                  and 
+                  (
+                    exit_stmt_reached=false){
+                     t_6:=(neq[var_1_current,
+                        null]=>(true)else(false));
+                  } else {
+                     skip;
+                  };
+                  if (
+                    throw=null)
+                  and 
+                  (
+                    exit_stmt_reached=false){
+                     if t_6=true   {
+                           if (
+                             throw=null)
+                           and 
+                           (
+                             exit_stmt_reached=false){
+                              t_7:=(neq[var_1_current.SourcesCristianOntivero_AVLNode_value,
+                                 param_value_0]=>(true)else(false));
+                           } else {
+                              skip;
+                           };
+                           if (
+                             throw=null)
+                           and 
+                           (
+                             exit_stmt_reached=false){
+                              if t_7=true{
+                                 if (
+                                   throw=null)
+                                 and 
+                                 (
+                                   exit_stmt_reached=false){
+                                    t_5:=true;
+                                 } else {
+                                    skip;
+                                 };
+                              } else {
+                                 if (
+                                   throw=null)
+                                 and 
+                                 (
+                                   exit_stmt_reached=false){
+                                    t_5:=false;
+                                 } else {
+                                    skip;
+                                 };
+                              };
+                           } else {
+                              skip;
+                           };
+                        
+                        }
+                      else {
+                        if (
+                          throw=null)
+                        and 
+                        (
+                          exit_stmt_reached=false){
+                           t_5:=false;
+                        } else {
+                           skip;
+                        };
+                     };
+                  } else {
+                     skip;
+                  };
+                  if (
+                    throw=null)
+                  and 
+                  (
+                    exit_stmt_reached=false){
+                     var_2_ws_1:=t_5;
+                  } else {
+                     skip;
+                  };
+               
+               }
+            ;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false)   {
+                  return:=var_1_current;
+                  exit_stmt_reached:=true;
+               
+               }
+             else {
+               skip;
+            };
+         
+         }
+      
+      }
+      skip;
+   
+   }
+
+
+program SourcesCristianOntivero_AVLTree::Constructor[
+  var thiz:SourcesCristianOntivero_AVLTree,
+  var throw:java_lang_Throwable+null] 
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         {
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.SourcesCristianOntivero_AVLTree_root:=((SourcesCristianOntivero_AVLNode+null) & (null));
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.SourcesCristianOntivero_AVLTree_root:=((SourcesCristianOntivero_AVLNode+null) & (null));
+               };
+            } else {
+               skip;
+            };
+         
+         }
+      
+      }
+      skip;
+   
+   }
+
+
+program SourcesCristianOntivero_AVLTree::height[
+  var throw:java_lang_Throwable+null,
+  var return:JavaPrimitiveIntegerValue,
+  var node:SourcesCristianOntivero_AVLNode+null] 
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         {
+            var param_node_2:SourcesCristianOntivero_AVLNode+null;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               param_node_2:=node;
+            } else {
+               skip;
+            };
+            var t_25:boolean;
+            var t_26:JavaPrimitiveIntegerValue;
+            var t_27:JavaPrimitiveIntegerValue;
+            var t_28:JavaPrimitiveIntegerValue;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               t_25:=(equ[param_node_2,
+                  null]=>(true)else(false));
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if t_25=true{
+                  if (
+                    throw=null)
+                  and 
+                  (
+                    exit_stmt_reached=false)   {
+                        return:=JavaPrimitiveIntegerLiteralMinus1;
+                        exit_stmt_reached:=true;
+                     
+                     }
+                   else {
+                     skip;
+                  };
+               } else {
+                  skip;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[node]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  call SourcesCristianOntivero_AVLTree_height[throw,t_26,node.SourcesCristianOntivero_AVLNode_right];
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[node]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  call SourcesCristianOntivero_AVLTree_height[throw,t_27,node.SourcesCristianOntivero_AVLNode_left];
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               call SourcesCristianOntivero_AVLTree_max[throw,t_28,t_26,t_27];
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[node]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  node.SourcesCristianOntivero_AVLNode_height:=fun_java_primitive_integer_value_add[JavaPrimitiveIntegerLiteral1,t_28];
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false)   {
+                  if isEmptyOrNull[node]{
+                     throw:=java_lang_NullPointerExceptionLit;
+                  } else {
+                     return:=node.SourcesCristianOntivero_AVLNode_height;
+                  };
+                  exit_stmt_reached:=true;
+               
+               }
+             else {
+               skip;
+            };
+         
+         }
+      
+      }
+      skip;
+   
+   }
+
+
+program SourcesCristianOntivero_AVLTree::insert[
+  var thiz:SourcesCristianOntivero_AVLTree,
+  var throw:java_lang_Throwable+null,
+  var value:JavaPrimitiveIntegerValue] 
+Specification 
+{
+  SpecCase #0 {
+   requires {
+      true=true
+   }
+   
+   ensures {
+      throw'=null
+   }
+   
+   modifies {
+   EVERYTHING}
+  }
+}
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         {
+            var param_value_1:JavaPrimitiveIntegerValue;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               param_value_1:=value;
+            } else {
+               skip;
+            };
+            var t_24:boolean;
+            var var_3_current:SourcesCristianOntivero_AVLNode+null;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  var_3_current:=thiz.SourcesCristianOntivero_AVLTree_root;
+               };
+            } else {
+               skip;
+            };
+            var var_4_parent:SourcesCristianOntivero_AVLNode+null;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               var_4_parent:=((SourcesCristianOntivero_AVLNode+null) & (null));
+            } else {
+               skip;
+            };
+            var var_5_comparison:boolean;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               t_24:=(neq[thiz.SourcesCristianOntivero_AVLTree_root,
+                  null]=>(true)else(false));
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if t_24=true   {
+                     var t_8:SourcesCristianOntivero_AVLNode+null;
+                     var t_9:boolean;
+                     var t_10:boolean;
+                     var t_11:boolean;
+                     var var_6_ws_2:boolean;
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        var_6_ws_2:=(neq[var_3_current,
+                           null]=>(true)else(false));
+                     } else {
+                        skip;
+                     };
+                     while liftExpression[var_6_ws_2]
+                     and 
+                     (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false)
+                     
+                        {
+                           if (
+                             throw=null)
+                           and 
+                           (
+                             exit_stmt_reached=false){
+                              var_5_comparison:=(pred_java_primitive_integer_value_lt[var_3_current.SourcesCristianOntivero_AVLNode_value,
+                                                                  param_value_1]=>(true)else(false));
+                           } else {
+                              skip;
+                           };
+                           if (
+                             throw=null)
+                           and 
+                           (
+                             exit_stmt_reached=false){
+                              var_4_parent:=var_3_current;
+                           } else {
+                              skip;
+                           };
+                           if (
+                             throw=null)
+                           and 
+                           (
+                             exit_stmt_reached=false){
+                              if var_5_comparison=true{
+                                 if (
+                                   throw=null)
+                                 and 
+                                 (
+                                   exit_stmt_reached=false){
+                                    if isEmptyOrNull[var_3_current]{
+                                       throw:=java_lang_NullPointerExceptionLit;
+                                    } else {
+                                       var_3_current:=var_3_current.SourcesCristianOntivero_AVLNode_right;
+                                    };
+                                 } else {
+                                    skip;
+                                 };
+                              } else {
+                                 if (
+                                   throw=null)
+                                 and 
+                                 (
+                                   exit_stmt_reached=false){
+                                    if isEmptyOrNull[var_3_current]{
+                                       throw:=java_lang_NullPointerExceptionLit;
+                                    } else {
+                                       var_3_current:=var_3_current.SourcesCristianOntivero_AVLNode_left;
+                                    };
+                                 } else {
+                                    skip;
+                                 };
+                              };
+                           } else {
+                              skip;
+                           };
+                           if (
+                             throw=null)
+                           and 
+                           (
+                             exit_stmt_reached=false){
+                              var_6_ws_2:=(neq[var_3_current,
+                                 null]=>(true)else(false));
+                           } else {
+                              skip;
+                           };
+                        
+                        }
+                     ;
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false)   {
+                           createObject<SourcesCristianOntivero_AVLNode>[t_8];
+                           if isEmptyOrNull[t_8]{
+                              throw:=java_lang_NullPointerExceptionLit;
+                           } else {
+                              call Constructor[t_8,throw,param_value_1,var_4_parent];
+                           };
+                        
+                        }
+                      else {
+                        skip;
+                     };
+                     var var_7_nodeToInsert:SourcesCristianOntivero_AVLNode+null;
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        var_7_nodeToInsert:=t_8;
+                     } else {
+                        skip;
+                     };
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        t_9:=(pred_java_primitive_integer_value_lt[var_4_parent.SourcesCristianOntivero_AVLNode_value,
+                                                            param_value_1]=>(true)else(false));
+                     } else {
+                        skip;
+                     };
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        if t_9=true{
+                           if (
+                             throw=null)
+                           and 
+                           (
+                             exit_stmt_reached=false){
+                              if isEmptyOrNull[var_4_parent]{
+                                 throw:=java_lang_NullPointerExceptionLit;
+                              } else {
+                                 var_4_parent.SourcesCristianOntivero_AVLNode_right:=var_7_nodeToInsert;
+                              };
+                           } else {
+                              skip;
+                           };
+                        } else {
+                           if (
+                             throw=null)
+                           and 
+                           (
+                             exit_stmt_reached=false){
+                              if isEmptyOrNull[var_4_parent]{
+                                 throw:=java_lang_NullPointerExceptionLit;
+                              } else {
+                                 var_4_parent.SourcesCristianOntivero_AVLNode_left:=var_7_nodeToInsert;
+                              };
+                           } else {
+                              skip;
+                           };
+                        };
+                     } else {
+                        skip;
+                     };
+                     var var_8_balanceFactor:JavaPrimitiveIntegerValue;
+                     var var_9_child:SourcesCristianOntivero_AVLNode+null;
+                     var var_10_flag:boolean;
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        var_10_flag:=true;
+                     } else {
+                        skip;
+                     };
+                     var var_11_ws_3:boolean;
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        t_11:=(neq[var_4_parent,
+                           null]=>(true)else(false));
+                     } else {
+                        skip;
+                     };
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        if t_11=true{
+                           if (
+                             throw=null)
+                           and 
+                           (
+                             exit_stmt_reached=false){
+                              if var_10_flag=true{
+                                 if (
+                                   throw=null)
+                                 and 
+                                 (
+                                   exit_stmt_reached=false){
+                                    t_10:=true;
+                                 } else {
+                                    skip;
+                                 };
+                              } else {
+                                 if (
+                                   throw=null)
+                                 and 
+                                 (
+                                   exit_stmt_reached=false){
+                                    t_10:=false;
+                                 } else {
+                                    skip;
+                                 };
+                              };
+                           } else {
+                              skip;
+                           };
+                        } else {
+                           if (
+                             throw=null)
+                           and 
+                           (
+                             exit_stmt_reached=false){
+                              t_10:=false;
+                           } else {
+                              skip;
+                           };
+                        };
+                     } else {
+                        skip;
+                     };
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        var_11_ws_3:=t_10;
+                     } else {
+                        skip;
+                     };
+                     while liftExpression[var_11_ws_3]
+                     and 
+                     (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false)
+                     
+                        {
+                           var t_12:JavaPrimitiveIntegerValue;
+                           var t_13:JavaPrimitiveIntegerValue;
+                           var t_19:boolean;
+                           var t_20:boolean;
+                           var t_21:boolean;
+                           if (
+                             throw=null)
+                           and 
+                           (
+                             exit_stmt_reached=false){
+                              if isEmptyOrNull[var_4_parent]{
+                                 throw:=java_lang_NullPointerExceptionLit;
+                              } else {
+                                 call SourcesCristianOntivero_AVLTree_height[throw,t_12,var_4_parent.SourcesCristianOntivero_AVLNode_left];
+                              };
+                           } else {
+                              skip;
+                           };
+                           if (
+                             throw=null)
+                           and 
+                           (
+                             exit_stmt_reached=false){
+                              if isEmptyOrNull[var_4_parent]{
+                                 throw:=java_lang_NullPointerExceptionLit;
+                              } else {
+                                 call SourcesCristianOntivero_AVLTree_height[throw,t_13,var_4_parent.SourcesCristianOntivero_AVLNode_right];
+                              };
+                           } else {
+                              skip;
+                           };
+                           if (
+                             throw=null)
+                           and 
+                           (
+                             exit_stmt_reached=false){
+                              var_8_balanceFactor:=fun_java_primitive_integer_value_sub[t_12,t_13];
+                           } else {
+                              skip;
+                           };
+                           if (
+                             throw=null)
+                           and 
+                           (
+                             exit_stmt_reached=false){
+                              t_19:=(equ[var_8_balanceFactor,
+                                 JavaPrimitiveIntegerLiteral2]=>(true)else(false));
+                           } else {
+                              skip;
+                           };
+                           if (
+                             throw=null)
+                           and 
+                           (
+                             exit_stmt_reached=false){
+                              if t_19=true   {
+                                    var t_14:JavaPrimitiveIntegerValue;
+                                    var t_15:boolean;
+                                    if (
+                                      throw=null)
+                                    and 
+                                    (
+                                      exit_stmt_reached=false){
+                                       if isEmptyOrNull[var_4_parent]{
+                                          throw:=java_lang_NullPointerExceptionLit;
+                                       } else {
+                                          var_9_child:=var_4_parent.SourcesCristianOntivero_AVLNode_left;
+                                       };
+                                    } else {
+                                       skip;
+                                    };
+                                    if (
+                                      throw=null)
+                                    and 
+                                    (
+                                      exit_stmt_reached=false){
+                                       if isEmptyOrNull[var_9_child.SourcesCristianOntivero_AVLNode_left]
+                                       or 
+                                       isEmptyOrNull[var_9_child]
+                                       
+                                       or 
+                                       isEmptyOrNull[var_9_child.SourcesCristianOntivero_AVLNode_right]
+                                       
+                                       or 
+                                       isEmptyOrNull[var_9_child]
+                                       {
+                                          throw:=java_lang_NullPointerExceptionLit;
+                                       } else {
+                                          t_14:=fun_java_primitive_integer_value_sub[(var_9_child.SourcesCristianOntivero_AVLNode_left).SourcesCristianOntivero_AVLNode_height,(var_9_child.SourcesCristianOntivero_AVLNode_right).SourcesCristianOntivero_AVLNode_height];
+                                       };
+                                    } else {
+                                       skip;
+                                    };
+                                    if (
+                                      throw=null)
+                                    and 
+                                    (
+                                      exit_stmt_reached=false){
+                                       t_15:=(equ[t_14,
+                                          JavaPrimitiveIntegerLiteralMinus1]=>(true)else(false));
+                                    } else {
+                                       skip;
+                                    };
+                                    if (
+                                      throw=null)
+                                    and 
+                                    (
+                                      exit_stmt_reached=false){
+                                       if t_15=true{
+                                          if isEmptyOrNull[thiz]{
+                                             throw:=java_lang_NullPointerExceptionLit;
+                                          } else {
+                                             call rotateLeft[thiz,throw,var_9_child];
+                                          };
+                                       } else {
+                                          skip;
+                                       };
+                                    } else {
+                                       skip;
+                                    };
+                                    if isEmptyOrNull[thiz]{
+                                       throw:=java_lang_NullPointerExceptionLit;
+                                    } else {
+                                       call rotateRight[thiz,throw,var_4_parent];
+                                    };
+                                    if (
+                                      throw=null)
+                                    and 
+                                    (
+                                      exit_stmt_reached=false){
+                                       var_10_flag:=false;
+                                    } else {
+                                       skip;
+                                    };
+                                 
+                                 }
+                               else    {
+                                    var t_18:boolean;
+                                    if (
+                                      throw=null)
+                                    and 
+                                    (
+                                      exit_stmt_reached=false){
+                                       t_18:=(equ[var_8_balanceFactor,
+                                          JavaPrimitiveIntegerLiteralMinus2]=>(true)else(false));
+                                    } else {
+                                       skip;
+                                    };
+                                    if (
+                                      throw=null)
+                                    and 
+                                    (
+                                      exit_stmt_reached=false){
+                                       if t_18=true   {
+                                             var t_16:JavaPrimitiveIntegerValue;
+                                             var t_17:boolean;
+                                             if (
+                                               throw=null)
+                                             and 
+                                             (
+                                               exit_stmt_reached=false){
+                                                if isEmptyOrNull[var_4_parent]{
+                                                   throw:=java_lang_NullPointerExceptionLit;
+                                                } else {
+                                                   var_9_child:=var_4_parent.SourcesCristianOntivero_AVLNode_right;
+                                                };
+                                             } else {
+                                                skip;
+                                             };
+                                             if (
+                                               throw=null)
+                                             and 
+                                             (
+                                               exit_stmt_reached=false){
+                                                if isEmptyOrNull[var_9_child.SourcesCristianOntivero_AVLNode_left]
+                                                or 
+                                                isEmptyOrNull[var_9_child]
+                                                
+                                                or 
+                                                isEmptyOrNull[var_9_child.SourcesCristianOntivero_AVLNode_right]
+                                                
+                                                or 
+                                                isEmptyOrNull[var_9_child]
+                                                {
+                                                   throw:=java_lang_NullPointerExceptionLit;
+                                                } else {
+                                                   t_16:=fun_java_primitive_integer_value_sub[(var_9_child.SourcesCristianOntivero_AVLNode_left).SourcesCristianOntivero_AVLNode_height,(var_9_child.SourcesCristianOntivero_AVLNode_right).SourcesCristianOntivero_AVLNode_height];
+                                                };
+                                             } else {
+                                                skip;
+                                             };
+                                             if (
+                                               throw=null)
+                                             and 
+                                             (
+                                               exit_stmt_reached=false){
+                                                t_17:=(equ[t_16,
+                                                   JavaPrimitiveIntegerLiteral1]=>(true)else(false));
+                                             } else {
+                                                skip;
+                                             };
+                                             if (
+                                               throw=null)
+                                             and 
+                                             (
+                                               exit_stmt_reached=false){
+                                                if t_17=true{
+                                                   if isEmptyOrNull[thiz]{
+                                                      throw:=java_lang_NullPointerExceptionLit;
+                                                   } else {
+                                                      call rotateRight[thiz,throw,var_9_child];
+                                                   };
+                                                } else {
+                                                   skip;
+                                                };
+                                             } else {
+                                                skip;
+                                             };
+                                             if isEmptyOrNull[thiz]{
+                                                throw:=java_lang_NullPointerExceptionLit;
+                                             } else {
+                                                call rotateLeft[thiz,throw,var_4_parent];
+                                             };
+                                             if (
+                                               throw=null)
+                                             and 
+                                             (
+                                               exit_stmt_reached=false){
+                                                var_10_flag:=false;
+                                             } else {
+                                                skip;
+                                             };
+                                          
+                                          }
+                                        else {
+                                          skip;
+                                       };
+                                    } else {
+                                       skip;
+                                    };
+                                 
+                                 }
+                              ;
+                           } else {
+                              skip;
+                           };
+                           if (
+                             throw=null)
+                           and 
+                           (
+                             exit_stmt_reached=false){
+                              if isEmptyOrNull[var_4_parent]{
+                                 throw:=java_lang_NullPointerExceptionLit;
+                              } else {
+                                 var_4_parent:=var_4_parent.SourcesCristianOntivero_AVLNode_parent;
+                              };
+                           } else {
+                              skip;
+                           };
+                           if (
+                             throw=null)
+                           and 
+                           (
+                             exit_stmt_reached=false){
+                              t_21:=(neq[var_4_parent,
+                                 null]=>(true)else(false));
+                           } else {
+                              skip;
+                           };
+                           if (
+                             throw=null)
+                           and 
+                           (
+                             exit_stmt_reached=false){
+                              if t_21=true{
+                                 if (
+                                   throw=null)
+                                 and 
+                                 (
+                                   exit_stmt_reached=false){
+                                    if var_10_flag=true{
+                                       if (
+                                         throw=null)
+                                       and 
+                                       (
+                                         exit_stmt_reached=false){
+                                          t_20:=true;
+                                       } else {
+                                          skip;
+                                       };
+                                    } else {
+                                       if (
+                                         throw=null)
+                                       and 
+                                       (
+                                         exit_stmt_reached=false){
+                                          t_20:=false;
+                                       } else {
+                                          skip;
+                                       };
+                                    };
+                                 } else {
+                                    skip;
+                                 };
+                              } else {
+                                 if (
+                                   throw=null)
+                                 and 
+                                 (
+                                   exit_stmt_reached=false){
+                                    t_20:=false;
+                                 } else {
+                                    skip;
+                                 };
+                              };
+                           } else {
+                              skip;
+                           };
+                           if (
+                             throw=null)
+                           and 
+                           (
+                             exit_stmt_reached=false){
+                              var_11_ws_3:=t_20;
+                           } else {
+                              skip;
+                           };
+                        
+                        }
+                     ;
+                     var var_12_ws_4:boolean;
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        var_12_ws_4:=(neq[var_4_parent,
+                           null]=>(true)else(false));
+                     } else {
+                        skip;
+                     };
+                     while liftExpression[var_12_ws_4]
+                     and 
+                     (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false)
+                     
+                        {
+                           var t_22:JavaPrimitiveIntegerValue;
+                           if (
+                             throw=null)
+                           and 
+                           (
+                             exit_stmt_reached=false){
+                              call SourcesCristianOntivero_AVLTree_height[throw,t_22,var_4_parent];
+                           } else {
+                              skip;
+                           };
+                           if (
+                             throw=null)
+                           and 
+                           (
+                             exit_stmt_reached=false){
+                              var_12_ws_4:=(neq[var_4_parent,
+                                 null]=>(true)else(false));
+                           } else {
+                              skip;
+                           };
+                        
+                        }
+                     ;
+                  
+                  }
+                else    {
+                     var t_23:SourcesCristianOntivero_AVLNode+null;
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false)   {
+                           createObject<SourcesCristianOntivero_AVLNode>[t_23];
+                           if isEmptyOrNull[t_23]{
+                              throw:=java_lang_NullPointerExceptionLit;
+                           } else {
+                              call Constructor[t_23,throw,param_value_1,var_4_parent];
+                           };
+                        
+                        }
+                      else {
+                        skip;
+                     };
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        if isEmptyOrNull[thiz]{
+                           throw:=java_lang_NullPointerExceptionLit;
+                        } else {
+                           thiz.SourcesCristianOntivero_AVLTree_root:=t_23;
+                        };
+                     } else {
+                        skip;
+                     };
+                  
+                  }
+               ;
+            } else {
+               skip;
+            };
+         
+         }
+      
+      }
+      skip;
+   
+   }
+
+
+program SourcesCristianOntivero_AVLTree::max[
+  var throw:java_lang_Throwable+null,
+  var return:JavaPrimitiveIntegerValue,
+  var a:JavaPrimitiveIntegerValue,
+  var b:JavaPrimitiveIntegerValue] 
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         {
+            var param_a_3:JavaPrimitiveIntegerValue;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               param_a_3:=a;
+            } else {
+               skip;
+            };
+            var param_b_4:JavaPrimitiveIntegerValue;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               param_b_4:=b;
+            } else {
+               skip;
+            };
+            var t_29:JavaPrimitiveIntegerValue;
+            var t_30:boolean;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               t_30:=(pred_java_primitive_integer_value_gt[param_a_3,
+                                                   param_b_4]=>(true)else(false));
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if t_30=true{
+                  if (
+                    throw=null)
+                  and 
+                  (
+                    exit_stmt_reached=false){
+                     t_29:=param_a_3;
+                  } else {
+                     skip;
+                  };
+               } else {
+                  if (
+                    throw=null)
+                  and 
+                  (
+                    exit_stmt_reached=false){
+                     t_29:=param_b_4;
+                  } else {
+                     skip;
+                  };
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false)   {
+                  return:=t_29;
+                  exit_stmt_reached:=true;
+               
+               }
+             else {
+               skip;
+            };
+         
+         }
+      
+      }
+      skip;
+   
+   }
+
+
+

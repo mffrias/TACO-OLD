@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry excluding="TestToEraseByTheEndOfTheDay/|ToEraseByTheEndOfTheDay/|ToEraseByTheEndOfTheDay/" kind="src" path="src"/>
+	<classpathentry kind="src" path="unittest"/>
+	<classpathentry kind="src" path="failtest"/>
+	<classpathentry kind="src" path="tests"/>
+	<classpathentry kind="src" path="generated"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
+	<classpathentry kind="lib" path="lib/commons-configuration-1.6.jar"/>
+	<classpathentry kind="lib" path="lib/muJavaFeb2013.jar"/>
+	<classpathentry kind="lib" path="lib/OpenJavaReturn.jar"/>
+	<classpathentry kind="lib" path="lib/commons-collections-3.2.1.jar"/>
+	<classpathentry kind="lib" path="lib/guava.jar"/>
+	<classpathentry kind="lib" path="lib/edu.mit.csail.sdg.annotations_0.2.5.jar"/>
+	<classpathentry kind="lib" path="lib/junit-4.8.2.jar"/>
+	<classpathentry kind="lib" path="lib/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="lib/jml-release.jar" sourcepath="/Users/mfrias/Documents/workspace/jml-release"/>
+	<classpathentry kind="lib" path="lib/commons-lang-2.4.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/JDynAlloy"/>
+	<classpathentry kind="lib" path="lib/antlr-3.2.jar"/>
+	<classpathentry kind="lib" path="lib/jml4c.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

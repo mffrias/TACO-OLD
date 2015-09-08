@@ -1,0 +1,730 @@
+sig roops_core_objects_linkedlist_base_LinkedList extends java_lang_Object {}
+{}
+
+
+
+
+pred precondition_roops_core_objects_linkedlist_base_LinkedList_containsTest_0[
+  roops_core_objects_linkedlist_base_LinkedListNode_next:univ->univ,
+  roops_core_objects_linkedlist_base_LinkedListNode_previous:univ->univ,
+  roops_core_objects_linkedlist_base_LinkedList_header:univ->univ,
+  roops_core_objects_linkedlist_base_LinkedList_size:univ->univ,
+  throw:univ
+]{
+   (
+     all objx:roops_core_objects_linkedlist_base_LinkedList | {
+       roops_core_objects_linkedlist_base_LinkedList_object_invariant[roops_core_objects_linkedlist_base_LinkedListNode_next,
+                                                                     roops_core_objects_linkedlist_base_LinkedListNode_previous,
+                                                                     roops_core_objects_linkedlist_base_LinkedList_header,
+                                                                     roops_core_objects_linkedlist_base_LinkedList_size,
+                                                                     objx]
+     
+     }
+   )
+   and 
+   equ[throw,
+      null]
+
+}
+
+pred roops_core_objects_linkedlist_base_LinkedListCondition15[
+  thiz:univ,
+  var_5_node:univ
+]{
+   not (
+     isEmptyOrNull[var_5_node]
+     or 
+     isEmptyOrNull[thiz]
+   )
+
+}
+
+pred roops_core_objects_linkedlist_base_LinkedListCondition14[
+  thiz:univ,
+  var_5_node:univ
+]{
+   isEmptyOrNull[var_5_node]
+   or 
+   isEmptyOrNull[thiz]
+
+}
+
+pred roops_core_objects_linkedlist_base_LinkedListCondition0[
+  exit_stmt_reached:univ,
+  throw:univ
+]{
+   (
+     throw=null)
+   and 
+   (
+     exit_stmt_reached=false)
+
+}
+
+pred roops_core_objects_linkedlist_base_LinkedListCondition1[
+  exit_stmt_reached:univ,
+  throw:univ
+]{
+   not (
+     (
+       throw=null)
+     and 
+     (
+       exit_stmt_reached=false)
+   )
+
+}
+
+pred roops_core_objects_linkedlist_base_LinkedListCondition8[
+  list:univ
+]{
+   isEmptyOrNull[list]
+
+}
+
+pred roops_core_objects_linkedlist_base_LinkedListCondition9[
+  list:univ
+]{
+   not (
+     isEmptyOrNull[list])
+
+}
+
+pred roops_core_objects_linkedlist_base_LinkedList_object_invariant[
+  roops_core_objects_linkedlist_base_LinkedListNode_next:univ->univ,
+  roops_core_objects_linkedlist_base_LinkedListNode_previous:univ->univ,
+  roops_core_objects_linkedlist_base_LinkedList_header:univ->univ,
+  roops_core_objects_linkedlist_base_LinkedList_size:univ->univ,
+  thiz:univ
+]{
+   neq[thiz.roops_core_objects_linkedlist_base_LinkedList_header,
+      null]
+   and 
+   neq[(thiz.roops_core_objects_linkedlist_base_LinkedList_header).roops_core_objects_linkedlist_base_LinkedListNode_next,
+      null]
+   and 
+   neq[(thiz.roops_core_objects_linkedlist_base_LinkedList_header).roops_core_objects_linkedlist_base_LinkedListNode_previous,
+      null]
+   and 
+   equ[thiz.roops_core_objects_linkedlist_base_LinkedList_size,
+      fun_java_primitive_integer_value_sub[fun_java_primitive_integer_value_size_of[fun_set_difference[(thiz.roops_core_objects_linkedlist_base_LinkedList_header).(fun_reflexive_closure[roops_core_objects_linkedlist_base_LinkedListNode_next]),null]],JavaPrimitiveIntegerLiteral1]]
+   and 
+   pred_java_primitive_integer_value_gte[thiz.roops_core_objects_linkedlist_base_LinkedList_size,
+                                        JavaPrimitiveIntegerLiteral0]
+   and 
+   (
+     all n:roops_core_objects_linkedlist_base_LinkedListNode | {
+       isSubset[n,
+               fun_set_difference[(thiz.roops_core_objects_linkedlist_base_LinkedList_header).(fun_reflexive_closure[roops_core_objects_linkedlist_base_LinkedListNode_next]),null]]
+       implies 
+               (
+                 neq[n,
+                    null]
+                 and 
+                 neq[n.roops_core_objects_linkedlist_base_LinkedListNode_previous,
+                    null]
+                 and 
+                 equ[(n.roops_core_objects_linkedlist_base_LinkedListNode_previous).roops_core_objects_linkedlist_base_LinkedListNode_next,
+                    n]
+                 and 
+                 neq[n.roops_core_objects_linkedlist_base_LinkedListNode_next,
+                    null]
+                 and 
+                 equ[(n.roops_core_objects_linkedlist_base_LinkedListNode_next).roops_core_objects_linkedlist_base_LinkedListNode_previous,
+                    n]
+               )
+     
+     }
+   )
+
+}
+
+pred roops_core_objects_linkedlist_base_LinkedListCondition13[
+  roops_core_objects_linkedlist_base_LinkedList_header:univ->univ,
+  thiz:univ
+]{
+   not (
+     isEmptyOrNull[thiz.roops_core_objects_linkedlist_base_LinkedList_header]
+     or 
+     isEmptyOrNull[thiz]
+   )
+
+}
+
+pred roops_core_objects_linkedlist_base_LinkedList_ensures[
+  throw':univ
+]{
+   liftExpression[false]
+   and 
+   equ[throw',
+      null]
+
+}
+
+pred roops_core_objects_linkedlist_base_LinkedListCondition12[
+  roops_core_objects_linkedlist_base_LinkedList_header:univ->univ,
+  thiz:univ
+]{
+   isEmptyOrNull[thiz.roops_core_objects_linkedlist_base_LinkedList_header]
+   or 
+   isEmptyOrNull[thiz]
+
+}
+
+pred roops_core_objects_linkedlist_base_LinkedListCondition18[
+  var_5_node:univ
+]{
+   isEmptyOrNull[var_5_node]
+
+}
+
+pred roops_core_objects_linkedlist_base_LinkedListCondition16[
+  t_8:univ
+]{
+   t_8=true
+
+}
+
+pred roops_core_objects_linkedlist_base_LinkedListCondition20[
+  exit_stmt_reached:univ,
+  throw:univ,
+  var_6_ws_1:univ
+]{
+   liftExpression[var_6_ws_1]
+   and 
+   (
+     throw=null)
+   and 
+   (
+     exit_stmt_reached=false)
+
+}
+
+pred roops_core_objects_linkedlist_base_LinkedListCondition17[
+  t_8:univ
+]{
+   not (
+     t_8=true)
+
+}
+
+pred roops_core_objects_linkedlist_base_LinkedListCondition19[
+  var_5_node:univ
+]{
+   not (
+     isEmptyOrNull[var_5_node])
+
+}
+
+pred roops_core_objects_linkedlist_base_LinkedListCondition21[
+  thiz:univ
+]{
+   isEmptyOrNull[thiz]
+
+}
+
+pred roops_core_objects_linkedlist_base_LinkedListCondition22[
+  thiz:univ
+]{
+   not (
+     isEmptyOrNull[thiz])
+
+}
+
+pred roops_core_objects_linkedlist_base_LinkedListCondition6[
+  t_15:univ
+]{
+   t_15=true
+
+}
+
+pred roops_core_objects_linkedlist_base_LinkedListCondition5[
+  t_14:univ
+]{
+   not (
+     t_14=true)
+
+}
+
+pred roops_core_objects_linkedlist_base_LinkedListCondition4[
+  t_14:univ
+]{
+   t_14=true
+
+}
+
+pred roops_core_objects_linkedlist_base_LinkedListCondition7[
+  t_15:univ
+]{
+   not (
+     t_15=true)
+
+}
+
+pred postcondition_roops_core_objects_linkedlist_base_LinkedList_containsTest_0[
+  throw':univ
+]{
+   roops_core_objects_linkedlist_base_LinkedList_ensures[throw']
+   and 
+   (
+     not (
+       throw'=AssertionFailureLit)
+   )
+
+}
+
+pred roops_core_objects_linkedlist_base_LinkedListCondition11[
+  t_4:univ
+]{
+   not (
+     t_4=true)
+
+}
+
+pred roops_core_objects_linkedlist_base_LinkedListCondition10[
+  t_4:univ
+]{
+   t_4=true
+
+}
+
+pred roops_core_objects_linkedlist_base_LinkedListCondition3[
+  value1:univ
+]{
+   not (
+     isEmptyOrNull[value1])
+
+}
+
+pred roops_core_objects_linkedlist_base_LinkedListCondition2[
+  value1:univ
+]{
+   isEmptyOrNull[value1]
+
+}
+
+program roops_core_objects_linkedlist_base_LinkedList_indexOf_0[
+  thiz:roops_core_objects_linkedlist_base_LinkedList,
+  throw:java_lang_Throwable+null,
+  return:JavaPrimitiveIntegerValue,
+  value:java_lang_Object+null,
+  roops_core_objects_linkedlist_base_LinkedList_size:(roops_core_objects_linkedlist_base_LinkedList)->one(JavaPrimitiveIntegerValue),
+  roops_core_objects_linkedlist_base_LinkedListNode_value:(roops_core_objects_linkedlist_base_LinkedListNode)->one(java_lang_Object+null),
+  roops_core_objects_linkedlist_base_LinkedList_header:(roops_core_objects_linkedlist_base_LinkedList)->one(null+roops_core_objects_linkedlist_base_LinkedListNode),
+  roops_core_objects_linkedlist_base_LinkedList_modCount:(roops_core_objects_linkedlist_base_LinkedList)->one(JavaPrimitiveIntegerValue),
+  roops_core_objects_linkedlist_base_LinkedListNode_next:(roops_core_objects_linkedlist_base_LinkedListNode)->one(null+roops_core_objects_linkedlist_base_LinkedListNode),
+  roops_core_objects_linkedlist_base_LinkedListNode_previous:(roops_core_objects_linkedlist_base_LinkedListNode)->one(null+roops_core_objects_linkedlist_base_LinkedListNode),
+  usedObjects:set (java_lang_Object)
+] var [
+  exit_stmt_reached:boolean,
+  var_6_ws_1:boolean,
+  var_5_node:null+roops_core_objects_linkedlist_base_LinkedListNode,
+  var_4_i:JavaPrimitiveIntegerValue,
+  t_8:boolean,
+  t_9:JavaPrimitiveIntegerValue
+]{
+   skip;
+   throw:=null;
+   skip;
+   exit_stmt_reached:=false;
+   skip;
+   if roops_core_objects_linkedlist_base_LinkedListCondition0[exit_stmt_reached,throw]  {
+      var_4_i:=JavaPrimitiveIntegerLiteral0
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip;
+   if roops_core_objects_linkedlist_base_LinkedListCondition0[exit_stmt_reached,throw]  {
+      if roops_core_objects_linkedlist_base_LinkedListCondition12[roops_core_objects_linkedlist_base_LinkedList_header,thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         var_5_node:=(thiz.roops_core_objects_linkedlist_base_LinkedList_header).roops_core_objects_linkedlist_base_LinkedListNode_next
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip;
+   if roops_core_objects_linkedlist_base_LinkedListCondition0[exit_stmt_reached,throw]  {
+      var_6_ws_1:=(neq[var_5_node,thiz.roops_core_objects_linkedlist_base_LinkedList_header]=>(true)else(false))
+   
+   } else {
+      skip
+   
+   }
+   ;
+   while roops_core_objects_linkedlist_base_LinkedListCondition20[exit_stmt_reached,throw,var_6_ws_1]do {
+      skip;
+      skip;
+      if roops_core_objects_linkedlist_base_LinkedListCondition0[exit_stmt_reached,throw]  {
+         if roops_core_objects_linkedlist_base_LinkedListCondition14[thiz,var_5_node]  {
+            throw:=java_lang_NullPointerExceptionLit
+         
+         } else {
+            call roops_core_objects_linkedlist_base_LinkedList_isEqualValue_0[thiz,throw,t_8,var_5_node.roops_core_objects_linkedlist_base_LinkedListNode_value,value,roops_core_objects_linkedlist_base_LinkedList_size,roops_core_objects_linkedlist_base_LinkedListNode_value,roops_core_objects_linkedlist_base_LinkedList_header,roops_core_objects_linkedlist_base_LinkedList_modCount,roops_core_objects_linkedlist_base_LinkedListNode_next,roops_core_objects_linkedlist_base_LinkedListNode_previous,usedObjects]
+         
+         }
+      
+      } else {
+         skip
+      
+      }
+      ;
+      if roops_core_objects_linkedlist_base_LinkedListCondition0[exit_stmt_reached,throw]  {
+         if roops_core_objects_linkedlist_base_LinkedListCondition16[t_8]  {
+            if roops_core_objects_linkedlist_base_LinkedListCondition0[exit_stmt_reached,throw]  {
+               return:=var_4_i;
+               exit_stmt_reached:=true
+            
+            } else {
+               skip
+            
+            }
+         
+         } else {
+            skip
+         
+         }
+      
+      } else {
+         skip
+      
+      }
+      ;
+      if roops_core_objects_linkedlist_base_LinkedListCondition0[exit_stmt_reached,throw]  {
+         t_9:=var_4_i
+      
+      } else {
+         skip
+      
+      }
+      ;
+      if roops_core_objects_linkedlist_base_LinkedListCondition0[exit_stmt_reached,throw]  {
+         var_4_i:=fun_java_primitive_integer_value_add[var_4_i,JavaPrimitiveIntegerLiteral1]
+      
+      } else {
+         skip
+      
+      }
+      ;
+      if roops_core_objects_linkedlist_base_LinkedListCondition0[exit_stmt_reached,throw]  {
+         if roops_core_objects_linkedlist_base_LinkedListCondition18[var_5_node]  {
+            throw:=java_lang_NullPointerExceptionLit
+         
+         } else {
+            var_5_node:=var_5_node.roops_core_objects_linkedlist_base_LinkedListNode_next
+         
+         }
+      
+      } else {
+         skip
+      
+      }
+      ;
+      if roops_core_objects_linkedlist_base_LinkedListCondition0[exit_stmt_reached,throw]  {
+         var_6_ws_1:=(neq[var_5_node,thiz.roops_core_objects_linkedlist_base_LinkedList_header]=>(true)else(false))
+      
+      } else {
+         skip
+      
+      }
+   
+   }
+   ;
+   if roops_core_objects_linkedlist_base_LinkedListCondition0[exit_stmt_reached,throw]  {
+      return:=JavaPrimitiveIntegerLiteralMinus1;
+      exit_stmt_reached:=true
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip
+
+}
+
+program roops_core_objects_linkedlist_base_LinkedList_containsTest_0[
+  throw:java_lang_Throwable+null,
+  list:null+roops_core_objects_linkedlist_base_LinkedList,
+  arg:java_lang_Object+null,
+  roops_core_objects_linkedlist_base_LinkedList_size:(roops_core_objects_linkedlist_base_LinkedList)->one(JavaPrimitiveIntegerValue),
+  roops_core_objects_linkedlist_base_LinkedListNode_value:(roops_core_objects_linkedlist_base_LinkedListNode)->one(java_lang_Object+null),
+  roops_core_objects_linkedlist_base_LinkedList_header:(roops_core_objects_linkedlist_base_LinkedList)->one(null+roops_core_objects_linkedlist_base_LinkedListNode),
+  roops_core_objects_linkedlist_base_LinkedList_modCount:(roops_core_objects_linkedlist_base_LinkedList)->one(JavaPrimitiveIntegerValue),
+  roops_core_objects_linkedlist_base_LinkedListNode_next:(roops_core_objects_linkedlist_base_LinkedListNode)->one(null+roops_core_objects_linkedlist_base_LinkedListNode),
+  roops_core_objects_linkedlist_base_LinkedListNode_previous:(roops_core_objects_linkedlist_base_LinkedListNode)->one(null+roops_core_objects_linkedlist_base_LinkedListNode),
+  usedObjects:set (java_lang_Object)
+] var [
+  t_3:boolean,
+  exit_stmt_reached:boolean,
+  var_2_ret_val:boolean,
+  t_4:boolean
+]{
+   skip;
+   throw:=null;
+   skip;
+   exit_stmt_reached:=false;
+   skip;
+   if roops_core_objects_linkedlist_base_LinkedListCondition0[exit_stmt_reached,throw]  {
+      t_4:=(neq[list,null]=>(true)else(false))
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if roops_core_objects_linkedlist_base_LinkedListCondition0[exit_stmt_reached,throw]  {
+      if roops_core_objects_linkedlist_base_LinkedListCondition10[t_4]  {
+         skip;
+         if roops_core_objects_linkedlist_base_LinkedListCondition0[exit_stmt_reached,throw]  {
+            if roops_core_objects_linkedlist_base_LinkedListCondition8[list]  {
+               throw:=java_lang_NullPointerExceptionLit
+            
+            } else {
+               call roops_core_objects_linkedlist_base_LinkedList_contains_0[list,throw,t_3,arg,roops_core_objects_linkedlist_base_LinkedList_size,roops_core_objects_linkedlist_base_LinkedListNode_value,roops_core_objects_linkedlist_base_LinkedList_header,roops_core_objects_linkedlist_base_LinkedList_modCount,roops_core_objects_linkedlist_base_LinkedListNode_next,roops_core_objects_linkedlist_base_LinkedListNode_previous,usedObjects]
+            
+            }
+         
+         } else {
+            skip
+         
+         }
+         ;
+         skip;
+         if roops_core_objects_linkedlist_base_LinkedListCondition0[exit_stmt_reached,throw]  {
+            var_2_ret_val:=t_3
+         
+         } else {
+            skip
+         
+         }
+      
+      } else {
+         skip
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip
+
+}
+
+program roops_core_objects_linkedlist_base_LinkedList_contains_0[
+  thiz:roops_core_objects_linkedlist_base_LinkedList,
+  throw:java_lang_Throwable+null,
+  return:boolean,
+  arg:java_lang_Object+null,
+  roops_core_objects_linkedlist_base_LinkedList_size:(roops_core_objects_linkedlist_base_LinkedList)->one(JavaPrimitiveIntegerValue),
+  roops_core_objects_linkedlist_base_LinkedListNode_value:(roops_core_objects_linkedlist_base_LinkedListNode)->one(java_lang_Object+null),
+  roops_core_objects_linkedlist_base_LinkedList_header:(roops_core_objects_linkedlist_base_LinkedList)->one(null+roops_core_objects_linkedlist_base_LinkedListNode),
+  roops_core_objects_linkedlist_base_LinkedList_modCount:(roops_core_objects_linkedlist_base_LinkedList)->one(JavaPrimitiveIntegerValue),
+  roops_core_objects_linkedlist_base_LinkedListNode_next:(roops_core_objects_linkedlist_base_LinkedListNode)->one(null+roops_core_objects_linkedlist_base_LinkedListNode),
+  roops_core_objects_linkedlist_base_LinkedListNode_previous:(roops_core_objects_linkedlist_base_LinkedListNode)->one(null+roops_core_objects_linkedlist_base_LinkedListNode),
+  usedObjects:set (java_lang_Object)
+] var [
+  exit_stmt_reached:boolean,
+  t_11:boolean,
+  t_10:JavaPrimitiveIntegerValue
+]{
+   skip;
+   throw:=null;
+   skip;
+   exit_stmt_reached:=false;
+   skip;
+   skip;
+   if roops_core_objects_linkedlist_base_LinkedListCondition0[exit_stmt_reached,throw]  {
+      if roops_core_objects_linkedlist_base_LinkedListCondition21[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         call roops_core_objects_linkedlist_base_LinkedList_indexOf_0[thiz,throw,t_10,arg,roops_core_objects_linkedlist_base_LinkedList_size,roops_core_objects_linkedlist_base_LinkedListNode_value,roops_core_objects_linkedlist_base_LinkedList_header,roops_core_objects_linkedlist_base_LinkedList_modCount,roops_core_objects_linkedlist_base_LinkedListNode_next,roops_core_objects_linkedlist_base_LinkedListNode_previous,usedObjects]
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if roops_core_objects_linkedlist_base_LinkedListCondition0[exit_stmt_reached,throw]  {
+      t_11:=(neq[t_10,JavaPrimitiveIntegerLiteralMinus1]=>(true)else(false))
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if roops_core_objects_linkedlist_base_LinkedListCondition0[exit_stmt_reached,throw]  {
+      return:=t_11;
+      exit_stmt_reached:=true
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip
+
+}
+
+program roops_core_objects_linkedlist_base_LinkedList_isEqualValue_0[
+  thiz:roops_core_objects_linkedlist_base_LinkedList,
+  throw:java_lang_Throwable+null,
+  return:boolean,
+  value1:java_lang_Object+null,
+  value2:java_lang_Object+null,
+  roops_core_objects_linkedlist_base_LinkedList_size:(roops_core_objects_linkedlist_base_LinkedList)->one(JavaPrimitiveIntegerValue),
+  roops_core_objects_linkedlist_base_LinkedListNode_value:(roops_core_objects_linkedlist_base_LinkedListNode)->one(java_lang_Object+null),
+  roops_core_objects_linkedlist_base_LinkedList_header:(roops_core_objects_linkedlist_base_LinkedList)->one(null+roops_core_objects_linkedlist_base_LinkedListNode),
+  roops_core_objects_linkedlist_base_LinkedList_modCount:(roops_core_objects_linkedlist_base_LinkedList)->one(JavaPrimitiveIntegerValue),
+  roops_core_objects_linkedlist_base_LinkedListNode_next:(roops_core_objects_linkedlist_base_LinkedListNode)->one(null+roops_core_objects_linkedlist_base_LinkedListNode),
+  roops_core_objects_linkedlist_base_LinkedListNode_previous:(roops_core_objects_linkedlist_base_LinkedListNode)->one(null+roops_core_objects_linkedlist_base_LinkedListNode),
+  usedObjects:set (java_lang_Object)
+] var [
+  exit_stmt_reached:boolean,
+  t_15:boolean,
+  t_13:boolean,
+  t_14:boolean,
+  var_9_ret_val:boolean
+]{
+   skip;
+   throw:=null;
+   skip;
+   exit_stmt_reached:=false;
+   skip;
+   skip;
+   if roops_core_objects_linkedlist_base_LinkedListCondition0[exit_stmt_reached,throw]  {
+      t_15:=(equ[value1,value2]=>(true)else(false))
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if roops_core_objects_linkedlist_base_LinkedListCondition0[exit_stmt_reached,throw]  {
+      if roops_core_objects_linkedlist_base_LinkedListCondition6[t_15]  {
+         if roops_core_objects_linkedlist_base_LinkedListCondition0[exit_stmt_reached,throw]  {
+            var_9_ret_val:=true
+         
+         } else {
+            skip
+         
+         }
+      
+      } else {
+         skip;
+         if roops_core_objects_linkedlist_base_LinkedListCondition0[exit_stmt_reached,throw]  {
+            t_14:=(equ[value1,null]=>(true)else(false))
+         
+         } else {
+            skip
+         
+         }
+         ;
+         if roops_core_objects_linkedlist_base_LinkedListCondition0[exit_stmt_reached,throw]  {
+            if roops_core_objects_linkedlist_base_LinkedListCondition4[t_14]  {
+               if roops_core_objects_linkedlist_base_LinkedListCondition0[exit_stmt_reached,throw]  {
+                  var_9_ret_val:=false
+               
+               } else {
+                  skip
+               
+               }
+            
+            } else {
+               skip;
+               if roops_core_objects_linkedlist_base_LinkedListCondition0[exit_stmt_reached,throw]  {
+                  if roops_core_objects_linkedlist_base_LinkedListCondition2[value1]  {
+                     throw:=java_lang_NullPointerExceptionLit
+                  
+                  } else {
+                     call java_lang_Object_equals_0[value1,throw,t_13,value2,roops_core_objects_linkedlist_base_LinkedList_size,roops_core_objects_linkedlist_base_LinkedListNode_value,roops_core_objects_linkedlist_base_LinkedList_header,roops_core_objects_linkedlist_base_LinkedList_modCount,roops_core_objects_linkedlist_base_LinkedListNode_next,roops_core_objects_linkedlist_base_LinkedListNode_previous,usedObjects]
+                  
+                  }
+               
+               } else {
+                  skip
+               
+               }
+               ;
+               if roops_core_objects_linkedlist_base_LinkedListCondition0[exit_stmt_reached,throw]  {
+                  var_9_ret_val:=t_13
+               
+               } else {
+                  skip
+               
+               }
+            
+            }
+         
+         } else {
+            skip
+         
+         }
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if roops_core_objects_linkedlist_base_LinkedListCondition0[exit_stmt_reached,throw]  {
+      return:=var_9_ret_val;
+      exit_stmt_reached:=true
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip
+
+}
+
+assertCorrectness check_roops_core_objects_linkedlist_base_LinkedList_containsTest_0[
+  arg:java_lang_Object+null,
+  exit_stmt_reached:boolean,
+  list:null+roops_core_objects_linkedlist_base_LinkedList,
+  roops_core_objects_linkedlist_base_LinkedListNode_next:(roops_core_objects_linkedlist_base_LinkedListNode)->one(null+roops_core_objects_linkedlist_base_LinkedListNode),
+  roops_core_objects_linkedlist_base_LinkedListNode_previous:(roops_core_objects_linkedlist_base_LinkedListNode)->one(null+roops_core_objects_linkedlist_base_LinkedListNode),
+  roops_core_objects_linkedlist_base_LinkedListNode_value:(roops_core_objects_linkedlist_base_LinkedListNode)->one(java_lang_Object+null),
+  roops_core_objects_linkedlist_base_LinkedList_header:(roops_core_objects_linkedlist_base_LinkedList)->one(null+roops_core_objects_linkedlist_base_LinkedListNode),
+  roops_core_objects_linkedlist_base_LinkedList_modCount:(roops_core_objects_linkedlist_base_LinkedList)->one(JavaPrimitiveIntegerValue),
+  roops_core_objects_linkedlist_base_LinkedList_size:(roops_core_objects_linkedlist_base_LinkedList)->one(JavaPrimitiveIntegerValue),
+  t_3:boolean,
+  t_4:boolean,
+  throw:java_lang_Throwable+null,
+  usedObjects:set (java_lang_Object),
+  var_2_ret_val:boolean
+]{
+pre={
+   precondition_roops_core_objects_linkedlist_base_LinkedList_containsTest_0[roops_core_objects_linkedlist_base_LinkedListNode_next,
+                                                                            roops_core_objects_linkedlist_base_LinkedListNode_previous,
+                                                                            roops_core_objects_linkedlist_base_LinkedList_header,
+                                                                            roops_core_objects_linkedlist_base_LinkedList_size,
+                                                                            throw]
+
+}
+program={
+   call roops_core_objects_linkedlist_base_LinkedList_containsTest_0[throw,list,arg,roops_core_objects_linkedlist_base_LinkedList_size,roops_core_objects_linkedlist_base_LinkedListNode_value,roops_core_objects_linkedlist_base_LinkedList_header,roops_core_objects_linkedlist_base_LinkedList_modCount,roops_core_objects_linkedlist_base_LinkedListNode_next,roops_core_objects_linkedlist_base_LinkedListNode_previous,usedObjects]
+
+}
+post={
+   postcondition_roops_core_objects_linkedlist_base_LinkedList_containsTest_0[throw']
+
+}
+}
+

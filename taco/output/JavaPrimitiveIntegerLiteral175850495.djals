@@ -1,0 +1,5 @@
+//-------------- JavaPrimitiveIntegerLiteral175850495 --------------//
+module JavaPrimitiveIntegerLiteral175850495
+one sig JavaPrimitiveIntegerLiteral175850495 extends JavaPrimitiveIntegerValue {}
+{pred_java_primitive_integer_value_literal_175850495[JavaPrimitiveIntegerLiteral175850495]
+}

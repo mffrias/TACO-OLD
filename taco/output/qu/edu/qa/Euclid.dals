@@ -1,0 +1,300 @@
+sig qu_edu_qa_Euclid extends java_lang_Object {}
+{}
+
+
+
+
+pred precondition_qu_edu_qa_Euclid_Euclides_0[
+  throw:univ
+]{
+   equ[throw,
+      null]
+   and 
+   qu_edu_qa_Euclid_requires[]
+
+}
+
+pred qu_edu_qa_EuclidCondition2[
+  SK_pred_java_primitive_integer_value_div_rem_ARG_left_0:univ,
+  SK_pred_java_primitive_integer_value_div_rem_ARG_remainder_0:univ,
+  SK_pred_java_primitive_integer_value_div_rem_ARG_result_0:univ,
+  SK_pred_java_primitive_integer_value_div_rem_ARG_right_0:univ
+]{
+   pred_java_primitive_integer_value_div_rem_marker[SK_pred_java_primitive_integer_value_div_rem_ARG_left_0,
+                                                   SK_pred_java_primitive_integer_value_div_rem_ARG_right_0,
+                                                   SK_pred_java_primitive_integer_value_div_rem_ARG_result_0,
+                                                   SK_pred_java_primitive_integer_value_div_rem_ARG_remainder_0]
+
+}
+
+pred qu_edu_qa_Euclid_ensures[
+  throw':univ
+]{
+   throw'=null
+
+}
+
+pred qu_edu_qa_EuclidCondition3[
+  exit_stmt_reached:univ,
+  throw:univ
+]{
+   (
+     throw=null)
+   and 
+   (
+     exit_stmt_reached=false)
+
+}
+
+pred qu_edu_qa_EuclidCondition4[
+  exit_stmt_reached:univ,
+  throw:univ
+]{
+   not (
+     (
+       throw=null)
+     and 
+     (
+       exit_stmt_reached=false)
+   )
+
+}
+
+pred qu_edu_qa_EuclidCondition6[
+  SK_pred_java_primitive_integer_value_div_rem_ARG_right_1:univ,
+  n2:univ
+]{
+   equ[SK_pred_java_primitive_integer_value_div_rem_ARG_right_1,
+      n2]
+
+}
+
+pred qu_edu_qa_EuclidCondition8[
+  exit_stmt_reached:univ,
+  throw:univ,
+  var_2_ws_1:univ
+]{
+   liftExpression[var_2_ws_1]
+   and 
+   (
+     throw=null)
+   and 
+   (
+     exit_stmt_reached=false)
+
+}
+
+pred postcondition_qu_edu_qa_Euclid_Euclides_0[
+  throw':univ
+]{
+   qu_edu_qa_Euclid_ensures[throw']
+   and 
+   (
+     not (
+       throw'=AssertionFailureLit)
+   )
+
+}
+
+pred qu_edu_qa_EuclidCondition0[
+  SK_pred_java_primitive_integer_value_div_rem_ARG_left_0:univ,
+  n1:univ
+]{
+   equ[SK_pred_java_primitive_integer_value_div_rem_ARG_left_0,
+      n1]
+
+}
+
+pred qu_edu_qa_EuclidCondition7[
+  SK_pred_java_primitive_integer_value_div_rem_ARG_left_1:univ,
+  SK_pred_java_primitive_integer_value_div_rem_ARG_remainder_1:univ,
+  SK_pred_java_primitive_integer_value_div_rem_ARG_result_1:univ,
+  SK_pred_java_primitive_integer_value_div_rem_ARG_right_1:univ
+]{
+   pred_java_primitive_integer_value_div_rem_marker[SK_pred_java_primitive_integer_value_div_rem_ARG_left_1,
+                                                   SK_pred_java_primitive_integer_value_div_rem_ARG_right_1,
+                                                   SK_pred_java_primitive_integer_value_div_rem_ARG_result_1,
+                                                   SK_pred_java_primitive_integer_value_div_rem_ARG_remainder_1]
+
+}
+
+pred qu_edu_qa_EuclidCondition1[
+  SK_pred_java_primitive_integer_value_div_rem_ARG_right_0:univ,
+  n2:univ
+]{
+   equ[SK_pred_java_primitive_integer_value_div_rem_ARG_right_0,
+      n2]
+
+}
+
+pred qu_edu_qa_EuclidCondition5[
+  SK_pred_java_primitive_integer_value_div_rem_ARG_left_1:univ,
+  n1:univ
+]{
+   equ[SK_pred_java_primitive_integer_value_div_rem_ARG_left_1,
+      n1]
+
+}
+
+pred qu_edu_qa_Euclid_requires[
+]{
+   true=true
+
+}
+
+program qu_edu_qa_Euclid_Euclides_0[
+  thiz:qu_edu_qa_Euclid,
+  throw:java_lang_Throwable+null,
+  return:JavaPrimitiveIntegerValue,
+  n1:JavaPrimitiveIntegerValue,
+  n2:JavaPrimitiveIntegerValue,
+  usedObjects:set (java_lang_Object)
+] var [
+  exit_stmt_reached:boolean,
+  t_1:JavaPrimitiveIntegerValue,
+  SK_pred_java_primitive_integer_value_div_rem_ARG_left_1:JavaPrimitiveIntegerValue,
+  SK_pred_java_primitive_integer_value_div_rem_ARG_left_0:JavaPrimitiveIntegerValue,
+  SK_pred_java_primitive_integer_value_div_rem_ARG_remainder_1:JavaPrimitiveIntegerValue,
+  SK_pred_java_primitive_integer_value_div_rem_ARG_right_1:JavaPrimitiveIntegerValue,
+  SK_pred_java_primitive_integer_value_div_rem_ARG_remainder_0:JavaPrimitiveIntegerValue,
+  SK_pred_java_primitive_integer_value_div_rem_ARG_result_0:JavaPrimitiveIntegerValue,
+  SK_pred_java_primitive_integer_value_div_rem_ARG_result_1:JavaPrimitiveIntegerValue,
+  var_2_ws_1:boolean,
+  var_1_r:JavaPrimitiveIntegerValue,
+  SK_pred_java_primitive_integer_value_div_rem_ARG_right_0:JavaPrimitiveIntegerValue
+]{
+   skip;
+   throw:=null;
+   skip;
+   exit_stmt_reached:=false;
+   skip;
+   skip;
+   skip;
+   skip;
+   skip;
+   havocVariable[SK_pred_java_primitive_integer_value_div_rem_ARG_left_0];
+   havocVariable[SK_pred_java_primitive_integer_value_div_rem_ARG_right_0];
+   havocVariable[SK_pred_java_primitive_integer_value_div_rem_ARG_result_0];
+   havocVariable[SK_pred_java_primitive_integer_value_div_rem_ARG_remainder_0];
+   assume qu_edu_qa_EuclidCondition0[SK_pred_java_primitive_integer_value_div_rem_ARG_left_0,n1];
+   assume qu_edu_qa_EuclidCondition1[SK_pred_java_primitive_integer_value_div_rem_ARG_right_0,n2];
+   assume qu_edu_qa_EuclidCondition2[SK_pred_java_primitive_integer_value_div_rem_ARG_left_0,SK_pred_java_primitive_integer_value_div_rem_ARG_remainder_0,SK_pred_java_primitive_integer_value_div_rem_ARG_result_0,SK_pred_java_primitive_integer_value_div_rem_ARG_right_0];
+   if qu_edu_qa_EuclidCondition3[exit_stmt_reached,throw]  {
+      t_1:=SK_pred_java_primitive_integer_value_div_rem_ARG_remainder_0
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip;
+   if qu_edu_qa_EuclidCondition3[exit_stmt_reached,throw]  {
+      var_1_r:=t_1
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip;
+   if qu_edu_qa_EuclidCondition3[exit_stmt_reached,throw]  {
+      var_2_ws_1:=(neq[var_1_r,JavaPrimitiveIntegerLiteral0]=>(true)else(false))
+   
+   } else {
+      skip
+   
+   }
+   ;
+   while qu_edu_qa_EuclidCondition8[exit_stmt_reached,throw,var_2_ws_1]do {
+      if qu_edu_qa_EuclidCondition3[exit_stmt_reached,throw]  {
+         n1:=n2
+      
+      } else {
+         skip
+      
+      }
+      ;
+      if qu_edu_qa_EuclidCondition3[exit_stmt_reached,throw]  {
+         n2:=var_1_r
+      
+      } else {
+         skip
+      
+      }
+      ;
+      skip;
+      skip;
+      skip;
+      skip;
+      havocVariable[SK_pred_java_primitive_integer_value_div_rem_ARG_left_1];
+      havocVariable[SK_pred_java_primitive_integer_value_div_rem_ARG_right_1];
+      havocVariable[SK_pred_java_primitive_integer_value_div_rem_ARG_result_1];
+      havocVariable[SK_pred_java_primitive_integer_value_div_rem_ARG_remainder_1];
+      assume qu_edu_qa_EuclidCondition5[SK_pred_java_primitive_integer_value_div_rem_ARG_left_1,n1];
+      assume qu_edu_qa_EuclidCondition6[SK_pred_java_primitive_integer_value_div_rem_ARG_right_1,n2];
+      assume qu_edu_qa_EuclidCondition7[SK_pred_java_primitive_integer_value_div_rem_ARG_left_1,SK_pred_java_primitive_integer_value_div_rem_ARG_remainder_1,SK_pred_java_primitive_integer_value_div_rem_ARG_result_1,SK_pred_java_primitive_integer_value_div_rem_ARG_right_1];
+      if qu_edu_qa_EuclidCondition3[exit_stmt_reached,throw]  {
+         var_1_r:=SK_pred_java_primitive_integer_value_div_rem_ARG_remainder_1
+      
+      } else {
+         skip
+      
+      }
+      ;
+      if qu_edu_qa_EuclidCondition3[exit_stmt_reached,throw]  {
+         var_2_ws_1:=(neq[var_1_r,JavaPrimitiveIntegerLiteral0]=>(true)else(false))
+      
+      } else {
+         skip
+      
+      }
+   
+   }
+   ;
+   if qu_edu_qa_EuclidCondition3[exit_stmt_reached,throw]  {
+      return:=n2;
+      exit_stmt_reached:=true
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip
+
+}
+
+assertCorrectness check_qu_edu_qa_Euclid_Euclides_0[
+  SK_pred_java_primitive_integer_value_div_rem_ARG_left_0:JavaPrimitiveIntegerValue,
+  SK_pred_java_primitive_integer_value_div_rem_ARG_left_1:JavaPrimitiveIntegerValue,
+  SK_pred_java_primitive_integer_value_div_rem_ARG_remainder_0:JavaPrimitiveIntegerValue,
+  SK_pred_java_primitive_integer_value_div_rem_ARG_remainder_1:JavaPrimitiveIntegerValue,
+  SK_pred_java_primitive_integer_value_div_rem_ARG_result_0:JavaPrimitiveIntegerValue,
+  SK_pred_java_primitive_integer_value_div_rem_ARG_result_1:JavaPrimitiveIntegerValue,
+  SK_pred_java_primitive_integer_value_div_rem_ARG_right_0:JavaPrimitiveIntegerValue,
+  SK_pred_java_primitive_integer_value_div_rem_ARG_right_1:JavaPrimitiveIntegerValue,
+  exit_stmt_reached:boolean,
+  n1:JavaPrimitiveIntegerValue,
+  n2:JavaPrimitiveIntegerValue,
+  return:JavaPrimitiveIntegerValue,
+  t_1:JavaPrimitiveIntegerValue,
+  thiz:qu_edu_qa_Euclid,
+  throw:java_lang_Throwable+null,
+  usedObjects:set (java_lang_Object),
+  var_1_r:JavaPrimitiveIntegerValue,
+  var_2_ws_1:boolean
+]{
+pre={
+   precondition_qu_edu_qa_Euclid_Euclides_0[throw]
+
+}
+program={
+   call qu_edu_qa_Euclid_Euclides_0[thiz,throw,return,n1,n2,usedObjects]
+
+}
+post={
+   postcondition_qu_edu_qa_Euclid_Euclides_0[throw']
+
+}
+}
+

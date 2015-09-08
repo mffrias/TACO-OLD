@@ -1,0 +1,1305 @@
+//-------------- roops_core_objects_ArrayList --------------//
+module roops_core_objects_ArrayList
+sig roops_core_objects_ArrayList extends java_lang_Object {}
+{}
+field roops_core_objects_ArrayList_elementData:(roops_core_objects_ArrayList)->one(java_lang_ObjectArray+null) {}
+field roops_core_objects_ArrayList_size:(roops_core_objects_ArrayList)->one(Int) {}
+field roops_core_objects_ArrayList_modCount:(roops_core_objects_ArrayList)->one(Int) {}
+field roops_core_objects_ArrayList_Integer_MAX_VALUE:(roops_core_objects_ArrayList)->one(Int) {}
+field roops_core_objects_ArrayList_MAX_ARRAY_SIZE:(roops_core_objects_ArrayList)->one(Int) {}
+
+object_invariant
+   gte[thiz.roops_core_objects_ArrayList_size,
+      0]
+
+object_invariant
+   gte[arrayLength[thiz.roops_core_objects_ArrayList_elementData,java_lang_ObjectArray_length],
+      6]
+
+object_invariant
+   lte[thiz.roops_core_objects_ArrayList_size,
+      arrayLength[thiz.roops_core_objects_ArrayList_elementData,java_lang_ObjectArray_length]]
+
+object_invariant
+   equ[thiz.roops_core_objects_ArrayList_Integer_MAX_VALUE,
+      15]
+
+object_invariant
+   neq[thiz.roops_core_objects_ArrayList_elementData,
+      null]
+
+object_invariant
+   equ[thiz.roops_core_objects_ArrayList_MAX_ARRAY_SIZE,
+      sub[thiz.roops_core_objects_ArrayList_Integer_MAX_VALUE,4]]
+
+object_invariant
+   all i:Int | {
+     (
+       lte[thiz.roops_core_objects_ArrayList_size,
+          i]
+       and 
+       lt[i,
+         arrayLength[thiz.roops_core_objects_ArrayList_elementData,java_lang_ObjectArray_length]]
+     )
+     implies 
+             equ[((java_lang_Object+null) & (arrayAccess[thiz.roops_core_objects_ArrayList_elementData,java_lang_ObjectArray_contents,i])),
+                null]
+   
+   }
+
+object_invariant
+   not (
+     thiz.roops_core_objects_ArrayList_elementData=null)
+
+
+
+program roops_core_objects_ArrayList::indexOf[
+  var thiz:roops_core_objects_ArrayList,
+  var throw:java_lang_Throwable+null,
+  var return:Int,
+  var o:java_lang_Object+null] 
+Specification 
+{
+  SpecCase #0 {
+   requires {
+      lte[arrayLength[thiz.roops_core_objects_ArrayList_elementData,java_lang_ObjectArray_length],
+         thiz.roops_core_objects_ArrayList_MAX_ARRAY_SIZE]
+   }
+   
+   ensures {
+      instanceOf[throw',
+                java_lang_Exception]
+      implies 
+              liftExpression[false]
+   }
+   
+   ensures {
+      (
+        throw'=null)
+      implies 
+              (
+                equ[return',
+                   negate[1]]
+                implies 
+                        (
+                          all i:Int | {
+                            (
+                              lte[0,
+                                 i]
+                              and 
+                              lt[i,
+                                thiz'.roops_core_objects_ArrayList_size']
+                            )
+                            implies 
+                                    neq[((java_lang_Object+null) & (arrayAccess[thiz'.roops_core_objects_ArrayList_elementData',java_lang_ObjectArray_contents',i])),
+                                       o']
+                          
+                          }
+                        )
+              )
+   }
+   
+   ensures {
+      (
+        throw'=null)
+      implies 
+              (
+                gte[return',
+                   0]
+                implies 
+                        (
+                          some i:Int | {
+                            equ[i,
+                               return']
+                            and 
+                            equ[((java_lang_Object+null) & (arrayAccess[thiz'.roops_core_objects_ArrayList_elementData',java_lang_ObjectArray_contents',i])),
+                               o']
+                          
+                          }
+                        )
+              )
+   }
+   
+   modifies {
+   EVERYTHING}
+  }
+}
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         {
+            var param_o_0:java_lang_Object+null;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               param_o_0:=o;
+            } else {
+               skip;
+            };
+            var t_8:boolean;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               t_8:=(neq[param_o_0,
+                  null]=>(true)else(false));
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if t_8=true   {
+                     var var_1_i:Int;
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        var_1_i:=0;
+                     } else {
+                        skip;
+                     };
+                     var var_2_ws_1:boolean;
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        var_2_ws_1:=(lt[var_1_i,
+                          thiz.roops_core_objects_ArrayList_size]=>(true)else(false));
+                     } else {
+                        skip;
+                     };
+                     while liftExpression[var_2_ws_1]
+                     and 
+                     (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false)
+                     
+                        {
+                           var t_2:java_lang_Object+null;
+                           var t_3:boolean;
+                           var t_4:Int;
+                           if (
+                             throw=null)
+                           and 
+                           (
+                             exit_stmt_reached=false){
+                              if isEmptyOrNull[thiz]
+                              or 
+                              isEmptyOrNull[thiz.roops_core_objects_ArrayList_elementData]
+                              {
+                                 throw:=java_lang_NullPointerExceptionLit;
+                              } else {
+                                 call object_array_read[thiz.roops_core_objects_ArrayList_elementData,throw,t_2,var_1_i];
+                              };
+                           } else {
+                              skip;
+                           };
+                           if (
+                             throw=null)
+                           and 
+                           (
+                             exit_stmt_reached=false){
+                              if isEmptyOrNull[thiz]{
+                                 throw:=java_lang_NullPointerExceptionLit;
+                              } else {
+                                 call equals[thiz,throw,t_3,param_o_0,t_2];
+                              };
+                           } else {
+                              skip;
+                           };
+                           if (
+                             throw=null)
+                           and 
+                           (
+                             exit_stmt_reached=false){
+                              if t_3=true{
+                                 if (
+                                   throw=null)
+                                 and 
+                                 (
+                                   exit_stmt_reached=false)   {
+                                       return:=var_1_i;
+                                       exit_stmt_reached:=true;
+                                    
+                                    }
+                                  else {
+                                    skip;
+                                 };
+                              } else {
+                                 skip;
+                              };
+                           } else {
+                              skip;
+                           };
+                           if (
+                             throw=null)
+                           and 
+                           (
+                             exit_stmt_reached=false){
+                              t_4:=var_1_i;
+                           } else {
+                              skip;
+                           };
+                           if (
+                             throw=null)
+                           and 
+                           (
+                             exit_stmt_reached=false){
+                              var_1_i:=add[var_1_i,negate[1]];
+                           } else {
+                              skip;
+                           };
+                           if (
+                             throw=null)
+                           and 
+                           (
+                             exit_stmt_reached=false){
+                              var_2_ws_1:=(lt[var_1_i,
+                                thiz.roops_core_objects_ArrayList_size]=>(true)else(false));
+                           } else {
+                              skip;
+                           };
+                        
+                        }
+                     ;
+                  
+                  }
+                else    {
+                     var var_3_i:Int;
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        var_3_i:=0;
+                     } else {
+                        skip;
+                     };
+                     var var_4_ws_2:boolean;
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        var_4_ws_2:=(lt[var_3_i,
+                          thiz.roops_core_objects_ArrayList_size]=>(true)else(false));
+                     } else {
+                        skip;
+                     };
+                     while liftExpression[var_4_ws_2]
+                     and 
+                     (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false)
+                     
+                        {
+                           var t_5:java_lang_Object+null;
+                           var t_6:boolean;
+                           var t_7:Int;
+                           if (
+                             throw=null)
+                           and 
+                           (
+                             exit_stmt_reached=false){
+                              if isEmptyOrNull[thiz]
+                              or 
+                              isEmptyOrNull[thiz.roops_core_objects_ArrayList_elementData]
+                              {
+                                 throw:=java_lang_NullPointerExceptionLit;
+                              } else {
+                                 call object_array_read[thiz.roops_core_objects_ArrayList_elementData,throw,t_5,var_3_i];
+                              };
+                           } else {
+                              skip;
+                           };
+                           if (
+                             throw=null)
+                           and 
+                           (
+                             exit_stmt_reached=false){
+                              t_6:=(equ[t_5,
+                                 null]=>(true)else(false));
+                           } else {
+                              skip;
+                           };
+                           if (
+                             throw=null)
+                           and 
+                           (
+                             exit_stmt_reached=false){
+                              if t_6=true{
+                                 if (
+                                   throw=null)
+                                 and 
+                                 (
+                                   exit_stmt_reached=false)   {
+                                       return:=var_3_i;
+                                       exit_stmt_reached:=true;
+                                    
+                                    }
+                                  else {
+                                    skip;
+                                 };
+                              } else {
+                                 skip;
+                              };
+                           } else {
+                              skip;
+                           };
+                           if (
+                             throw=null)
+                           and 
+                           (
+                             exit_stmt_reached=false){
+                              t_7:=var_3_i;
+                           } else {
+                              skip;
+                           };
+                           if (
+                             throw=null)
+                           and 
+                           (
+                             exit_stmt_reached=false){
+                              var_3_i:=add[var_3_i,1];
+                           } else {
+                              skip;
+                           };
+                           if (
+                             throw=null)
+                           and 
+                           (
+                             exit_stmt_reached=false){
+                              var_4_ws_2:=(lt[var_3_i,
+                                thiz.roops_core_objects_ArrayList_size]=>(true)else(false));
+                           } else {
+                              skip;
+                           };
+                        
+                        }
+                     ;
+                  
+                  }
+               ;
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false)   {
+                  return:=negate[1];
+                  exit_stmt_reached:=true;
+               
+               }
+             else {
+               skip;
+            };
+         
+         }
+      
+      }
+      skip;
+   
+   }
+
+
+program roops_core_objects_ArrayList::add[
+  var thiz:roops_core_objects_ArrayList,
+  var throw:java_lang_Throwable+null,
+  var return:boolean,
+  var o:java_lang_Object+null] 
+Specification 
+{
+  SpecCase #0 {
+   requires {
+      lt[thiz.roops_core_objects_ArrayList_size,
+        thiz.roops_core_objects_ArrayList_Integer_MAX_VALUE]
+   }
+   
+   ensures {
+      instanceOf[throw',
+                java_lang_Exception]
+      implies 
+              lt[add[thiz.roops_core_objects_ArrayList_size,1],
+                0]
+   }
+   
+   ensures {
+      (
+        throw'=null)
+      implies 
+              (
+                lte[add[thiz.roops_core_objects_ArrayList_size,1],
+                   arrayLength[thiz.roops_core_objects_ArrayList_elementData,java_lang_ObjectArray_length]]
+                implies 
+                        equ[arrayLength[thiz'.roops_core_objects_ArrayList_elementData',java_lang_ObjectArray_length'],
+                           arrayLength[thiz.roops_core_objects_ArrayList_elementData,java_lang_ObjectArray_length]]
+              )
+   }
+   
+   ensures {
+      (
+        throw'=null)
+      implies 
+              equ[return',
+                 true]
+   }
+   
+   ensures {
+      (
+        throw'=null)
+      implies 
+              equ[thiz'.roops_core_objects_ArrayList_modCount',
+                 add[thiz.roops_core_objects_ArrayList_modCount,1]]
+   }
+   
+   ensures {
+      (
+        throw'=null)
+      implies 
+              equ[thiz'.roops_core_objects_ArrayList_size',
+                 add[thiz.roops_core_objects_ArrayList_size,1]]
+   }
+   
+   ensures {
+      (
+        throw'=null)
+      implies 
+              (
+                all i:Int | {
+                  (
+                    lte[0,
+                       i]
+                    and 
+                    lt[i,
+                      thiz.roops_core_objects_ArrayList_size]
+                  )
+                  implies 
+                          equ[((java_lang_Object+null) & (arrayAccess[thiz'.roops_core_objects_ArrayList_elementData',java_lang_ObjectArray_contents',i])),
+                             ((java_lang_Object+null) & (arrayAccess[thiz.roops_core_objects_ArrayList_elementData,java_lang_ObjectArray_contents,i]))]
+                
+                }
+              )
+   }
+   
+   ensures {
+      (
+        throw'=null)
+      implies 
+              (
+                some i:Int | {
+                  lte[thiz.roops_core_objects_ArrayList_size,
+                     i]
+                  and 
+                  lte[i,
+                     thiz.roops_core_objects_ArrayList_size]
+                  and 
+                  equ[((java_lang_Object+null) & (arrayAccess[thiz'.roops_core_objects_ArrayList_elementData',java_lang_ObjectArray_contents',i])),
+                     o']
+                
+                }
+              )
+   }
+   
+   modifies {
+   EVERYTHING}
+  }
+}
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         {
+            var param_o_3:java_lang_Object+null;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               param_o_3:=o;
+            } else {
+               skip;
+            };
+            var t_10:Int;
+            var t_27:Int;
+            var t_28:Int;
+            var t_29:boolean;
+            var t_30:Int;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  t_10:=thiz.roops_core_objects_ArrayList_modCount;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]
+               or 
+               isEmptyOrNull[thiz]
+               {
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.roops_core_objects_ArrayList_modCount:=add[thiz.roops_core_objects_ArrayList_modCount,1];
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  t_27:=add[thiz.roops_core_objects_ArrayList_size,1];
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  t_28:=sub[t_27,arrayLength[thiz.roops_core_objects_ArrayList_elementData,java_lang_ObjectArray_length]];
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               t_29:=(lt[t_28,
+                 0]=>(true)else(false));
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if t_29=true   {
+                     var t_11:Int;
+                     var t_12:Int;
+                     var t_13:Int;
+                     var t_14:Int;
+                     var t_15:boolean;
+                     var t_22:Int;
+                     var t_23:boolean;
+                     var t_24:java_lang_ObjectArray+null;
+                     var var_5_oldCapacity:Int;
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        if isEmptyOrNull[thiz]{
+                           throw:=java_lang_NullPointerExceptionLit;
+                        } else {
+                           var_5_oldCapacity:=arrayLength[thiz.roops_core_objects_ArrayList_elementData,java_lang_ObjectArray_length];
+                        };
+                     } else {
+                        skip;
+                     };
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        t_11:=sshr[var_5_oldCapacity,1];
+                     } else {
+                        skip;
+                     };
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        t_12:=add[var_5_oldCapacity,t_11];
+                     } else {
+                        skip;
+                     };
+                     var var_6_newCapacity:Int;
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        var_6_newCapacity:=t_12;
+                     } else {
+                        skip;
+                     };
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        if isEmptyOrNull[thiz]{
+                           throw:=java_lang_NullPointerExceptionLit;
+                        } else {
+                           t_13:=add[thiz.roops_core_objects_ArrayList_size,1];
+                        };
+                     } else {
+                        skip;
+                     };
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        t_14:=sub[var_6_newCapacity,t_13];
+                     } else {
+                        skip;
+                     };
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        t_15:=(lt[t_14,
+                          0]=>(true)else(false));
+                     } else {
+                        skip;
+                     };
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        if t_15=true{
+                           if (
+                             throw=null)
+                           and 
+                           (
+                             exit_stmt_reached=false){
+                              if isEmptyOrNull[thiz]{
+                                 throw:=java_lang_NullPointerExceptionLit;
+                              } else {
+                                 var_6_newCapacity:=add[thiz.roops_core_objects_ArrayList_size,1];
+                              };
+                           } else {
+                              skip;
+                           };
+                        } else {
+                           skip;
+                        };
+                     } else {
+                        skip;
+                     };
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        if isEmptyOrNull[thiz]{
+                           throw:=java_lang_NullPointerExceptionLit;
+                        } else {
+                           t_22:=sub[var_6_newCapacity,thiz.roops_core_objects_ArrayList_MAX_ARRAY_SIZE];
+                        };
+                     } else {
+                        skip;
+                     };
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        t_23:=(gt[t_22,
+                          0]=>(true)else(false));
+                     } else {
+                        skip;
+                     };
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        if t_23=true   {
+                              var t_17:Int;
+                              var t_18:boolean;
+                              var t_19:Int;
+                              var t_20:Int;
+                              var t_21:boolean;
+                              if (
+                                throw=null)
+                              and 
+                              (
+                                exit_stmt_reached=false){
+                                 if isEmptyOrNull[thiz]{
+                                    throw:=java_lang_NullPointerExceptionLit;
+                                 } else {
+                                    t_17:=add[thiz.roops_core_objects_ArrayList_size,1];
+                                 };
+                              } else {
+                                 skip;
+                              };
+                              if (
+                                throw=null)
+                              and 
+                              (
+                                exit_stmt_reached=false){
+                                 t_18:=(lt[t_17,
+                                   0]=>(true)else(false));
+                              } else {
+                                 skip;
+                              };
+                              if (
+                                throw=null)
+                              and 
+                              (
+                                exit_stmt_reached=false){
+                                 if t_18=true   {
+                                       var t_16:java_lang_Exception+null;
+                                       if (
+                                         throw=null)
+                                       and 
+                                       (
+                                         exit_stmt_reached=false){
+                                          t_16:=java_lang_ExceptionLit;
+                                       } else {
+                                          skip;
+                                       };
+                                       throw:=t_16;
+                                       exit_stmt_reached:=true;
+                                    
+                                    }
+                                  else {
+                                    skip;
+                                 };
+                              } else {
+                                 skip;
+                              };
+                              if (
+                                throw=null)
+                              and 
+                              (
+                                exit_stmt_reached=false){
+                                 if isEmptyOrNull[thiz]{
+                                    throw:=java_lang_NullPointerExceptionLit;
+                                 } else {
+                                    t_20:=add[thiz.roops_core_objects_ArrayList_size,1];
+                                 };
+                              } else {
+                                 skip;
+                              };
+                              if (
+                                throw=null)
+                              and 
+                              (
+                                exit_stmt_reached=false){
+                                 t_21:=(gt[t_20,
+                                   thiz.roops_core_objects_ArrayList_MAX_ARRAY_SIZE]=>(true)else(false));
+                              } else {
+                                 skip;
+                              };
+                              if (
+                                throw=null)
+                              and 
+                              (
+                                exit_stmt_reached=false){
+                                 if t_21=true{
+                                    if (
+                                      throw=null)
+                                    and 
+                                    (
+                                      exit_stmt_reached=false){
+                                       if isEmptyOrNull[thiz]{
+                                          throw:=java_lang_NullPointerExceptionLit;
+                                       } else {
+                                          t_19:=thiz.roops_core_objects_ArrayList_Integer_MAX_VALUE;
+                                       };
+                                    } else {
+                                       skip;
+                                    };
+                                 } else {
+                                    if (
+                                      throw=null)
+                                    and 
+                                    (
+                                      exit_stmt_reached=false){
+                                       if isEmptyOrNull[thiz]{
+                                          throw:=java_lang_NullPointerExceptionLit;
+                                       } else {
+                                          t_19:=thiz.roops_core_objects_ArrayList_MAX_ARRAY_SIZE;
+                                       };
+                                    } else {
+                                       skip;
+                                    };
+                                 };
+                              } else {
+                                 skip;
+                              };
+                              if (
+                                throw=null)
+                              and 
+                              (
+                                exit_stmt_reached=false){
+                                 var_6_newCapacity:=t_19;
+                              } else {
+                                 skip;
+                              };
+                           
+                           }
+                         else {
+                           skip;
+                        };
+                     } else {
+                        skip;
+                     };
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false)   {
+                           createObject<java_lang_ObjectArray>[t_24];
+                           if isEmptyOrNull[t_24]{
+                              throw:=java_lang_NullPointerExceptionLit;
+                           } else {
+                              call Constructor[t_24,throw,var_6_newCapacity];
+                           };
+                        
+                        }
+                      else {
+                        skip;
+                     };
+                     var var_7_newArray:java_lang_ObjectArray+null;
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        var_7_newArray:=t_24;
+                     } else {
+                        skip;
+                     };
+                     var var_8_i:Int;
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        var_8_i:=0;
+                     } else {
+                        skip;
+                     };
+                     var var_9_ws_3:boolean;
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        var_9_ws_3:=(lt[var_8_i,
+                          thiz.roops_core_objects_ArrayList_size]=>(true)else(false));
+                     } else {
+                        skip;
+                     };
+                     while liftExpression[var_9_ws_3]
+                     and 
+                     (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false)
+                     
+                        {
+                           var t_25:java_lang_Object+null;
+                           var t_26:Int;
+                           if (
+                             throw=null)
+                           and 
+                           (
+                             exit_stmt_reached=false){
+                              if isEmptyOrNull[thiz]
+                              or 
+                              isEmptyOrNull[thiz.roops_core_objects_ArrayList_elementData]
+                              {
+                                 throw:=java_lang_NullPointerExceptionLit;
+                              } else {
+                                 call object_array_read[thiz.roops_core_objects_ArrayList_elementData,throw,t_25,var_8_i];
+                              };
+                           } else {
+                              skip;
+                           };
+                           if (
+                             throw=null)
+                           and 
+                           (
+                             exit_stmt_reached=false){
+                              if isEmptyOrNull[var_7_newArray]{
+                                 throw:=java_lang_NullPointerExceptionLit;
+                              } else {
+                                 call object_array_write[var_7_newArray,throw,t_25,var_8_i];
+                              };
+                           } else {
+                              skip;
+                           };
+                           if (
+                             throw=null)
+                           and 
+                           (
+                             exit_stmt_reached=false){
+                              t_26:=var_8_i;
+                           } else {
+                              skip;
+                           };
+                           if (
+                             throw=null)
+                           and 
+                           (
+                             exit_stmt_reached=false){
+                              var_8_i:=add[var_8_i,1];
+                           } else {
+                              skip;
+                           };
+                           if (
+                             throw=null)
+                           and 
+                           (
+                             exit_stmt_reached=false){
+                              var_9_ws_3:=(lt[var_8_i,
+                                thiz.roops_core_objects_ArrayList_size]=>(true)else(false));
+                           } else {
+                              skip;
+                           };
+                        
+                        }
+                     ;
+                     if (
+                       throw=null)
+                     and 
+                     (
+                       exit_stmt_reached=false){
+                        if isEmptyOrNull[thiz]{
+                           throw:=java_lang_NullPointerExceptionLit;
+                        } else {
+                           thiz.roops_core_objects_ArrayList_elementData:=var_7_newArray;
+                        };
+                     } else {
+                        skip;
+                     };
+                  
+                  }
+                else {
+                  skip;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  t_30:=thiz.roops_core_objects_ArrayList_size;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]
+               or 
+               isEmptyOrNull[thiz]
+               {
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.roops_core_objects_ArrayList_size:=add[thiz.roops_core_objects_ArrayList_size,1];
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]
+               or 
+               isEmptyOrNull[thiz.roops_core_objects_ArrayList_elementData]
+               {
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  call object_array_write[thiz.roops_core_objects_ArrayList_elementData,throw,param_o_3,t_30];
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false)   {
+                  return:=true;
+                  exit_stmt_reached:=true;
+               
+               }
+             else {
+               skip;
+            };
+         
+         }
+      
+      }
+      skip;
+   
+   }
+
+
+program roops_core_objects_ArrayList::equals[
+  var thiz:roops_core_objects_ArrayList,
+  var throw:java_lang_Throwable+null,
+  var return:boolean,
+  var o1:java_lang_Object+null,
+  var o2:java_lang_Object+null] 
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         {
+            var param_o1_1:java_lang_Object+null;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               param_o1_1:=o1;
+            } else {
+               skip;
+            };
+            var param_o2_2:java_lang_Object+null;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               param_o2_2:=o2;
+            } else {
+               skip;
+            };
+            var t_9:boolean;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               t_9:=(equ[param_o1_1,
+                  param_o2_2]=>(true)else(false));
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false)   {
+                  return:=t_9;
+                  exit_stmt_reached:=true;
+               
+               }
+             else {
+               skip;
+            };
+         
+         }
+      
+      }
+      skip;
+   
+   }
+
+
+program roops_core_objects_ArrayList::Constructor[
+  var thiz:roops_core_objects_ArrayList,
+  var throw:java_lang_Throwable+null] 
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         {
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.roops_core_objects_ArrayList_size:=0;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.roops_core_objects_ArrayList_modCount:=0;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.roops_core_objects_ArrayList_Integer_MAX_VALUE:=0;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.roops_core_objects_ArrayList_MAX_ARRAY_SIZE:=0;
+               };
+            } else {
+               skip;
+            };
+            var t_1:java_lang_ObjectArray+null;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false)   {
+                  createObject<java_lang_ObjectArray>[t_1];
+                  if isEmptyOrNull[t_1]{
+                     throw:=java_lang_NullPointerExceptionLit;
+                  } else {
+                     call Constructor[t_1,throw,6];
+                  };
+               
+               }
+             else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.roops_core_objects_ArrayList_elementData:=t_1;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.roops_core_objects_ArrayList_size:=0;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.roops_core_objects_ArrayList_Integer_MAX_VALUE:=15;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]
+               or 
+               isEmptyOrNull[thiz]
+               {
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.roops_core_objects_ArrayList_MAX_ARRAY_SIZE:=sub[thiz.roops_core_objects_ArrayList_Integer_MAX_VALUE,4];
+               };
+            } else {
+               skip;
+            };
+         
+         }
+      
+      }
+      skip;
+   
+   }
+
+
+

@@ -1,0 +1,249 @@
+//-------------- roops_core_objects_TreeSetEntry --------------//
+module roops_core_objects_TreeSetEntry
+sig roops_core_objects_TreeSetEntry extends java_lang_Object {}
+{}
+field roops_core_objects_TreeSetEntry_key:(roops_core_objects_TreeSetEntry)->one(Int) {}
+field roops_core_objects_TreeSetEntry_parent:(roops_core_objects_TreeSetEntry)->one(null+roops_core_objects_TreeSetEntry) {}
+field roops_core_objects_TreeSetEntry_color:(roops_core_objects_TreeSetEntry)->one(boolean) {}
+field roops_core_objects_TreeSetEntry_left:(roops_core_objects_TreeSetEntry)->one(null+roops_core_objects_TreeSetEntry) {}
+field roops_core_objects_TreeSetEntry_right:(roops_core_objects_TreeSetEntry)->one(null+roops_core_objects_TreeSetEntry) {}
+field roops_core_objects_TreeSetEntry_blackHeight:(roops_core_objects_TreeSetEntry)->one(Int) {}
+
+represents (thiz).(roops_core_objects_TreeSetEntry_blackHeight) such that (
+  (
+    equ[thiz.roops_core_objects_TreeSetEntry_left,
+       null]
+    and 
+    equ[thiz.roops_core_objects_TreeSetEntry_right,
+       null]
+  )
+  implies 
+          equ[thiz.roops_core_objects_TreeSetEntry_blackHeight,
+             1]
+)
+and 
+(
+  (
+    neq[thiz.roops_core_objects_TreeSetEntry_left,
+       null]
+    and 
+    equ[thiz.roops_core_objects_TreeSetEntry_right,
+       null]
+  )
+  implies 
+          (
+            equ[(thiz.roops_core_objects_TreeSetEntry_left).roops_core_objects_TreeSetEntry_color,
+               false]
+            and 
+            equ[(thiz.roops_core_objects_TreeSetEntry_left).roops_core_objects_TreeSetEntry_blackHeight,
+               1]
+            and 
+            equ[thiz.roops_core_objects_TreeSetEntry_blackHeight,
+               1]
+          )
+)
+and 
+(
+  (
+    equ[thiz.roops_core_objects_TreeSetEntry_left,
+       null]
+    and 
+    neq[thiz.roops_core_objects_TreeSetEntry_right,
+       null]
+  )
+  implies 
+          (
+            equ[(thiz.roops_core_objects_TreeSetEntry_right).roops_core_objects_TreeSetEntry_color,
+               false]
+            and 
+            equ[(thiz.roops_core_objects_TreeSetEntry_right).roops_core_objects_TreeSetEntry_blackHeight,
+               1]
+            and 
+            equ[thiz.roops_core_objects_TreeSetEntry_blackHeight,
+               1]
+          )
+)
+and 
+(
+  (
+    neq[thiz.roops_core_objects_TreeSetEntry_left,
+       null]
+    and 
+    neq[thiz.roops_core_objects_TreeSetEntry_right,
+       null]
+    and 
+    equ[(thiz.roops_core_objects_TreeSetEntry_left).roops_core_objects_TreeSetEntry_color,
+       false]
+    and 
+    equ[(thiz.roops_core_objects_TreeSetEntry_right).roops_core_objects_TreeSetEntry_color,
+       false]
+  )
+  implies 
+          (
+            equ[(thiz.roops_core_objects_TreeSetEntry_left).roops_core_objects_TreeSetEntry_blackHeight,
+               (thiz.roops_core_objects_TreeSetEntry_right).roops_core_objects_TreeSetEntry_blackHeight]
+            and 
+            equ[thiz.roops_core_objects_TreeSetEntry_blackHeight,
+               (thiz.roops_core_objects_TreeSetEntry_left).roops_core_objects_TreeSetEntry_blackHeight]
+          )
+)
+and 
+(
+  (
+    neq[thiz.roops_core_objects_TreeSetEntry_left,
+       null]
+    and 
+    neq[thiz.roops_core_objects_TreeSetEntry_right,
+       null]
+    and 
+    equ[(thiz.roops_core_objects_TreeSetEntry_left).roops_core_objects_TreeSetEntry_color,
+       true]
+    and 
+    equ[(thiz.roops_core_objects_TreeSetEntry_right).roops_core_objects_TreeSetEntry_color,
+       true]
+  )
+  implies 
+          (
+            equ[(thiz.roops_core_objects_TreeSetEntry_left).roops_core_objects_TreeSetEntry_blackHeight,
+               (thiz.roops_core_objects_TreeSetEntry_right).roops_core_objects_TreeSetEntry_blackHeight]
+            and 
+            equ[thiz.roops_core_objects_TreeSetEntry_blackHeight,
+               add[(thiz.roops_core_objects_TreeSetEntry_left).roops_core_objects_TreeSetEntry_blackHeight,1]]
+          )
+)
+and 
+(
+  (
+    neq[thiz.roops_core_objects_TreeSetEntry_left,
+       null]
+    and 
+    neq[thiz.roops_core_objects_TreeSetEntry_right,
+       null]
+    and 
+    equ[(thiz.roops_core_objects_TreeSetEntry_left).roops_core_objects_TreeSetEntry_color,
+       false]
+    and 
+    equ[(thiz.roops_core_objects_TreeSetEntry_right).roops_core_objects_TreeSetEntry_color,
+       true]
+  )
+  implies 
+          (
+            equ[(thiz.roops_core_objects_TreeSetEntry_left).roops_core_objects_TreeSetEntry_blackHeight,
+               add[(thiz.roops_core_objects_TreeSetEntry_right).roops_core_objects_TreeSetEntry_blackHeight,1]]
+            and 
+            equ[thiz.roops_core_objects_TreeSetEntry_blackHeight,
+               (thiz.roops_core_objects_TreeSetEntry_left).roops_core_objects_TreeSetEntry_blackHeight]
+          )
+)
+and 
+(
+  (
+    neq[thiz.roops_core_objects_TreeSetEntry_left,
+       null]
+    and 
+    neq[thiz.roops_core_objects_TreeSetEntry_right,
+       null]
+    and 
+    equ[(thiz.roops_core_objects_TreeSetEntry_left).roops_core_objects_TreeSetEntry_color,
+       true]
+    and 
+    equ[(thiz.roops_core_objects_TreeSetEntry_right).roops_core_objects_TreeSetEntry_color,
+       false]
+  )
+  implies 
+          (
+            equ[(thiz.roops_core_objects_TreeSetEntry_right).roops_core_objects_TreeSetEntry_blackHeight,
+               add[(thiz.roops_core_objects_TreeSetEntry_left).roops_core_objects_TreeSetEntry_blackHeight,1]]
+            and 
+            equ[thiz.roops_core_objects_TreeSetEntry_blackHeight,
+               (thiz.roops_core_objects_TreeSetEntry_right).roops_core_objects_TreeSetEntry_blackHeight]
+          )
+)
+
+program roops_core_objects_TreeSetEntry::Constructor[
+  var thiz:roops_core_objects_TreeSetEntry,
+  var throw:java_lang_Throwable+null] 
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         {
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.roops_core_objects_TreeSetEntry_key:=0;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.roops_core_objects_TreeSetEntry_parent:=((null+roops_core_objects_TreeSetEntry) & (null));
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.roops_core_objects_TreeSetEntry_color:=false;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.roops_core_objects_TreeSetEntry_left:=((null+roops_core_objects_TreeSetEntry) & (null));
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.roops_core_objects_TreeSetEntry_right:=((null+roops_core_objects_TreeSetEntry) & (null));
+               };
+            } else {
+               skip;
+            };
+         
+         }
+      
+      }
+      skip;
+   
+   }
+
+
+

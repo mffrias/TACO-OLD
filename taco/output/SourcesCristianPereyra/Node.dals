@@ -1,0 +1,127 @@
+sig SourcesCristianPereyra_Node extends java_lang_Object {}
+{}
+
+
+
+
+pred SourcesCristianPereyra_NodeCondition1[
+  thiz:univ
+]{
+   not (
+     isEmptyOrNull[thiz])
+
+}
+
+pred SourcesCristianPereyra_NodeCondition0[
+  thiz:univ
+]{
+   isEmptyOrNull[thiz]
+
+}
+
+pred SourcesCristianPereyra_NodeCondition3[
+  exit_stmt_reached:univ,
+  throw:univ
+]{
+   not (
+     (
+       throw=null)
+     and 
+     (
+       exit_stmt_reached=false)
+   )
+
+}
+
+pred SourcesCristianPereyra_NodeCondition2[
+  exit_stmt_reached:univ,
+  throw:univ
+]{
+   (
+     throw=null)
+   and 
+   (
+     exit_stmt_reached=false)
+
+}
+
+program SourcesCristianPereyra_Node_setNext_0[
+  thiz:SourcesCristianPereyra_Node,
+  throw:java_lang_Throwable+null,
+  nextValue:SourcesCristianPereyra_Node+null,
+  SourcesCristianPereyra_Node_data:(SourcesCristianPereyra_Node)->one(java_lang_Object+null),
+  SourcesCristianPereyra_SinglyLinkedList_listCount:(SourcesCristianPereyra_SinglyLinkedList)->one(JavaPrimitiveIntegerValue),
+  SourcesCristianPereyra_Node_next:(SourcesCristianPereyra_Node)->one(SourcesCristianPereyra_Node+null),
+  SourcesCristianPereyra_SinglyLinkedList_head:(SourcesCristianPereyra_SinglyLinkedList)->one(SourcesCristianPereyra_Node+null),
+  usedObjects:set (java_lang_Object)
+] var [
+  exit_stmt_reached:boolean,
+  param_nextValue_13:SourcesCristianPereyra_Node+null
+]{
+   skip;
+   throw:=null;
+   skip;
+   exit_stmt_reached:=false;
+   skip;
+   if SourcesCristianPereyra_NodeCondition2[exit_stmt_reached,throw]  {
+      param_nextValue_13:=nextValue
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if SourcesCristianPereyra_NodeCondition2[exit_stmt_reached,throw]  {
+      if SourcesCristianPereyra_NodeCondition0[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         SourcesCristianPereyra_Node_next:=(SourcesCristianPereyra_Node_next)++((thiz)->(param_nextValue_13))
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip
+
+}
+
+program SourcesCristianPereyra_Node_getNext_0[
+  thiz:SourcesCristianPereyra_Node,
+  throw:java_lang_Throwable+null,
+  return:SourcesCristianPereyra_Node+null,
+  SourcesCristianPereyra_Node_data:(SourcesCristianPereyra_Node)->one(java_lang_Object+null),
+  SourcesCristianPereyra_SinglyLinkedList_listCount:(SourcesCristianPereyra_SinglyLinkedList)->one(JavaPrimitiveIntegerValue),
+  SourcesCristianPereyra_Node_next:(SourcesCristianPereyra_Node)->one(SourcesCristianPereyra_Node+null),
+  SourcesCristianPereyra_SinglyLinkedList_head:(SourcesCristianPereyra_SinglyLinkedList)->one(SourcesCristianPereyra_Node+null),
+  usedObjects:set (java_lang_Object)
+] var [
+  exit_stmt_reached:boolean
+]{
+   skip;
+   throw:=null;
+   skip;
+   exit_stmt_reached:=false;
+   if SourcesCristianPereyra_NodeCondition2[exit_stmt_reached,throw]  {
+      if SourcesCristianPereyra_NodeCondition0[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         return:=thiz.SourcesCristianPereyra_Node_next
+      
+      }
+      ;
+      exit_stmt_reached:=true
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip
+
+}
+

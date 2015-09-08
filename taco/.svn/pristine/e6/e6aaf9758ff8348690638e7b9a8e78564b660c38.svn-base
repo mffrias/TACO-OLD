@@ -1,0 +1,424 @@
+//-------------- examples_treeset_TreeSetEntry --------------//
+module examples_treeset_TreeSetEntry
+sig examples_treeset_TreeSetEntry extends java_lang_Object {}
+{}
+field examples_treeset_TreeSetEntry_key:(examples_treeset_TreeSetEntry)->one(Int) {}
+field examples_treeset_TreeSetEntry_left:(examples_treeset_TreeSetEntry)->one(examples_treeset_TreeSetEntry+null) {}
+field examples_treeset_TreeSetEntry_right:(examples_treeset_TreeSetEntry)->one(examples_treeset_TreeSetEntry+null) {}
+field examples_treeset_TreeSetEntry_parent:(examples_treeset_TreeSetEntry)->one(examples_treeset_TreeSetEntry+null) {}
+field examples_treeset_TreeSetEntry_color:(examples_treeset_TreeSetEntry)->one(boolean) {}
+field blackHeight:(examples_treeset_TreeSetEntry)->one(Int) {}
+
+represents (thiz).(blackHeight) such that (
+  (
+    equ[thiz.examples_treeset_TreeSetEntry_left,
+       null]
+    and 
+    equ[thiz.examples_treeset_TreeSetEntry_right,
+       null]
+  )
+  implies 
+          equ[thiz.blackHeight,
+             1]
+)
+and 
+(
+  (
+    neq[thiz.examples_treeset_TreeSetEntry_left,
+       null]
+    and 
+    equ[thiz.examples_treeset_TreeSetEntry_right,
+       null]
+  )
+  implies 
+          (
+            (
+              isSubset[thiz,
+                      fun_set_difference[(thiz.examples_treeset_TreeSetEntry_left).(fun_reflexive_closure[examples_treeset_TreeSetEntry_left+examples_treeset_TreeSetEntry_right]),null]]
+              implies 
+                      equ[thiz.blackHeight,
+                         0]
+            )
+            and 
+            (
+              isNotSubset[thiz,
+                         fun_set_difference[(thiz.examples_treeset_TreeSetEntry_left).(fun_reflexive_closure[examples_treeset_TreeSetEntry_left+examples_treeset_TreeSetEntry_right]),null]]
+              implies 
+                      (
+                        (
+                          equ[(thiz.examples_treeset_TreeSetEntry_left).examples_treeset_TreeSetEntry_color,
+                             true]
+                          implies 
+                                  equ[thiz.blackHeight,
+                                     add[(thiz.examples_treeset_TreeSetEntry_left).blackHeight,1]]
+                        )
+                        and 
+                        (
+                          equ[(thiz.examples_treeset_TreeSetEntry_left).examples_treeset_TreeSetEntry_color,
+                             false]
+                          implies 
+                                  equ[thiz.blackHeight,
+                                     (thiz.examples_treeset_TreeSetEntry_left).blackHeight]
+                        )
+                      )
+            )
+          )
+)
+and 
+(
+  (
+    equ[thiz.examples_treeset_TreeSetEntry_left,
+       null]
+    and 
+    neq[thiz.examples_treeset_TreeSetEntry_right,
+       null]
+  )
+  implies 
+          (
+            (
+              isSubset[thiz,
+                      fun_set_difference[(thiz.examples_treeset_TreeSetEntry_right).(fun_reflexive_closure[examples_treeset_TreeSetEntry_left+examples_treeset_TreeSetEntry_right]),null]]
+              implies 
+                      equ[thiz.blackHeight,
+                         0]
+            )
+            and 
+            (
+              isNotSubset[thiz,
+                         fun_set_difference[(thiz.examples_treeset_TreeSetEntry_right).(fun_reflexive_closure[examples_treeset_TreeSetEntry_left+examples_treeset_TreeSetEntry_right]),null]]
+              implies 
+                      (
+                        (
+                          equ[(thiz.examples_treeset_TreeSetEntry_right).examples_treeset_TreeSetEntry_color,
+                             true]
+                          implies 
+                                  equ[thiz.blackHeight,
+                                     add[(thiz.examples_treeset_TreeSetEntry_right).blackHeight,1]]
+                        )
+                        and 
+                        (
+                          equ[(thiz.examples_treeset_TreeSetEntry_right).examples_treeset_TreeSetEntry_color,
+                             false]
+                          implies 
+                                  equ[thiz.blackHeight,
+                                     (thiz.examples_treeset_TreeSetEntry_right).blackHeight]
+                        )
+                      )
+            )
+          )
+)
+and 
+(
+  (
+    neq[thiz.examples_treeset_TreeSetEntry_left,
+       null]
+    and 
+    neq[thiz.examples_treeset_TreeSetEntry_right,
+       null]
+  )
+  implies 
+          (
+            (
+              isSubset[thiz,
+                      fun_set_difference[thiz.(fun_closure[examples_treeset_TreeSetEntry_left+examples_treeset_TreeSetEntry_right]),null]]
+              implies 
+                      equ[thiz.blackHeight,
+                         0]
+            )
+            and 
+            (
+              isNotSubset[thiz,
+                         fun_set_difference[thiz.(fun_closure[examples_treeset_TreeSetEntry_left+examples_treeset_TreeSetEntry_right]),null]]
+              implies 
+                      (
+                        (
+                          equ[(thiz.examples_treeset_TreeSetEntry_left).examples_treeset_TreeSetEntry_color,
+                             true]
+                          implies 
+                                  equ[thiz.blackHeight,
+                                     add[(thiz.examples_treeset_TreeSetEntry_left).blackHeight,1]]
+                        )
+                        and 
+                        (
+                          equ[(thiz.examples_treeset_TreeSetEntry_left).examples_treeset_TreeSetEntry_color,
+                             false]
+                          implies 
+                                  equ[thiz.blackHeight,
+                                     (thiz.examples_treeset_TreeSetEntry_left).blackHeight]
+                        )
+                      )
+            )
+          )
+)
+
+program examples_treeset_TreeSetEntry::getKey[
+  var thiz:examples_treeset_TreeSetEntry,
+  var throw:java_lang_Throwable+null,
+  var return:Int] 
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         if (
+           throw=null)
+         and 
+         (
+           exit_stmt_reached=false)   {
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  return:=thiz.examples_treeset_TreeSetEntry_key;
+               };
+               exit_stmt_reached:=true;
+            
+            }
+          else {
+            skip;
+         };
+      
+      }
+      skip;
+   
+   }
+
+
+program examples_treeset_TreeSetEntry::Constructor[
+  var thiz:examples_treeset_TreeSetEntry,
+  var throw:java_lang_Throwable+null] 
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         {
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.examples_treeset_TreeSetEntry_key:=0;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.examples_treeset_TreeSetEntry_left:=((examples_treeset_TreeSetEntry+null) & (null));
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.examples_treeset_TreeSetEntry_right:=((examples_treeset_TreeSetEntry+null) & (null));
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.examples_treeset_TreeSetEntry_parent:=((examples_treeset_TreeSetEntry+null) & (null));
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.examples_treeset_TreeSetEntry_color:=true;
+               };
+            } else {
+               skip;
+            };
+         
+         }
+      
+      }
+      skip;
+   
+   }
+
+
+program examples_treeset_TreeSetEntry::hashCode[
+  var thiz:examples_treeset_TreeSetEntry,
+  var throw:java_lang_Throwable+null,
+  var return:Int] 
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         if (
+           throw=null)
+         and 
+         (
+           exit_stmt_reached=false)   {
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  return:=thiz.examples_treeset_TreeSetEntry_key;
+               };
+               exit_stmt_reached:=true;
+            
+            }
+          else {
+            skip;
+         };
+      
+      }
+      skip;
+   
+   }
+
+
+program examples_treeset_TreeSetEntry::Constructor[
+  var thiz:examples_treeset_TreeSetEntry,
+  var throw:java_lang_Throwable+null,
+  var key:Int,
+  var parent:examples_treeset_TreeSetEntry+null] 
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         {
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.examples_treeset_TreeSetEntry_key:=0;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.examples_treeset_TreeSetEntry_left:=((examples_treeset_TreeSetEntry+null) & (null));
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.examples_treeset_TreeSetEntry_right:=((examples_treeset_TreeSetEntry+null) & (null));
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.examples_treeset_TreeSetEntry_parent:=((examples_treeset_TreeSetEntry+null) & (null));
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.examples_treeset_TreeSetEntry_color:=true;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.examples_treeset_TreeSetEntry_key:=key;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.examples_treeset_TreeSetEntry_parent:=parent;
+               };
+            } else {
+               skip;
+            };
+         
+         }
+      
+      }
+      skip;
+   
+   }
+
+
+

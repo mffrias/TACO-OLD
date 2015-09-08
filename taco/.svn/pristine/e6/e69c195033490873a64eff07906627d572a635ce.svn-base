@@ -1,0 +1,8 @@
+//-------------- ClassFields --------------//
+module ClassFields
+one sig ClassFields {}
+{}
+field SourcesCristianOntivero_BinarySearchTree_testField:(ClassFields)->one(JavaPrimitiveIntegerValue) {}
+field java_lang_Boolean_TRUE:(ClassFields)->one(java_lang_Boolean) {}
+field java_lang_Boolean_FALSE:(ClassFields)->one(java_lang_Boolean) {}
+

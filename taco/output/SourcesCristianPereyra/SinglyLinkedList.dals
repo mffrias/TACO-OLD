@@ -1,0 +1,695 @@
+sig SourcesCristianPereyra_SinglyLinkedList extends java_lang_Object {}
+{}
+
+
+
+
+pred SourcesCristianPereyra_SinglyLinkedListCondition16[
+  t_71:univ
+]{
+   not (
+     isEmptyOrNull[t_71])
+
+}
+
+pred SourcesCristianPereyra_SinglyLinkedListCondition15[
+  t_71:univ
+]{
+   isEmptyOrNull[t_71]
+
+}
+
+pred SourcesCristianPereyra_SinglyLinkedListCondition0[
+  exit_stmt_reached:univ,
+  throw:univ
+]{
+   (
+     throw=null)
+   and 
+   (
+     exit_stmt_reached=false)
+
+}
+
+pred SourcesCristianPereyra_SinglyLinkedListCondition2[
+  thiz:univ
+]{
+   isEmptyOrNull[thiz]
+
+}
+
+pred SourcesCristianPereyra_SinglyLinkedListCondition1[
+  exit_stmt_reached:univ,
+  throw:univ
+]{
+   not (
+     (
+       throw=null)
+     and 
+     (
+       exit_stmt_reached=false)
+   )
+
+}
+
+pred SourcesCristianPereyra_SinglyLinkedListCondition3[
+  thiz:univ
+]{
+   not (
+     isEmptyOrNull[thiz])
+
+}
+
+pred precondition_SourcesCristianPereyra_SinglyLinkedList_remove_0[
+  SourcesCristianPereyra_Node_next:univ->univ,
+  SourcesCristianPereyra_SinglyLinkedList_head:univ->univ,
+  SourcesCristianPereyra_SinglyLinkedList_listCount:univ->univ,
+  index:univ,
+  thiz:univ,
+  throw:univ
+]{
+   SourcesCristianPereyra_SinglyLinkedList_requires[SourcesCristianPereyra_SinglyLinkedList_listCount,
+                                                   index,
+                                                   thiz]
+   and 
+   equ[throw,
+      null]
+   and 
+   (
+     all objx:SourcesCristianPereyra_SinglyLinkedList | {
+       SourcesCristianPereyra_SinglyLinkedList_object_invariant[QF.SK_jml_pred_java_primitive_integer_value_sub_ARG_result_2_0,
+                                                               SourcesCristianPereyra_Node_next,
+                                                               SourcesCristianPereyra_SinglyLinkedList_head,
+                                                               SourcesCristianPereyra_SinglyLinkedList_listCount,
+                                                               objx]
+     
+     }
+   )
+
+}
+
+pred SourcesCristianPereyra_SinglyLinkedListCondition14[
+  exit_stmt_reached:univ,
+  throw:univ,
+  var_26_ws_8:univ
+]{
+   liftExpression[var_26_ws_8]
+   and 
+   (
+     throw=null)
+   and 
+   (
+     exit_stmt_reached=false)
+
+}
+
+pred postcondition_SourcesCristianPereyra_SinglyLinkedList_remove_0[
+  SourcesCristianPereyra_Node_next':univ->univ,
+  SourcesCristianPereyra_SinglyLinkedList_head':univ->univ,
+  SourcesCristianPereyra_SinglyLinkedList_listCount':univ->univ,
+  thiz':univ,
+  throw':univ
+]{
+   SourcesCristianPereyra_SinglyLinkedList_ensures[SourcesCristianPereyra_SinglyLinkedList_listCount',
+                                                  thiz',
+                                                  throw']
+   and 
+   (
+     not (
+       throw'=AssertionFailureLit)
+   )
+   and 
+   (
+     all objx':SourcesCristianPereyra_SinglyLinkedList | {
+       SourcesCristianPereyra_SinglyLinkedList_object_invariant[QF.SK_jml_pred_java_primitive_integer_value_sub_ARG_result_2_1',
+                                                               SourcesCristianPereyra_Node_next',
+                                                               SourcesCristianPereyra_SinglyLinkedList_head',
+                                                               SourcesCristianPereyra_SinglyLinkedList_listCount',
+                                                               objx']
+     
+     }
+   )
+
+}
+
+pred SourcesCristianPereyra_SinglyLinkedListCondition9[
+  t_63:univ
+]{
+   not (
+     t_63=true)
+
+}
+
+pred SourcesCristianPereyra_SinglyLinkedListCondition5[
+  t_66:univ
+]{
+   not (
+     t_66=true)
+
+}
+
+pred SourcesCristianPereyra_SinglyLinkedListCondition7[
+  t_64:univ
+]{
+   not (
+     t_64=true)
+
+}
+
+pred SourcesCristianPereyra_SinglyLinkedListCondition4[
+  t_66:univ
+]{
+   t_66=true
+
+}
+
+pred SourcesCristianPereyra_SinglyLinkedListCondition6[
+  t_64:univ
+]{
+   t_64=true
+
+}
+
+pred SourcesCristianPereyra_SinglyLinkedList_requires[
+  SourcesCristianPereyra_SinglyLinkedList_listCount:univ->univ,
+  index:univ,
+  thiz:univ
+]{
+   pred_java_primitive_integer_value_lte[JavaPrimitiveIntegerLiteral1,
+                                        index]
+   and 
+   pred_java_primitive_integer_value_lte[index,
+                                        thiz.SourcesCristianPereyra_SinglyLinkedList_listCount]
+
+}
+
+pred SourcesCristianPereyra_SinglyLinkedListCondition8[
+  t_63:univ
+]{
+   t_63=true
+
+}
+
+pred SourcesCristianPereyra_SinglyLinkedListCondition10[
+  var_24_crunchifyCurrent:univ
+]{
+   isEmptyOrNull[var_24_crunchifyCurrent]
+
+}
+
+pred SourcesCristianPereyra_SinglyLinkedList_ensures[
+  SourcesCristianPereyra_SinglyLinkedList_listCount':univ->univ,
+  thiz':univ,
+  throw':univ
+]{
+   (
+     throw'=null)
+   implies 
+           equ[thiz'.SourcesCristianPereyra_SinglyLinkedList_listCount',
+              QF.SK_jml_pred_java_primitive_integer_value_sub_ARG_result_3]
+
+}
+
+pred SourcesCristianPereyra_SinglyLinkedListCondition17[
+  thiz:univ
+]{
+   isEmptyOrNull[thiz]
+   or 
+   isEmptyOrNull[thiz]
+
+}
+
+pred SourcesCristianPereyra_SinglyLinkedListCondition11[
+  var_24_crunchifyCurrent:univ
+]{
+   not (
+     isEmptyOrNull[var_24_crunchifyCurrent])
+
+}
+
+pred SourcesCristianPereyra_SinglyLinkedListCondition18[
+  thiz:univ
+]{
+   not (
+     isEmptyOrNull[thiz]
+     or 
+     isEmptyOrNull[thiz]
+   )
+
+}
+
+pred SourcesCristianPereyra_SinglyLinkedListCondition12[
+  t_68:univ
+]{
+   t_68=true
+
+}
+
+pred SourcesCristianPereyra_SinglyLinkedListCondition13[
+  t_68:univ
+]{
+   not (
+     t_68=true)
+
+}
+
+pred SourcesCristianPereyra_SinglyLinkedList_object_invariant[
+  SK_jml_pred_java_primitive_integer_value_sub_ARG_result_2:univ,
+  SourcesCristianPereyra_Node_next:univ->univ,
+  SourcesCristianPereyra_SinglyLinkedList_head:univ->univ,
+  SourcesCristianPereyra_SinglyLinkedList_listCount:univ->univ,
+  thiz:univ
+]{
+   (
+     all n:SourcesCristianPereyra_Node+null | {
+       liftExpression[fun_set_contains[fun_reach[thiz.SourcesCristianPereyra_SinglyLinkedList_head,SourcesCristianPereyra_Node,SourcesCristianPereyra_Node_next],n]]
+       implies 
+               equ[fun_set_contains[fun_reach[n.SourcesCristianPereyra_Node_next,SourcesCristianPereyra_Node,SourcesCristianPereyra_Node_next],n],
+                  false]
+     
+     }
+   )
+   and 
+   equ[thiz.SourcesCristianPereyra_SinglyLinkedList_listCount,
+      SK_jml_pred_java_primitive_integer_value_sub_ARG_result_2]
+
+}
+
+program SourcesCristianPereyra_SinglyLinkedList_remove_0[
+  thiz:SourcesCristianPereyra_SinglyLinkedList,
+  throw:java_lang_Throwable+null,
+  return:boolean,
+  index:JavaPrimitiveIntegerValue,
+  SourcesCristianPereyra_Node_data:(SourcesCristianPereyra_Node)->one(java_lang_Object+null),
+  SourcesCristianPereyra_SinglyLinkedList_listCount:(SourcesCristianPereyra_SinglyLinkedList)->one(JavaPrimitiveIntegerValue),
+  SourcesCristianPereyra_Node_next:(SourcesCristianPereyra_Node)->one(SourcesCristianPereyra_Node+null),
+  SourcesCristianPereyra_SinglyLinkedList_head:(SourcesCristianPereyra_SinglyLinkedList)->one(SourcesCristianPereyra_Node+null),
+  usedObjects:set (java_lang_Object)
+] var [
+  var_26_ws_8:boolean,
+  var_25_i:JavaPrimitiveIntegerValue,
+  t_71:SourcesCristianPereyra_Node+null,
+  t_67:SourcesCristianPereyra_Node+null,
+  t_66:boolean,
+  t_72:SourcesCristianPereyra_Node+null,
+  exit_stmt_reached:boolean,
+  t_65:JavaPrimitiveIntegerValue,
+  t_64:boolean,
+  var_24_crunchifyCurrent:SourcesCristianPereyra_Node+null,
+  t_69:SourcesCristianPereyra_Node+null,
+  t_70:JavaPrimitiveIntegerValue,
+  t_68:boolean,
+  t_63:boolean,
+  param_index_11:JavaPrimitiveIntegerValue
+]{
+   skip;
+   throw:=null;
+   skip;
+   exit_stmt_reached:=false;
+   skip;
+   if SourcesCristianPereyra_SinglyLinkedListCondition0[exit_stmt_reached,throw]  {
+      param_index_11:=index
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip;
+   skip;
+   skip;
+   skip;
+   skip;
+   skip;
+   if SourcesCristianPereyra_SinglyLinkedListCondition0[exit_stmt_reached,throw]  {
+      t_64:=(pred_java_primitive_integer_value_lt[param_index_11,JavaPrimitiveIntegerLiteral1]=>(true)else(false))
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if SourcesCristianPereyra_SinglyLinkedListCondition0[exit_stmt_reached,throw]  {
+      if SourcesCristianPereyra_SinglyLinkedListCondition2[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         call SourcesCristianPereyra_SinglyLinkedList_size_0[thiz,throw,t_65,SourcesCristianPereyra_Node_data,SourcesCristianPereyra_SinglyLinkedList_listCount,SourcesCristianPereyra_Node_next,SourcesCristianPereyra_SinglyLinkedList_head,usedObjects]
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if SourcesCristianPereyra_SinglyLinkedListCondition0[exit_stmt_reached,throw]  {
+      if SourcesCristianPereyra_SinglyLinkedListCondition6[t_64]  {
+         if SourcesCristianPereyra_SinglyLinkedListCondition0[exit_stmt_reached,throw]  {
+            t_63:=true
+         
+         } else {
+            skip
+         
+         }
+      
+      } else {
+         if SourcesCristianPereyra_SinglyLinkedListCondition0[exit_stmt_reached,throw]  {
+            t_66:=(pred_java_primitive_integer_value_gt[param_index_11,t_65]=>(true)else(false))
+         
+         } else {
+            skip
+         
+         }
+         ;
+         if SourcesCristianPereyra_SinglyLinkedListCondition0[exit_stmt_reached,throw]  {
+            if SourcesCristianPereyra_SinglyLinkedListCondition4[t_66]  {
+               if SourcesCristianPereyra_SinglyLinkedListCondition0[exit_stmt_reached,throw]  {
+                  t_63:=true
+               
+               } else {
+                  skip
+               
+               }
+            
+            } else {
+               if SourcesCristianPereyra_SinglyLinkedListCondition0[exit_stmt_reached,throw]  {
+                  t_63:=false
+               
+               } else {
+                  skip
+               
+               }
+            
+            }
+         
+         } else {
+            skip
+         
+         }
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if SourcesCristianPereyra_SinglyLinkedListCondition0[exit_stmt_reached,throw]  {
+      if SourcesCristianPereyra_SinglyLinkedListCondition8[t_63]  {
+         if SourcesCristianPereyra_SinglyLinkedListCondition0[exit_stmt_reached,throw]  {
+            return:=false;
+            exit_stmt_reached:=true
+         
+         } else {
+            skip
+         
+         }
+      
+      } else {
+         skip
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip;
+   if SourcesCristianPereyra_SinglyLinkedListCondition0[exit_stmt_reached,throw]  {
+      if SourcesCristianPereyra_SinglyLinkedListCondition2[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         var_24_crunchifyCurrent:=thiz.SourcesCristianPereyra_SinglyLinkedList_head
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip;
+   if SourcesCristianPereyra_SinglyLinkedListCondition0[exit_stmt_reached,throw]  {
+      var_25_i:=JavaPrimitiveIntegerLiteral1
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip;
+   if SourcesCristianPereyra_SinglyLinkedListCondition0[exit_stmt_reached,throw]  {
+      var_26_ws_8:=(pred_java_primitive_integer_value_lt[var_25_i,param_index_11]=>(true)else(false))
+   
+   } else {
+      skip
+   
+   }
+   ;
+   while SourcesCristianPereyra_SinglyLinkedListCondition14[exit_stmt_reached,throw,var_26_ws_8]do {
+      skip;
+      skip;
+      skip;
+      skip;
+      if SourcesCristianPereyra_SinglyLinkedListCondition0[exit_stmt_reached,throw]  {
+         if SourcesCristianPereyra_SinglyLinkedListCondition10[var_24_crunchifyCurrent]  {
+            throw:=java_lang_NullPointerExceptionLit
+         
+         } else {
+            call SourcesCristianPereyra_Node_getNext_0[var_24_crunchifyCurrent,throw,t_67,SourcesCristianPereyra_Node_data,SourcesCristianPereyra_SinglyLinkedList_listCount,SourcesCristianPereyra_Node_next,SourcesCristianPereyra_SinglyLinkedList_head,usedObjects]
+         
+         }
+      
+      } else {
+         skip
+      
+      }
+      ;
+      if SourcesCristianPereyra_SinglyLinkedListCondition0[exit_stmt_reached,throw]  {
+         t_68:=(equ[t_67,null]=>(true)else(false))
+      
+      } else {
+         skip
+      
+      }
+      ;
+      if SourcesCristianPereyra_SinglyLinkedListCondition0[exit_stmt_reached,throw]  {
+         if SourcesCristianPereyra_SinglyLinkedListCondition12[t_68]  {
+            if SourcesCristianPereyra_SinglyLinkedListCondition0[exit_stmt_reached,throw]  {
+               return:=false;
+               exit_stmt_reached:=true
+            
+            } else {
+               skip
+            
+            }
+         
+         } else {
+            skip
+         
+         }
+      
+      } else {
+         skip
+      
+      }
+      ;
+      if SourcesCristianPereyra_SinglyLinkedListCondition0[exit_stmt_reached,throw]  {
+         if SourcesCristianPereyra_SinglyLinkedListCondition10[var_24_crunchifyCurrent]  {
+            throw:=java_lang_NullPointerExceptionLit
+         
+         } else {
+            call SourcesCristianPereyra_Node_getNext_0[var_24_crunchifyCurrent,throw,t_69,SourcesCristianPereyra_Node_data,SourcesCristianPereyra_SinglyLinkedList_listCount,SourcesCristianPereyra_Node_next,SourcesCristianPereyra_SinglyLinkedList_head,usedObjects]
+         
+         }
+      
+      } else {
+         skip
+      
+      }
+      ;
+      if SourcesCristianPereyra_SinglyLinkedListCondition0[exit_stmt_reached,throw]  {
+         var_24_crunchifyCurrent:=t_69
+      
+      } else {
+         skip
+      
+      }
+      ;
+      if SourcesCristianPereyra_SinglyLinkedListCondition0[exit_stmt_reached,throw]  {
+         t_70:=var_25_i
+      
+      } else {
+         skip
+      
+      }
+      ;
+      if SourcesCristianPereyra_SinglyLinkedListCondition0[exit_stmt_reached,throw]  {
+         var_25_i:=fun_java_primitive_integer_value_add[var_25_i,JavaPrimitiveIntegerLiteral1]
+      
+      } else {
+         skip
+      
+      }
+      ;
+      if SourcesCristianPereyra_SinglyLinkedListCondition0[exit_stmt_reached,throw]  {
+         var_26_ws_8:=(pred_java_primitive_integer_value_lt[var_25_i,param_index_11]=>(true)else(false))
+      
+      } else {
+         skip
+      
+      }
+   
+   }
+   ;
+   if SourcesCristianPereyra_SinglyLinkedListCondition0[exit_stmt_reached,throw]  {
+      if SourcesCristianPereyra_SinglyLinkedListCondition10[var_24_crunchifyCurrent]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         call SourcesCristianPereyra_Node_getNext_0[var_24_crunchifyCurrent,throw,t_71,SourcesCristianPereyra_Node_data,SourcesCristianPereyra_SinglyLinkedList_listCount,SourcesCristianPereyra_Node_next,SourcesCristianPereyra_SinglyLinkedList_head,usedObjects]
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if SourcesCristianPereyra_SinglyLinkedListCondition0[exit_stmt_reached,throw]  {
+      if SourcesCristianPereyra_SinglyLinkedListCondition15[t_71]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         call SourcesCristianPereyra_Node_getNext_0[t_71,throw,t_72,SourcesCristianPereyra_Node_data,SourcesCristianPereyra_SinglyLinkedList_listCount,SourcesCristianPereyra_Node_next,SourcesCristianPereyra_SinglyLinkedList_head,usedObjects]
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if SourcesCristianPereyra_SinglyLinkedListCondition10[var_24_crunchifyCurrent]  {
+      throw:=java_lang_NullPointerExceptionLit
+   
+   } else {
+      call SourcesCristianPereyra_Node_setNext_0[var_24_crunchifyCurrent,throw,t_72,SourcesCristianPereyra_Node_data,SourcesCristianPereyra_SinglyLinkedList_listCount,SourcesCristianPereyra_Node_next,SourcesCristianPereyra_SinglyLinkedList_head,usedObjects]
+   
+   }
+   ;
+   if SourcesCristianPereyra_SinglyLinkedListCondition0[exit_stmt_reached,throw]  {
+      if SourcesCristianPereyra_SinglyLinkedListCondition17[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         SourcesCristianPereyra_SinglyLinkedList_listCount:=(SourcesCristianPereyra_SinglyLinkedList_listCount)++((thiz)->(fun_java_primitive_integer_value_sub[thiz.SourcesCristianPereyra_SinglyLinkedList_listCount,JavaPrimitiveIntegerLiteral1]))
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if SourcesCristianPereyra_SinglyLinkedListCondition0[exit_stmt_reached,throw]  {
+      return:=true;
+      exit_stmt_reached:=true
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip
+
+}
+
+program SourcesCristianPereyra_SinglyLinkedList_size_0[
+  thiz:SourcesCristianPereyra_SinglyLinkedList,
+  throw:java_lang_Throwable+null,
+  return:JavaPrimitiveIntegerValue,
+  SourcesCristianPereyra_Node_data:(SourcesCristianPereyra_Node)->one(java_lang_Object+null),
+  SourcesCristianPereyra_SinglyLinkedList_listCount:(SourcesCristianPereyra_SinglyLinkedList)->one(JavaPrimitiveIntegerValue),
+  SourcesCristianPereyra_Node_next:(SourcesCristianPereyra_Node)->one(SourcesCristianPereyra_Node+null),
+  SourcesCristianPereyra_SinglyLinkedList_head:(SourcesCristianPereyra_SinglyLinkedList)->one(SourcesCristianPereyra_Node+null),
+  usedObjects:set (java_lang_Object)
+] var [
+  exit_stmt_reached:boolean
+]{
+   skip;
+   throw:=null;
+   skip;
+   exit_stmt_reached:=false;
+   if SourcesCristianPereyra_SinglyLinkedListCondition0[exit_stmt_reached,throw]  {
+      if SourcesCristianPereyra_SinglyLinkedListCondition2[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         return:=thiz.SourcesCristianPereyra_SinglyLinkedList_listCount
+      
+      }
+      ;
+      exit_stmt_reached:=true
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip
+
+}
+
+assertCorrectness check_SourcesCristianPereyra_SinglyLinkedList_remove_0[
+  SourcesCristianPereyra_Node_data:(SourcesCristianPereyra_Node)->one(java_lang_Object+null),
+  SourcesCristianPereyra_Node_next:(SourcesCristianPereyra_Node)->one(SourcesCristianPereyra_Node+null),
+  SourcesCristianPereyra_SinglyLinkedList_head:(SourcesCristianPereyra_SinglyLinkedList)->one(SourcesCristianPereyra_Node+null),
+  SourcesCristianPereyra_SinglyLinkedList_listCount:(SourcesCristianPereyra_SinglyLinkedList)->one(JavaPrimitiveIntegerValue),
+  exit_stmt_reached:boolean,
+  index:JavaPrimitiveIntegerValue,
+  param_index_11:JavaPrimitiveIntegerValue,
+  return:boolean,
+  t_63:boolean,
+  t_64:boolean,
+  t_65:JavaPrimitiveIntegerValue,
+  t_66:boolean,
+  t_67:SourcesCristianPereyra_Node+null,
+  t_68:boolean,
+  t_69:SourcesCristianPereyra_Node+null,
+  t_70:JavaPrimitiveIntegerValue,
+  t_71:SourcesCristianPereyra_Node+null,
+  t_72:SourcesCristianPereyra_Node+null,
+  thiz:SourcesCristianPereyra_SinglyLinkedList,
+  throw:java_lang_Throwable+null,
+  usedObjects:set (java_lang_Object),
+  var_24_crunchifyCurrent:SourcesCristianPereyra_Node+null,
+  var_25_i:JavaPrimitiveIntegerValue,
+  var_26_ws_8:boolean
+]{
+pre={
+   precondition_SourcesCristianPereyra_SinglyLinkedList_remove_0[SourcesCristianPereyra_Node_next,
+                                                                SourcesCristianPereyra_SinglyLinkedList_head,
+                                                                SourcesCristianPereyra_SinglyLinkedList_listCount,
+                                                                index,
+                                                                thiz,
+                                                                throw]
+
+}
+program={
+   call SourcesCristianPereyra_SinglyLinkedList_remove_0[thiz,throw,return,index,SourcesCristianPereyra_Node_data,SourcesCristianPereyra_SinglyLinkedList_listCount,SourcesCristianPereyra_Node_next,SourcesCristianPereyra_SinglyLinkedList_head,usedObjects]
+
+}
+post={
+   postcondition_SourcesCristianPereyra_SinglyLinkedList_remove_0[SourcesCristianPereyra_Node_next',
+                                                                 SourcesCristianPereyra_SinglyLinkedList_head',
+                                                                 SourcesCristianPereyra_SinglyLinkedList_listCount',
+                                                                 thiz',
+                                                                 throw']
+
+}
+}
+

@@ -1,0 +1,6 @@
+sig SourcesMatiasDeSanti_StrykerException extends java_lang_RuntimeException {}
+{}
+
+
+
+

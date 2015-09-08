@@ -1,0 +1,35 @@
+sig java_lang_Boolean extends java_lang_Object {}
+{}
+
+
+
+
+pred java_lang_BooleanCondition0[
+  booleanValue:univ->univ,
+  thiz:univ,
+  value:univ
+]{
+   equ[thiz.booleanValue,
+      value]
+
+}
+
+program java_lang_Boolean_Constructor_0[
+  thiz:java_lang_Boolean,
+  throw:java_lang_Throwable+null,
+  value:boolean,
+  roops_core_objects_SinglyLinkedListNode_next:(roops_core_objects_SinglyLinkedListNode)->one(null+roops_core_objects_SinglyLinkedListNode),
+  roops_core_objects_SinglyLinkedListNode_value:(roops_core_objects_SinglyLinkedListNode)->one(java_lang_Object+null),
+  ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21D_header:(ar_edu_itba_santiago_bermudez_SinglyLinkedListContains2Bug7Dx21D)->one(null+roops_core_objects_SinglyLinkedListNode),
+  java_lang_Boolean_FALSE:(ClassFields)->one(java_lang_Boolean),
+  java_lang_Boolean_TRUE:(ClassFields)->one(java_lang_Boolean),
+  booleanValue:(java_lang_Boolean)->one(boolean),
+  usedObjects:set (java_lang_Object)
+] var [
+
+]{
+   throw:=null;
+   assume java_lang_BooleanCondition0[booleanValue,thiz,value]
+
+}
+

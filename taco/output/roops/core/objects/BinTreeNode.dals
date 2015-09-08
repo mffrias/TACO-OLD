@@ -1,0 +1,124 @@
+sig roops_core_objects_BinTreeNode extends java_lang_Object {}
+{}
+
+
+
+
+pred roops_core_objects_BinTreeNodeCondition0[
+  thiz:univ
+]{
+   isEmptyOrNull[thiz]
+
+}
+
+pred roops_core_objects_BinTreeNodeCondition1[
+  thiz:univ
+]{
+   not (
+     isEmptyOrNull[thiz])
+
+}
+
+pred roops_core_objects_BinTreeNodeCondition2[
+  exit_stmt_reached:univ,
+  throw:univ
+]{
+   (
+     throw=null)
+   and 
+   (
+     exit_stmt_reached=false)
+
+}
+
+pred roops_core_objects_BinTreeNodeCondition3[
+  exit_stmt_reached:univ,
+  throw:univ
+]{
+   not (
+     (
+       throw=null)
+     and 
+     (
+       exit_stmt_reached=false)
+   )
+
+}
+
+program roops_core_objects_BinTreeNode_Constructor_0[
+  thiz:roops_core_objects_BinTreeNode,
+  throw:java_lang_Throwable+null,
+  roops_core_objects_BinTreeNode_key:(roops_core_objects_BinTreeNode)->one(Int),
+  roops_core_objects_BinTree_root:(roops_core_objects_BinTree)->one(null+roops_core_objects_BinTreeNode),
+  roops_core_objects_BinTreeNode_parent:(roops_core_objects_BinTreeNode)->one(null+roops_core_objects_BinTreeNode),
+  roops_core_objects_BinTreeNode_right:(roops_core_objects_BinTreeNode)->one(null+roops_core_objects_BinTreeNode),
+  roops_core_objects_BinTree_size:(roops_core_objects_BinTree)->one(Int),
+  roops_core_objects_BinTreeNode_left:(roops_core_objects_BinTreeNode)->one(null+roops_core_objects_BinTreeNode),
+  usedObjects:set (java_lang_Object)
+] var [
+  exit_stmt_reached:boolean
+]{
+   skip;
+   throw:=null;
+   skip;
+   exit_stmt_reached:=false;
+   if roops_core_objects_BinTreeNodeCondition2[exit_stmt_reached,throw]  {
+      if roops_core_objects_BinTreeNodeCondition0[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         roops_core_objects_BinTreeNode_key:=(roops_core_objects_BinTreeNode_key)++((thiz)->(0))
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if roops_core_objects_BinTreeNodeCondition2[exit_stmt_reached,throw]  {
+      if roops_core_objects_BinTreeNodeCondition0[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         roops_core_objects_BinTreeNode_left:=(roops_core_objects_BinTreeNode_left)++((thiz)->(((null+roops_core_objects_BinTreeNode) & (null))))
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if roops_core_objects_BinTreeNodeCondition2[exit_stmt_reached,throw]  {
+      if roops_core_objects_BinTreeNodeCondition0[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         roops_core_objects_BinTreeNode_right:=(roops_core_objects_BinTreeNode_right)++((thiz)->(((null+roops_core_objects_BinTreeNode) & (null))))
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if roops_core_objects_BinTreeNodeCondition2[exit_stmt_reached,throw]  {
+      if roops_core_objects_BinTreeNodeCondition0[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         roops_core_objects_BinTreeNode_parent:=(roops_core_objects_BinTreeNode_parent)++((thiz)->(((null+roops_core_objects_BinTreeNode) & (null))))
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip
+
+}
+

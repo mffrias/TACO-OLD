@@ -1,0 +1,40 @@
+//-------------- JavaPrimitiveFloatLiteral3E176191 --------------//
+module JavaPrimitiveFloatLiteral3E176191
+one sig JavaPrimitiveFloatLiteral3E176191 extends JavaPrimitiveFloatValue {}
+{pred_java_primitive_float_value_literal_3E176191[JavaPrimitiveFloatLiteral3E176191]
+}
+pred pred_java_primitive_float_value_literal_3E176191[ret: JavaPrimitiveFloatValue] {
+ ret.b00=true 
+ ret.b01=false 
+ ret.b02=false 
+ ret.b03=false 
+ ret.b04=true 
+ ret.b05=false 
+ ret.b06=false 
+ ret.b07=true 
+ ret.b08=true 
+ ret.b09=false 
+ ret.b10=false 
+ ret.b11=false 
+ ret.b12=false 
+ ret.b13=true 
+ ret.b14=true 
+ ret.b15=false 
+ ret.b16=true 
+ ret.b17=true 
+ ret.b18=true 
+ ret.b19=false 
+ ret.b20=true 
+ ret.b21=false 
+ ret.b22=false 
+ ret.b23=false 
+ ret.b24=false 
+ ret.b25=true 
+ ret.b26=true 
+ ret.b27=true 
+ ret.b28=true 
+ ret.b29=true 
+ ret.b30=false 
+ ret.b31=false 
+}
+

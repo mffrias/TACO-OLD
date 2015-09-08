@@ -1,0 +1,74 @@
+abstract sig java_lang_Object {}
+{}
+
+
+
+
+pred java_lang_ObjectCondition0[
+  o:univ,
+  thiz:univ
+]{
+   equ[thiz,
+      o]
+
+}
+
+pred java_lang_ObjectCondition1[
+  o:univ,
+  thiz:univ
+]{
+   not (
+     equ[thiz,
+        o]
+   )
+
+}
+
+pred java_lang_ObjectCondition2[
+  o:univ
+]{
+   neq[o,
+      null]
+
+}
+
+pred java_lang_ObjectCondition3[
+  o:univ
+]{
+   not (
+     neq[o,
+        null]
+   )
+
+}
+
+program java_lang_Object_equals_0[
+  thiz:java_lang_Object,
+  throw:java_lang_Throwable+null,
+  return:boolean,
+  o:java_lang_Object,
+  SourcesPauli_LinkNode_data:(SourcesPauli_LinkNode)->one(java_lang_Object+null),
+  SourcesPauli_ListLinked_first:(SourcesPauli_ListLinked)->one(SourcesPauli_LinkNode+null),
+  SourcesPauli_LinkNode_next:(SourcesPauli_LinkNode)->one(SourcesPauli_LinkNode+null),
+  SourcesPauli_ListLinked_last:(SourcesPauli_ListLinked)->one(SourcesPauli_LinkNode+null),
+  usedObjects:set (java_lang_Object)
+] var [
+
+]{
+   throw:=null;
+   if java_lang_ObjectCondition2[o]  {
+      if java_lang_ObjectCondition0[o,thiz]  {
+         return:=true
+      
+      } else {
+         return:=false
+      
+      }
+   
+   } else {
+      return:=false
+   
+   }
+
+}
+

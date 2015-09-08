@@ -1,0 +1,161 @@
+sig edu_fiu_sort_SortBug1 extends java_lang_Object {}
+{}
+
+
+
+
+pred precondition_edu_fiu_sort_SortBug1_insertionSort_0[
+  a:univ,
+  java_lang_IntArray_length:univ->univ,
+  throw:univ
+]{
+   edu_fiu_sort_SortBug1_requires[a,
+                                 java_lang_IntArray_length]
+   and 
+   java_lang_IntArray_object_invariant[java_lang_IntArray_length]
+   and 
+   equ[throw,
+      null]
+
+}
+
+pred edu_fiu_sort_SortBug1Condition0[
+  exit_stmt_reached:univ,
+  throw:univ
+]{
+   (
+     throw=null)
+   and 
+   (
+     exit_stmt_reached=false)
+
+}
+
+pred edu_fiu_sort_SortBug1Condition1[
+  exit_stmt_reached:univ,
+  throw:univ
+]{
+   not (
+     (
+       throw=null)
+     and 
+     (
+       exit_stmt_reached=false)
+   )
+
+}
+
+pred java_lang_IntArray_object_invariant[
+  java_lang_IntArray_length:univ->univ
+]{
+   all oa:java_lang_IntArray | {
+     pred_java_primitive_integer_value_gte_zero[oa.java_lang_IntArray_length]
+   }
+
+}
+
+pred postcondition_edu_fiu_sort_SortBug1_insertionSort_0[
+  a':univ,
+  java_lang_IntArray_contents':univ->univ->univ,
+  throw':univ
+]{
+   edu_fiu_sort_SortBug1_ensures[a',
+                                java_lang_IntArray_contents',
+                                throw']
+   and 
+   (
+     not (
+       throw'=AssertionFailureLit)
+   )
+
+}
+
+pred edu_fiu_sort_SortBug1_requires[
+  a:univ,
+  java_lang_IntArray_length:univ->univ
+]{
+   pred_java_primitive_integer_value_gt[arrayLength[a,java_lang_IntArray_length],
+                                       JavaPrimitiveIntegerLiteral0]
+   and 
+   (
+     not (
+       a=null)
+   )
+
+}
+
+pred edu_fiu_sort_SortBug1_ensures[
+  a':univ,
+  java_lang_IntArray_contents':univ->univ->univ,
+  throw':univ
+]{
+   (
+     throw'=null)
+   implies 
+           equ[((JavaPrimitiveLongValue) & (arrayAccess[a',java_lang_IntArray_contents',JavaPrimitiveIntegerLiteral0])),
+              JavaPrimitiveLongLiteral0]
+
+}
+
+program edu_fiu_sort_SortBug1_insertionSort_0[
+  throw:java_lang_Throwable+null,
+  a:java_lang_IntArray+null,
+  java_lang_IntArray_contents:java_lang_IntArray -> (JavaPrimitiveIntegerValue set -> lone JavaPrimitiveIntegerValue),
+  java_lang_IntArray_length:(java_lang_IntArray)->one(JavaPrimitiveIntegerValue),
+  usedObjects:set (java_lang_Object)
+] var [
+  exit_stmt_reached:boolean,
+  param_a_0:java_lang_IntArray+null
+]{
+   skip;
+   throw:=null;
+   skip;
+   exit_stmt_reached:=false;
+   skip;
+   if edu_fiu_sort_SortBug1Condition0[exit_stmt_reached,throw]  {
+      param_a_0:=a
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if edu_fiu_sort_SortBug1Condition0[exit_stmt_reached,throw]  {
+      param_a_0:=((java_lang_IntArray+null) & (null))
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip
+
+}
+
+assertCorrectness check_edu_fiu_sort_SortBug1_insertionSort_0[
+  a:java_lang_IntArray+null,
+  exit_stmt_reached:boolean,
+  java_lang_IntArray_contents:java_lang_IntArray -> (JavaPrimitiveIntegerValue set -> lone JavaPrimitiveIntegerValue),
+  java_lang_IntArray_length:(java_lang_IntArray)->one(JavaPrimitiveIntegerValue),
+  param_a_0:java_lang_IntArray+null,
+  throw:java_lang_Throwable+null,
+  usedObjects:set (java_lang_Object)
+]{
+pre={
+   precondition_edu_fiu_sort_SortBug1_insertionSort_0[a,
+                                                     java_lang_IntArray_length,
+                                                     throw]
+
+}
+program={
+   call edu_fiu_sort_SortBug1_insertionSort_0[throw,a,java_lang_IntArray_contents,java_lang_IntArray_length,usedObjects]
+
+}
+post={
+   postcondition_edu_fiu_sort_SortBug1_insertionSort_0[a',
+                                                      java_lang_IntArray_contents',
+                                                      throw']
+
+}
+}
+

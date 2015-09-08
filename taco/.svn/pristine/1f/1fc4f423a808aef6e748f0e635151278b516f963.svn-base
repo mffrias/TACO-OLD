@@ -1,0 +1,365 @@
+sig ar_edu_taco_skunk_Landing extends java_lang_Object {}
+{}
+
+
+
+
+pred ar_edu_taco_skunk_LandingCondition5[
+  auxVarForArithmeticExceptionDivisionByZeroJavaPrimitiveIntegerValue_0:univ
+]{
+   pred_java_primitive_integer_value_eq[auxVarForArithmeticExceptionDivisionByZeroJavaPrimitiveIntegerValue_0,
+                                       JavaPrimitiveIntegerLiteral0]
+
+}
+
+pred ar_edu_taco_skunk_LandingCondition6[
+  auxVarForArithmeticExceptionDivisionByZeroJavaPrimitiveIntegerValue_0:univ
+]{
+   not (
+     pred_java_primitive_integer_value_eq[auxVarForArithmeticExceptionDivisionByZeroJavaPrimitiveIntegerValue_0,
+                                         JavaPrimitiveIntegerLiteral0]
+   )
+
+}
+
+pred ar_edu_taco_skunk_LandingCondition8[
+  exit_stmt_reached:univ,
+  throw:univ
+]{
+   not (
+     (
+       throw=null)
+     and 
+     (
+       exit_stmt_reached=false)
+   )
+
+}
+
+pred ar_edu_taco_skunk_LandingCondition13[
+  SK_pred_java_primitive_integer_value_div_rem_ARG_right_3:univ,
+  t_10:univ
+]{
+   equ[SK_pred_java_primitive_integer_value_div_rem_ARG_right_3,
+      t_10]
+
+}
+
+pred ar_edu_taco_skunk_LandingCondition0[
+  auxVarForArithmeticExceptionDivisionByZeroJavaPrimitiveIntegerValue_0:univ,
+  i3:univ
+]{
+   equ[auxVarForArithmeticExceptionDivisionByZeroJavaPrimitiveIntegerValue_0,
+      i3]
+
+}
+
+pred ar_edu_taco_skunk_LandingCondition7[
+  exit_stmt_reached:univ,
+  throw:univ
+]{
+   (
+     throw=null)
+   and 
+   (
+     exit_stmt_reached=false)
+
+}
+
+pred ar_edu_taco_skunk_LandingCondition12[
+  SK_pred_java_primitive_integer_value_div_rem_ARG_left_3:univ,
+  SK_pred_java_primitive_integer_value_div_rem_ARG_remainder_3:univ,
+  SK_pred_java_primitive_integer_value_div_rem_ARG_result_3:univ,
+  SK_pred_java_primitive_integer_value_div_rem_ARG_right_3:univ
+]{
+   pred_java_primitive_integer_value_div_rem_marker[SK_pred_java_primitive_integer_value_div_rem_ARG_left_3,
+                                                   SK_pred_java_primitive_integer_value_div_rem_ARG_right_3,
+                                                   SK_pred_java_primitive_integer_value_div_rem_ARG_result_3,
+                                                   SK_pred_java_primitive_integer_value_div_rem_ARG_remainder_3]
+
+}
+
+pred ar_edu_taco_skunk_LandingCondition4[
+  SK_pred_java_primitive_integer_value_div_rem_ARG_right_1:univ,
+  i3:univ
+]{
+   equ[SK_pred_java_primitive_integer_value_div_rem_ARG_right_1,
+      i3]
+
+}
+
+pred ar_edu_taco_skunk_Landing_ensures[
+  return':univ,
+  throw':univ
+]{
+   (
+     instanceOf[throw',
+               java_lang_RuntimeException]
+     implies 
+             liftExpression[false]
+   )
+   and 
+   (
+     (
+       throw'=null)
+     implies 
+             equ[return',
+                true]
+   )
+
+}
+
+pred postcondition_ar_edu_taco_skunk_Landing_testDivZero_0[
+  return':univ,
+  throw':univ
+]{
+   ar_edu_taco_skunk_Landing_ensures[return',
+                                    throw']
+   and 
+   (
+     not (
+       throw'=AssertionFailureLit)
+   )
+
+}
+
+pred ar_edu_taco_skunk_LandingCondition2[
+  SK_pred_java_primitive_integer_value_div_rem_ARG_right_1:univ
+]{
+   equ[SK_pred_java_primitive_integer_value_div_rem_ARG_right_1,
+      JavaPrimitiveIntegerLiteral1]
+
+}
+
+pred precondition_ar_edu_taco_skunk_Landing_testDivZero_0[
+  throw:univ
+]{
+   equ[throw,
+      null]
+   and 
+   ar_edu_taco_skunk_Landing_requires[]
+
+}
+
+pred ar_edu_taco_skunk_LandingCondition15[
+  auxVarForArithmeticExceptionDivisionByZeroJavaPrimitiveIntegerValue_2:univ
+]{
+   not (
+     pred_java_primitive_integer_value_eq[auxVarForArithmeticExceptionDivisionByZeroJavaPrimitiveIntegerValue_2,
+                                         JavaPrimitiveIntegerLiteral0]
+   )
+
+}
+
+pred ar_edu_taco_skunk_LandingCondition14[
+  auxVarForArithmeticExceptionDivisionByZeroJavaPrimitiveIntegerValue_2:univ
+]{
+   pred_java_primitive_integer_value_eq[auxVarForArithmeticExceptionDivisionByZeroJavaPrimitiveIntegerValue_2,
+                                       JavaPrimitiveIntegerLiteral0]
+
+}
+
+pred ar_edu_taco_skunk_LandingCondition1[
+  SK_pred_java_primitive_integer_value_div_rem_ARG_left_1:univ,
+  i2:univ
+]{
+   equ[SK_pred_java_primitive_integer_value_div_rem_ARG_left_1,
+      i2]
+
+}
+
+pred ar_edu_taco_skunk_LandingCondition3[
+  SK_pred_java_primitive_integer_value_div_rem_ARG_left_1:univ,
+  SK_pred_java_primitive_integer_value_div_rem_ARG_remainder_1:univ,
+  SK_pred_java_primitive_integer_value_div_rem_ARG_result_1:univ,
+  SK_pred_java_primitive_integer_value_div_rem_ARG_right_1:univ
+]{
+   pred_java_primitive_integer_value_div_rem_marker[SK_pred_java_primitive_integer_value_div_rem_ARG_left_1,
+                                                   SK_pred_java_primitive_integer_value_div_rem_ARG_right_1,
+                                                   SK_pred_java_primitive_integer_value_div_rem_ARG_result_1,
+                                                   SK_pred_java_primitive_integer_value_div_rem_ARG_remainder_1]
+
+}
+
+pred ar_edu_taco_skunk_LandingCondition9[
+  auxVarForArithmeticExceptionDivisionByZeroJavaPrimitiveIntegerValue_2:univ,
+  t_10:univ
+]{
+   equ[auxVarForArithmeticExceptionDivisionByZeroJavaPrimitiveIntegerValue_2,
+      t_10]
+
+}
+
+pred ar_edu_taco_skunk_Landing_requires[
+]{
+   true=true
+
+}
+
+pred ar_edu_taco_skunk_LandingCondition11[
+  SK_pred_java_primitive_integer_value_div_rem_ARG_right_3:univ
+]{
+   equ[SK_pred_java_primitive_integer_value_div_rem_ARG_right_3,
+      JavaPrimitiveIntegerLiteral1]
+
+}
+
+pred ar_edu_taco_skunk_LandingCondition10[
+  SK_pred_java_primitive_integer_value_div_rem_ARG_left_3:univ,
+  i1:univ
+]{
+   equ[SK_pred_java_primitive_integer_value_div_rem_ARG_left_3,
+      i1]
+
+}
+
+program ar_edu_taco_skunk_Landing_testDivZero_0[
+  throw:java_lang_Throwable+null,
+  return:boolean,
+  i1:JavaPrimitiveIntegerValue,
+  i2:JavaPrimitiveIntegerValue,
+  i3:JavaPrimitiveIntegerValue,
+  usedObjects:set (java_lang_Object)
+] var [
+  auxVarForArithmeticExceptionDivisionByZeroJavaPrimitiveIntegerValue_0:JavaPrimitiveIntegerValue,
+  auxVarForArithmeticExceptionDivisionByZeroJavaPrimitiveIntegerValue_2:JavaPrimitiveIntegerValue,
+  exit_stmt_reached:boolean,
+  SK_pred_java_primitive_integer_value_div_rem_ARG_left_3:JavaPrimitiveIntegerValue,
+  SK_pred_java_primitive_integer_value_div_rem_ARG_result_3:JavaPrimitiveIntegerValue,
+  SK_pred_java_primitive_integer_value_div_rem_ARG_left_1:JavaPrimitiveIntegerValue,
+  SK_pred_java_primitive_integer_value_div_rem_ARG_remainder_1:JavaPrimitiveIntegerValue,
+  SK_pred_java_primitive_integer_value_div_rem_ARG_right_1:JavaPrimitiveIntegerValue,
+  SK_pred_java_primitive_integer_value_div_rem_ARG_remainder_3:JavaPrimitiveIntegerValue,
+  SK_pred_java_primitive_integer_value_div_rem_ARG_right_3:JavaPrimitiveIntegerValue,
+  SK_pred_java_primitive_integer_value_div_rem_ARG_result_1:JavaPrimitiveIntegerValue,
+  t_10:JavaPrimitiveIntegerValue
+]{
+   skip;
+   throw:=null;
+   skip;
+   exit_stmt_reached:=false;
+   skip;
+   skip;
+   havocVariable[auxVarForArithmeticExceptionDivisionByZeroJavaPrimitiveIntegerValue_0];
+   assume ar_edu_taco_skunk_LandingCondition0[auxVarForArithmeticExceptionDivisionByZeroJavaPrimitiveIntegerValue_0,i3];
+   skip;
+   skip;
+   skip;
+   skip;
+   if ar_edu_taco_skunk_LandingCondition5[auxVarForArithmeticExceptionDivisionByZeroJavaPrimitiveIntegerValue_0]  {
+      throw:=java_lang_ArithmeticExceptionLit;
+      havocVariable[SK_pred_java_primitive_integer_value_div_rem_ARG_left_1];
+      havocVariable[auxVarForArithmeticExceptionDivisionByZeroJavaPrimitiveIntegerValue_0];
+      havocVariable[SK_pred_java_primitive_integer_value_div_rem_ARG_right_1];
+      havocVariable[SK_pred_java_primitive_integer_value_div_rem_ARG_result_1];
+      havocVariable[SK_pred_java_primitive_integer_value_div_rem_ARG_remainder_1];
+      assume ar_edu_taco_skunk_LandingCondition1[SK_pred_java_primitive_integer_value_div_rem_ARG_left_1,i2];
+      assume ar_edu_taco_skunk_LandingCondition0[auxVarForArithmeticExceptionDivisionByZeroJavaPrimitiveIntegerValue_0,i3];
+      assume ar_edu_taco_skunk_LandingCondition2[SK_pred_java_primitive_integer_value_div_rem_ARG_right_1];
+      assume ar_edu_taco_skunk_LandingCondition3[SK_pred_java_primitive_integer_value_div_rem_ARG_left_1,SK_pred_java_primitive_integer_value_div_rem_ARG_remainder_1,SK_pred_java_primitive_integer_value_div_rem_ARG_result_1,SK_pred_java_primitive_integer_value_div_rem_ARG_right_1]
+   
+   } else {
+      havocVariable[SK_pred_java_primitive_integer_value_div_rem_ARG_left_1];
+      havocVariable[SK_pred_java_primitive_integer_value_div_rem_ARG_right_1];
+      havocVariable[SK_pred_java_primitive_integer_value_div_rem_ARG_result_1];
+      havocVariable[SK_pred_java_primitive_integer_value_div_rem_ARG_remainder_1];
+      assume ar_edu_taco_skunk_LandingCondition1[SK_pred_java_primitive_integer_value_div_rem_ARG_left_1,i2];
+      assume ar_edu_taco_skunk_LandingCondition4[SK_pred_java_primitive_integer_value_div_rem_ARG_right_1,i3];
+      assume ar_edu_taco_skunk_LandingCondition3[SK_pred_java_primitive_integer_value_div_rem_ARG_left_1,SK_pred_java_primitive_integer_value_div_rem_ARG_remainder_1,SK_pred_java_primitive_integer_value_div_rem_ARG_result_1,SK_pred_java_primitive_integer_value_div_rem_ARG_right_1]
+   
+   }
+   ;
+   if ar_edu_taco_skunk_LandingCondition7[exit_stmt_reached,throw]  {
+      t_10:=SK_pred_java_primitive_integer_value_div_rem_ARG_result_1
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip;
+   havocVariable[auxVarForArithmeticExceptionDivisionByZeroJavaPrimitiveIntegerValue_2];
+   assume ar_edu_taco_skunk_LandingCondition9[auxVarForArithmeticExceptionDivisionByZeroJavaPrimitiveIntegerValue_2,t_10];
+   skip;
+   skip;
+   skip;
+   skip;
+   if ar_edu_taco_skunk_LandingCondition14[auxVarForArithmeticExceptionDivisionByZeroJavaPrimitiveIntegerValue_2]  {
+      throw:=java_lang_ArithmeticExceptionLit;
+      havocVariable[SK_pred_java_primitive_integer_value_div_rem_ARG_left_3];
+      havocVariable[auxVarForArithmeticExceptionDivisionByZeroJavaPrimitiveIntegerValue_2];
+      havocVariable[SK_pred_java_primitive_integer_value_div_rem_ARG_right_3];
+      havocVariable[SK_pred_java_primitive_integer_value_div_rem_ARG_result_3];
+      havocVariable[SK_pred_java_primitive_integer_value_div_rem_ARG_remainder_3];
+      assume ar_edu_taco_skunk_LandingCondition10[SK_pred_java_primitive_integer_value_div_rem_ARG_left_3,i1];
+      assume ar_edu_taco_skunk_LandingCondition9[auxVarForArithmeticExceptionDivisionByZeroJavaPrimitiveIntegerValue_2,t_10];
+      assume ar_edu_taco_skunk_LandingCondition11[SK_pred_java_primitive_integer_value_div_rem_ARG_right_3];
+      assume ar_edu_taco_skunk_LandingCondition12[SK_pred_java_primitive_integer_value_div_rem_ARG_left_3,SK_pred_java_primitive_integer_value_div_rem_ARG_remainder_3,SK_pred_java_primitive_integer_value_div_rem_ARG_result_3,SK_pred_java_primitive_integer_value_div_rem_ARG_right_3]
+   
+   } else {
+      havocVariable[SK_pred_java_primitive_integer_value_div_rem_ARG_left_3];
+      havocVariable[SK_pred_java_primitive_integer_value_div_rem_ARG_right_3];
+      havocVariable[SK_pred_java_primitive_integer_value_div_rem_ARG_result_3];
+      havocVariable[SK_pred_java_primitive_integer_value_div_rem_ARG_remainder_3];
+      assume ar_edu_taco_skunk_LandingCondition10[SK_pred_java_primitive_integer_value_div_rem_ARG_left_3,i1];
+      assume ar_edu_taco_skunk_LandingCondition13[SK_pred_java_primitive_integer_value_div_rem_ARG_right_3,t_10];
+      assume ar_edu_taco_skunk_LandingCondition12[SK_pred_java_primitive_integer_value_div_rem_ARG_left_3,SK_pred_java_primitive_integer_value_div_rem_ARG_remainder_3,SK_pred_java_primitive_integer_value_div_rem_ARG_result_3,SK_pred_java_primitive_integer_value_div_rem_ARG_right_3]
+   
+   }
+   ;
+   if ar_edu_taco_skunk_LandingCondition7[exit_stmt_reached,throw]  {
+      i2:=SK_pred_java_primitive_integer_value_div_rem_ARG_result_3
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if ar_edu_taco_skunk_LandingCondition7[exit_stmt_reached,throw]  {
+      return:=true;
+      exit_stmt_reached:=true
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip
+
+}
+
+assertCorrectness check_ar_edu_taco_skunk_Landing_testDivZero_0[
+  SK_pred_java_primitive_integer_value_div_rem_ARG_left_1:JavaPrimitiveIntegerValue,
+  SK_pred_java_primitive_integer_value_div_rem_ARG_left_3:JavaPrimitiveIntegerValue,
+  SK_pred_java_primitive_integer_value_div_rem_ARG_remainder_1:JavaPrimitiveIntegerValue,
+  SK_pred_java_primitive_integer_value_div_rem_ARG_remainder_3:JavaPrimitiveIntegerValue,
+  SK_pred_java_primitive_integer_value_div_rem_ARG_result_1:JavaPrimitiveIntegerValue,
+  SK_pred_java_primitive_integer_value_div_rem_ARG_result_3:JavaPrimitiveIntegerValue,
+  SK_pred_java_primitive_integer_value_div_rem_ARG_right_1:JavaPrimitiveIntegerValue,
+  SK_pred_java_primitive_integer_value_div_rem_ARG_right_3:JavaPrimitiveIntegerValue,
+  auxVarForArithmeticExceptionDivisionByZeroJavaPrimitiveIntegerValue_0:JavaPrimitiveIntegerValue,
+  auxVarForArithmeticExceptionDivisionByZeroJavaPrimitiveIntegerValue_2:JavaPrimitiveIntegerValue,
+  exit_stmt_reached:boolean,
+  i1:JavaPrimitiveIntegerValue,
+  i2:JavaPrimitiveIntegerValue,
+  i3:JavaPrimitiveIntegerValue,
+  return:boolean,
+  t_10:JavaPrimitiveIntegerValue,
+  throw:java_lang_Throwable+null,
+  usedObjects:set (java_lang_Object)
+]{
+pre={
+   precondition_ar_edu_taco_skunk_Landing_testDivZero_0[throw]
+
+}
+program={
+   call ar_edu_taco_skunk_Landing_testDivZero_0[throw,return,i1,i2,i3,usedObjects]
+
+}
+post={
+   postcondition_ar_edu_taco_skunk_Landing_testDivZero_0[return',
+                                                        throw']
+
+}
+}
+

@@ -1,0 +1,22 @@
+sig java_lang_Integer extends java_lang_Object {}
+{}
+
+
+
+
+program java_lang_Integer_Constructor_0[
+  thiz:java_lang_Integer,
+  throw:java_lang_Throwable+null,
+  value:JavaPrimitiveIntegerValue,
+  integerHashCode:(java_lang_Integer)->one(JavaPrimitiveIntegerValue),
+  booleanValue:(java_lang_Boolean)->one(boolean),
+  usedObjects:set (java_lang_Object)
+] var [
+
+]{
+   throw:=null;
+   havocVariable[thiz];
+   integerHashCode:=(integerHashCode)++((thiz)->(value))
+
+}
+

@@ -1,0 +1,93 @@
+//-------------- ar_edu_taco_reachTest_reachTest --------------//
+module ar_edu_taco_reachTest_reachTest
+sig ar_edu_taco_reachTest_reachTest extends java_lang_Object {}
+{}
+field ar_edu_taco_reachTest_reachTest_field1:(ar_edu_taco_reachTest_reachTest)->one(ar_edu_taco_reachTest_reachTest+null) {}
+field ar_edu_taco_reachTest_reachTest_field2:(ar_edu_taco_reachTest_reachTest)->one(ar_edu_taco_reachTest_reachTest+null) {}
+
+object_invariant
+   not (
+     thiz.ar_edu_taco_reachTest_reachTest_field1=null)
+
+object_invariant
+   not (
+     thiz.ar_edu_taco_reachTest_reachTest_field2=null)
+
+object_invariant
+   all n:ar_edu_taco_reachTest_reachTest+null | {
+     equ[fun_set_contains[fun_reach[thiz,ar_edu_taco_reachTest_reachTest,ar_edu_taco_reachTest_reachTest_field1],n],
+        true]
+     implies 
+             (
+               equ[fun_set_contains[fun_reach[n.ar_edu_taco_reachTest_reachTest_field1,ar_edu_taco_reachTest_reachTest,ar_edu_taco_reachTest_reachTest_field1],n],
+                  false]
+               and 
+               equ[fun_set_contains[fun_reach[n.ar_edu_taco_reachTest_reachTest_field2,ar_edu_taco_reachTest_reachTest,ar_edu_taco_reachTest_reachTest_field2],n],
+                  false]
+             )
+   
+   }
+
+object_invariant
+   equ[fun_set_contains[fun_reach[thiz,ar_edu_taco_reachTest_reachTest,ar_edu_taco_reachTest_reachTest_field1+ar_edu_taco_reachTest_reachTest_field2],thiz],
+      true]
+
+
+
+program ar_edu_taco_reachTest_reachTest::Constructor[
+  var thiz:ar_edu_taco_reachTest_reachTest,
+  var throw:java_lang_Throwable+null] 
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         skip;
+      
+      }
+      skip;
+   
+   }
+
+
+program ar_edu_taco_reachTest_reachTest::testReachMethod[
+  var thiz:ar_edu_taco_reachTest_reachTest,
+  var throw:java_lang_Throwable+null] 
+Specification 
+{
+  SpecCase #0 {
+   requires {
+      true=true
+   }
+   
+   ensures {
+      (
+        throw'=null)
+      implies 
+              liftExpression[true]
+   }
+   
+   modifies {
+   EVERYTHING}
+  }
+}
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         skip;
+      
+      }
+      skip;
+   
+   }
+
+
+

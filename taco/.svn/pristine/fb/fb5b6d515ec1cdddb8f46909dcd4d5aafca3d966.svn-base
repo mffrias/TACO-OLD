@@ -1,0 +1,145 @@
+//-------------- roops_core_objects_NodeCachingLinkedList --------------//
+module roops_core_objects_NodeCachingLinkedList
+sig roops_core_objects_NodeCachingLinkedList extends java_lang_Object {}
+{}
+program roops_core_objects_NodeCachingLinkedList::Constructor[
+  var thiz:roops_core_objects_NodeCachingLinkedList,
+  var throw:java_lang_Throwable+null] 
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         skip;
+      
+      }
+      skip;
+   
+   }
+
+
+program roops_core_objects_NodeCachingLinkedList::metodoPablo[
+  var thiz:roops_core_objects_NodeCachingLinkedList,
+  var throw:java_lang_Throwable+null,
+  var return:JavaPrimitiveIntegerValue,
+  var i:JavaPrimitiveIntegerValue,
+  var j:JavaPrimitiveIntegerValue,
+  var SK_jml_pred_java_primitive_integer_value_add_ARG_result_1:JavaPrimitiveIntegerValue,
+  var SK_jml_pred_java_primitive_integer_value_add_ARG_overflow_1:boolean,
+  var SK_jml_pred_java_primitive_integer_value_add_ARG_overflow_0:boolean,
+  var SK_jml_pred_java_primitive_integer_value_add_ARG_result_0:JavaPrimitiveIntegerValue] 
+Specification 
+{
+  SpecCase #0 {
+   requires {
+      pred_java_primitive_integer_value_gt[SK_jml_pred_java_primitive_integer_value_add_ARG_result_0,
+                                          JavaPrimitiveIntegerLiteral0]
+   }
+   
+   ensures {
+      (
+        throw'=null)
+      implies 
+              pred_java_primitive_integer_value_gt[return',
+                                                  SK_jml_pred_java_primitive_integer_value_add_ARG_result_1]
+   }
+   
+   modifies {
+   EVERYTHING}
+  }
+}
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         {
+            var t_1:JavaPrimitiveIntegerValue;
+            var SK_pred_java_primitive_integer_value_mul_ARG_left_0:JavaPrimitiveIntegerValue;
+            var SK_pred_java_primitive_integer_value_mul_ARG_right_0:JavaPrimitiveIntegerValue;
+            var SK_pred_java_primitive_integer_value_mul_ARG_result_0:JavaPrimitiveIntegerValue;
+            var SK_pred_java_primitive_integer_value_mul_ARG_overflow_0:boolean;
+            havoc SK_pred_java_primitive_integer_value_mul_ARG_left_0;
+            havoc SK_pred_java_primitive_integer_value_mul_ARG_right_0;
+            havoc SK_pred_java_primitive_integer_value_mul_ARG_result_0;
+            havoc SK_pred_java_primitive_integer_value_mul_ARG_overflow_0;
+            assume equ[SK_pred_java_primitive_integer_value_mul_ARG_left_0,
+               i];
+            assume equ[SK_pred_java_primitive_integer_value_mul_ARG_right_0,
+               j];
+            assume pred_java_primitive_integer_value_mul_marker[SK_pred_java_primitive_integer_value_mul_ARG_left_0,
+                                                        SK_pred_java_primitive_integer_value_mul_ARG_right_0,
+                                                        SK_pred_java_primitive_integer_value_mul_ARG_result_0,
+                                                        SK_pred_java_primitive_integer_value_mul_ARG_overflow_0];
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               t_1:=SK_pred_java_primitive_integer_value_mul_ARG_result_0;
+            } else {
+               skip;
+            };
+            var var_1_k:JavaPrimitiveIntegerValue;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               var_1_k:=t_1;
+            } else {
+               skip;
+            };
+            var SK_pred_java_primitive_integer_value_mul_ARG_left_1:JavaPrimitiveIntegerValue;
+            var SK_pred_java_primitive_integer_value_mul_ARG_right_1:JavaPrimitiveIntegerValue;
+            var SK_pred_java_primitive_integer_value_mul_ARG_result_1:JavaPrimitiveIntegerValue;
+            var SK_pred_java_primitive_integer_value_mul_ARG_overflow_1:boolean;
+            havoc SK_pred_java_primitive_integer_value_mul_ARG_left_1;
+            havoc SK_pred_java_primitive_integer_value_mul_ARG_right_1;
+            havoc SK_pred_java_primitive_integer_value_mul_ARG_result_1;
+            havoc SK_pred_java_primitive_integer_value_mul_ARG_overflow_1;
+            assume equ[SK_pred_java_primitive_integer_value_mul_ARG_left_1,
+               var_1_k];
+            assume equ[SK_pred_java_primitive_integer_value_mul_ARG_right_1,
+               var_1_k];
+            assume pred_java_primitive_integer_value_mul_marker[SK_pred_java_primitive_integer_value_mul_ARG_left_1,
+                                                        SK_pred_java_primitive_integer_value_mul_ARG_right_1,
+                                                        SK_pred_java_primitive_integer_value_mul_ARG_result_1,
+                                                        SK_pred_java_primitive_integer_value_mul_ARG_overflow_1];
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               var_1_k:=SK_pred_java_primitive_integer_value_mul_ARG_result_1;
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false)   {
+                  return:=var_1_k;
+                  exit_stmt_reached:=true;
+               
+               }
+             else {
+               skip;
+            };
+         
+         }
+      
+      }
+      skip;
+   
+   }
+
+
+

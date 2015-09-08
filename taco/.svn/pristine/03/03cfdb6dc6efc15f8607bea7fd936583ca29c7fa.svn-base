@@ -1,0 +1,24 @@
+abstract sig java_lang_Object {}
+{}
+
+
+
+
+program java_lang_Object_Constructor_0[
+  thiz:java_lang_Object,
+  throw:java_lang_Throwable+null,
+  roops_core_objects_AvlNode_right:(roops_core_objects_AvlNode)->one(null+roops_core_objects_AvlNode),
+  roops_core_objects_AvlTree_root:(roops_core_objects_AvlTree)->one(null+roops_core_objects_AvlNode),
+  roops_core_objects_AvlNode_height:(roops_core_objects_AvlNode)->one(JavaPrimitiveIntegerValue),
+  roops_core_objects_AvlNode_key:(roops_core_objects_AvlNode)->one(JavaPrimitiveIntegerValue),
+  roops_core_objects_AvlTree_size:(roops_core_objects_AvlTree)->one(JavaPrimitiveIntegerValue),
+  roops_core_objects_AvlNode_left:(roops_core_objects_AvlNode)->one(null+roops_core_objects_AvlNode),
+  roops_core_objects_AvlNode_parent:(roops_core_objects_AvlNode)->one(null+roops_core_objects_AvlNode),
+  usedObjects:set (java_lang_Object)
+] var [
+
+]{
+   throw:=null
+
+}
+

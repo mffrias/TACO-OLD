@@ -1,0 +1,817 @@
+sig ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList extends java_lang_Object {}
+{}
+
+
+
+
+pred ar_edu_itba_alu_crpereyr_impl_avltree1_CustomListCondition3[
+  exit_stmt_reached:univ,
+  throw:univ
+]{
+   not (
+     (
+       throw=null)
+     and 
+     (
+       exit_stmt_reached=false)
+   )
+
+}
+
+pred ar_edu_itba_alu_crpereyr_impl_avltree1_CustomListCondition1[
+  ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_store:univ->univ,
+  thiz:univ
+]{
+   not (
+     isEmptyOrNull[thiz]
+     or 
+     isEmptyOrNull[thiz.ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_store]
+   )
+
+}
+
+pred ar_edu_itba_alu_crpereyr_impl_avltree1_CustomListCondition2[
+  exit_stmt_reached:univ,
+  throw:univ
+]{
+   (
+     throw=null)
+   and 
+   (
+     exit_stmt_reached=false)
+
+}
+
+pred ar_edu_itba_alu_crpereyr_impl_avltree1_CustomListCondition0[
+  ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_store:univ->univ,
+  thiz:univ
+]{
+   isEmptyOrNull[thiz]
+   or 
+   isEmptyOrNull[thiz.ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_store]
+
+}
+
+pred ar_edu_itba_alu_crpereyr_impl_avltree1_CustomListCondition5[
+  thiz:univ
+]{
+   not (
+     isEmptyOrNull[thiz])
+
+}
+
+pred ar_edu_itba_alu_crpereyr_impl_avltree1_CustomListCondition4[
+  thiz:univ
+]{
+   isEmptyOrNull[thiz]
+
+}
+
+pred ar_edu_itba_alu_crpereyr_impl_avltree1_CustomListCondition9[
+  thiz:univ
+]{
+   not (
+     isEmptyOrNull[thiz]
+     or 
+     isEmptyOrNull[thiz]
+   )
+
+}
+
+pred ar_edu_itba_alu_crpereyr_impl_avltree1_CustomListCondition7[
+  t_69:univ,
+  thiz:univ
+]{
+   not (
+     isEmptyOrNull[thiz]
+     or 
+     isEmptyOrNull[t_69]
+   )
+
+}
+
+pred ar_edu_itba_alu_crpereyr_impl_avltree1_CustomListCondition8[
+  thiz:univ
+]{
+   isEmptyOrNull[thiz]
+   or 
+   isEmptyOrNull[thiz]
+
+}
+
+pred ar_edu_itba_alu_crpereyr_impl_avltree1_CustomListCondition10[
+  exit_stmt_reached:univ,
+  throw:univ,
+  var_18_ws_5:univ
+]{
+   liftExpression[var_18_ws_5]
+   and 
+   (
+     throw=null)
+   and 
+   (
+     exit_stmt_reached=false)
+
+}
+
+pred ar_edu_itba_alu_crpereyr_impl_avltree1_CustomListCondition6[
+  t_69:univ,
+  thiz:univ
+]{
+   isEmptyOrNull[thiz]
+   or 
+   isEmptyOrNull[t_69]
+
+}
+
+program ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_shiftAllValuesLeft_0[
+  thiz:ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList,
+  throw:java_lang_Throwable+null,
+  java_lang_ObjectArray_length:(java_lang_ObjectArray)->one(JavaPrimitiveIntegerValue),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_AVLTree_root:(ar_edu_itba_alu_crpereyr_impl_avltree1_AVLTree)->one(ar_edu_itba_alu_crpereyr_impl_avltree1_Node+null),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_store:(ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList)->one(java_lang_ObjectArray+null),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_size:(ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList)->one(JavaPrimitiveIntegerValue),
+  java_lang_ObjectArray_contents:java_lang_ObjectArray -> (JavaPrimitiveIntegerValue set -> lone (java_lang_Object + null)),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_maxSize:(ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList)->one(JavaPrimitiveIntegerValue),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_Node_left:(ar_edu_itba_alu_crpereyr_impl_avltree1_Node)->one(ar_edu_itba_alu_crpereyr_impl_avltree1_Node+null),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_Node_key:(ar_edu_itba_alu_crpereyr_impl_avltree1_Node)->one(JavaPrimitiveIntegerValue),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_Node_right:(ar_edu_itba_alu_crpereyr_impl_avltree1_Node)->one(ar_edu_itba_alu_crpereyr_impl_avltree1_Node+null),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_Node_val:(ar_edu_itba_alu_crpereyr_impl_avltree1_Node)->one(java_lang_Object+null),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_Node_height:(ar_edu_itba_alu_crpereyr_impl_avltree1_Node)->one(JavaPrimitiveIntegerValue),
+  usedObjects:set (java_lang_Object)
+] var [
+  exit_stmt_reached:boolean,
+  t_94:JavaPrimitiveIntegerValue,
+  t_95:JavaPrimitiveIntegerValue,
+  t_96:java_lang_Object+null,
+  t_97:JavaPrimitiveIntegerValue,
+  t_98:JavaPrimitiveIntegerValue,
+  var_18_ws_5:boolean,
+  var_17_i:JavaPrimitiveIntegerValue
+]{
+   skip;
+   throw:=null;
+   skip;
+   exit_stmt_reached:=false;
+   skip;
+   skip;
+   if ar_edu_itba_alu_crpereyr_impl_avltree1_CustomListCondition2[exit_stmt_reached,throw]  {
+      var_17_i:=JavaPrimitiveIntegerLiteral0
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip;
+   if ar_edu_itba_alu_crpereyr_impl_avltree1_CustomListCondition2[exit_stmt_reached,throw]  {
+      if ar_edu_itba_alu_crpereyr_impl_avltree1_CustomListCondition4[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         t_94:=fun_java_primitive_integer_value_sub[thiz.ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_size,JavaPrimitiveIntegerLiteral1]
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if ar_edu_itba_alu_crpereyr_impl_avltree1_CustomListCondition2[exit_stmt_reached,throw]  {
+      var_18_ws_5:=(pred_java_primitive_integer_value_lt[var_17_i,t_94]=>(true)else(false))
+   
+   } else {
+      skip
+   
+   }
+   ;
+   while ar_edu_itba_alu_crpereyr_impl_avltree1_CustomListCondition10[exit_stmt_reached,throw,var_18_ws_5]do {
+      skip;
+      skip;
+      skip;
+      skip;
+      if ar_edu_itba_alu_crpereyr_impl_avltree1_CustomListCondition2[exit_stmt_reached,throw]  {
+         t_95:=fun_java_primitive_integer_value_add[var_17_i,JavaPrimitiveIntegerLiteral1]
+      
+      } else {
+         skip
+      
+      }
+      ;
+      if ar_edu_itba_alu_crpereyr_impl_avltree1_CustomListCondition2[exit_stmt_reached,throw]  {
+         if ar_edu_itba_alu_crpereyr_impl_avltree1_CustomListCondition0[ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_store,thiz]  {
+            throw:=java_lang_NullPointerExceptionLit
+         
+         } else {
+            call java_lang_ObjectArray_object_array_read_0[thiz.ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_store,throw,t_96,t_95,java_lang_ObjectArray_length,ar_edu_itba_alu_crpereyr_impl_avltree1_AVLTree_root,ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_store,ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_size,java_lang_ObjectArray_contents,ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_maxSize,ar_edu_itba_alu_crpereyr_impl_avltree1_Node_left,ar_edu_itba_alu_crpereyr_impl_avltree1_Node_key,ar_edu_itba_alu_crpereyr_impl_avltree1_Node_right,ar_edu_itba_alu_crpereyr_impl_avltree1_Node_val,ar_edu_itba_alu_crpereyr_impl_avltree1_Node_height,usedObjects]
+         
+         }
+      
+      } else {
+         skip
+      
+      }
+      ;
+      if ar_edu_itba_alu_crpereyr_impl_avltree1_CustomListCondition2[exit_stmt_reached,throw]  {
+         if ar_edu_itba_alu_crpereyr_impl_avltree1_CustomListCondition0[ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_store,thiz]  {
+            throw:=java_lang_NullPointerExceptionLit
+         
+         } else {
+            call java_lang_ObjectArray_object_array_write_0[thiz.ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_store,throw,t_96,var_17_i,java_lang_ObjectArray_length,ar_edu_itba_alu_crpereyr_impl_avltree1_AVLTree_root,ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_store,ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_size,java_lang_ObjectArray_contents,ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_maxSize,ar_edu_itba_alu_crpereyr_impl_avltree1_Node_left,ar_edu_itba_alu_crpereyr_impl_avltree1_Node_key,ar_edu_itba_alu_crpereyr_impl_avltree1_Node_right,ar_edu_itba_alu_crpereyr_impl_avltree1_Node_val,ar_edu_itba_alu_crpereyr_impl_avltree1_Node_height,usedObjects]
+         
+         }
+      
+      } else {
+         skip
+      
+      }
+      ;
+      if ar_edu_itba_alu_crpereyr_impl_avltree1_CustomListCondition2[exit_stmt_reached,throw]  {
+         t_97:=var_17_i
+      
+      } else {
+         skip
+      
+      }
+      ;
+      if ar_edu_itba_alu_crpereyr_impl_avltree1_CustomListCondition2[exit_stmt_reached,throw]  {
+         var_17_i:=fun_java_primitive_integer_value_add[var_17_i,JavaPrimitiveIntegerLiteral1]
+      
+      } else {
+         skip
+      
+      }
+      ;
+      if ar_edu_itba_alu_crpereyr_impl_avltree1_CustomListCondition2[exit_stmt_reached,throw]  {
+         if ar_edu_itba_alu_crpereyr_impl_avltree1_CustomListCondition4[thiz]  {
+            throw:=java_lang_NullPointerExceptionLit
+         
+         } else {
+            t_98:=fun_java_primitive_integer_value_sub[thiz.ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_size,JavaPrimitiveIntegerLiteral1]
+         
+         }
+      
+      } else {
+         skip
+      
+      }
+      ;
+      if ar_edu_itba_alu_crpereyr_impl_avltree1_CustomListCondition2[exit_stmt_reached,throw]  {
+         var_18_ws_5:=(pred_java_primitive_integer_value_lt[var_17_i,t_98]=>(true)else(false))
+      
+      } else {
+         skip
+      
+      }
+   
+   }
+   ;
+   skip
+
+}
+
+program ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_pop_0[
+  thiz:ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList,
+  throw:java_lang_Throwable+null,
+  return:java_lang_Object+null,
+  java_lang_ObjectArray_length:(java_lang_ObjectArray)->one(JavaPrimitiveIntegerValue),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_AVLTree_root:(ar_edu_itba_alu_crpereyr_impl_avltree1_AVLTree)->one(ar_edu_itba_alu_crpereyr_impl_avltree1_Node+null),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_store:(ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList)->one(java_lang_ObjectArray+null),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_size:(ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList)->one(JavaPrimitiveIntegerValue),
+  java_lang_ObjectArray_contents:java_lang_ObjectArray -> (JavaPrimitiveIntegerValue set -> lone (java_lang_Object + null)),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_maxSize:(ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList)->one(JavaPrimitiveIntegerValue),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_Node_left:(ar_edu_itba_alu_crpereyr_impl_avltree1_Node)->one(ar_edu_itba_alu_crpereyr_impl_avltree1_Node+null),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_Node_key:(ar_edu_itba_alu_crpereyr_impl_avltree1_Node)->one(JavaPrimitiveIntegerValue),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_Node_right:(ar_edu_itba_alu_crpereyr_impl_avltree1_Node)->one(ar_edu_itba_alu_crpereyr_impl_avltree1_Node+null),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_Node_val:(ar_edu_itba_alu_crpereyr_impl_avltree1_Node)->one(java_lang_Object+null),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_Node_height:(ar_edu_itba_alu_crpereyr_impl_avltree1_Node)->one(JavaPrimitiveIntegerValue),
+  usedObjects:set (java_lang_Object)
+] var [
+  exit_stmt_reached:boolean,
+  t_86:java_lang_Object+null
+]{
+   skip;
+   throw:=null;
+   skip;
+   exit_stmt_reached:=false;
+   skip;
+   if ar_edu_itba_alu_crpereyr_impl_avltree1_CustomListCondition2[exit_stmt_reached,throw]  {
+      if ar_edu_itba_alu_crpereyr_impl_avltree1_CustomListCondition4[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         call ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_removeFirst_0[thiz,throw,t_86,java_lang_ObjectArray_length,ar_edu_itba_alu_crpereyr_impl_avltree1_AVLTree_root,ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_store,ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_size,java_lang_ObjectArray_contents,ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_maxSize,ar_edu_itba_alu_crpereyr_impl_avltree1_Node_left,ar_edu_itba_alu_crpereyr_impl_avltree1_Node_key,ar_edu_itba_alu_crpereyr_impl_avltree1_Node_right,ar_edu_itba_alu_crpereyr_impl_avltree1_Node_val,ar_edu_itba_alu_crpereyr_impl_avltree1_Node_height,usedObjects]
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if ar_edu_itba_alu_crpereyr_impl_avltree1_CustomListCondition2[exit_stmt_reached,throw]  {
+      return:=t_86;
+      exit_stmt_reached:=true
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip
+
+}
+
+program ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_peek_0[
+  thiz:ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList,
+  throw:java_lang_Throwable+null,
+  return:java_lang_Object+null,
+  java_lang_ObjectArray_length:(java_lang_ObjectArray)->one(JavaPrimitiveIntegerValue),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_AVLTree_root:(ar_edu_itba_alu_crpereyr_impl_avltree1_AVLTree)->one(ar_edu_itba_alu_crpereyr_impl_avltree1_Node+null),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_store:(ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList)->one(java_lang_ObjectArray+null),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_size:(ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList)->one(JavaPrimitiveIntegerValue),
+  java_lang_ObjectArray_contents:java_lang_ObjectArray -> (JavaPrimitiveIntegerValue set -> lone (java_lang_Object + null)),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_maxSize:(ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList)->one(JavaPrimitiveIntegerValue),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_Node_left:(ar_edu_itba_alu_crpereyr_impl_avltree1_Node)->one(ar_edu_itba_alu_crpereyr_impl_avltree1_Node+null),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_Node_key:(ar_edu_itba_alu_crpereyr_impl_avltree1_Node)->one(JavaPrimitiveIntegerValue),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_Node_right:(ar_edu_itba_alu_crpereyr_impl_avltree1_Node)->one(ar_edu_itba_alu_crpereyr_impl_avltree1_Node+null),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_Node_val:(ar_edu_itba_alu_crpereyr_impl_avltree1_Node)->one(java_lang_Object+null),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_Node_height:(ar_edu_itba_alu_crpereyr_impl_avltree1_Node)->one(JavaPrimitiveIntegerValue),
+  usedObjects:set (java_lang_Object)
+] var [
+  t_85:java_lang_Object+null,
+  exit_stmt_reached:boolean
+]{
+   skip;
+   throw:=null;
+   skip;
+   exit_stmt_reached:=false;
+   skip;
+   if ar_edu_itba_alu_crpereyr_impl_avltree1_CustomListCondition2[exit_stmt_reached,throw]  {
+      if ar_edu_itba_alu_crpereyr_impl_avltree1_CustomListCondition4[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         call ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_getFirst_0[thiz,throw,t_85,java_lang_ObjectArray_length,ar_edu_itba_alu_crpereyr_impl_avltree1_AVLTree_root,ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_store,ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_size,java_lang_ObjectArray_contents,ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_maxSize,ar_edu_itba_alu_crpereyr_impl_avltree1_Node_left,ar_edu_itba_alu_crpereyr_impl_avltree1_Node_key,ar_edu_itba_alu_crpereyr_impl_avltree1_Node_right,ar_edu_itba_alu_crpereyr_impl_avltree1_Node_val,ar_edu_itba_alu_crpereyr_impl_avltree1_Node_height,usedObjects]
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if ar_edu_itba_alu_crpereyr_impl_avltree1_CustomListCondition2[exit_stmt_reached,throw]  {
+      return:=t_85;
+      exit_stmt_reached:=true
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip
+
+}
+
+program ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_push_0[
+  thiz:ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList,
+  throw:java_lang_Throwable+null,
+  e:java_lang_Object+null,
+  java_lang_ObjectArray_length:(java_lang_ObjectArray)->one(JavaPrimitiveIntegerValue),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_AVLTree_root:(ar_edu_itba_alu_crpereyr_impl_avltree1_AVLTree)->one(ar_edu_itba_alu_crpereyr_impl_avltree1_Node+null),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_store:(ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList)->one(java_lang_ObjectArray+null),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_size:(ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList)->one(JavaPrimitiveIntegerValue),
+  java_lang_ObjectArray_contents:java_lang_ObjectArray -> (JavaPrimitiveIntegerValue set -> lone (java_lang_Object + null)),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_maxSize:(ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList)->one(JavaPrimitiveIntegerValue),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_Node_left:(ar_edu_itba_alu_crpereyr_impl_avltree1_Node)->one(ar_edu_itba_alu_crpereyr_impl_avltree1_Node+null),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_Node_key:(ar_edu_itba_alu_crpereyr_impl_avltree1_Node)->one(JavaPrimitiveIntegerValue),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_Node_right:(ar_edu_itba_alu_crpereyr_impl_avltree1_Node)->one(ar_edu_itba_alu_crpereyr_impl_avltree1_Node+null),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_Node_val:(ar_edu_itba_alu_crpereyr_impl_avltree1_Node)->one(java_lang_Object+null),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_Node_height:(ar_edu_itba_alu_crpereyr_impl_avltree1_Node)->one(JavaPrimitiveIntegerValue),
+  usedObjects:set (java_lang_Object)
+] var [
+  param_e_18:java_lang_Object+null,
+  exit_stmt_reached:boolean
+]{
+   skip;
+   throw:=null;
+   skip;
+   exit_stmt_reached:=false;
+   skip;
+   if ar_edu_itba_alu_crpereyr_impl_avltree1_CustomListCondition2[exit_stmt_reached,throw]  {
+      param_e_18:=e
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if ar_edu_itba_alu_crpereyr_impl_avltree1_CustomListCondition4[thiz]  {
+      throw:=java_lang_NullPointerExceptionLit
+   
+   } else {
+      call ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_addLast_0[thiz,throw,param_e_18,java_lang_ObjectArray_length,ar_edu_itba_alu_crpereyr_impl_avltree1_AVLTree_root,ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_store,ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_size,java_lang_ObjectArray_contents,ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_maxSize,ar_edu_itba_alu_crpereyr_impl_avltree1_Node_left,ar_edu_itba_alu_crpereyr_impl_avltree1_Node_key,ar_edu_itba_alu_crpereyr_impl_avltree1_Node_right,ar_edu_itba_alu_crpereyr_impl_avltree1_Node_val,ar_edu_itba_alu_crpereyr_impl_avltree1_Node_height,usedObjects]
+   
+   }
+   ;
+   skip
+
+}
+
+program ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_Constructor_0[
+  thiz:ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList,
+  throw:java_lang_Throwable+null,
+  java_lang_ObjectArray_length:(java_lang_ObjectArray)->one(JavaPrimitiveIntegerValue),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_AVLTree_root:(ar_edu_itba_alu_crpereyr_impl_avltree1_AVLTree)->one(ar_edu_itba_alu_crpereyr_impl_avltree1_Node+null),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_store:(ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList)->one(java_lang_ObjectArray+null),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_size:(ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList)->one(JavaPrimitiveIntegerValue),
+  java_lang_ObjectArray_contents:java_lang_ObjectArray -> (JavaPrimitiveIntegerValue set -> lone (java_lang_Object + null)),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_maxSize:(ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList)->one(JavaPrimitiveIntegerValue),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_Node_left:(ar_edu_itba_alu_crpereyr_impl_avltree1_Node)->one(ar_edu_itba_alu_crpereyr_impl_avltree1_Node+null),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_Node_key:(ar_edu_itba_alu_crpereyr_impl_avltree1_Node)->one(JavaPrimitiveIntegerValue),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_Node_right:(ar_edu_itba_alu_crpereyr_impl_avltree1_Node)->one(ar_edu_itba_alu_crpereyr_impl_avltree1_Node+null),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_Node_val:(ar_edu_itba_alu_crpereyr_impl_avltree1_Node)->one(java_lang_Object+null),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_Node_height:(ar_edu_itba_alu_crpereyr_impl_avltree1_Node)->one(JavaPrimitiveIntegerValue),
+  usedObjects:set (java_lang_Object)
+] var [
+  exit_stmt_reached:boolean,
+  t_69:java_lang_ObjectArray+null
+]{
+   skip;
+   throw:=null;
+   skip;
+   exit_stmt_reached:=false;
+   if ar_edu_itba_alu_crpereyr_impl_avltree1_CustomListCondition2[exit_stmt_reached,throw]  {
+      if ar_edu_itba_alu_crpereyr_impl_avltree1_CustomListCondition4[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_size:=(ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_size)++((thiz)->(JavaPrimitiveIntegerLiteral0))
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if ar_edu_itba_alu_crpereyr_impl_avltree1_CustomListCondition2[exit_stmt_reached,throw]  {
+      if ar_edu_itba_alu_crpereyr_impl_avltree1_CustomListCondition4[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_maxSize:=(ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_maxSize)++((thiz)->(JavaPrimitiveIntegerLiteral64))
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip;
+   if ar_edu_itba_alu_crpereyr_impl_avltree1_CustomListCondition2[exit_stmt_reached,throw]  {
+      getUnusedObject[t_69,usedObjects];
+      assume instanceOf[t_69,java_lang_ObjectArray];
+      if ar_edu_itba_alu_crpereyr_impl_avltree1_CustomListCondition6[t_69,thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         call java_lang_ObjectArray_Constructor_0[t_69,throw,thiz.ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_maxSize,java_lang_ObjectArray_length,ar_edu_itba_alu_crpereyr_impl_avltree1_AVLTree_root,ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_store,ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_size,java_lang_ObjectArray_contents,ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_maxSize,ar_edu_itba_alu_crpereyr_impl_avltree1_Node_left,ar_edu_itba_alu_crpereyr_impl_avltree1_Node_key,ar_edu_itba_alu_crpereyr_impl_avltree1_Node_right,ar_edu_itba_alu_crpereyr_impl_avltree1_Node_val,ar_edu_itba_alu_crpereyr_impl_avltree1_Node_height,usedObjects]
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if ar_edu_itba_alu_crpereyr_impl_avltree1_CustomListCondition2[exit_stmt_reached,throw]  {
+      if ar_edu_itba_alu_crpereyr_impl_avltree1_CustomListCondition4[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_store:=(ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_store)++((thiz)->(t_69))
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if ar_edu_itba_alu_crpereyr_impl_avltree1_CustomListCondition2[exit_stmt_reached,throw]  {
+      if ar_edu_itba_alu_crpereyr_impl_avltree1_CustomListCondition4[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_size:=(ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_size)++((thiz)->(JavaPrimitiveIntegerLiteral0))
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip
+
+}
+
+program ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_removeFirst_0[
+  thiz:ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList,
+  throw:java_lang_Throwable+null,
+  return:java_lang_Object+null,
+  java_lang_ObjectArray_length:(java_lang_ObjectArray)->one(JavaPrimitiveIntegerValue),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_AVLTree_root:(ar_edu_itba_alu_crpereyr_impl_avltree1_AVLTree)->one(ar_edu_itba_alu_crpereyr_impl_avltree1_Node+null),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_store:(ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList)->one(java_lang_ObjectArray+null),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_size:(ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList)->one(JavaPrimitiveIntegerValue),
+  java_lang_ObjectArray_contents:java_lang_ObjectArray -> (JavaPrimitiveIntegerValue set -> lone (java_lang_Object + null)),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_maxSize:(ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList)->one(JavaPrimitiveIntegerValue),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_Node_left:(ar_edu_itba_alu_crpereyr_impl_avltree1_Node)->one(ar_edu_itba_alu_crpereyr_impl_avltree1_Node+null),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_Node_key:(ar_edu_itba_alu_crpereyr_impl_avltree1_Node)->one(JavaPrimitiveIntegerValue),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_Node_right:(ar_edu_itba_alu_crpereyr_impl_avltree1_Node)->one(ar_edu_itba_alu_crpereyr_impl_avltree1_Node+null),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_Node_val:(ar_edu_itba_alu_crpereyr_impl_avltree1_Node)->one(java_lang_Object+null),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_Node_height:(ar_edu_itba_alu_crpereyr_impl_avltree1_Node)->one(JavaPrimitiveIntegerValue),
+  usedObjects:set (java_lang_Object)
+] var [
+  t_73:java_lang_Object+null,
+  exit_stmt_reached:boolean,
+  t_74:JavaPrimitiveIntegerValue,
+  var_13_obj:java_lang_Object+null
+]{
+   skip;
+   throw:=null;
+   skip;
+   exit_stmt_reached:=false;
+   skip;
+   skip;
+   if ar_edu_itba_alu_crpereyr_impl_avltree1_CustomListCondition2[exit_stmt_reached,throw]  {
+      if ar_edu_itba_alu_crpereyr_impl_avltree1_CustomListCondition0[ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_store,thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         call java_lang_ObjectArray_object_array_read_0[thiz.ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_store,throw,t_73,JavaPrimitiveIntegerLiteral0,java_lang_ObjectArray_length,ar_edu_itba_alu_crpereyr_impl_avltree1_AVLTree_root,ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_store,ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_size,java_lang_ObjectArray_contents,ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_maxSize,ar_edu_itba_alu_crpereyr_impl_avltree1_Node_left,ar_edu_itba_alu_crpereyr_impl_avltree1_Node_key,ar_edu_itba_alu_crpereyr_impl_avltree1_Node_right,ar_edu_itba_alu_crpereyr_impl_avltree1_Node_val,ar_edu_itba_alu_crpereyr_impl_avltree1_Node_height,usedObjects]
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip;
+   if ar_edu_itba_alu_crpereyr_impl_avltree1_CustomListCondition2[exit_stmt_reached,throw]  {
+      var_13_obj:=t_73
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if ar_edu_itba_alu_crpereyr_impl_avltree1_CustomListCondition4[thiz]  {
+      throw:=java_lang_NullPointerExceptionLit
+   
+   } else {
+      call ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_shiftAllValuesLeft_0[thiz,throw,java_lang_ObjectArray_length,ar_edu_itba_alu_crpereyr_impl_avltree1_AVLTree_root,ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_store,ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_size,java_lang_ObjectArray_contents,ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_maxSize,ar_edu_itba_alu_crpereyr_impl_avltree1_Node_left,ar_edu_itba_alu_crpereyr_impl_avltree1_Node_key,ar_edu_itba_alu_crpereyr_impl_avltree1_Node_right,ar_edu_itba_alu_crpereyr_impl_avltree1_Node_val,ar_edu_itba_alu_crpereyr_impl_avltree1_Node_height,usedObjects]
+   
+   }
+   ;
+   if ar_edu_itba_alu_crpereyr_impl_avltree1_CustomListCondition2[exit_stmt_reached,throw]  {
+      if ar_edu_itba_alu_crpereyr_impl_avltree1_CustomListCondition4[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         t_74:=thiz.ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_size
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if ar_edu_itba_alu_crpereyr_impl_avltree1_CustomListCondition2[exit_stmt_reached,throw]  {
+      if ar_edu_itba_alu_crpereyr_impl_avltree1_CustomListCondition8[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_size:=(ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_size)++((thiz)->(fun_java_primitive_integer_value_add[thiz.ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_size,JavaPrimitiveIntegerLiteralMinus1]))
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if ar_edu_itba_alu_crpereyr_impl_avltree1_CustomListCondition2[exit_stmt_reached,throw]  {
+      return:=var_13_obj;
+      exit_stmt_reached:=true
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip
+
+}
+
+program ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_addLast_0[
+  thiz:ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList,
+  throw:java_lang_Throwable+null,
+  e:java_lang_Object+null,
+  java_lang_ObjectArray_length:(java_lang_ObjectArray)->one(JavaPrimitiveIntegerValue),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_AVLTree_root:(ar_edu_itba_alu_crpereyr_impl_avltree1_AVLTree)->one(ar_edu_itba_alu_crpereyr_impl_avltree1_Node+null),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_store:(ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList)->one(java_lang_ObjectArray+null),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_size:(ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList)->one(JavaPrimitiveIntegerValue),
+  java_lang_ObjectArray_contents:java_lang_ObjectArray -> (JavaPrimitiveIntegerValue set -> lone (java_lang_Object + null)),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_maxSize:(ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList)->one(JavaPrimitiveIntegerValue),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_Node_left:(ar_edu_itba_alu_crpereyr_impl_avltree1_Node)->one(ar_edu_itba_alu_crpereyr_impl_avltree1_Node+null),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_Node_key:(ar_edu_itba_alu_crpereyr_impl_avltree1_Node)->one(JavaPrimitiveIntegerValue),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_Node_right:(ar_edu_itba_alu_crpereyr_impl_avltree1_Node)->one(ar_edu_itba_alu_crpereyr_impl_avltree1_Node+null),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_Node_val:(ar_edu_itba_alu_crpereyr_impl_avltree1_Node)->one(java_lang_Object+null),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_Node_height:(ar_edu_itba_alu_crpereyr_impl_avltree1_Node)->one(JavaPrimitiveIntegerValue),
+  usedObjects:set (java_lang_Object)
+] var [
+  t_71:JavaPrimitiveIntegerValue,
+  t_72:JavaPrimitiveIntegerValue,
+  exit_stmt_reached:boolean,
+  param_e_11:java_lang_Object+null
+]{
+   skip;
+   throw:=null;
+   skip;
+   exit_stmt_reached:=false;
+   skip;
+   if ar_edu_itba_alu_crpereyr_impl_avltree1_CustomListCondition2[exit_stmt_reached,throw]  {
+      param_e_11:=e
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip;
+   skip;
+   if ar_edu_itba_alu_crpereyr_impl_avltree1_CustomListCondition2[exit_stmt_reached,throw]  {
+      if ar_edu_itba_alu_crpereyr_impl_avltree1_CustomListCondition4[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         t_71:=fun_java_primitive_integer_value_sub[thiz.ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_size,JavaPrimitiveIntegerLiteral1]
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if ar_edu_itba_alu_crpereyr_impl_avltree1_CustomListCondition2[exit_stmt_reached,throw]  {
+      if ar_edu_itba_alu_crpereyr_impl_avltree1_CustomListCondition0[ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_store,thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         call java_lang_ObjectArray_object_array_write_0[thiz.ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_store,throw,param_e_11,t_71,java_lang_ObjectArray_length,ar_edu_itba_alu_crpereyr_impl_avltree1_AVLTree_root,ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_store,ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_size,java_lang_ObjectArray_contents,ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_maxSize,ar_edu_itba_alu_crpereyr_impl_avltree1_Node_left,ar_edu_itba_alu_crpereyr_impl_avltree1_Node_key,ar_edu_itba_alu_crpereyr_impl_avltree1_Node_right,ar_edu_itba_alu_crpereyr_impl_avltree1_Node_val,ar_edu_itba_alu_crpereyr_impl_avltree1_Node_height,usedObjects]
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if ar_edu_itba_alu_crpereyr_impl_avltree1_CustomListCondition2[exit_stmt_reached,throw]  {
+      if ar_edu_itba_alu_crpereyr_impl_avltree1_CustomListCondition4[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         t_72:=thiz.ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_size
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if ar_edu_itba_alu_crpereyr_impl_avltree1_CustomListCondition2[exit_stmt_reached,throw]  {
+      if ar_edu_itba_alu_crpereyr_impl_avltree1_CustomListCondition8[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_size:=(ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_size)++((thiz)->(fun_java_primitive_integer_value_add[thiz.ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_size,JavaPrimitiveIntegerLiteral1]))
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip
+
+}
+
+program ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_isEmpty_0[
+  thiz:ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList,
+  throw:java_lang_Throwable+null,
+  return:boolean,
+  java_lang_ObjectArray_length:(java_lang_ObjectArray)->one(JavaPrimitiveIntegerValue),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_AVLTree_root:(ar_edu_itba_alu_crpereyr_impl_avltree1_AVLTree)->one(ar_edu_itba_alu_crpereyr_impl_avltree1_Node+null),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_store:(ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList)->one(java_lang_ObjectArray+null),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_size:(ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList)->one(JavaPrimitiveIntegerValue),
+  java_lang_ObjectArray_contents:java_lang_ObjectArray -> (JavaPrimitiveIntegerValue set -> lone (java_lang_Object + null)),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_maxSize:(ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList)->one(JavaPrimitiveIntegerValue),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_Node_left:(ar_edu_itba_alu_crpereyr_impl_avltree1_Node)->one(ar_edu_itba_alu_crpereyr_impl_avltree1_Node+null),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_Node_key:(ar_edu_itba_alu_crpereyr_impl_avltree1_Node)->one(JavaPrimitiveIntegerValue),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_Node_right:(ar_edu_itba_alu_crpereyr_impl_avltree1_Node)->one(ar_edu_itba_alu_crpereyr_impl_avltree1_Node+null),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_Node_val:(ar_edu_itba_alu_crpereyr_impl_avltree1_Node)->one(java_lang_Object+null),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_Node_height:(ar_edu_itba_alu_crpereyr_impl_avltree1_Node)->one(JavaPrimitiveIntegerValue),
+  usedObjects:set (java_lang_Object)
+] var [
+  exit_stmt_reached:boolean,
+  t_87:boolean
+]{
+   skip;
+   throw:=null;
+   skip;
+   exit_stmt_reached:=false;
+   skip;
+   if ar_edu_itba_alu_crpereyr_impl_avltree1_CustomListCondition2[exit_stmt_reached,throw]  {
+      t_87:=(equ[thiz.ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_size,JavaPrimitiveIntegerLiteral0]=>(true)else(false))
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if ar_edu_itba_alu_crpereyr_impl_avltree1_CustomListCondition2[exit_stmt_reached,throw]  {
+      return:=t_87;
+      exit_stmt_reached:=true
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip
+
+}
+
+program ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_getFirst_0[
+  thiz:ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList,
+  throw:java_lang_Throwable+null,
+  return:java_lang_Object+null,
+  java_lang_ObjectArray_length:(java_lang_ObjectArray)->one(JavaPrimitiveIntegerValue),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_AVLTree_root:(ar_edu_itba_alu_crpereyr_impl_avltree1_AVLTree)->one(ar_edu_itba_alu_crpereyr_impl_avltree1_Node+null),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_store:(ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList)->one(java_lang_ObjectArray+null),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_size:(ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList)->one(JavaPrimitiveIntegerValue),
+  java_lang_ObjectArray_contents:java_lang_ObjectArray -> (JavaPrimitiveIntegerValue set -> lone (java_lang_Object + null)),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_maxSize:(ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList)->one(JavaPrimitiveIntegerValue),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_Node_left:(ar_edu_itba_alu_crpereyr_impl_avltree1_Node)->one(ar_edu_itba_alu_crpereyr_impl_avltree1_Node+null),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_Node_key:(ar_edu_itba_alu_crpereyr_impl_avltree1_Node)->one(JavaPrimitiveIntegerValue),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_Node_right:(ar_edu_itba_alu_crpereyr_impl_avltree1_Node)->one(ar_edu_itba_alu_crpereyr_impl_avltree1_Node+null),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_Node_val:(ar_edu_itba_alu_crpereyr_impl_avltree1_Node)->one(java_lang_Object+null),
+  ar_edu_itba_alu_crpereyr_impl_avltree1_Node_height:(ar_edu_itba_alu_crpereyr_impl_avltree1_Node)->one(JavaPrimitiveIntegerValue),
+  usedObjects:set (java_lang_Object)
+] var [
+  exit_stmt_reached:boolean,
+  t_80:java_lang_Object+null
+]{
+   skip;
+   throw:=null;
+   skip;
+   exit_stmt_reached:=false;
+   skip;
+   if ar_edu_itba_alu_crpereyr_impl_avltree1_CustomListCondition2[exit_stmt_reached,throw]  {
+      if ar_edu_itba_alu_crpereyr_impl_avltree1_CustomListCondition0[ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_store,thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         call java_lang_ObjectArray_object_array_read_0[thiz.ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_store,throw,t_80,JavaPrimitiveIntegerLiteral0,java_lang_ObjectArray_length,ar_edu_itba_alu_crpereyr_impl_avltree1_AVLTree_root,ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_store,ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_size,java_lang_ObjectArray_contents,ar_edu_itba_alu_crpereyr_impl_avltree1_CustomList_maxSize,ar_edu_itba_alu_crpereyr_impl_avltree1_Node_left,ar_edu_itba_alu_crpereyr_impl_avltree1_Node_key,ar_edu_itba_alu_crpereyr_impl_avltree1_Node_right,ar_edu_itba_alu_crpereyr_impl_avltree1_Node_val,ar_edu_itba_alu_crpereyr_impl_avltree1_Node_height,usedObjects]
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if ar_edu_itba_alu_crpereyr_impl_avltree1_CustomListCondition2[exit_stmt_reached,throw]  {
+      return:=t_80;
+      exit_stmt_reached:=true
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip
+
+}
+

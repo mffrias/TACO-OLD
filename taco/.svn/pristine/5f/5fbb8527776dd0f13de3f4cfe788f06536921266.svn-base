@@ -1,0 +1,336 @@
+sig ar_edu_taco_skunk_Landing extends java_lang_Object {}
+{}
+
+
+
+
+pred ar_edu_taco_skunk_LandingCondition8[
+  t_13:univ
+]{
+   isEmptyOrNull[t_13]
+
+}
+
+pred ar_edu_taco_skunk_LandingCondition2[
+  exit_stmt_reached:univ,
+  throw:univ
+]{
+   (
+     throw=null)
+   and 
+   (
+     exit_stmt_reached=false)
+
+}
+
+pred ar_edu_taco_skunk_LandingCondition9[
+  t_13:univ
+]{
+   not (
+     isEmptyOrNull[t_13])
+
+}
+
+pred ar_edu_taco_skunk_LandingCondition4[
+  t_12:univ
+]{
+   isEmptyOrNull[t_12]
+
+}
+
+pred ar_edu_taco_skunk_LandingCondition5[
+  t_12:univ
+]{
+   not (
+     isEmptyOrNull[t_12])
+
+}
+
+pred ar_edu_taco_skunk_LandingCondition3[
+  exit_stmt_reached:univ,
+  throw:univ
+]{
+   not (
+     (
+       throw=null)
+     and 
+     (
+       exit_stmt_reached=false)
+   )
+
+}
+
+pred precondition_ar_edu_taco_skunk_Landing_testArrayObject_0[
+  i:univ,
+  java_lang_ObjectArray_length:univ->univ,
+  throw:univ
+]{
+   equ[throw,
+      null]
+   and 
+   ar_edu_taco_skunk_Landing_requires[i]
+   and 
+   java_lang_ObjectArray_object_invariant[java_lang_ObjectArray_length]
+
+}
+
+pred java_lang_ObjectArray_object_invariant[
+  java_lang_ObjectArray_length:univ->univ
+]{
+   all oa:java_lang_ObjectArray | {
+     pred_java_primitive_integer_value_gte_zero[oa.java_lang_ObjectArray_length]
+   }
+
+}
+
+pred ar_edu_taco_skunk_Landing_ensures[
+  return':univ,
+  throw':univ
+]{
+   (
+     instanceOf[throw',
+               java_lang_RuntimeException]
+     implies 
+             liftExpression[false]
+   )
+   and 
+   (
+     (
+       throw'=null)
+     implies 
+             equ[return',
+                true]
+   )
+
+}
+
+pred postcondition_ar_edu_taco_skunk_Landing_testArrayObject_0[
+  return':univ,
+  throw':univ
+]{
+   ar_edu_taco_skunk_Landing_ensures[return',
+                                    throw']
+   and 
+   (
+     not (
+       throw'=AssertionFailureLit)
+   )
+
+}
+
+pred ar_edu_taco_skunk_LandingCondition7[
+  var_3_l:univ
+]{
+   not (
+     isEmptyOrNull[var_3_l])
+
+}
+
+pred ar_edu_taco_skunk_LandingCondition6[
+  var_3_l:univ
+]{
+   isEmptyOrNull[var_3_l]
+
+}
+
+pred ar_edu_taco_skunk_LandingCondition1[
+  t_11:univ
+]{
+   not (
+     isEmptyOrNull[t_11])
+
+}
+
+pred ar_edu_taco_skunk_LandingCondition0[
+  t_11:univ
+]{
+   isEmptyOrNull[t_11]
+
+}
+
+pred ar_edu_taco_skunk_Landing_requires[
+  i:univ
+]{
+   pred_java_primitive_integer_value_gt[i,
+                                       JavaPrimitiveIntegerLiteral5]
+
+}
+
+program ar_edu_taco_skunk_Landing_testArrayObject_0[
+  throw:java_lang_Throwable+null,
+  return:boolean,
+  i:JavaPrimitiveIntegerValue,
+  java_lang_ObjectArray_length:(java_lang_ObjectArray)->one(JavaPrimitiveIntegerValue),
+  java_lang_ObjectArray_contents:java_lang_ObjectArray -> (JavaPrimitiveIntegerValue set -> lone (java_lang_Object + null)),
+  usedObjects:set (java_lang_Object)
+] var [
+  exit_stmt_reached:boolean,
+  var_3_l:java_lang_ObjectArray+null,
+  t_13:ar_edu_taco_skunk_Landing+null,
+  t_14:boolean,
+  t_11:java_lang_ObjectArray+null,
+  t_12:ar_edu_taco_skunk_Landing+null
+]{
+   skip;
+   throw:=null;
+   skip;
+   exit_stmt_reached:=false;
+   skip;
+   skip;
+   skip;
+   skip;
+   if ar_edu_taco_skunk_LandingCondition2[exit_stmt_reached,throw]  {
+      getUnusedObject[t_11,usedObjects];
+      assume instanceOf[t_11,java_lang_ObjectArray];
+      if ar_edu_taco_skunk_LandingCondition0[t_11]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         call java_lang_ObjectArray_Constructor_0[t_11,throw,i,java_lang_ObjectArray_length,java_lang_ObjectArray_contents,usedObjects]
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip;
+   if ar_edu_taco_skunk_LandingCondition2[exit_stmt_reached,throw]  {
+      var_3_l:=t_11
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if ar_edu_taco_skunk_LandingCondition2[exit_stmt_reached,throw]  {
+      getUnusedObject[t_12,usedObjects];
+      assume instanceOf[t_12,ar_edu_taco_skunk_Landing];
+      if ar_edu_taco_skunk_LandingCondition4[t_12]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         call ar_edu_taco_skunk_Landing_Constructor_0[t_12,throw,java_lang_ObjectArray_length,java_lang_ObjectArray_contents,usedObjects]
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if ar_edu_taco_skunk_LandingCondition2[exit_stmt_reached,throw]  {
+      if ar_edu_taco_skunk_LandingCondition6[var_3_l]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         call java_lang_ObjectArray_object_array_write_0[var_3_l,throw,t_12,JavaPrimitiveIntegerLiteral0,java_lang_ObjectArray_length,java_lang_ObjectArray_contents,usedObjects]
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if ar_edu_taco_skunk_LandingCondition2[exit_stmt_reached,throw]  {
+      getUnusedObject[t_13,usedObjects];
+      assume instanceOf[t_13,ar_edu_taco_skunk_Landing];
+      if ar_edu_taco_skunk_LandingCondition8[t_13]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         call ar_edu_taco_skunk_Landing_Constructor_0[t_13,throw,java_lang_ObjectArray_length,java_lang_ObjectArray_contents,usedObjects]
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if ar_edu_taco_skunk_LandingCondition2[exit_stmt_reached,throw]  {
+      if ar_edu_taco_skunk_LandingCondition6[var_3_l]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         call java_lang_ObjectArray_object_array_write_0[var_3_l,throw,t_13,i,java_lang_ObjectArray_length,java_lang_ObjectArray_contents,usedObjects]
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if ar_edu_taco_skunk_LandingCondition2[exit_stmt_reached,throw]  {
+      t_14:=(pred_java_primitive_integer_value_gt[arrayLength[var_3_l,java_lang_ObjectArray_length],JavaPrimitiveIntegerLiteral5]=>(true)else(false))
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if ar_edu_taco_skunk_LandingCondition2[exit_stmt_reached,throw]  {
+      return:=t_14;
+      exit_stmt_reached:=true
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip
+
+}
+
+program ar_edu_taco_skunk_Landing_Constructor_0[
+  thiz:ar_edu_taco_skunk_Landing,
+  throw:java_lang_Throwable+null,
+  java_lang_ObjectArray_length:(java_lang_ObjectArray)->one(JavaPrimitiveIntegerValue),
+  java_lang_ObjectArray_contents:java_lang_ObjectArray -> (JavaPrimitiveIntegerValue set -> lone (java_lang_Object + null)),
+  usedObjects:set (java_lang_Object)
+] var [
+  exit_stmt_reached:boolean
+]{
+   skip;
+   throw:=null;
+   skip;
+   exit_stmt_reached:=false;
+   skip;
+   skip
+
+}
+
+assertCorrectness check_ar_edu_taco_skunk_Landing_testArrayObject_0[
+  exit_stmt_reached:boolean,
+  i:JavaPrimitiveIntegerValue,
+  java_lang_ObjectArray_contents:java_lang_ObjectArray -> (JavaPrimitiveIntegerValue set -> lone (java_lang_Object + null)),
+  java_lang_ObjectArray_length:(java_lang_ObjectArray)->one(JavaPrimitiveIntegerValue),
+  return:boolean,
+  t_11:java_lang_ObjectArray+null,
+  t_12:ar_edu_taco_skunk_Landing+null,
+  t_13:ar_edu_taco_skunk_Landing+null,
+  t_14:boolean,
+  throw:java_lang_Throwable+null,
+  usedObjects:set (java_lang_Object),
+  var_3_l:java_lang_ObjectArray+null
+]{
+pre={
+   precondition_ar_edu_taco_skunk_Landing_testArrayObject_0[i,
+                                                           java_lang_ObjectArray_length,
+                                                           throw]
+
+}
+program={
+   call ar_edu_taco_skunk_Landing_testArrayObject_0[throw,return,i,java_lang_ObjectArray_length,java_lang_ObjectArray_contents,usedObjects]
+
+}
+post={
+   postcondition_ar_edu_taco_skunk_Landing_testArrayObject_0[return',
+                                                            throw']
+
+}
+}
+

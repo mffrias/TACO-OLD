@@ -1,0 +1,1154 @@
+sig examples_treeset_TreeSet extends java_lang_Object {}
+{}
+
+
+
+
+pred examples_treeset_TreeSetEntry_blackHeight_abstraction[
+  blackHeight:univ->univ,
+  examples_treeset_TreeSetEntry_color:univ->univ,
+  examples_treeset_TreeSetEntry_left:univ->univ,
+  examples_treeset_TreeSetEntry_right:univ->univ,
+  thiz:univ
+]{
+   (
+     (
+       equ[thiz.examples_treeset_TreeSetEntry_left,
+          null]
+       and 
+       equ[thiz.examples_treeset_TreeSetEntry_right,
+          null]
+     )
+     implies 
+             equ[thiz.blackHeight,
+                1]
+   )
+   and 
+   (
+     (
+       neq[thiz.examples_treeset_TreeSetEntry_left,
+          null]
+       and 
+       equ[thiz.examples_treeset_TreeSetEntry_right,
+          null]
+     )
+     implies 
+             (
+               (
+                 isSubset[thiz,
+                         fun_set_difference[(thiz.examples_treeset_TreeSetEntry_left).(fun_reflexive_closure[examples_treeset_TreeSetEntry_left+examples_treeset_TreeSetEntry_right]),null]]
+                 implies 
+                         equ[thiz.blackHeight,
+                            0]
+               )
+               and 
+               (
+                 isNotSubset[thiz,
+                            fun_set_difference[(thiz.examples_treeset_TreeSetEntry_left).(fun_reflexive_closure[examples_treeset_TreeSetEntry_left+examples_treeset_TreeSetEntry_right]),null]]
+                 implies 
+                         (
+                           (
+                             equ[(thiz.examples_treeset_TreeSetEntry_left).examples_treeset_TreeSetEntry_color,
+                                true]
+                             implies 
+                                     equ[thiz.blackHeight,
+                                        add[(thiz.examples_treeset_TreeSetEntry_left).blackHeight,1]]
+                           )
+                           and 
+                           (
+                             equ[(thiz.examples_treeset_TreeSetEntry_left).examples_treeset_TreeSetEntry_color,
+                                false]
+                             implies 
+                                     equ[thiz.blackHeight,
+                                        (thiz.examples_treeset_TreeSetEntry_left).blackHeight]
+                           )
+                         )
+               )
+             )
+   )
+   and 
+   (
+     (
+       equ[thiz.examples_treeset_TreeSetEntry_left,
+          null]
+       and 
+       neq[thiz.examples_treeset_TreeSetEntry_right,
+          null]
+     )
+     implies 
+             (
+               (
+                 isSubset[thiz,
+                         fun_set_difference[(thiz.examples_treeset_TreeSetEntry_right).(fun_reflexive_closure[examples_treeset_TreeSetEntry_left+examples_treeset_TreeSetEntry_right]),null]]
+                 implies 
+                         equ[thiz.blackHeight,
+                            0]
+               )
+               and 
+               (
+                 isNotSubset[thiz,
+                            fun_set_difference[(thiz.examples_treeset_TreeSetEntry_right).(fun_reflexive_closure[examples_treeset_TreeSetEntry_left+examples_treeset_TreeSetEntry_right]),null]]
+                 implies 
+                         (
+                           (
+                             equ[(thiz.examples_treeset_TreeSetEntry_right).examples_treeset_TreeSetEntry_color,
+                                true]
+                             implies 
+                                     equ[thiz.blackHeight,
+                                        add[(thiz.examples_treeset_TreeSetEntry_right).blackHeight,1]]
+                           )
+                           and 
+                           (
+                             equ[(thiz.examples_treeset_TreeSetEntry_right).examples_treeset_TreeSetEntry_color,
+                                false]
+                             implies 
+                                     equ[thiz.blackHeight,
+                                        (thiz.examples_treeset_TreeSetEntry_right).blackHeight]
+                           )
+                         )
+               )
+             )
+   )
+   and 
+   (
+     (
+       neq[thiz.examples_treeset_TreeSetEntry_left,
+          null]
+       and 
+       neq[thiz.examples_treeset_TreeSetEntry_right,
+          null]
+     )
+     implies 
+             (
+               (
+                 isSubset[thiz,
+                         fun_set_difference[thiz.(fun_closure[examples_treeset_TreeSetEntry_left+examples_treeset_TreeSetEntry_right]),null]]
+                 implies 
+                         equ[thiz.blackHeight,
+                            0]
+               )
+               and 
+               (
+                 isNotSubset[thiz,
+                            fun_set_difference[thiz.(fun_closure[examples_treeset_TreeSetEntry_left+examples_treeset_TreeSetEntry_right]),null]]
+                 implies 
+                         (
+                           (
+                             equ[(thiz.examples_treeset_TreeSetEntry_left).examples_treeset_TreeSetEntry_color,
+                                true]
+                             implies 
+                                     equ[thiz.blackHeight,
+                                        add[(thiz.examples_treeset_TreeSetEntry_left).blackHeight,1]]
+                           )
+                           and 
+                           (
+                             equ[(thiz.examples_treeset_TreeSetEntry_left).examples_treeset_TreeSetEntry_color,
+                                false]
+                             implies 
+                                     equ[thiz.blackHeight,
+                                        (thiz.examples_treeset_TreeSetEntry_left).blackHeight]
+                           )
+                         )
+               )
+             )
+   )
+
+}
+
+pred examples_treeset_TreeSet_ensures[
+  aKey':univ,
+  entries:univ->univ,
+  entries':univ->univ,
+  examples_treeset_TreeSetEntry_key':univ->univ,
+  examples_treeset_TreeSet_BLACK:univ->univ,
+  examples_treeset_TreeSet_BLACK':univ->univ,
+  examples_treeset_TreeSet_RED:univ->univ,
+  examples_treeset_TreeSet_RED':univ->univ,
+  examples_treeset_TreeSet_modCount:univ->univ,
+  examples_treeset_TreeSet_modCount':univ->univ,
+  examples_treeset_TreeSet_root:univ->univ,
+  examples_treeset_TreeSet_root':univ->univ,
+  examples_treeset_TreeSet_size:univ->univ,
+  examples_treeset_TreeSet_size':univ->univ,
+  return':univ,
+  thiz:univ,
+  throw':univ
+]{
+   (
+     equ[return',
+        true]
+     iff
+     some n:examples_treeset_TreeSetEntry | {
+       isSubset[n,
+               thiz.entries']
+       and 
+       equ[n.examples_treeset_TreeSetEntry_key',
+          aKey']
+     
+     }
+   )
+   and 
+   equ[throw',
+      null]
+   and 
+   (
+     thiz.examples_treeset_TreeSet_BLACK=thiz.examples_treeset_TreeSet_BLACK')
+   and 
+   (
+     thiz.entries=thiz.entries')
+   and 
+   (
+     thiz.examples_treeset_TreeSet_RED=thiz.examples_treeset_TreeSet_RED')
+   and 
+   (
+     thiz.examples_treeset_TreeSet_size=thiz.examples_treeset_TreeSet_size')
+   and 
+   (
+     thiz.examples_treeset_TreeSet_root=thiz.examples_treeset_TreeSet_root')
+   and 
+   (
+     thiz.examples_treeset_TreeSet_modCount=thiz.examples_treeset_TreeSet_modCount')
+
+}
+
+pred examples_treeset_TreeSetCondition5[
+  t_5:univ
+]{
+   not (
+     t_5=true)
+
+}
+
+pred examples_treeset_TreeSetCondition12[
+  t_7:univ
+]{
+   t_7=true
+
+}
+
+pred examples_treeset_TreeSetCondition13[
+  t_7:univ
+]{
+   not (
+     t_7=true)
+
+}
+
+pred examples_treeset_TreeSetCondition3[
+  exit_stmt_reached:univ,
+  throw:univ
+]{
+   not (
+     (
+       throw=null)
+     and 
+     (
+       exit_stmt_reached=false)
+   )
+
+}
+
+pred examples_treeset_TreeSetCondition2[
+  exit_stmt_reached:univ,
+  throw:univ
+]{
+   (
+     throw=null)
+   and 
+   (
+     exit_stmt_reached=false)
+
+}
+
+pred examples_treeset_TreeSetCondition4[
+  t_5:univ
+]{
+   t_5=true
+
+}
+
+pred examples_treeset_TreeSetCondition7[
+  t_4:univ
+]{
+   not (
+     t_4=true)
+
+}
+
+pred examples_treeset_TreeSetCondition6[
+  t_4:univ
+]{
+   t_4=true
+
+}
+
+pred examples_treeset_TreeSetCondition11[
+  t_6:univ
+]{
+   not (
+     t_6=true)
+
+}
+
+pred examples_treeset_TreeSetCondition10[
+  t_6:univ
+]{
+   t_6=true
+
+}
+
+pred examples_treeset_TreeSetCondition1[
+  thiz:univ
+]{
+   not (
+     isEmptyOrNull[thiz])
+
+}
+
+pred examples_treeset_TreeSetCondition0[
+  thiz:univ
+]{
+   isEmptyOrNull[thiz]
+
+}
+
+pred examples_treeset_TreeSet_object_invariant[
+  blackHeight:univ->univ,
+  examples_treeset_TreeSetEntry_color:univ->univ,
+  examples_treeset_TreeSetEntry_key:univ->univ,
+  examples_treeset_TreeSetEntry_left:univ->univ,
+  examples_treeset_TreeSetEntry_parent:univ->univ,
+  examples_treeset_TreeSetEntry_right:univ->univ,
+  examples_treeset_TreeSet_BLACK:univ->univ,
+  examples_treeset_TreeSet_RED:univ->univ,
+  examples_treeset_TreeSet_root:univ->univ,
+  thiz:univ
+]{
+   equ[thiz.examples_treeset_TreeSet_RED,
+      false]
+   and 
+   equ[thiz.examples_treeset_TreeSet_BLACK,
+      true]
+   and 
+   isSubset[(thiz.examples_treeset_TreeSet_root).examples_treeset_TreeSetEntry_parent,
+           null]
+   and 
+   (
+     neq[thiz.examples_treeset_TreeSet_root,
+        null]
+     implies 
+             equ[(thiz.examples_treeset_TreeSet_root).examples_treeset_TreeSetEntry_color,
+                thiz.examples_treeset_TreeSet_BLACK]
+   )
+   and 
+   (
+     all n:examples_treeset_TreeSetEntry | {
+       isSubset[n,
+               fun_set_difference[(thiz.examples_treeset_TreeSet_root).(fun_reflexive_closure[examples_treeset_TreeSetEntry_left+examples_treeset_TreeSetEntry_right+examples_treeset_TreeSetEntry_parent]),null]]
+       implies 
+               (
+                 neq[n.examples_treeset_TreeSetEntry_key,
+                    null]
+                 and 
+                 (
+                   neq[n.examples_treeset_TreeSetEntry_left,
+                      null]
+                   implies 
+                           equ[(n.examples_treeset_TreeSetEntry_left).examples_treeset_TreeSetEntry_parent,
+                              n]
+                 )
+                 and 
+                 (
+                   neq[n.examples_treeset_TreeSetEntry_right,
+                      null]
+                   implies 
+                           equ[(n.examples_treeset_TreeSetEntry_right).examples_treeset_TreeSetEntry_parent,
+                              n]
+                 )
+                 and 
+                 (
+                   neq[n.examples_treeset_TreeSetEntry_parent,
+                      null]
+                   implies 
+                           isSubset[n,
+                                   (n.examples_treeset_TreeSetEntry_parent).(examples_treeset_TreeSetEntry_left+examples_treeset_TreeSetEntry_right)]
+                 )
+                 and 
+                 isNotSubset[n,
+                            n.(fun_closure[examples_treeset_TreeSetEntry_parent])]
+                 and 
+                 (
+                   all x:examples_treeset_TreeSetEntry | {
+                     isSubset[x,
+                             fun_set_difference[((n.examples_treeset_TreeSetEntry_left).(fun_closure[examples_treeset_TreeSetEntry_left+examples_treeset_TreeSetEntry_right]))+(n.examples_treeset_TreeSetEntry_left),null]]
+                     implies 
+                             gt[n.examples_treeset_TreeSetEntry_key,
+                               x.examples_treeset_TreeSetEntry_key]
+                   
+                   }
+                 )
+                 and 
+                 (
+                   all x:examples_treeset_TreeSetEntry | {
+                     isSubset[x,
+                             fun_set_difference[((n.examples_treeset_TreeSetEntry_right).(fun_closure[examples_treeset_TreeSetEntry_left+examples_treeset_TreeSetEntry_right]))+(n.examples_treeset_TreeSetEntry_right),null]]
+                     implies 
+                             gt[x.examples_treeset_TreeSetEntry_key,
+                               n.examples_treeset_TreeSetEntry_key]
+                   
+                   }
+                 )
+                 and 
+                 (
+                   (
+                     equ[n.examples_treeset_TreeSetEntry_color,
+                        thiz.examples_treeset_TreeSet_RED]
+                     and 
+                     neq[n.examples_treeset_TreeSetEntry_parent,
+                        null]
+                   )
+                   implies 
+                           equ[(n.examples_treeset_TreeSetEntry_parent).examples_treeset_TreeSetEntry_color,
+                              thiz.examples_treeset_TreeSet_BLACK]
+                 )
+                 and 
+                 (
+                   (
+                     equ[n.examples_treeset_TreeSetEntry_left,
+                        null]
+                     and 
+                     equ[n.examples_treeset_TreeSetEntry_right,
+                        null]
+                   )
+                   implies 
+                           equ[n.blackHeight,
+                              1]
+                 )
+                 and 
+                 (
+                   (
+                     neq[n.examples_treeset_TreeSetEntry_left,
+                        null]
+                     and 
+                     equ[n.examples_treeset_TreeSetEntry_right,
+                        null]
+                   )
+                   implies 
+                           (
+                             equ[(n.examples_treeset_TreeSetEntry_left).examples_treeset_TreeSetEntry_color,
+                                thiz.examples_treeset_TreeSet_RED]
+                             and 
+                             equ[(n.examples_treeset_TreeSetEntry_left).blackHeight,
+                                1]
+                             and 
+                             equ[n.blackHeight,
+                                1]
+                           )
+                 )
+                 and 
+                 (
+                   (
+                     equ[n.examples_treeset_TreeSetEntry_left,
+                        null]
+                     and 
+                     neq[n.examples_treeset_TreeSetEntry_right,
+                        null]
+                   )
+                   implies 
+                           (
+                             equ[(n.examples_treeset_TreeSetEntry_right).examples_treeset_TreeSetEntry_color,
+                                thiz.examples_treeset_TreeSet_RED]
+                             and 
+                             equ[(n.examples_treeset_TreeSetEntry_right).blackHeight,
+                                1]
+                             and 
+                             equ[n.blackHeight,
+                                1]
+                           )
+                 )
+                 and 
+                 (
+                   (
+                     neq[n.examples_treeset_TreeSetEntry_left,
+                        null]
+                     and 
+                     neq[n.examples_treeset_TreeSetEntry_right,
+                        null]
+                     and 
+                     equ[(n.examples_treeset_TreeSetEntry_left).examples_treeset_TreeSetEntry_color,
+                        thiz.examples_treeset_TreeSet_RED]
+                     and 
+                     equ[(n.examples_treeset_TreeSetEntry_right).examples_treeset_TreeSetEntry_color,
+                        thiz.examples_treeset_TreeSet_RED]
+                   )
+                   implies 
+                           (
+                             equ[(n.examples_treeset_TreeSetEntry_left).blackHeight,
+                                (n.examples_treeset_TreeSetEntry_right).blackHeight]
+                             and 
+                             equ[n.blackHeight,
+                                (n.examples_treeset_TreeSetEntry_left).blackHeight]
+                           )
+                 )
+                 and 
+                 (
+                   (
+                     neq[n.examples_treeset_TreeSetEntry_left,
+                        null]
+                     and 
+                     neq[n.examples_treeset_TreeSetEntry_right,
+                        null]
+                     and 
+                     equ[(n.examples_treeset_TreeSetEntry_left).examples_treeset_TreeSetEntry_color,
+                        thiz.examples_treeset_TreeSet_BLACK]
+                     and 
+                     equ[(n.examples_treeset_TreeSetEntry_right).examples_treeset_TreeSetEntry_color,
+                        thiz.examples_treeset_TreeSet_BLACK]
+                   )
+                   implies 
+                           (
+                             equ[(n.examples_treeset_TreeSetEntry_left).blackHeight,
+                                (n.examples_treeset_TreeSetEntry_right).blackHeight]
+                             and 
+                             equ[n.blackHeight,
+                                add[(n.examples_treeset_TreeSetEntry_left).blackHeight,1]]
+                           )
+                 )
+                 and 
+                 (
+                   (
+                     neq[n.examples_treeset_TreeSetEntry_left,
+                        null]
+                     and 
+                     neq[n.examples_treeset_TreeSetEntry_right,
+                        null]
+                     and 
+                     equ[(n.examples_treeset_TreeSetEntry_left).examples_treeset_TreeSetEntry_color,
+                        thiz.examples_treeset_TreeSet_RED]
+                     and 
+                     equ[(n.examples_treeset_TreeSetEntry_right).examples_treeset_TreeSetEntry_color,
+                        thiz.examples_treeset_TreeSet_BLACK]
+                   )
+                   implies 
+                           (
+                             equ[(n.examples_treeset_TreeSetEntry_left).blackHeight,
+                                add[(n.examples_treeset_TreeSetEntry_right).blackHeight,1]]
+                             and 
+                             equ[n.blackHeight,
+                                (n.examples_treeset_TreeSetEntry_left).blackHeight]
+                           )
+                 )
+                 and 
+                 (
+                   (
+                     neq[n.examples_treeset_TreeSetEntry_left,
+                        null]
+                     and 
+                     neq[n.examples_treeset_TreeSetEntry_right,
+                        null]
+                     and 
+                     equ[(n.examples_treeset_TreeSetEntry_left).examples_treeset_TreeSetEntry_color,
+                        thiz.examples_treeset_TreeSet_BLACK]
+                     and 
+                     equ[(n.examples_treeset_TreeSetEntry_right).examples_treeset_TreeSetEntry_color,
+                        thiz.examples_treeset_TreeSet_RED]
+                   )
+                   implies 
+                           (
+                             equ[(n.examples_treeset_TreeSetEntry_right).blackHeight,
+                                add[(n.examples_treeset_TreeSetEntry_left).blackHeight,1]]
+                             and 
+                             equ[n.blackHeight,
+                                (n.examples_treeset_TreeSetEntry_right).blackHeight]
+                           )
+                 )
+               )
+     
+     }
+   )
+
+}
+
+pred examples_treeset_TreeSetCondition9[
+  var_1_p:univ
+]{
+   not (
+     isEmptyOrNull[var_1_p])
+
+}
+
+pred examples_treeset_TreeSetCondition15[
+  t_10:univ
+]{
+   not (
+     t_10=true)
+
+}
+
+pred examples_treeset_TreeSetCondition14[
+  t_10:univ
+]{
+   t_10=true
+
+}
+
+pred examples_treeset_TreeSet_entries_abstraction[
+  entries:univ->univ,
+  examples_treeset_TreeSetEntry_left:univ->univ,
+  examples_treeset_TreeSetEntry_right:univ->univ,
+  examples_treeset_TreeSet_root:univ->univ,
+  thiz:univ
+]{
+   equ[thiz.entries,
+      fun_set_difference[(thiz.examples_treeset_TreeSet_root).(fun_reflexive_closure[examples_treeset_TreeSetEntry_left+examples_treeset_TreeSetEntry_right]),null]]
+
+}
+
+pred examples_treeset_TreeSetCondition17[
+  t_9:univ
+]{
+   not (
+     t_9=true)
+
+}
+
+pred examples_treeset_TreeSetCondition16[
+  t_9:univ
+]{
+   t_9=true
+
+}
+
+pred examples_treeset_TreeSetCondition8[
+  var_1_p:univ
+]{
+   isEmptyOrNull[var_1_p]
+
+}
+
+pred precondition_examples_treeset_TreeSet_contains_0[
+  blackHeight:univ->univ,
+  entries:univ->univ,
+  examples_treeset_TreeSetEntry_color:univ->univ,
+  examples_treeset_TreeSetEntry_key:univ->univ,
+  examples_treeset_TreeSetEntry_left:univ->univ,
+  examples_treeset_TreeSetEntry_parent:univ->univ,
+  examples_treeset_TreeSetEntry_right:univ->univ,
+  examples_treeset_TreeSet_BLACK:univ->univ,
+  examples_treeset_TreeSet_RED:univ->univ,
+  examples_treeset_TreeSet_root:univ->univ,
+  thiz:univ,
+  throw:univ
+]{
+   equ[throw,
+      null]
+   and 
+   examples_treeset_TreeSet_entries_abstraction[entries,
+                                               examples_treeset_TreeSetEntry_left,
+                                               examples_treeset_TreeSetEntry_right,
+                                               examples_treeset_TreeSet_root,
+                                               thiz]
+   and 
+   examples_treeset_TreeSet_object_invariant[blackHeight,
+                                            examples_treeset_TreeSetEntry_color,
+                                            examples_treeset_TreeSetEntry_key,
+                                            examples_treeset_TreeSetEntry_left,
+                                            examples_treeset_TreeSetEntry_parent,
+                                            examples_treeset_TreeSetEntry_right,
+                                            examples_treeset_TreeSet_BLACK,
+                                            examples_treeset_TreeSet_RED,
+                                            examples_treeset_TreeSet_root,
+                                            thiz]
+   and 
+   (
+     all objx:examples_treeset_TreeSetEntry | {
+       examples_treeset_TreeSetEntry_blackHeight_abstraction[blackHeight,
+                                                            examples_treeset_TreeSetEntry_color,
+                                                            examples_treeset_TreeSetEntry_left,
+                                                            examples_treeset_TreeSetEntry_right,
+                                                            objx]
+     
+     }
+   )
+
+}
+
+pred examples_treeset_TreeSetCondition18[
+  exit_stmt_reached:univ,
+  throw:univ,
+  var_3_ws_1:univ
+]{
+   liftExpression[var_3_ws_1]
+   and 
+   (
+     throw=null)
+   and 
+   (
+     exit_stmt_reached=false)
+
+}
+
+pred postcondition_examples_treeset_TreeSet_contains_0[
+  aKey':univ,
+  entries:univ->univ,
+  entries':univ->univ,
+  examples_treeset_TreeSetEntry_key':univ->univ,
+  examples_treeset_TreeSet_BLACK:univ->univ,
+  examples_treeset_TreeSet_BLACK':univ->univ,
+  examples_treeset_TreeSet_RED:univ->univ,
+  examples_treeset_TreeSet_RED':univ->univ,
+  examples_treeset_TreeSet_modCount:univ->univ,
+  examples_treeset_TreeSet_modCount':univ->univ,
+  examples_treeset_TreeSet_root:univ->univ,
+  examples_treeset_TreeSet_root':univ->univ,
+  examples_treeset_TreeSet_size:univ->univ,
+  examples_treeset_TreeSet_size':univ->univ,
+  return':univ,
+  thiz:univ,
+  throw':univ
+]{
+   examples_treeset_TreeSet_ensures[aKey',
+                                   entries,
+                                   entries',
+                                   examples_treeset_TreeSetEntry_key',
+                                   examples_treeset_TreeSet_BLACK,
+                                   examples_treeset_TreeSet_BLACK',
+                                   examples_treeset_TreeSet_RED,
+                                   examples_treeset_TreeSet_RED',
+                                   examples_treeset_TreeSet_modCount,
+                                   examples_treeset_TreeSet_modCount',
+                                   examples_treeset_TreeSet_root,
+                                   examples_treeset_TreeSet_root',
+                                   examples_treeset_TreeSet_size,
+                                   examples_treeset_TreeSet_size',
+                                   return',
+                                   thiz,
+                                   throw']
+   and 
+   (
+     not (
+       throw'=AssertionFailureLit)
+   )
+
+}
+
+program examples_treeset_TreeSet_getEntry_0[
+  thiz:examples_treeset_TreeSet,
+  throw:java_lang_Throwable+null,
+  return:examples_treeset_TreeSetEntry+null,
+  key:Int,
+  examples_treeset_TreeSetEntry_left:(examples_treeset_TreeSetEntry)->one(examples_treeset_TreeSetEntry+null),
+  blackHeight:(examples_treeset_TreeSetEntry)->one(Int),
+  examples_treeset_TreeSetEntry_parent:(examples_treeset_TreeSetEntry)->one(examples_treeset_TreeSetEntry+null),
+  examples_treeset_TreeSet_size:(examples_treeset_TreeSet)->one(Int),
+  examples_treeset_TreeSet_modCount:(examples_treeset_TreeSet)->one(Int),
+  entries:(examples_treeset_TreeSet)->(examples_treeset_TreeSetEntry),
+  examples_treeset_TreeSet_BLACK:(examples_treeset_TreeSet)->one(boolean),
+  examples_treeset_TreeSet_root:(examples_treeset_TreeSet)->one(examples_treeset_TreeSetEntry+null),
+  examples_treeset_TreeSetEntry_color:(examples_treeset_TreeSetEntry)->one(boolean),
+  examples_treeset_TreeSetEntry_key:(examples_treeset_TreeSetEntry)->one(Int),
+  examples_treeset_TreeSetEntry_right:(examples_treeset_TreeSetEntry)->one(examples_treeset_TreeSetEntry+null),
+  examples_treeset_TreeSet_RED:(examples_treeset_TreeSet)->one(boolean),
+  usedObjects:set (java_lang_Object)
+] var [
+  t_3:boolean,
+  exit_stmt_reached:boolean,
+  t_8:boolean,
+  t_9:boolean,
+  t_6:boolean,
+  t_7:boolean,
+  var_3_ws_1:boolean,
+  t_4:boolean,
+  t_10:boolean,
+  var_2_key_was_found:boolean,
+  var_1_p:examples_treeset_TreeSetEntry+null,
+  t_5:boolean
+]{
+   skip;
+   throw:=null;
+   skip;
+   exit_stmt_reached:=false;
+   skip;
+   skip;
+   skip;
+   skip;
+   if examples_treeset_TreeSetCondition2[exit_stmt_reached,throw]  {
+      if examples_treeset_TreeSetCondition0[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         var_1_p:=thiz.examples_treeset_TreeSet_root
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip;
+   if examples_treeset_TreeSetCondition2[exit_stmt_reached,throw]  {
+      var_2_key_was_found:=false
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip;
+   if examples_treeset_TreeSetCondition2[exit_stmt_reached,throw]  {
+      t_4:=Not[var_2_key_was_found]
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if examples_treeset_TreeSetCondition2[exit_stmt_reached,throw]  {
+      t_5:=(neq[var_1_p,null]=>(true)else(false))
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if examples_treeset_TreeSetCondition2[exit_stmt_reached,throw]  {
+      if examples_treeset_TreeSetCondition6[t_4]  {
+         if examples_treeset_TreeSetCondition2[exit_stmt_reached,throw]  {
+            if examples_treeset_TreeSetCondition4[t_5]  {
+               if examples_treeset_TreeSetCondition2[exit_stmt_reached,throw]  {
+                  t_3:=true
+               
+               } else {
+                  skip
+               
+               }
+            
+            } else {
+               if examples_treeset_TreeSetCondition2[exit_stmt_reached,throw]  {
+                  t_3:=false
+               
+               } else {
+                  skip
+               
+               }
+            
+            }
+         
+         } else {
+            skip
+         
+         }
+      
+      } else {
+         if examples_treeset_TreeSetCondition2[exit_stmt_reached,throw]  {
+            t_3:=false
+         
+         } else {
+            skip
+         
+         }
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if examples_treeset_TreeSetCondition2[exit_stmt_reached,throw]  {
+      var_3_ws_1:=t_3
+   
+   } else {
+      skip
+   
+   }
+   ;
+   while examples_treeset_TreeSetCondition18[exit_stmt_reached,throw,var_3_ws_1]do {
+      skip;
+      skip;
+      skip;
+      skip;
+      if examples_treeset_TreeSetCondition2[exit_stmt_reached,throw]  {
+         t_7:=(equ[key,var_1_p.examples_treeset_TreeSetEntry_key]=>(true)else(false))
+      
+      } else {
+         skip
+      
+      }
+      ;
+      if examples_treeset_TreeSetCondition2[exit_stmt_reached,throw]  {
+         if examples_treeset_TreeSetCondition12[t_7]  {
+            if examples_treeset_TreeSetCondition2[exit_stmt_reached,throw]  {
+               var_2_key_was_found:=true
+            
+            } else {
+               skip
+            
+            }
+         
+         } else {
+            skip;
+            if examples_treeset_TreeSetCondition2[exit_stmt_reached,throw]  {
+               t_6:=(lt[key,var_1_p.examples_treeset_TreeSetEntry_key]=>(true)else(false))
+            
+            } else {
+               skip
+            
+            }
+            ;
+            if examples_treeset_TreeSetCondition2[exit_stmt_reached,throw]  {
+               if examples_treeset_TreeSetCondition10[t_6]  {
+                  if examples_treeset_TreeSetCondition2[exit_stmt_reached,throw]  {
+                     if examples_treeset_TreeSetCondition8[var_1_p]  {
+                        throw:=java_lang_NullPointerExceptionLit
+                     
+                     } else {
+                        var_1_p:=var_1_p.examples_treeset_TreeSetEntry_left
+                     
+                     }
+                  
+                  } else {
+                     skip
+                  
+                  }
+               
+               } else {
+                  if examples_treeset_TreeSetCondition2[exit_stmt_reached,throw]  {
+                     if examples_treeset_TreeSetCondition8[var_1_p]  {
+                        throw:=java_lang_NullPointerExceptionLit
+                     
+                     } else {
+                        var_1_p:=var_1_p.examples_treeset_TreeSetEntry_right
+                     
+                     }
+                  
+                  } else {
+                     skip
+                  
+                  }
+               
+               }
+            
+            } else {
+               skip
+            
+            }
+         
+         }
+      
+      } else {
+         skip
+      
+      }
+      ;
+      if examples_treeset_TreeSetCondition2[exit_stmt_reached,throw]  {
+         t_9:=Not[var_2_key_was_found]
+      
+      } else {
+         skip
+      
+      }
+      ;
+      if examples_treeset_TreeSetCondition2[exit_stmt_reached,throw]  {
+         t_10:=(neq[var_1_p,null]=>(true)else(false))
+      
+      } else {
+         skip
+      
+      }
+      ;
+      if examples_treeset_TreeSetCondition2[exit_stmt_reached,throw]  {
+         if examples_treeset_TreeSetCondition16[t_9]  {
+            if examples_treeset_TreeSetCondition2[exit_stmt_reached,throw]  {
+               if examples_treeset_TreeSetCondition14[t_10]  {
+                  if examples_treeset_TreeSetCondition2[exit_stmt_reached,throw]  {
+                     t_8:=true
+                  
+                  } else {
+                     skip
+                  
+                  }
+               
+               } else {
+                  if examples_treeset_TreeSetCondition2[exit_stmt_reached,throw]  {
+                     t_8:=false
+                  
+                  } else {
+                     skip
+                  
+                  }
+               
+               }
+            
+            } else {
+               skip
+            
+            }
+         
+         } else {
+            if examples_treeset_TreeSetCondition2[exit_stmt_reached,throw]  {
+               t_8:=false
+            
+            } else {
+               skip
+            
+            }
+         
+         }
+      
+      } else {
+         skip
+      
+      }
+      ;
+      if examples_treeset_TreeSetCondition2[exit_stmt_reached,throw]  {
+         var_3_ws_1:=t_8
+      
+      } else {
+         skip
+      
+      }
+   
+   }
+   ;
+   if examples_treeset_TreeSetCondition2[exit_stmt_reached,throw]  {
+      return:=var_1_p;
+      exit_stmt_reached:=true
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip
+
+}
+
+program examples_treeset_TreeSet_contains_0[
+  thiz:examples_treeset_TreeSet,
+  throw:java_lang_Throwable+null,
+  return:boolean,
+  aKey:Int,
+  examples_treeset_TreeSetEntry_left:(examples_treeset_TreeSetEntry)->one(examples_treeset_TreeSetEntry+null),
+  blackHeight:(examples_treeset_TreeSetEntry)->one(Int),
+  examples_treeset_TreeSetEntry_parent:(examples_treeset_TreeSetEntry)->one(examples_treeset_TreeSetEntry+null),
+  examples_treeset_TreeSet_size:(examples_treeset_TreeSet)->one(Int),
+  examples_treeset_TreeSet_modCount:(examples_treeset_TreeSet)->one(Int),
+  entries:(examples_treeset_TreeSet)->(examples_treeset_TreeSetEntry),
+  examples_treeset_TreeSet_BLACK:(examples_treeset_TreeSet)->one(boolean),
+  examples_treeset_TreeSet_root:(examples_treeset_TreeSet)->one(examples_treeset_TreeSetEntry+null),
+  examples_treeset_TreeSetEntry_color:(examples_treeset_TreeSetEntry)->one(boolean),
+  examples_treeset_TreeSetEntry_key:(examples_treeset_TreeSetEntry)->one(Int),
+  examples_treeset_TreeSetEntry_right:(examples_treeset_TreeSetEntry)->one(examples_treeset_TreeSetEntry+null),
+  examples_treeset_TreeSet_RED:(examples_treeset_TreeSet)->one(boolean),
+  usedObjects:set (java_lang_Object)
+] var [
+  t_2:boolean,
+  exit_stmt_reached:boolean,
+  t_1:examples_treeset_TreeSetEntry+null
+]{
+   skip;
+   throw:=null;
+   skip;
+   exit_stmt_reached:=false;
+   skip;
+   skip;
+   if examples_treeset_TreeSetCondition2[exit_stmt_reached,throw]  {
+      if examples_treeset_TreeSetCondition0[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         call examples_treeset_TreeSet_getEntry_0[thiz,throw,t_1,aKey,examples_treeset_TreeSetEntry_left,blackHeight,examples_treeset_TreeSetEntry_parent,examples_treeset_TreeSet_size,examples_treeset_TreeSet_modCount,entries,examples_treeset_TreeSet_BLACK,examples_treeset_TreeSet_root,examples_treeset_TreeSetEntry_color,examples_treeset_TreeSetEntry_key,examples_treeset_TreeSetEntry_right,examples_treeset_TreeSet_RED,usedObjects]
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if examples_treeset_TreeSetCondition2[exit_stmt_reached,throw]  {
+      t_2:=(neq[t_1,null]=>(true)else(false))
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if examples_treeset_TreeSetCondition2[exit_stmt_reached,throw]  {
+      return:=t_2;
+      exit_stmt_reached:=true
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip
+
+}
+
+assertCorrectness check_examples_treeset_TreeSet_contains_0[
+  aKey:Int,
+  blackHeight:(examples_treeset_TreeSetEntry)->one(Int),
+  entries:(examples_treeset_TreeSet)->(examples_treeset_TreeSetEntry),
+  examples_treeset_TreeSetEntry_color:(examples_treeset_TreeSetEntry)->one(boolean),
+  examples_treeset_TreeSetEntry_key:(examples_treeset_TreeSetEntry)->one(Int),
+  examples_treeset_TreeSetEntry_left:(examples_treeset_TreeSetEntry)->one(examples_treeset_TreeSetEntry+null),
+  examples_treeset_TreeSetEntry_parent:(examples_treeset_TreeSetEntry)->one(examples_treeset_TreeSetEntry+null),
+  examples_treeset_TreeSetEntry_right:(examples_treeset_TreeSetEntry)->one(examples_treeset_TreeSetEntry+null),
+  examples_treeset_TreeSet_BLACK:(examples_treeset_TreeSet)->one(boolean),
+  examples_treeset_TreeSet_RED:(examples_treeset_TreeSet)->one(boolean),
+  examples_treeset_TreeSet_modCount:(examples_treeset_TreeSet)->one(Int),
+  examples_treeset_TreeSet_root:(examples_treeset_TreeSet)->one(examples_treeset_TreeSetEntry+null),
+  examples_treeset_TreeSet_size:(examples_treeset_TreeSet)->one(Int),
+  exit_stmt_reached:boolean,
+  return:boolean,
+  t_1:examples_treeset_TreeSetEntry+null,
+  t_2:boolean,
+  thiz:examples_treeset_TreeSet,
+  throw:java_lang_Throwable+null,
+  usedObjects:set (java_lang_Object)
+]{
+pre={
+   precondition_examples_treeset_TreeSet_contains_0[blackHeight,
+                                                   entries,
+                                                   examples_treeset_TreeSetEntry_color,
+                                                   examples_treeset_TreeSetEntry_key,
+                                                   examples_treeset_TreeSetEntry_left,
+                                                   examples_treeset_TreeSetEntry_parent,
+                                                   examples_treeset_TreeSetEntry_right,
+                                                   examples_treeset_TreeSet_BLACK,
+                                                   examples_treeset_TreeSet_RED,
+                                                   examples_treeset_TreeSet_root,
+                                                   thiz,
+                                                   throw]
+
+}
+program={
+   call examples_treeset_TreeSet_contains_0[thiz,throw,return,aKey,examples_treeset_TreeSetEntry_left,blackHeight,examples_treeset_TreeSetEntry_parent,examples_treeset_TreeSet_size,examples_treeset_TreeSet_modCount,entries,examples_treeset_TreeSet_BLACK,examples_treeset_TreeSet_root,examples_treeset_TreeSetEntry_color,examples_treeset_TreeSetEntry_key,examples_treeset_TreeSetEntry_right,examples_treeset_TreeSet_RED,usedObjects]
+
+}
+post={
+   postcondition_examples_treeset_TreeSet_contains_0[aKey',
+                                                    entries,
+                                                    entries',
+                                                    examples_treeset_TreeSetEntry_key',
+                                                    examples_treeset_TreeSet_BLACK,
+                                                    examples_treeset_TreeSet_BLACK',
+                                                    examples_treeset_TreeSet_RED,
+                                                    examples_treeset_TreeSet_RED',
+                                                    examples_treeset_TreeSet_modCount,
+                                                    examples_treeset_TreeSet_modCount',
+                                                    examples_treeset_TreeSet_root,
+                                                    examples_treeset_TreeSet_root',
+                                                    examples_treeset_TreeSet_size,
+                                                    examples_treeset_TreeSet_size',
+                                                    return',
+                                                    thiz,
+                                                    throw']
+
+}
+}
+

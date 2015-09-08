@@ -1,0 +1,153 @@
+sig ejercicios_AVLNode extends java_lang_Object {}
+{}
+
+
+
+
+pred ejercicios_AVLNodeCondition0[
+  thiz:univ
+]{
+   isEmptyOrNull[thiz]
+
+}
+
+pred ejercicios_AVLNodeCondition1[
+  thiz:univ
+]{
+   not (
+     isEmptyOrNull[thiz])
+
+}
+
+pred ejercicios_AVLNodeCondition2[
+  exit_stmt_reached:univ,
+  throw:univ
+]{
+   (
+     throw=null)
+   and 
+   (
+     exit_stmt_reached=false)
+
+}
+
+pred ejercicios_AVLNodeCondition3[
+  exit_stmt_reached:univ,
+  throw:univ
+]{
+   not (
+     (
+       throw=null)
+     and 
+     (
+       exit_stmt_reached=false)
+   )
+
+}
+
+program ejercicios_AVLNode_Constructor_0[
+  thiz:ejercicios_AVLNode,
+  throw:java_lang_Throwable+null,
+  value:JavaPrimitiveIntegerValue,
+  parent:ejercicios_AVLNode+null,
+  ejercicios_AVLNode_parent:(ejercicios_AVLNode)->one(ejercicios_AVLNode+null),
+  ejercicios_AVLTree_root:(ejercicios_AVLTree)->one(ejercicios_AVLNode+null),
+  ejercicios_AVLNode_value:(ejercicios_AVLNode)->one(JavaPrimitiveIntegerValue),
+  ejercicios_AVLNode_right:(ejercicios_AVLNode)->one(ejercicios_AVLNode+null),
+  ejercicios_AVLNode_left:(ejercicios_AVLNode)->one(ejercicios_AVLNode+null),
+  usedObjects:set (java_lang_Object)
+] var [
+  exit_stmt_reached:boolean
+]{
+   skip;
+   throw:=null;
+   skip;
+   exit_stmt_reached:=false;
+   if ejercicios_AVLNodeCondition2[exit_stmt_reached,throw]  {
+      if ejercicios_AVLNodeCondition0[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         ejercicios_AVLNode_left:=(ejercicios_AVLNode_left)++((thiz)->(((ejercicios_AVLNode+null) & (null))))
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if ejercicios_AVLNodeCondition2[exit_stmt_reached,throw]  {
+      if ejercicios_AVLNodeCondition0[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         ejercicios_AVLNode_right:=(ejercicios_AVLNode_right)++((thiz)->(((ejercicios_AVLNode+null) & (null))))
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if ejercicios_AVLNodeCondition2[exit_stmt_reached,throw]  {
+      if ejercicios_AVLNodeCondition0[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         ejercicios_AVLNode_parent:=(ejercicios_AVLNode_parent)++((thiz)->(((ejercicios_AVLNode+null) & (null))))
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if ejercicios_AVLNodeCondition2[exit_stmt_reached,throw]  {
+      if ejercicios_AVLNodeCondition0[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         ejercicios_AVLNode_value:=(ejercicios_AVLNode_value)++((thiz)->(JavaPrimitiveIntegerLiteral0))
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if ejercicios_AVLNodeCondition2[exit_stmt_reached,throw]  {
+      if ejercicios_AVLNodeCondition0[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         ejercicios_AVLNode_value:=(ejercicios_AVLNode_value)++((thiz)->(value))
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if ejercicios_AVLNodeCondition2[exit_stmt_reached,throw]  {
+      if ejercicios_AVLNodeCondition0[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         ejercicios_AVLNode_parent:=(ejercicios_AVLNode_parent)++((thiz)->(parent))
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip
+
+}
+

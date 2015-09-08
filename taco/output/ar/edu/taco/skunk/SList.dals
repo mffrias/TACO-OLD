@@ -1,0 +1,412 @@
+sig ar_edu_taco_skunk_SList extends java_lang_Object {}
+{}
+
+
+
+
+pred ar_edu_taco_skunk_SList_object_invariant[
+  ar_edu_taco_skunk_Node_next:univ->univ,
+  ar_edu_taco_skunk_SList_n:univ->univ,
+  thiz:univ
+]{
+   (
+     all node:ar_edu_taco_skunk_Node+null | {
+       equ[fun_set_contains[fun_reach[thiz.ar_edu_taco_skunk_SList_n,ar_edu_taco_skunk_Node,ar_edu_taco_skunk_Node_next],node],
+          true]
+       implies 
+               equ[fun_set_contains[fun_reach[node.ar_edu_taco_skunk_Node_next,ar_edu_taco_skunk_Node,ar_edu_taco_skunk_Node_next],node],
+                  false]
+     
+     }
+   )
+   and 
+   (
+     not (
+       thiz.ar_edu_taco_skunk_SList_n=null)
+   )
+
+}
+
+pred ar_edu_taco_skunk_SListCondition9[
+  ar_edu_taco_skunk_SList_n:univ->univ,
+  thiz:univ
+]{
+   isEmptyOrNull[thiz.ar_edu_taco_skunk_SList_n]
+   or 
+   isEmptyOrNull[thiz]
+   
+   or 
+   isEmptyOrNull[thiz]
+
+}
+
+pred ar_edu_taco_skunk_SListCondition2[
+  exit_stmt_reached:univ,
+  throw:univ
+]{
+   (
+     throw=null)
+   and 
+   (
+     exit_stmt_reached=false)
+
+}
+
+pred ar_edu_taco_skunk_SListCondition6[
+  var_1_current:univ
+]{
+   isEmptyOrNull[var_1_current]
+
+}
+
+pred ar_edu_taco_skunk_SListCondition8[
+  exit_stmt_reached:univ,
+  throw:univ,
+  var_2_ws_1:univ
+]{
+   liftExpression[var_2_ws_1]
+   and 
+   (
+     throw=null)
+   and 
+   (
+     exit_stmt_reached=false)
+
+}
+
+pred ar_edu_taco_skunk_SListCondition7[
+  var_1_current:univ
+]{
+   not (
+     isEmptyOrNull[var_1_current])
+
+}
+
+pred ar_edu_taco_skunk_SListCondition3[
+  exit_stmt_reached:univ,
+  throw:univ
+]{
+   not (
+     (
+       throw=null)
+     and 
+     (
+       exit_stmt_reached=false)
+   )
+
+}
+
+pred ar_edu_taco_skunk_SListCondition10[
+  ar_edu_taco_skunk_SList_n:univ->univ,
+  thiz:univ
+]{
+   not (
+     isEmptyOrNull[thiz.ar_edu_taco_skunk_SList_n]
+     or 
+     isEmptyOrNull[thiz]
+     
+     or 
+     isEmptyOrNull[thiz]
+   )
+
+}
+
+pred precondition_ar_edu_taco_skunk_SList_hasElement_0[
+  ar_edu_taco_skunk_Node_next:univ->univ,
+  ar_edu_taco_skunk_SList_n:univ->univ,
+  throw:univ
+]{
+   (
+     all objx:ar_edu_taco_skunk_SList | {
+       ar_edu_taco_skunk_SList_object_invariant[ar_edu_taco_skunk_Node_next,
+                                               ar_edu_taco_skunk_SList_n,
+                                               objx]
+     
+     }
+   )
+   and 
+   equ[throw,
+      null]
+   and 
+   ar_edu_taco_skunk_SList_requires[]
+
+}
+
+pred postcondition_ar_edu_taco_skunk_SList_hasElement_0[
+  ar_edu_taco_skunk_Node_next':univ->univ,
+  ar_edu_taco_skunk_Node_value':univ->univ,
+  ar_edu_taco_skunk_SList_n':univ->univ,
+  return':univ,
+  thiz':univ,
+  throw':univ,
+  v':univ
+]{
+   ar_edu_taco_skunk_SList_ensures[ar_edu_taco_skunk_Node_next',
+                                  ar_edu_taco_skunk_Node_value',
+                                  ar_edu_taco_skunk_SList_n',
+                                  return',
+                                  thiz',
+                                  throw',
+                                  v']
+   and 
+   (
+     not (
+       throw'=AssertionFailureLit)
+   )
+   and 
+   (
+     all objx':ar_edu_taco_skunk_SList | {
+       ar_edu_taco_skunk_SList_object_invariant[ar_edu_taco_skunk_Node_next',
+                                               ar_edu_taco_skunk_SList_n',
+                                               objx']
+     
+     }
+   )
+
+}
+
+pred ar_edu_taco_skunk_SListCondition5[
+  t_1:univ
+]{
+   not (
+     t_1=true)
+
+}
+
+pred ar_edu_taco_skunk_SListCondition1[
+  thiz:univ
+]{
+   not (
+     isEmptyOrNull[thiz])
+
+}
+
+pred ar_edu_taco_skunk_SListCondition4[
+  t_1:univ
+]{
+   t_1=true
+
+}
+
+pred ar_edu_taco_skunk_SListCondition0[
+  thiz:univ
+]{
+   isEmptyOrNull[thiz]
+
+}
+
+pred ar_edu_taco_skunk_SList_ensures[
+  ar_edu_taco_skunk_Node_next':univ->univ,
+  ar_edu_taco_skunk_Node_value':univ->univ,
+  ar_edu_taco_skunk_SList_n':univ->univ,
+  return':univ,
+  thiz':univ,
+  throw':univ,
+  v':univ
+]{
+   (
+     throw'=null)
+   implies 
+           (
+             (
+               equ[return',
+                  true]
+               implies 
+                       (
+                         some node:ar_edu_taco_skunk_Node+null | {
+                           equ[fun_set_contains[fun_reach[thiz'.ar_edu_taco_skunk_SList_n',ar_edu_taco_skunk_Node,ar_edu_taco_skunk_Node_next'],node],
+                              true]
+                           and 
+                           equ[node.ar_edu_taco_skunk_Node_value',
+                              v']
+                         
+                         }
+                       )
+             )
+             and 
+             (
+               (
+                 some node:ar_edu_taco_skunk_Node+null | {
+                   equ[fun_set_contains[fun_reach[thiz'.ar_edu_taco_skunk_SList_n',ar_edu_taco_skunk_Node,ar_edu_taco_skunk_Node_next'],node],
+                      true]
+                   and 
+                   equ[node.ar_edu_taco_skunk_Node_value',
+                      v']
+                 
+                 }
+               )
+               implies 
+                       equ[return',
+                          true]
+             )
+           )
+
+}
+
+pred ar_edu_taco_skunk_SList_requires[
+]{
+   true=true
+
+}
+
+program ar_edu_taco_skunk_SList_hasElement_0[
+  thiz:ar_edu_taco_skunk_SList,
+  throw:java_lang_Throwable+null,
+  return:boolean,
+  v:JavaPrimitiveIntegerValue,
+  ar_edu_taco_skunk_SList_n:(ar_edu_taco_skunk_SList)->one(ar_edu_taco_skunk_Node+null),
+  ar_edu_taco_skunk_Node_next:(ar_edu_taco_skunk_Node)->one(ar_edu_taco_skunk_Node+null),
+  ar_edu_taco_skunk_Node_value:(ar_edu_taco_skunk_Node)->one(JavaPrimitiveIntegerValue),
+  usedObjects:set (java_lang_Object)
+] var [
+  exit_stmt_reached:boolean,
+  t_1:boolean,
+  var_1_current:ar_edu_taco_skunk_Node+null,
+  var_2_ws_1:boolean
+]{
+   skip;
+   throw:=null;
+   skip;
+   exit_stmt_reached:=false;
+   skip;
+   if ar_edu_taco_skunk_SListCondition2[exit_stmt_reached,throw]  {
+      if ar_edu_taco_skunk_SListCondition0[thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         var_1_current:=thiz.ar_edu_taco_skunk_SList_n
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip;
+   if ar_edu_taco_skunk_SListCondition2[exit_stmt_reached,throw]  {
+      var_2_ws_1:=(neq[var_1_current,null]=>(true)else(false))
+   
+   } else {
+      skip
+   
+   }
+   ;
+   while ar_edu_taco_skunk_SListCondition8[exit_stmt_reached,throw,var_2_ws_1]do {
+      skip;
+      if ar_edu_taco_skunk_SListCondition2[exit_stmt_reached,throw]  {
+         t_1:=(equ[var_1_current.ar_edu_taco_skunk_Node_value,v]=>(true)else(false))
+      
+      } else {
+         skip
+      
+      }
+      ;
+      if ar_edu_taco_skunk_SListCondition2[exit_stmt_reached,throw]  {
+         if ar_edu_taco_skunk_SListCondition4[t_1]  {
+            if ar_edu_taco_skunk_SListCondition2[exit_stmt_reached,throw]  {
+               return:=true;
+               exit_stmt_reached:=true
+            
+            } else {
+               skip
+            
+            }
+         
+         } else {
+            skip
+         
+         }
+      
+      } else {
+         skip
+      
+      }
+      ;
+      if ar_edu_taco_skunk_SListCondition2[exit_stmt_reached,throw]  {
+         if ar_edu_taco_skunk_SListCondition6[var_1_current]  {
+            throw:=java_lang_NullPointerExceptionLit
+         
+         } else {
+            var_1_current:=var_1_current.ar_edu_taco_skunk_Node_next
+         
+         }
+      
+      } else {
+         skip
+      
+      }
+      ;
+      if ar_edu_taco_skunk_SListCondition2[exit_stmt_reached,throw]  {
+         var_2_ws_1:=(neq[var_1_current,null]=>(true)else(false))
+      
+      } else {
+         skip
+      
+      }
+   
+   }
+   ;
+   if ar_edu_taco_skunk_SListCondition2[exit_stmt_reached,throw]  {
+      if ar_edu_taco_skunk_SListCondition9[ar_edu_taco_skunk_SList_n,thiz]  {
+         throw:=java_lang_NullPointerExceptionLit
+      
+      } else {
+         ar_edu_taco_skunk_Node_next:=(ar_edu_taco_skunk_Node_next)++((thiz.ar_edu_taco_skunk_SList_n)->(thiz.ar_edu_taco_skunk_SList_n))
+      
+      }
+   
+   } else {
+      skip
+   
+   }
+   ;
+   if ar_edu_taco_skunk_SListCondition2[exit_stmt_reached,throw]  {
+      return:=false;
+      exit_stmt_reached:=true
+   
+   } else {
+      skip
+   
+   }
+   ;
+   skip
+
+}
+
+assertCorrectness check_ar_edu_taco_skunk_SList_hasElement_0[
+  ar_edu_taco_skunk_Node_next:(ar_edu_taco_skunk_Node)->one(ar_edu_taco_skunk_Node+null),
+  ar_edu_taco_skunk_Node_value:(ar_edu_taco_skunk_Node)->one(JavaPrimitiveIntegerValue),
+  ar_edu_taco_skunk_SList_n:(ar_edu_taco_skunk_SList)->one(ar_edu_taco_skunk_Node+null),
+  exit_stmt_reached:boolean,
+  return:boolean,
+  t_1:boolean,
+  thiz:ar_edu_taco_skunk_SList,
+  throw:java_lang_Throwable+null,
+  usedObjects:set (java_lang_Object),
+  v:JavaPrimitiveIntegerValue,
+  var_1_current:ar_edu_taco_skunk_Node+null,
+  var_2_ws_1:boolean
+]{
+pre={
+   precondition_ar_edu_taco_skunk_SList_hasElement_0[ar_edu_taco_skunk_Node_next,
+                                                    ar_edu_taco_skunk_SList_n,
+                                                    throw]
+
+}
+program={
+   call ar_edu_taco_skunk_SList_hasElement_0[thiz,throw,return,v,ar_edu_taco_skunk_SList_n,ar_edu_taco_skunk_Node_next,ar_edu_taco_skunk_Node_value,usedObjects]
+
+}
+post={
+   postcondition_ar_edu_taco_skunk_SList_hasElement_0[ar_edu_taco_skunk_Node_next',
+                                                     ar_edu_taco_skunk_Node_value',
+                                                     ar_edu_taco_skunk_SList_n',
+                                                     return',
+                                                     thiz',
+                                                     throw',
+                                                     v']
+
+}
+}
+

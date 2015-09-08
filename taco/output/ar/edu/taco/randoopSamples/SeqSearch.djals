@@ -1,0 +1,245 @@
+//-------------- ar_edu_taco_randoopSamples_SeqSearch --------------//
+module ar_edu_taco_randoopSamples_SeqSearch
+sig ar_edu_taco_randoopSamples_SeqSearch extends java_lang_Object {}
+{}
+object_invariant
+   liftExpression[true]
+
+
+
+program ar_edu_taco_randoopSamples_SeqSearch::seqSearch[
+  var thiz:ar_edu_taco_randoopSamples_SeqSearch,
+  var throw:java_lang_Throwable+null,
+  var return:boolean,
+  var arr:java_lang_IntArray+null,
+  var sValue:JavaPrimitiveIntegerValue] 
+Specification 
+{
+  SpecCase #0 {
+   requires {
+      pred_java_primitive_integer_value_gte[sValue,
+                                           JavaPrimitiveIntegerLiteral0]
+   }
+   
+   requires {
+      pred_java_primitive_integer_value_lt[sValue,
+                                          arrayLength[arr,java_lang_IntArray_length]]
+   }
+   
+   requires {
+      not (
+        arr=null)
+   }
+   
+   ensures {
+      (
+        throw'=null)
+      implies 
+              liftExpression[false]
+   }
+   
+   modifies {
+   EVERYTHING}
+  }
+}
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         {
+            var param_arr_0:java_lang_IntArray+null;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               param_arr_0:=arr;
+            } else {
+               skip;
+            };
+            var param_sValue_1:JavaPrimitiveIntegerValue;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               param_sValue_1:=sValue;
+            } else {
+               skip;
+            };
+            var t_1:JavaPrimitiveIntegerValue;
+            var var_1_index:JavaPrimitiveIntegerValue;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               var_1_index:=JavaPrimitiveIntegerLiteral0;
+            } else {
+               skip;
+            };
+            var var_2_ws_1:boolean;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               t_1:=fun_java_primitive_integer_value_sub[arrayLength[arr,java_lang_IntArray_length],JavaPrimitiveIntegerLiteral1];
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               var_2_ws_1:=(pred_java_primitive_integer_value_lt[var_1_index,
+                                                   t_1]=>(true)else(false));
+            } else {
+               skip;
+            };
+            while liftExpression[var_2_ws_1]
+            and 
+            (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false)
+            
+               {
+                  var t_2:JavaPrimitiveIntegerValue;
+                  var t_3:boolean;
+                  var t_4:JavaPrimitiveIntegerValue;
+                  var t_5:JavaPrimitiveIntegerValue;
+                  if (
+                    throw=null)
+                  and 
+                  (
+                    exit_stmt_reached=false){
+                     if isEmptyOrNull[param_arr_0]{
+                        throw:=java_lang_NullPointerExceptionLit;
+                     } else {
+                        call int_array_read[param_arr_0,throw,t_2,var_1_index];
+                     };
+                  } else {
+                     skip;
+                  };
+                  if (
+                    throw=null)
+                  and 
+                  (
+                    exit_stmt_reached=false){
+                     t_3:=(equ[t_2,
+                        param_sValue_1]=>(true)else(false));
+                  } else {
+                     skip;
+                  };
+                  if (
+                    throw=null)
+                  and 
+                  (
+                    exit_stmt_reached=false){
+                     if t_3=true{
+                        if (
+                          throw=null)
+                        and 
+                        (
+                          exit_stmt_reached=false)   {
+                              return:=true;
+                              exit_stmt_reached:=true;
+                           
+                           }
+                         else {
+                           skip;
+                        };
+                     } else {
+                        skip;
+                     };
+                  } else {
+                     skip;
+                  };
+                  if (
+                    throw=null)
+                  and 
+                  (
+                    exit_stmt_reached=false){
+                     t_4:=var_1_index;
+                  } else {
+                     skip;
+                  };
+                  if (
+                    throw=null)
+                  and 
+                  (
+                    exit_stmt_reached=false){
+                     var_1_index:=fun_java_primitive_integer_value_add[var_1_index,JavaPrimitiveIntegerLiteral1];
+                  } else {
+                     skip;
+                  };
+                  if (
+                    throw=null)
+                  and 
+                  (
+                    exit_stmt_reached=false){
+                     t_5:=fun_java_primitive_integer_value_sub[arrayLength[arr,java_lang_IntArray_length],JavaPrimitiveIntegerLiteral1];
+                  } else {
+                     skip;
+                  };
+                  if (
+                    throw=null)
+                  and 
+                  (
+                    exit_stmt_reached=false){
+                     var_2_ws_1:=(pred_java_primitive_integer_value_lt[var_1_index,
+                                                         t_5]=>(true)else(false));
+                  } else {
+                     skip;
+                  };
+               
+               }
+            ;
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false)   {
+                  return:=false;
+                  exit_stmt_reached:=true;
+               
+               }
+             else {
+               skip;
+            };
+         
+         }
+      
+      }
+      skip;
+   
+   }
+
+
+program ar_edu_taco_randoopSamples_SeqSearch::Constructor[
+  var thiz:ar_edu_taco_randoopSamples_SeqSearch,
+  var throw:java_lang_Throwable+null] 
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         skip;
+      
+      }
+      skip;
+   
+   }
+
+
+

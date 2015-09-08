@@ -1,0 +1,97 @@
+//-------------- ar_edu_itba_materia_avl_AvlNode --------------//
+module ar_edu_itba_materia_avl_AvlNode
+sig ar_edu_itba_materia_avl_AvlNode extends java_lang_Object {}
+{}
+field ar_edu_itba_materia_avl_AvlNode_left:(ar_edu_itba_materia_avl_AvlNode)->one(ar_edu_itba_materia_avl_AvlNode+null) {}
+field ar_edu_itba_materia_avl_AvlNode_right:(ar_edu_itba_materia_avl_AvlNode)->one(ar_edu_itba_materia_avl_AvlNode+null) {}
+field ar_edu_itba_materia_avl_AvlNode_parent:(ar_edu_itba_materia_avl_AvlNode)->one(ar_edu_itba_materia_avl_AvlNode+null) {}
+field ar_edu_itba_materia_avl_AvlNode_key:(ar_edu_itba_materia_avl_AvlNode)->one(JavaPrimitiveIntegerValue) {}
+field ar_edu_itba_materia_avl_AvlNode_height:(ar_edu_itba_materia_avl_AvlNode)->one(JavaPrimitiveIntegerValue) {}
+
+program ar_edu_itba_materia_avl_AvlNode::AvlNode[
+  var thiz:ar_edu_itba_materia_avl_AvlNode,
+  var throw:java_lang_Throwable+null] 
+Implementation 
+
+   {
+      skip;
+      {
+         throw:=null;
+         var exit_stmt_reached:boolean;
+         exit_stmt_reached:=false;
+         {
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.ar_edu_itba_materia_avl_AvlNode_left:=((ar_edu_itba_materia_avl_AvlNode+null) & (null));
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.ar_edu_itba_materia_avl_AvlNode_right:=((ar_edu_itba_materia_avl_AvlNode+null) & (null));
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.ar_edu_itba_materia_avl_AvlNode_parent:=((ar_edu_itba_materia_avl_AvlNode+null) & (null));
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.ar_edu_itba_materia_avl_AvlNode_key:=JavaPrimitiveIntegerLiteral0;
+               };
+            } else {
+               skip;
+            };
+            if (
+              throw=null)
+            and 
+            (
+              exit_stmt_reached=false){
+               if isEmptyOrNull[thiz]{
+                  throw:=java_lang_NullPointerExceptionLit;
+               } else {
+                  thiz.ar_edu_itba_materia_avl_AvlNode_height:=JavaPrimitiveIntegerLiteral0;
+               };
+            } else {
+               skip;
+            };
+         
+         }
+      
+      }
+      skip;
+   
+   }
+
+
+
